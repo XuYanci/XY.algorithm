@@ -10,5 +10,22 @@
 #define XYSort_hpp
 
 #include <stdio.h>
-
+class XYSort {
+public:
+    XYSort();
+    ~XYSort();
+    // 冒泡排序
+    void bubleSort(int array[],int count,bool asc);
+    
+    // 快速排序
+    void quickSort(int array[]);
+    
+    // 插入排序
+    void insertSort(int array[]);
+  
+protected:
+   
+private:
+    
+};
 #endif /* XYSort_hpp */
