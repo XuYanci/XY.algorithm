@@ -25,9 +25,12 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
     
+
     int array[] = {3,2,1,5,4};
     XYSort *sort = new XYSort();
     sort->bubleSort(array,5,false);
+    int array1[] = {3,2,1,5,4};
+    sort->insertSort(array1, 5, false);
     
     return 0;
 }

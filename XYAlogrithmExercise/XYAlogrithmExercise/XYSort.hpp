@@ -15,16 +15,16 @@ public:
     XYSort();
     ~XYSort();
     // 冒泡排序
-    void bubleSort(int array[],int count,bool asc);
+    void bubleSort(int *array,int count,bool asc);
     
     // 快速排序
-    void quickSort(int array[]);
+    void quickSort(int *array,int count,bool asc);
     
     // 插入排序
-    void insertSort(int array[]);
-  
+    void insertSort(int *array,int count,bool asc);
+    
 protected:
-   
+    
 private:
     
 };
