@@ -31,6 +31,7 @@ int main(int argc, const char * argv[]) {
     sort->bubleSort(array,5,false);
     int array1[] = {3,2,1,5,4};
     sort->insertSort(array1, 5, false);
+ 
     
     return 0;
 }
