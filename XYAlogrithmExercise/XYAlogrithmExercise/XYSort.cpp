@@ -19,6 +19,8 @@ XYSort::~XYSort(){
     
 }
 
+// 单次遍历，交换大小，最大的在最后  （升序）
+// 单次遍历，交换大小，最小的在最后  （降序）
 void XYSort::bubleSort(int *array, int count,bool asc) {
     cout << "BUBBLE SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -26,29 +28,18 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
         cout << array[i] << ',';
     }
     cout << endl;
-    // 单次遍历，交换大小，最大的在最后  （升序）
-    if (asc) {
-        for (int i = 0 ; i < count ; i++) {
-            for (int j = 0; j < count -  i - 1 ; j++) {
-                // 升序
-                if (array[j] > array[j+1]) {
-                    int temp = array[j+1];
-                    array[j+1] = array[j];
-                    array[j] = temp;
-                }
+    for (int i = 0 ; i < count ; i++) {
+        for (int j = 0; j < count -  i - 1 ; j++) {
+            // 升序
+            if (asc && array[j] > array[j+1]) {
+                int temp = array[j+1];
+                array[j+1] = array[j];
+                array[j] = temp;
             }
-        }
-    }
-    // 单次遍历，交换大小，最小的在最后  （降序）
-    else {
-        for (int i = 0 ; i < count ; i++) {
-            for (int j = 0; j < count -  i - 1 ; j++) {
-                /// 降序
-                if (array[j] < array[j+1]) {
-                    int temp = array[j+1];
-                    array[j+1] = array[j];
-                    array[j] = temp;
-                }
+            else  if ( !asc && array[j] < array[j+1]) {
+                int temp = array[j+1];
+                array[j+1] = array[j];
+                array[j] = temp;
             }
         }
     }
@@ -60,6 +51,9 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
     cout << endl;
 }
 
+/// L,R,P
+/// L -> R, L直到找到比自己大的,Stop,如果碰撞到R，并不会停止
+/// R -> L, R直到找到比自己小的,Stop,停止并交换, 如果碰撞到L,停止并交换,如果已经被L标记，停止并交换
 void XYSort::quickSort(int *array,int count,bool asc) {
     cout << "QUICK SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -73,6 +67,8 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     
     
     
+    
+    
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
@@ -80,6 +76,10 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     cout << endl;
 }
 
+
+// 一个有序数组，一个无序数组， 默认取第一个元素放到有序数组, 假设最大
+// 然后依次取无序数组，与有序数组比较 (升序，降序)，并做插入操作
+// 比较完毕，则有序数组排序完毕
 void XYSort::insertSort(int *array,int count,bool asc) {
     cout << "INSERT SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -87,12 +87,8 @@ void XYSort::insertSort(int *array,int count,bool asc) {
         cout << array[i] << ',';
     }
     cout << endl;
-    
-    // 一个有序数组，一个无序数组， 默认取第一个元素放到有序数组, 假设最大
-    // 然后依次取无序数组，与有序数组比较 (升序，降序)，并做插入操作
-    // 比较完毕，则有序数组排序完毕
+    // 这里用数组也是可以，记住一个下标位置就可以了
     vector<int>sortArray(1,array[0]);
-    
     /// 外循环，无序列表
     for (int i = 1; i < count; i++) {
         long j;
@@ -116,7 +112,6 @@ void XYSort::insertSort(int *array,int count,bool asc) {
             sortArray.insert(sortArray.begin(), temp);
         }
     }
-    
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
     for (int i = 0; i <  count; i++) {
         cout << sortArray[i] << ',';
@@ -124,6 +119,7 @@ void XYSort::insertSort(int *array,int count,bool asc) {
     cout << endl;
 }
 
+/// 选择排序，线性搜索最小，然后交换放到数组位置，逐个交换；
 void XYSort:: selectSort(int *array,int count,bool asc) {
     cout << "SELECT SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -133,7 +129,6 @@ void XYSort:: selectSort(int *array,int count,bool asc) {
     cout << endl;
     
     /// 选择排序，线性搜索最小，然后交换放到数组位置，逐个交换；
-    
     for (int i = 0; i < count; i++) {
         int temp = array[i];
         int downSign = -1;

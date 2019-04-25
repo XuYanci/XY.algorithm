@@ -28,11 +28,11 @@ int main(int argc, const char * argv[]) {
 
     int array[] = {3,2,1,5,4};
     XYSort *sort = new XYSort();
-    sort->bubleSort(array,5,true);
+    sort->bubleSort(array,5,false);
     int array1[] = {3,2,1,5,4};
-    sort->insertSort(array1, 5, true);
+    sort->insertSort(array1, 5, false);
     int array2[] = {3,2,1,5,4};
-    sort->selectSort(array2, 5, true);
+    sort->selectSort(array2, 5, false);
     
     
     return 0;
