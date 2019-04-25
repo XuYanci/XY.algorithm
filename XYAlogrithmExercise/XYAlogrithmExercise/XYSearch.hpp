@@ -12,11 +12,12 @@
 #include <stdio.h>
 
 class XYSearch {
+    public:
     
     XYSearch();
     ~XYSearch();
     
-public:
+
     void linearSearch();
     void divideSearch();
     

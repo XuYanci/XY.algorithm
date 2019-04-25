@@ -64,10 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				AD80E2A9226C7734005A0256 /* main.cpp */,
-				AD80E2B0226C77D1005A0256 /* XYSort.cpp */,
 				AD80E2B1226C77D1005A0256 /* XYSort.hpp */,
-				AD80E2B3226C77DF005A0256 /* XYSearch.cpp */,
+				AD80E2B0226C77D1005A0256 /* XYSort.cpp */,
 				AD80E2B4226C77DF005A0256 /* XYSearch.hpp */,
+				AD80E2B3226C77DF005A0256 /* XYSearch.cpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
