@@ -28,10 +28,12 @@ int main(int argc, const char * argv[]) {
 
     int array[] = {3,2,1,5,4};
     XYSort *sort = new XYSort();
-    sort->bubleSort(array,5,false);
+    sort->bubleSort(array,5,true);
     int array1[] = {3,2,1,5,4};
-    sort->insertSort(array1, 5, false);
- 
+    sort->insertSort(array1, 5, true);
+    int array2[] = {3,2,1,5,4};
+    sort->selectSort(array2, 5, true);
+    
     
     return 0;
 }

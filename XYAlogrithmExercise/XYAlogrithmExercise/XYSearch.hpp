@@ -11,4 +11,16 @@
 
 #include <stdio.h>
 
+class XYSearch {
+    
+    XYSearch();
+    ~XYSearch();
+    
+public:
+    void linearSearch();
+    void divideSearch();
+    
+    
+};
+
 #endif /* XYSearch_hpp */

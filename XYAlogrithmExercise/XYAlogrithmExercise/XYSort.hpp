@@ -23,6 +23,9 @@ public:
     // 插入排序
     void insertSort(int *array,int count,bool asc);
     
+    // 选择排序
+    void selectSort(int *array,int count,bool asc);
+    
 protected:
     
 private:

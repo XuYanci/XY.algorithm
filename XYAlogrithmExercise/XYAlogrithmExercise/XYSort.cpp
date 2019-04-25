@@ -20,7 +20,7 @@ XYSort::~XYSort(){
 }
 
 void XYSort::bubleSort(int *array, int count,bool asc) {
-    cout << "BUBBLE SORT" << endl;
+    cout << "BUBBLE SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
@@ -61,13 +61,18 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
 }
 
 void XYSort::quickSort(int *array,int count,bool asc) {
-    cout << "QUICK SORT" << endl;
+    cout << "QUICK SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
     }
     cout << endl;
-    // 一个有序数组，一个无序数组， 然后无序数组逐个取与有序数组比较并插入到有序数组
+    
+    
+    
+    
+    
+    
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
@@ -76,7 +81,7 @@ void XYSort::quickSort(int *array,int count,bool asc) {
 }
 
 void XYSort::insertSort(int *array,int count,bool asc) {
-    cout << "INSERT SORT" << endl;
+    cout << "INSERT SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
@@ -94,10 +99,15 @@ void XYSort::insertSort(int *array,int count,bool asc) {
         int temp = array[i];
         // 与有序数组比较，从最大开始比较
         for (j = sortArray.size() - 1;j >= 0; j--) {
-            if (temp > sortArray[j]) {
+            if (asc && temp > sortArray[j]) {
                 sortArray.insert(sortArray.begin() + j + 1, temp);
                 break;
-            } else {
+            }
+            else if (!asc && temp < sortArray[j]) {
+                sortArray.insert(sortArray.begin() + j + 1, temp);
+                break;
+            }
+            else {
                 continue;
             }
         }
@@ -114,4 +124,38 @@ void XYSort::insertSort(int *array,int count,bool asc) {
     cout << endl;
 }
 
-
+void XYSort:: selectSort(int *array,int count,bool asc) {
+    cout << "SELECT SORT - - - - - - - - - - " << endl;
+    cout << "origin array is " << endl;
+    for (int i = 0; i <  count; i++) {
+        cout << array[i] << ',';
+    }
+    cout << endl;
+    
+    /// 选择排序，线性搜索最小，然后交换放到数组位置，逐个交换；
+    
+    for (int i = 0; i < count; i++) {
+        int temp = array[i];
+        int downSign = -1;
+        for (int j = i+1; j < count; j++) {
+            if (asc && array[j] < temp) {
+                temp = array[j];
+                downSign = j;
+            }
+            if (!asc && array[j] > temp) {
+                temp = array[j];
+                downSign = j;
+            }
+        }
+        if (downSign> 0) {
+            array[downSign] = array[i];
+            array[i] = temp;
+        }
+    }
+    
+    
+    cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
+    for (int i = 0; i <  count; i++) {
+        cout << array[i] << ',';
+    }
+}
