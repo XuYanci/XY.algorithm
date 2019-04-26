@@ -44,7 +44,7 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
         }
     }
     
-    cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
+    cout << "sort array is " <<  (asc ? "asc":"not asc")  << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
     }
@@ -62,11 +62,7 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     }
     cout << endl;
     
-    
-    
-    
-    
-    
+
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
@@ -151,4 +147,6 @@ void XYSort:: selectSort(int *array,int count,bool asc) {
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
     }
+    
+    cout << endl;
 }

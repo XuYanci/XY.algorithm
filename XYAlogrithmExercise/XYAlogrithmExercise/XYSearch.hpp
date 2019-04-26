@@ -18,8 +18,8 @@ class XYSearch {
     ~XYSearch();
     
 
-    void linearSearch();
-    void divideSearch();
+    void linearSearch(int *array,int count,int val);
+    void divideSearch(int *array,int count,int val);
     
     
 };
