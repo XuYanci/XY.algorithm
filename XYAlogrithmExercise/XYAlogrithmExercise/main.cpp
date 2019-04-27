@@ -37,7 +37,8 @@ int main(int argc, const char * argv[]) {
     int array4[] = {1,2,3,4,5};
     search->divideSearch(array4,5, 100);
  
-    
+    int array5[] = {1,13,1,31,2,2,42,2,2};
+    sort->quickSort(array5, 9, false);
     
     
     return 0;

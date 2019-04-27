@@ -14,6 +14,7 @@ class XYSort {
 public:
     XYSort();
     ~XYSort();
+    
     // 冒泡排序
     void bubleSort(int *array,int count,bool asc);
     

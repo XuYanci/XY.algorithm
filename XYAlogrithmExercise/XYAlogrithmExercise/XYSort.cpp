@@ -54,6 +54,68 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
 /// L,R,P
 /// L -> R, L直到找到比自己大的,Stop,如果碰撞到R，并不会停止
 /// R -> L, R直到找到比自己小的,Stop,停止并交换, 如果碰撞到L,停止并交换,如果已经被L标记，停止并交换
+
+
+
+void recursiveQuickSort(int array[],int p,int l,int r) {
+    
+    
+    int beforel = l;
+//    int beforer = r;
+    int beforep = p ;
+ 
+    if (r < l) {
+        return;
+    }
+    
+    if (r == l) {
+        int temp = array[l];
+        array[l] = array[p];
+        array[p] = temp;
+        return;
+    }
+ 
+    
+    // 1 13 1 1 2 2 2 2 2
+    // 1 2 1 1 2 2 2 13 2
+    
+    
+    while (l < r) {
+        while (array[l] < array[p]) {
+            l = l + 1;
+        }
+        
+        
+        while (array[r] >= array[p] && r > l) {
+            r = r - 1;
+        }
+        
+        if (l < r) {
+            /// 交换
+            int temp = array[r];
+            array[r] = array[l];
+            array[l] = temp;
+
+        }
+        
+        else if (r < l) {
+            break;
+        }
+        else if (r == l) {
+            int temp = array[l];
+            array[l] = array[p];
+            array[p] = temp;
+            break;
+        }
+        
+    }
+
+    // Left
+    recursiveQuickSort(array, l - 1, beforel, l - 2);
+    // Right
+    recursiveQuickSort(array, beforep,r + 1 , beforep - 1);
+}
+
 void XYSort::quickSort(int *array,int count,bool asc) {
     cout << "QUICK SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -62,7 +124,15 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     }
     cout << endl;
     
-
+    // 递归做法
+    int p = count - 1;
+    int l = 0;
+    int r = p - 1;
+    recursiveQuickSort(array, p, l, r);
+    
+    // @TODO: 非递归做法，一样用栈来处理即可，同属于汉诺塔处理方式
+    
+    
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
