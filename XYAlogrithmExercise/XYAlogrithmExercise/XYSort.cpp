@@ -68,16 +68,12 @@ void recursiveQuickSort(int array[],int p,int l,int r) {
         return;
     }
     
-    if (r == l) {
+    if (r == l && array[l] > array[p]) {
         int temp = array[l];
         array[l] = array[p];
         array[p] = temp;
         return;
     }
- 
-    
-    // 1 13 1 1 2 2 2 2 2
-    // 1 2 1 1 2 2 2 13 2
     
     
     while (l < r) {
@@ -101,7 +97,7 @@ void recursiveQuickSort(int array[],int p,int l,int r) {
         else if (r < l) {
             break;
         }
-        else if (r == l) {
+        else if (r == l && array[l] > array[p]) {
             int temp = array[l];
             array[l] = array[p];
             array[p] = temp;
@@ -109,7 +105,7 @@ void recursiveQuickSort(int array[],int p,int l,int r) {
         }
         
     }
-
+  
     // Left
     recursiveQuickSort(array, l - 1, beforel, l - 2);
     // Right

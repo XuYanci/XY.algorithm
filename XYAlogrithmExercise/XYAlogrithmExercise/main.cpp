@@ -9,7 +9,9 @@
 #include <iostream>
 #include "XYSort.hpp"
 #include "XYSearch.hpp"
-
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
 /// XuYanci Alogrithm Exercise
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -37,7 +39,12 @@ int main(int argc, const char * argv[]) {
     int array4[] = {1,2,3,4,5};
     search->divideSearch(array4,5, 100);
  
-    int array5[] = {1,13,1,31,2,2,42,2,2};
+    // 随机产生9个数
+    srand((unsigned)time(NULL));
+    int array5[] = {1,3,2,4,5,9,8,7,6};
+    for(int i=0;i<9;i++){
+        array5[i]=rand()%101;
+    }
     sort->quickSort(array5, 9, false);
     
     
