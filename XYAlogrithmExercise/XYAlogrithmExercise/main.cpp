@@ -7,11 +7,13 @@
 //
 
 #include <iostream>
-#include "XYSort.hpp"
-#include "XYSearch.hpp"
 #include<time.h>
 #include<stdlib.h>
 #include<stdio.h>
+#include "XYSort.hpp"
+#include "XYSearch.hpp"
+#include "Solution.hpp"
+
 /// XuYanci Alogrithm Exercise
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -45,8 +47,16 @@ int main(int argc, const char * argv[]) {
     for(int i=0;i<9;i++){
         array5[i]=rand()%101;
     }
+    // 快速排序
     sort->quickSort(array5, 9, false);
     
+    // Leecode
+    Solution *s = new Solution();
+    std::vector<int>array6 ;
+    array6.push_back(1);
+    array6.push_back(1);
+    array6.push_back(2);
+    s->removeDuplicates(array6);
     
     return 0;
 }

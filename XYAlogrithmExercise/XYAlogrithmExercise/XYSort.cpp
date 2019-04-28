@@ -54,14 +54,10 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
 /// L,R,P
 /// L -> R, L直到找到比自己大的,Stop,如果碰撞到R，并不会停止
 /// R -> L, R直到找到比自己小的,Stop,停止并交换, 如果碰撞到L,停止并交换,如果已经被L标记，停止并交换
-
-
-
 void recursiveQuickSort(int array[],int p,int l,int r) {
     
     
     int beforel = l;
-//    int beforer = r;
     int beforep = p ;
  
     if (r < l) {
