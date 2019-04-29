@@ -54,9 +54,14 @@ int main(int argc, const char * argv[]) {
     Solution *s = new Solution();
     std::vector<int>array6 ;
     array6.push_back(1);
-    array6.push_back(1);
     array6.push_back(2);
+    array6.push_back(3);
+        array6.push_back(4);
+        array6.push_back(5);
+        array6.push_back(6);
+        array6.push_back(7);
     s->removeDuplicates(array6);
     
+    s->rotate(array6, 2);
     return 0;
 }
