@@ -10,6 +10,7 @@
 #define Solution_hpp
 #include <vector>
 #include <stdio.h>
+#include <math.h>
 using namespace std;
 
 class Solution {
@@ -49,6 +50,10 @@ public:
             nums[i] = move_nums[i];
         }
         
+    }
+    
+    bool containsDuplicate(vector<int>& array) {
+        return true;
     }
 };
 
