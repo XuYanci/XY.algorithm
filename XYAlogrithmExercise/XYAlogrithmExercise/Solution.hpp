@@ -35,7 +35,7 @@ public:
     void rotate(vector<int>& nums, int k) {
         if (k == nums.size())return;
         int l = k % nums.size();
-        int move_nums[l];
+        int move_nums[l+1];
         
         int j = 0;
         for (unsigned long i = nums.size() - l; i < nums.size(); i++) {
@@ -54,6 +54,27 @@ public:
     
     bool containsDuplicate(vector<int>& array) {
         return true;
+        
+    }
+    
+//    func containsDuplicate(_ nums: [Int]) -> Bool {
+//        if nums.count <= 1 {
+//            return false;
+//        }
+//            var dict = [Int: Int]()
+//            for i in 0...nums.count - 1 {
+//                if (dict[nums[i]] == nil) {
+//                    dict[nums[i]] = nums[i];
+//                }
+//                else {
+//                    return true
+//                }
+//            }
+//            return false
+//            }
+    
+    int singleNumber(vector<int>& nums) {
+        return 0;
     }
 };
 
