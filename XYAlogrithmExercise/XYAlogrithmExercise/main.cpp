@@ -53,24 +53,24 @@ int main(int argc, const char * argv[]) {
     // Leecode
     Solution *s = new Solution();
     std::vector<int>array6 ;
-//    array6.push_back(3);
-//    array6.push_back(1);
-//    array6.push_back(2);
-//    array6.push_back(2);
-//    array6.push_back(4);
-//    array6.push_back(5);
-//    array6.push_back(6);
-//    array6.push_back(7);
-        array6.push_back(-1200000005);
-        array6.push_back(-1200000005);
+    array6.push_back(0);
+    array6.push_back(1);
+    array6.push_back(0);
+    array6.push_back(3);
+    array6.push_back(12);
+ 
+ 
 
+    // 移除重复项
+    //s->removeDuplicates(array6);
 
-//    // 移除重复项
-//    s->removeDuplicates(array6);
-//
-//    // 旋转数组
-//    s->rotate(array6, 2);
+    // 旋转数组
+    //s->rotate(array6, 2);
     // 判断是否重复
-    s->containsDuplicate(array6);
+//    s->containsDuplicate(array6);
+    // 只存在一个数字
+//    s->singleNumber(array6);
+    // 移动0
+    s->moveZeroes(array6);
     return 0;
 }

@@ -11,6 +11,7 @@
 #include <vector>
 #include <stdio.h>
 #include <math.h>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -73,8 +74,39 @@ public:
 //            return false
 //            }
     
+    // 只出现一次的数字
     int singleNumber(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int i = 0;
+        while (i < nums.size()) {
+            if (nums[i] == nums[i + 1]) {
+                i += 2;
+            } else {
+                return nums[i];
+            }
+        }
         return 0;
+    }
+  
+    // 移动零
+    // 效率有点低??? 冒泡思维在思考一下
+    void moveZeroes(vector<int>& nums) {
+        int beginpos = 0;
+        int counter =0 ;
+        while (beginpos < nums.size() - counter) {
+            if(nums[beginpos] == 0) {
+                for (int i = beginpos; i <  nums.size() - 1;i++) {
+                    int temp = nums[i];
+                    nums[i] = nums[i+1];
+                    nums[i+1] = temp;
+                }
+               
+                counter++;
+                beginpos = 0;
+                continue;
+            }
+            beginpos++;
+        }
     }
 };
 
