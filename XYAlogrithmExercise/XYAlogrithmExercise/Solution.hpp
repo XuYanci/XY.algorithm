@@ -13,7 +13,11 @@
 #include <math.h>
 #include <algorithm>
 using namespace std;
-
+struct ListNode {
+         int val;
+         ListNode *next;
+         ListNode(int x) : val(x), next(NULL) {}
+};
 class Solution {
 public:
 //    执行用时 : 32 ms, 在Remove Duplicates from Sorted Array的C++提交中击败了96.66% 的用户
@@ -107,6 +111,66 @@ public:
             }
             beginpos++;
         }
+    }
+    
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        
+        
+        if (l1 == NULL) {
+            return l2;
+        }
+        
+        if (l2 == NULL) {
+            return l1;
+        }
+        
+        ListNode *p1;
+        ListNode *p11;
+        ListNode *firstHead = l1;
+        p1 = NULL;
+        p11 = l1;
+        bool insertBefore =false;
+        
+        while(p11!=NULL) {
+            if(p11->val > l2->val) {
+                if (p1 != NULL) {
+                    p1->next = l2;
+                }
+                ListNode *temp = l2->next;
+                l2->next = p11;
+                
+                if (p1 == NULL) {
+                    firstHead = l2;
+                    insertBefore = true;
+                }
+                l2 = temp;
+            }
+            
+            if (insertBefore) {
+                p1 = firstHead;
+                p11 = p1->next;
+                insertBefore = false;
+            }
+            else {
+                if (p1 == NULL) {
+                    p1 = p11;
+                    p11 = p1->next;
+                } else {
+                    p1 = p1->next;
+                    p11 = p1->next;
+                }
+            }
+            
+            if (l2 == NULL) {
+                break;
+            }
+        }
+        
+        if (l2 != NULL) {
+            p1->next = l2;
+        }
+        
+        return firstHead;
     }
 };
 

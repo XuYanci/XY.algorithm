@@ -52,25 +52,26 @@ int main(int argc, const char * argv[]) {
     
     // Leecode
     Solution *s = new Solution();
-    std::vector<int>array6 ;
-    array6.push_back(0);
-    array6.push_back(1);
-    array6.push_back(0);
-    array6.push_back(3);
-    array6.push_back(12);
- 
- 
+    std::vector<int>array6 = {1,2,3,4,5,6} ;
 
     // 移除重复项
-    //s->removeDuplicates(array6);
-
+    s->removeDuplicates(array6);
     // 旋转数组
-    //s->rotate(array6, 2);
+    s->rotate(array6, 2);
     // 判断是否重复
-//    s->containsDuplicate(array6);
+    s->containsDuplicate(array6);
     // 只存在一个数字
-//    s->singleNumber(array6);
+    s->singleNumber(array6);
     // 移动0
     s->moveZeroes(array6);
+    // 合并两个有序链表
+    ListNode *l1 = new ListNode(5);
+    ListNode *l2 = new ListNode(1);
+    ListNode *l22 = new ListNode(2);
+    ListNode *l222 = new ListNode(4);
+    l2->next = l22;
+    l22->next = l222;
+    s->mergeTwoLists(l2, l1);
+    
     return 0;
 }
