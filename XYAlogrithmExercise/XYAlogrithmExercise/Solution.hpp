@@ -18,6 +18,7 @@ struct ListNode {
          ListNode *next;
          ListNode(int x) : val(x), next(NULL) {}
 };
+
 class Solution {
 public:
 //    执行用时 : 32 ms, 在Remove Duplicates from Sorted Array的C++提交中击败了96.66% 的用户
@@ -93,6 +94,7 @@ public:
     }
   
     // 移动零
+    // 124 ms    9.5 MB
     // 效率有点低??? 冒泡思维在思考一下
     void moveZeroes(vector<int>& nums) {
         int beginpos = 0;
@@ -113,8 +115,9 @@ public:
         }
     }
     
+    // 合并两个有序链表
+    // 16 ms 9 MB
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        
         
         if (l1 == NULL) {
             return l2;
@@ -171,6 +174,22 @@ public:
         }
         
         return firstHead;
+    }
+    
+    ListNode* reverseList(ListNode* head) {
+        ListNode *p = head;
+        ListNode *q = p->next;
+        
+        p->next = NULL;
+        
+        while(q!=NULL) {
+            ListNode *qq = q->next;
+            q->next = p;
+            p = q;
+            q = qq;
+        }
+        
+        return p;
     }
 };
 

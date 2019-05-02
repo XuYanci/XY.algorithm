@@ -72,6 +72,9 @@ int main(int argc, const char * argv[]) {
     l2->next = l22;
     l22->next = l222;
     s->mergeTwoLists(l2, l1);
+
+    // 链表反转
+    s->reverseList(l2);
     
     return 0;
 }
