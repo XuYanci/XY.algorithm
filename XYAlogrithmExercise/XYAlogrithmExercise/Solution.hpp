@@ -191,6 +191,59 @@ public:
         
         return p;
     }
+    
+    //  整数反转
+    int reverse(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        
+        int n = 0;
+        vector<int>array;
+        int val = x / (long)pow(10, n) ;
+        while (val != 0) {
+            val = x / (long)pow(10, n);
+            array.push_back(val % 10);
+            n++;
+        }
+        
+        long y = 0;
+        for (int i = 0; i < array.size(); i++) {
+            y +=  array[i] * pow(10, n - 2 - i);
+            if (y < (int)pow(-2, 31)|| y > (int)pow(2, 31) ) {
+                y = 0;break;
+            }
+        }
+        return (int)y;
+    }
+    int countPrimes(int n) {
+        int count = 0;
+        
+        for (int i = 2;i<n;i++)
+        {
+            if(isPrime(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    bool isPrime(int num) {
+        if (num <= 3) {
+            return num > 1;
+        }
+        // 不在6的倍数两侧的一定不是质数
+        if (num % 6 != 1 && num % 6 != 5) {
+            return false;
+        }
+        
+        for (int i = 5; i <= sqrt(num); i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 };
 
 

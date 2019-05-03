@@ -76,5 +76,10 @@ int main(int argc, const char * argv[]) {
     // 链表反转
     s->reverseList(l2);
     
+    // 整数反转
+    s->reverse(-2147483648);
+    
+    // 计算素数
+    s->countPrimes(10000);
     return 0;
 }
