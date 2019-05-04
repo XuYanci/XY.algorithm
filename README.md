@@ -1,4 +1,5 @@
-# 练习算法
+# 练习算法(内功)
+## 张无忌的九阳神功、令狐冲的独孤九剑谁更厉害 哈哈 (内外功谁更厉害)
 
     XYSort *sort = new XYSort();
     XYSearch *search = new XYSearch();
