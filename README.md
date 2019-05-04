@@ -1,4 +1,4 @@
-# algorithm
+# 练习算法
 
     XYSort *sort = new XYSort();
     XYSearch *search = new XYSearch();
