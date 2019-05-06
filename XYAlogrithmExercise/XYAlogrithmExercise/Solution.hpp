@@ -12,11 +12,19 @@
 #include <stdio.h>
 #include <math.h>
 #include <algorithm>
+#include <stack>
 using namespace std;
 struct ListNode {
          int val;
          ListNode *next;
          ListNode(int x) : val(x), next(NULL) {}
+};
+
+struct TreeNode {
+         int val;
+         TreeNode *left;
+         TreeNode *right;
+         TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 class Solution {
@@ -244,6 +252,51 @@ public:
         }
         return true;
     }
+    int maxDepth(TreeNode* root) {
+        if( root == NULL )
+            return 0;
+        if( root->left == NULL && root->right == NULL )
+            return 1;
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
+    }
+    
+    // 递归做法
+    // int fib(int N) {
+    //     // 递归出口
+    //     if (N == 0)
+    //         return 0;
+    //     else if (N == 1)
+    //         return 1;
+    //     return fib(N - 1) + fib(N - 2);
+    // }
+    // 栈做法
+    int fib(int N) {
+        if (N == 0)
+            return 0;
+        else if (N == 1 || N == 2)
+            return 1;
+        
+        stack<int>s1;
+        s1.push(N);
+        int val = 0;
+        
+        while(!s1.empty()) {
+            int n = s1.top();
+            s1.pop();
+            if (n == 1) {
+                val += 1; continue;
+            }
+            if (n == 2) {
+                val += 1; continue;
+            } else if (n > 2){
+                s1.push(n - 1);
+                s1.push(n - 2);
+            }
+        }
+        
+        return val;
+    }
+    
 };
 
 

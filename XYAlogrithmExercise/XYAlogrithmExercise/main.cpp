@@ -81,5 +81,8 @@ int main(int argc, const char * argv[]) {
     
     // 计算素数
     s->countPrimes(10000);
+    
+    // 计算斐波那契数
+    s->fib(30);
     return 0;
 }
