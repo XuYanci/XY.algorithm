@@ -84,5 +84,14 @@ int main(int argc, const char * argv[]) {
     
     // 计算斐波那契数
     s->fib(30);
+    
+    
+    int a[6] = {1,2,3,0,0,0};
+    int b[3] = {2,5,6};
+    
+    vector<int> nums1(a,a+6);
+    vector<int> nums2(b,b+3);
+    
+    s->merge(nums1, 3, nums2, 3);
     return 0;
 }
