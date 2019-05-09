@@ -300,6 +300,25 @@ public:
     // 合并两个数组
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         // 归并排序
+        int i = 0;
+        int j = 0;
+        int t = 0;
+        vector<int>temp(m+n,0);
+        
+        while ( i < m && j < n) {
+            if (nums1[i] < nums2[j]) {
+                temp[t++] = nums1[i++];
+            } else {
+                temp[t++] = nums2[j++];
+            }
+        }
+        
+        while(i<m){
+            temp[t++] = nums1[i++];
+        }
+        while(j<n){
+            temp[t++] = nums2[j++];
+        }
     }
     
 };
