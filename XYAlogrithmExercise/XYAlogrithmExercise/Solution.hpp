@@ -299,6 +299,7 @@ public:
     
     // 合并两个数组
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        
         // 归并排序
         int i = 0;
         int j = 0;
@@ -319,6 +320,28 @@ public:
         while(j<n){
             temp[t++] = nums2[j++];
         }
+        
+        t = 0;
+        i = 0;
+        while(i < m + n){
+            nums1[t++] = temp[i++];
+        }
+    }
+    // 二叉树反转
+    TreeNode* invertTree(TreeNode* root) {
+        // 递归实现
+        // 递归体
+        // left  = right
+        // 递归出口
+        ///root == NULL
+        
+        if (root != NULL) {
+            TreeNode *right = invertTree(root->right);
+            TreeNode *left =  invertTree(root->left);
+            root->left = right;
+            root->right = left;
+        }
+        return root;
     }
     
 };
