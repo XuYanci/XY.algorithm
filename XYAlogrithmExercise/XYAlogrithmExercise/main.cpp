@@ -86,12 +86,12 @@ int main(int argc, const char * argv[]) {
     s->fib(30);
     
     
-    int a[6] = {1,2,3,0,0,0};
-    int b[3] = {2,5,6};
+    int a[9] = {-1,0,0,3,3,3,0,0,0};
+    int b[3] = {1,2,2};
     
-    vector<int> nums1(a,a+6);
+    vector<int> nums1(a,a+9);
     vector<int> nums2(b,b+3);
     
-    s->merge(nums1, 3, nums2, 3);
+    s->merge(nums1, 6, nums2, 3);
     return 0;
 }

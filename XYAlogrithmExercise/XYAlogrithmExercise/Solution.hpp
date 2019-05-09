@@ -299,38 +299,7 @@ public:
     
     // 合并两个数组
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        
-        /// 归并方式(测试中)
-        int left = 0;
-        int right = m + n - 1;
-        int mid = (left + right) / 2;
-        
-        int i = left;
-        int j = mid+1;
-        int t = 0;
-        
-        
-        vector<int> *temp = &nums1;
-        vector<int> *arr = &nums2;
-        
-        while (i<=mid && j<=right){
-            if(arr[i]<=arr[j]){
-                temp[t++] = arr[i++];
-            }else {
-                temp[t++] = arr[j++];
-            }
-        }
-        while(i<=mid){
-            temp[t++] = arr[i++];
-        }
-        while(j<=right){
-            temp[t++] = arr[j++];
-        }
-        t = 0;
-        while(left <= right){
-            arr[left++] = temp[t++];
-        }
-        
+        // 归并排序
     }
     
 };
