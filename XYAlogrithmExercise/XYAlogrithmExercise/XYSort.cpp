@@ -133,6 +133,7 @@ void XYSort::quickSort(int *array,int count,bool asc) {
 }
 
 
+
 // 一个有序数组，一个无序数组， 默认取第一个元素放到有序数组, 假设最大
 // 然后依次取无序数组，与有序数组比较 (升序，降序)，并做插入操作
 // 比较完毕，则有序数组排序完毕
@@ -211,4 +212,8 @@ void XYSort:: selectSort(int *array,int count,bool asc) {
     }
     
     cout << endl;
+}
+
+void XYSort:: mergeSort(int *array,int count,bool asc) {
+    
 }

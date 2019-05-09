@@ -27,6 +27,8 @@ public:
     // 选择排序
     void selectSort(int *array,int count,bool asc);
     
+    // 归并排序
+    void mergeSort(int *array,int count,bool asc);
 protected:
     
 private:
