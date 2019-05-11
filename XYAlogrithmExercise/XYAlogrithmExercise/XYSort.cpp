@@ -214,6 +214,67 @@ void XYSort:: selectSort(int *array,int count,bool asc) {
     cout << endl;
 }
 
+// 归并排序
+// 思路是这样的:
+// 分而治之
+// 先分，后治
+// 思考了半个小时，暂时没有根据动画解出来;先看看答案先
+// Refer to : https://www.cnblogs.com/chengxiao/p/6194356.html
+// 🤔: 之前一直没想到用mid这个来分，回头想其实很简单
 void XYSort:: mergeSort(int *array,int count,bool asc) {
     
+    cout << "MERGE SORT - - - - - - - - - - " << endl;
+    cout << "origin array is " << endl;
+    for (int i = 0; i <  count; i++) {
+        cout << array[i] << ',';
+    }
+    cout << endl;
+ 
+    int temp[count];
+    merge_Sort(array,0,count-1,temp);
+    
+    cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
+    for (int i = 0; i <  count; i++) {
+        cout << array[i] << ',';
+    }
+    
+    cout << endl;
 }
+
+
+void XYSort::merge_Sort(int arr[] ,int left,int right,int temp[]){
+    if(left<right){  // 递归出口
+        // 递归体
+        int mid = (left+right)/2;
+        merge_Sort(arr,left,mid,temp);//左边归并排序，使得左子序列有序
+        merge_Sort(arr,mid+1,right,temp);//右边归并排序，使得右子序列有序
+        merge(arr,left,mid,right,temp);//将两个有序子数组合并操作
+    }
+}
+
+void XYSort::merge(int arr[],int left,int mid,int right,int temp[]) {
+    int i = left;//左序列指针
+    int j = mid+1;//右序列指针
+    int t = 0;//临时数组指针
+    while (i<=mid && j<=right){
+        if(arr[i]<=arr[j]){
+            temp[t++] = arr[i++];
+        }else {
+            temp[t++] = arr[j++];
+        }
+    }
+    while(i<=mid){//将左边剩余元素填充进temp中
+        temp[t++] = arr[i++];
+    }
+    while(j<=right){//将右序列剩余元素填充进temp中
+        temp[t++] = arr[j++];
+    }
+    t = 0;
+    //将temp中的元素全部拷贝到原数组中
+    while(left <= right){
+        arr[left++] = temp[t++];
+    }
+    
+}
+
+

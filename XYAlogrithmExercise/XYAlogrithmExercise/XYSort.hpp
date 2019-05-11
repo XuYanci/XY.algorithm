@@ -29,9 +29,14 @@ public:
     
     // 归并排序
     void mergeSort(int *array,int count,bool asc);
+    
+    
 protected:
     
 private:
+    // 合并两个有序数组
+    void merge(int array0[],int left,int mid,int right,int temp[]);
+    void merge_Sort(int arr[],int left,int right,int temp[]);
     
 };
 #endif /* XYSort_hpp */

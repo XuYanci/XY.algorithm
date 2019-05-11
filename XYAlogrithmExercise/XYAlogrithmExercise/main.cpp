@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
     alogrithms();
-    leetCodes();
+//    leetCodes();
    
     return 0;
 }
@@ -61,6 +61,9 @@ void alogrithms() {
     
     
     // @TODO 归并排序
+    for(int i=0;i<9;i++){
+        array5[i]=rand()%101;
+    }
     sort->mergeSort(array5, 9, false);
 }
 
