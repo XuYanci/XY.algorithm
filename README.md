@@ -1,2 +1,4 @@
-# 练习算法(内功)
+# XY.alogrithm
+
+Exercise alogrithm
 
