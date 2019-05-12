@@ -9,8 +9,17 @@
 #include "LeetCodeSolution.hpp"
 
 
-//    执行用时 : 32 ms, 在Remove Duplicates from Sorted Array的C++提交中击败了96.66% 的用户
-//    内存消耗 : 10 MB, 在Remove Duplicates from Sorted Array的C++提交中击败了75.10% 的用户
+/*
+ 从排序数组中删除重复项
+ 自己解题思路分析：
+ 1. 计数器count存放多少个不同
+ 2. 同时nums[count]为P,标记当前比较值，向右比较
+    如果不同则复制到count位置，同时P右移一次
+    如果相同，则继续向右比较
+ 算法复杂度:
+ O(n)
+ */
+
 int LeetCodeSolution::removeDuplicates(std::vector<int>& nums) {
     
     if (nums.size() == 0) return 0;
@@ -24,8 +33,16 @@ int LeetCodeSolution::removeDuplicates(std::vector<int>& nums) {
     return count + 1;
 }
 
-//    执行用时 : 28 ms, 在Rotate Array的C++提交中击败了97.36% 的用户
-//    内存消耗 : 9.7 MB, 在Rotate Array的C++提交中击败了12.68% 的用户
+/*
+ 旋转数组
+ 自己解题思路分析:
+ 1. 开辟一个存放旋转的数组空间，主要存放偏移的部分
+ 2. 复制旋转部分到旋转数组空间
+ 3. 原数组右边移动，头部空出空间
+ 4. 复制旋转数组到头部空间
+ 算法复杂度:
+ O(n)
+*/
 void LeetCodeSolution::rotate(vector<int>& nums, int k) {
     if (k == nums.size())return;
     int l = k % nums.size();
@@ -46,6 +63,17 @@ void LeetCodeSolution::rotate(vector<int>& nums, int k) {
     
 }
 
+/*
+ 存在重复
+ 自己解题思路分析:
+ 这道题本身还想设计一个简单的哈希表，设计失败 :(
+ 但是主要思想就是使用哈希表解决；
+ 1. 哈希表查询
+ 2. 如果没有则登记到哈希表
+ 3. 如果有则返回存在重复
+ 算法复杂度:
+ O(n)
+ */
 bool LeetCodeSolution::containsDuplicate(vector<int>& array) {
     return true;
     
@@ -67,7 +95,14 @@ bool LeetCodeSolution::containsDuplicate(vector<int>& array) {
 //            return false
 //            }
 
-// 只出现一次的数字
+/*
+ 只出现一次的数字
+ 自己解题思路分析:
+ 1. 先排序
+ 2. 两两比较
+ 算法复杂度:
+ 排序算法O(未知) + O(n)
+ */
 int LeetCodeSolution::singleNumber(vector<int>& nums) {
     sort(nums.begin(),nums.end());
     int i = 0;
@@ -81,9 +116,15 @@ int LeetCodeSolution::singleNumber(vector<int>& nums) {
     return 0;
 }
 
-// 移动零
-// 124 ms    9.5 MB
-// 效率有点低??? 冒泡思维在思考一下
+/*
+ 移动零
+ 自己解题思路分析:
+ 1. 类似于冒泡排序的思路
+ 2. 如果为0，则冒泡交换到最后, counter++,这样右边都是0
+ 3. 继续从头开始比较 ( beginpos < counter),直到比较结束
+ 算法复杂度:
+ O(n2)
+*/
 void LeetCodeSolution::moveZeroes(vector<int>& nums) {
     int beginpos = 0;
     int counter =0 ;
@@ -103,8 +144,15 @@ void LeetCodeSolution::moveZeroes(vector<int>& nums) {
     }
 }
 
-// 合并两个有序链表
-// 16 ms 9 MB
+/*
+ 合并两个有序链表
+ 解题思路:
+ 这里自己是思考写的，根据大概思路，所以代码写的有点不怎么规范 :(
+ 此类问题很常见，可以用递归，或者归并（分而治之)来解决，有固定的算法模型可以参考；
+ 1. 参考归并排序中的合并两个有序数组，属于同一类问题
+ 算法复杂度:
+ O(n)
+*/
 ListNode* LeetCodeSolution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     
     if (l1 == NULL) {
@@ -164,6 +212,14 @@ ListNode* LeetCodeSolution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     return firstHead;
 }
 
+/*
+ 反转链表
+ 解题思路:
+ 1. 主要需要两个指针, P , P->next, P->next->next (保存下一个q指针)
+ 2. 然后指针指向反转，继续右移动指针即可
+ 算法复杂度:
+ O(n)
+*/
 ListNode* LeetCodeSolution::reverseList(ListNode* head) {
     ListNode *p = head;
     ListNode *q = p->next;
@@ -180,7 +236,14 @@ ListNode* LeetCodeSolution::reverseList(ListNode* head) {
     return p;
 }
 
-//  整数反转
+/*
+ 整数反转
+ 解题思路分析:
+ 1. val = val / pow(10,n) % 10 取得个位，百位，千位依次类推入栈
+ 2. 依次出栈,乘以pow(10,n),这样就能够获得反转值
+ 算法复杂度:
+ O(n*2)
+*/
 int LeetCodeSolution::reverse(int x) {
     if (x == 0) {
         return 0;
@@ -204,6 +267,8 @@ int LeetCodeSolution::reverse(int x) {
     }
     return (int)y;
 }
+
+// 计算素数
 int LeetCodeSolution::countPrimes(int n) {
     int count = 0;
     
@@ -232,6 +297,11 @@ bool LeetCodeSolution::isPrime(int num) {
     }
     return true;
 }
+
+/*
+ 二叉树的最大深度
+ 
+ */
 int LeetCodeSolution::maxDepth(TreeNode* root) {
     if( root == NULL )
         return 0;
@@ -307,6 +377,7 @@ void LeetCodeSolution::merge(vector<int>& nums1, int m, vector<int>& nums2, int 
         nums1[t++] = temp[i++];
     }
 }
+
 // 二叉树反转
 TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
     // 递归实现
@@ -323,6 +394,7 @@ TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
     }
     return root;
 }
+
 /// 加一
 vector<int> LeetCodeSolution::plusOne(vector<int>& digits) {
     return vector<int>(0,0);

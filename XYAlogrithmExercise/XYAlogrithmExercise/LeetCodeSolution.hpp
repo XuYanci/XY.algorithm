@@ -39,8 +39,6 @@ public:
     // 只出现一次的数字
     int singleNumber(vector<int>& nums);
     // 移动零
-    // 124 ms    9.5 MB
-    // 效率有点低??? 冒泡思维在思考一下
     void moveZeroes(vector<int>& nums);
     // 合并两个有序链表
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);

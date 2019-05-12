@@ -177,7 +177,7 @@ void XYSort::insertSort(int *array,int count,bool asc) {
     cout << endl;
     // 这里用数组也是可以，记住一个下标位置就可以了
     vector<int>sortArray(1,array[0]);
-    /// 外循环，无序列表
+    /// 外循环，有序列表
     for (int i = 1; i < count; i++) {
         long j;
         int temp = array[i];
