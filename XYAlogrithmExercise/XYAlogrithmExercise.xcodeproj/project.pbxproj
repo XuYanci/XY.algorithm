@@ -14,7 +14,7 @@
 		AD6C731922720A56003B1A5D /* XYHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731722720A56003B1A5D /* XYHash.cpp */; };
 		AD6C731C22720A66003B1A5D /* XYHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731A22720A66003B1A5D /* XYHeap.cpp */; };
 		AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731D22720A71003B1A5D /* XYTree.cpp */; };
-		AD8037EB2275FC6500A31959 /* Solution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD8037E92275FC6500A31959 /* Solution.cpp */; };
+		AD8037EB2275FC6500A31959 /* LeetCodeSolution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD8037E92275FC6500A31959 /* LeetCodeSolution.cpp */; };
 		AD80E2AA226C7734005A0256 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD80E2A9226C7734005A0256 /* main.cpp */; };
 		AD80E2B2226C77D1005A0256 /* XYSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD80E2B0226C77D1005A0256 /* XYSort.cpp */; };
 		AD80E2B5226C77DF005A0256 /* XYSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD80E2B3226C77DF005A0256 /* XYSearch.cpp */; };
@@ -47,8 +47,8 @@
 		AD6C731B22720A66003B1A5D /* XYHeap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYHeap.hpp; sourceTree = "<group>"; };
 		AD6C731D22720A71003B1A5D /* XYTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYTree.cpp; sourceTree = "<group>"; };
 		AD6C731E22720A71003B1A5D /* XYTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYTree.hpp; sourceTree = "<group>"; };
-		AD8037E92275FC6500A31959 /* Solution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Solution.cpp; sourceTree = "<group>"; };
-		AD8037EA2275FC6500A31959 /* Solution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Solution.hpp; sourceTree = "<group>"; };
+		AD8037E92275FC6500A31959 /* LeetCodeSolution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeSolution.cpp; sourceTree = "<group>"; };
+		AD8037EA2275FC6500A31959 /* LeetCodeSolution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeSolution.hpp; sourceTree = "<group>"; };
 		AD80E2A6226C7734005A0256 /* XYAlogrithmExercise */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XYAlogrithmExercise; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD80E2A9226C7734005A0256 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AD80E2B0226C77D1005A0256 /* XYSort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYSort.cpp; sourceTree = "<group>"; };
@@ -106,8 +106,8 @@
 				AD6C731B22720A66003B1A5D /* XYHeap.hpp */,
 				AD6C731D22720A71003B1A5D /* XYTree.cpp */,
 				AD6C731E22720A71003B1A5D /* XYTree.hpp */,
-				AD8037E92275FC6500A31959 /* Solution.cpp */,
-				AD8037EA2275FC6500A31959 /* Solution.hpp */,
+				AD8037E92275FC6500A31959 /* LeetCodeSolution.cpp */,
+				AD8037EA2275FC6500A31959 /* LeetCodeSolution.hpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				AD80E2AA226C7734005A0256 /* main.cpp in Sources */,
 				AD6C731622720A4B003B1A5D /* XYQueue.cpp in Sources */,
-				AD8037EB2275FC6500A31959 /* Solution.cpp in Sources */,
+				AD8037EB2275FC6500A31959 /* LeetCodeSolution.cpp in Sources */,
 				AD80E2B5226C77DF005A0256 /* XYSearch.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

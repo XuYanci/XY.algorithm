@@ -12,7 +12,7 @@
 #include<stdio.h>
 #include "XYSort.hpp"
 #include "XYSearch.hpp"
-#include "Solution.hpp"
+#include "LeetCodeSolution.hpp"
 
 /// XuYanci Alogrithm Exercise
 void alogrithms();
@@ -70,7 +70,7 @@ void alogrithms() {
 
 void leetCodes() {
     // Leecode
-    Solution *s = new Solution();
+    LeetCodeSolution *s = new LeetCodeSolution();
     std::vector<int>array6 = {1,2,3,4,5,6} ;
     
     // 移除重复项

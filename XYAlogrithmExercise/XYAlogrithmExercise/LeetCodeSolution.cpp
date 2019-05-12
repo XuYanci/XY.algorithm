@@ -6,12 +6,12 @@
 //  Copyright © 2019 Yanci. All rights reserved.
 //
 
-#include "Solution.hpp"
+#include "LeetCodeSolution.hpp"
 
 
 //    执行用时 : 32 ms, 在Remove Duplicates from Sorted Array的C++提交中击败了96.66% 的用户
 //    内存消耗 : 10 MB, 在Remove Duplicates from Sorted Array的C++提交中击败了75.10% 的用户
-int Solution::removeDuplicates(std::vector<int>& nums) {
+int LeetCodeSolution::removeDuplicates(std::vector<int>& nums) {
     
     if (nums.size() == 0) return 0;
     
@@ -26,7 +26,7 @@ int Solution::removeDuplicates(std::vector<int>& nums) {
 
 //    执行用时 : 28 ms, 在Rotate Array的C++提交中击败了97.36% 的用户
 //    内存消耗 : 9.7 MB, 在Rotate Array的C++提交中击败了12.68% 的用户
-void Solution::rotate(vector<int>& nums, int k) {
+void LeetCodeSolution::rotate(vector<int>& nums, int k) {
     if (k == nums.size())return;
     int l = k % nums.size();
     int move_nums[l+1];
@@ -46,7 +46,7 @@ void Solution::rotate(vector<int>& nums, int k) {
     
 }
 
-bool Solution::containsDuplicate(vector<int>& array) {
+bool LeetCodeSolution::containsDuplicate(vector<int>& array) {
     return true;
     
 }
@@ -68,7 +68,7 @@ bool Solution::containsDuplicate(vector<int>& array) {
 //            }
 
 // 只出现一次的数字
-int Solution::singleNumber(vector<int>& nums) {
+int LeetCodeSolution::singleNumber(vector<int>& nums) {
     sort(nums.begin(),nums.end());
     int i = 0;
     while (i < nums.size()) {
@@ -84,7 +84,7 @@ int Solution::singleNumber(vector<int>& nums) {
 // 移动零
 // 124 ms    9.5 MB
 // 效率有点低??? 冒泡思维在思考一下
-void Solution::moveZeroes(vector<int>& nums) {
+void LeetCodeSolution::moveZeroes(vector<int>& nums) {
     int beginpos = 0;
     int counter =0 ;
     while (beginpos < nums.size() - counter) {
@@ -105,7 +105,7 @@ void Solution::moveZeroes(vector<int>& nums) {
 
 // 合并两个有序链表
 // 16 ms 9 MB
-ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
+ListNode* LeetCodeSolution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     
     if (l1 == NULL) {
         return l2;
@@ -164,7 +164,7 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     return firstHead;
 }
 
-ListNode* Solution::reverseList(ListNode* head) {
+ListNode* LeetCodeSolution::reverseList(ListNode* head) {
     ListNode *p = head;
     ListNode *q = p->next;
     
@@ -181,7 +181,7 @@ ListNode* Solution::reverseList(ListNode* head) {
 }
 
 //  整数反转
-int Solution::reverse(int x) {
+int LeetCodeSolution::reverse(int x) {
     if (x == 0) {
         return 0;
     }
@@ -204,7 +204,7 @@ int Solution::reverse(int x) {
     }
     return (int)y;
 }
-int Solution::countPrimes(int n) {
+int LeetCodeSolution::countPrimes(int n) {
     int count = 0;
     
     for (int i = 2;i<n;i++)
@@ -216,7 +216,7 @@ int Solution::countPrimes(int n) {
     return count;
 }
 
-bool Solution::isPrime(int num) {
+bool LeetCodeSolution::isPrime(int num) {
     if (num <= 3) {
         return num > 1;
     }
@@ -232,7 +232,7 @@ bool Solution::isPrime(int num) {
     }
     return true;
 }
-int Solution::maxDepth(TreeNode* root) {
+int LeetCodeSolution::maxDepth(TreeNode* root) {
     if( root == NULL )
         return 0;
     if( root->left == NULL && root->right == NULL )
@@ -250,7 +250,7 @@ int Solution::maxDepth(TreeNode* root) {
 //     return fib(N - 1) + fib(N - 2);
 // }
 // 栈做法
-int Solution::fib(int N) {
+int LeetCodeSolution::fib(int N) {
     if (N == 0)
         return 0;
     else if (N == 1 || N == 2)
@@ -278,7 +278,7 @@ int Solution::fib(int N) {
 }
 
 // 合并两个数组
-void Solution::merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+void LeetCodeSolution::merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     
     // 归并排序
     int i = 0;
@@ -308,7 +308,7 @@ void Solution::merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     }
 }
 // 二叉树反转
-TreeNode* Solution::invertTree(TreeNode* root) {
+TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
     // 递归实现
     // 递归体
     // left  = right
@@ -324,6 +324,6 @@ TreeNode* Solution::invertTree(TreeNode* root) {
     return root;
 }
 /// 加一
-vector<int> Solution::plusOne(vector<int>& digits) {
+vector<int> LeetCodeSolution::plusOne(vector<int>& digits) {
     return vector<int>(0,0);
 }

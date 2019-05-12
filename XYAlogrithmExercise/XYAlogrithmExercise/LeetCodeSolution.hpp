@@ -27,7 +27,7 @@ struct TreeNode {
          TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-class Solution {
+class LeetCodeSolution {
 public:
  
     // 移除重复数字
