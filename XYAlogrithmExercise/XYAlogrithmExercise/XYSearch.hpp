@@ -20,7 +20,7 @@ class XYSearch {
 
     void linearSearch(int *array,int count,int val);
     void divideSearch(int *array,int count,int val);
-    
+    int recursiveDivideSearch(int *array,int low,int high,int key);
     
 };
 

@@ -51,7 +51,7 @@ void XYSearch::divideSearch(int *array,int count,int val) {
     int endPos  = count ;
     int pos = -1;
     int   dividePos = (beginPos + endPos ) / 2;
-    while (beginPos != endPos) {
+    while (beginPos <= endPos) {
         if (array[dividePos] == val) {
             pos = dividePos;
             break;
@@ -68,4 +68,17 @@ void XYSearch::divideSearch(int *array,int count,int val) {
     printf("find val = %d,find pos =%d ",val,pos);
     cout <<endl;
     
+}
+
+int XYSearch::recursiveDivideSearch(int *array,int low,int high,int key) {
+    if(low > high)//查找不到
+        return -1;
+    int mid = (low+high)/2;
+    if(key == array[mid])//查找到
+        return mid;
+    else if(key < array[mid])
+        return recursiveDivideSearch(array,low,mid-1,key);
+    else
+        return recursiveDivideSearch(array,mid+1,high,key);
+
 }

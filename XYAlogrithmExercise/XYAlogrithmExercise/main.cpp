@@ -48,7 +48,7 @@ void alogrithms() {
     
     // 二分查找
     int array4[] = {1,2,3,4,5};
-    search->divideSearch(array4,5, 100);
+    search->divideSearch(array4,5, 5);
     
     // 随机产生9个数
     srand((unsigned)time(NULL));
@@ -56,8 +56,9 @@ void alogrithms() {
     for(int i=0;i<9;i++){
         array5[i]=rand()%101;
     }
+    int array6[] = {12,14,25,32,23,45,12,63,24,12};
     // 快速排序
-    sort->quickSort(array5, 9, false);
+    sort->quickSort(array6, 9, false);
     
     
     // @TODO 归并排序

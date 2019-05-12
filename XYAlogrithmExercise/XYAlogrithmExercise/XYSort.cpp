@@ -51,61 +51,96 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
     cout << endl;
 }
 
+/// 解法1:
 /// L,R,P
 /// L -> R, L直到找到比自己大的,Stop,如果碰撞到R，并不会停止
 /// R -> L, R直到找到比自己小的,Stop,停止并交换, 如果碰撞到L,停止并交换,如果已经被L标记，停止并交换
-void recursiveQuickSort(int array[],int p,int l,int r) {
-    
-    
-    int beforel = l;
-    int beforep = p ;
- 
-    if (r < l) {
-        return;
-    }
-    
-    if (r == l && array[l] > array[p]) {
-        int temp = array[l];
-        array[l] = array[p];
-        array[p] = temp;
-        return;
-    }
-    
-    
-    while (l < r) {
-        while (array[l] < array[p]) {
-            l = l + 1;
-        }
-        
-        
-        while (array[r] >= array[p] && r > l) {
-            r = r - 1;
-        }
-        
-        if (l < r) {
-            /// 交换
-            int temp = array[r];
-            array[r] = array[l];
-            array[l] = temp;
 
+/// 解法2:
+/// 个人觉得更加方便
+//1．i =L; j = R; 将基准数挖出形成第一个坑a[i]。
+//2．j--由后向前找比它小的数，找到后挖出此数填前一个坑a[i]中。
+//3．i++由前向后找比它大的数，找到后也挖出此数填到前一个坑a[j]中。
+//4．再重复执行2，3二步，直到i==j，将基准数填入a[i]中。
+
+void recursiveQuickSort(int array[],int l,int r) {
+
+/** 解法1 **/
+//    int beforel = l;
+//    int beforep = p ;
+//
+//    if (r < l) {
+//        return;
+//    }
+//
+//    if (r == l && array[l] > array[p]) {
+//        int temp = array[l];
+//        array[l] = array[p];
+//        array[p] = temp;
+//        return;
+//    }
+//
+//
+//    while (l < r) {
+//        while (array[l] < array[p]) {
+//            l = l + 1;
+//        }
+//
+//
+//        while (array[r] >= array[p] && r > l) {
+//            r = r - 1;
+//        }
+//
+//        if (l < r) {
+//            /// 交换
+//            int temp = array[r];
+//            array[r] = array[l];
+//            array[l] = temp;
+//
+//        }
+//
+//        else if (r < l) {
+//            break;
+//        }
+//        else if (r == l && array[l] > array[p]) {
+//            int temp = array[l];
+//            array[l] = array[p];
+//            array[p] = temp;
+//            break;
+//        }
+//
+//    }
+//
+//    // Left
+//    recursiveQuickSort(array, l - 1, beforel, l - 2);
+//    // Right
+//    recursiveQuickSort(array, beforep,r + 1 , beforep - 1);
+    
+/** 解法2 **/
+    if (l < r) {
+        int i = l;
+        int j = r;
+        int x = array[l];
+        while ( i < j) {
+            // 从右向左找第一个小于等于x的数
+            while (i < j && array[j] >= x) {
+                j--;
+            }
+           
+            if(i<j) {
+                array[i++] = array[j];
+            }
+            // 从左向右找第一个小于x的数
+            while (i < j && array[i] < x) {
+                i++;
+            }
+            if(i < j)
+                array[j--] = array[i];
         }
-        
-        else if (r < l) {
-            break;
-        }
-        else if (r == l && array[l] > array[p]) {
-            int temp = array[l];
-            array[l] = array[p];
-            array[p] = temp;
-            break;
-        }
-        
+        array[i] = x;
+        recursiveQuickSort(array,l,i-1);
+        recursiveQuickSort(array, i+1, r);
     }
-  
-    // Left
-    recursiveQuickSort(array, l - 1, beforel, l - 2);
-    // Right
-    recursiveQuickSort(array, beforep,r + 1 , beforep - 1);
 }
 
 void XYSort::quickSort(int *array,int count,bool asc) {
@@ -117,13 +152,9 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     cout << endl;
     
     // 递归做法
-    int p = count - 1;
     int l = 0;
-    int r = p - 1;
-    recursiveQuickSort(array, p, l, r);
-    
-    // @TODO: 非递归做法，一样用栈来处理即可，同属于汉诺塔处理方式
-    
+    int r = count - 1;
+    recursiveQuickSort(array, l, r);
     
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
     for (int i = 0; i <  count; i++) {
@@ -186,6 +217,8 @@ void XYSort:: selectSort(int *array,int count,bool asc) {
     cout << endl;
     
     /// 选择排序，线性搜索最小，然后交换放到数组位置，逐个交换；
+    /// 外循环 存放最小值数组
+    /// 内循环 搜索最小
     for (int i = 0; i < count; i++) {
         int temp = array[i];
         int downSign = -1;
