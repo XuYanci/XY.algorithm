@@ -13,19 +13,21 @@
 #include "XYSort.hpp"
 #include "XYSearch.hpp"
 #include "LeetCodeSolution.hpp"
-
 /// XuYanci Alogrithm Exercise
 void alogrithms();
 void leetCodes();
+ 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
     alogrithms();
-//    leetCodes();
-   
+    leetCodes();
+ 
     return 0;
 }
+
+
 
 void alogrithms() {
     XYSort *sort = new XYSort();
@@ -114,4 +116,7 @@ void leetCodes() {
     
     // 合并两个有序数组
     s->merge(nums1, 6, nums2, 3);
+    
+    vector<int>nums{2,7,11,15};
+    s->twoSum(nums, 9);
 }

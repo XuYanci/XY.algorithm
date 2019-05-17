@@ -8,14 +8,57 @@
 
 #include "LeetCodeSolution.hpp"
 
+vector<int> LeetCodeSolution:: twoSum(vector<int>& nums, int target) {
+    
+    /** // 1.  暴力算法
+     // 如果只有两个数字，则直接返回
+     if (nums.size() == 2) {
+     int arr[] = {0,1};
+     vector<int> v (arr, arr + sizeof(arr) / sizeof(int) );
+     return v;
+     }
+     
+     for (int i = 0; i < nums.size(); i++) {
+     int val1 = nums[i];
+     for (int j = i + 1; j < nums.size(); j++) {
+     if (val1 + nums[j] == target) {
+     int arr[] = {i,j};
+     vector<int> v (arr, arr + sizeof(arr) / sizeof(int) );
+     return v;
+     }
+     }
+     }
+     
+     vector<int> v;
+     return v;
+     **/
+    
+    // 2. 哈希表算法 
+    map<int,int>hash;
+    vector<int> sum {};
+    
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        auto search = hash.find(complement);
+        // 检查之前是否存在该键值
+        if (search != hash.end()) {
+            // 存在则返回
+            sum = vector<int>{hash[complement],i};
+            return sum;
+        }
+        // 存储键值
+        hash[nums[i]] = i;
+    }
+    return sum;
+}
 
 /*
  从排序数组中删除重复项
  自己解题思路分析：
  1. 计数器count存放多少个不同
  2. 同时nums[count]为P,标记当前比较值，向右比较
-    如果不同则复制到count位置，同时P右移一次
-    如果相同，则继续向右比较
+ 如果不同则复制到count位置，同时P右移一次
+ 如果相同，则继续向右比较
  算法复杂度:
  O(n)
  */
@@ -42,7 +85,7 @@ int LeetCodeSolution::removeDuplicates(std::vector<int>& nums) {
  4. 复制旋转数组到头部空间
  算法复杂度:
  O(n)
-*/
+ */
 void LeetCodeSolution::rotate(vector<int>& nums, int k) {
     if (k == nums.size())return;
     int l = k % nums.size();
@@ -124,7 +167,7 @@ int LeetCodeSolution::singleNumber(vector<int>& nums) {
  3. 继续从头开始比较 ( beginpos < counter),直到比较结束
  算法复杂度:
  O(n2)
-*/
+ */
 void LeetCodeSolution::moveZeroes(vector<int>& nums) {
     int beginpos = 0;
     int counter =0 ;
@@ -152,7 +195,7 @@ void LeetCodeSolution::moveZeroes(vector<int>& nums) {
  1. 参考归并排序中的合并两个有序数组，属于同一类问题
  算法复杂度:
  O(n)
-*/
+ */
 ListNode* LeetCodeSolution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     
     if (l1 == NULL) {
@@ -219,7 +262,7 @@ ListNode* LeetCodeSolution::mergeTwoLists(ListNode* l1, ListNode* l2) {
  2. 然后指针指向反转，继续右移动指针即可
  算法复杂度:
  O(n)
-*/
+ */
 ListNode* LeetCodeSolution::reverseList(ListNode* head) {
     ListNode *p = head;
     ListNode *q = p->next;
@@ -243,7 +286,7 @@ ListNode* LeetCodeSolution::reverseList(ListNode* head) {
  2. 依次出栈,乘以pow(10,n),这样就能够获得反转值
  算法复杂度:
  O(n*2)
-*/
+ */
 int LeetCodeSolution::reverse(int x) {
     if (x == 0) {
         return 0;
@@ -268,7 +311,13 @@ int LeetCodeSolution::reverse(int x) {
     return (int)y;
 }
 
-// 计算素数
+/* 计算素数
+ 解题思路:
+ 1.不在6的倍数两侧的一定不是质数
+ 2.在6的倍数两侧也可能不是质数,再判断一次, 6(i) - 1 , 6(i) + 1
+ 算法复杂度:
+ O(sqrt(n)/3),
+ */
 int LeetCodeSolution::countPrimes(int n) {
     int count = 0;
     
@@ -289,7 +338,7 @@ bool LeetCodeSolution::isPrime(int num) {
     if (num % 6 != 1 && num % 6 != 5) {
         return false;
     }
-    
+    //在6的倍数两侧也可能不是质数,再判断一次
     for (int i = 5; i <= sqrt(num); i += 6) {
         if (num % i == 0 || num % (i + 2) == 0) {
             return false;
@@ -300,7 +349,10 @@ bool LeetCodeSolution::isPrime(int num) {
 
 /*
  二叉树的最大深度
- 
+ 解题思路:
+ 递归体: 左右边取最大值+1
+ 递归出口: root == NULL , 结束, root->left == NULL 而且 root->right == NULL , 返回1
+ 算法复杂度:
  */
 int LeetCodeSolution::maxDepth(TreeNode* root) {
     if( root == NULL )
@@ -348,6 +400,8 @@ int LeetCodeSolution::fib(int N) {
 }
 
 // 合并两个数组
+// 解题思路：
+// 参考归并排序
 void LeetCodeSolution::merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     
     // 归并排序
@@ -378,14 +432,16 @@ void LeetCodeSolution::merge(vector<int>& nums1, int m, vector<int>& nums2, int 
     }
 }
 
-// 二叉树反转
-TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
-    // 递归实现
-    // 递归体
-    // left  = right
-    // 递归出口
-    ///root == NULL
-    
+/*
+ 二叉树反转
+ 解题思路:
+ 递归实现
+ 递归体
+ left  = right
+ 递归出口
+ root == NULL
+ */
+TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {    
     if (root != NULL) {
         TreeNode *right = invertTree(root->right);
         TreeNode *left =  invertTree(root->left);

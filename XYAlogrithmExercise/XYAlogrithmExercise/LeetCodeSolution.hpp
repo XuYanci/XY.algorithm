@@ -13,6 +13,8 @@
 #include <math.h>
 #include <algorithm>
 #include <stack>
+#include <map>
+#include <set>
 using namespace std;
 struct ListNode {
          int val;
@@ -30,6 +32,8 @@ struct TreeNode {
 class LeetCodeSolution {
 public:
  
+    // 两数之和
+    vector<int> twoSum(vector<int>& nums, int target);
     // 移除重复数字
     int removeDuplicates(std::vector<int>& nums);
     // 旋转数组
