@@ -119,4 +119,7 @@ void leetCodes() {
     
     vector<int>nums{2,7,11,15};
     s->twoSum(nums, 9);
+    
+    vector<char> array {'a','b','c','d','e','f'};
+    s->reverseString(array);
 }

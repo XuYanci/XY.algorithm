@@ -31,7 +31,8 @@ struct TreeNode {
 
 class LeetCodeSolution {
 public:
- 
+    // 字符串反转
+    void reverseString(vector<char>& s) ;
     // 两数之和
     vector<int> twoSum(vector<int>& nums, int target);
     // 移除重复数字

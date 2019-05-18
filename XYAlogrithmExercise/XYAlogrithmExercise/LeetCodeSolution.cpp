@@ -7,6 +7,16 @@
 //
 
 #include "LeetCodeSolution.hpp"
+void LeetCodeSolution::reverseString(vector<char>& s)
+{
+    // {1,2,3,4,5,6}
+    
+    for (int i = 0; i < s.size() / 2;i++) {
+        char j = s[i];
+        s[i] =  s[s.size() - i - 1];
+        s[s.size() - i - 1] = j;
+    }
+}
 
 vector<int> LeetCodeSolution:: twoSum(vector<int>& nums, int target) {
     
@@ -33,7 +43,7 @@ vector<int> LeetCodeSolution:: twoSum(vector<int>& nums, int target) {
      return v;
      **/
     
-    // 2. 哈希表算法 
+    // 2. 哈希表算法
     map<int,int>hash;
     vector<int> sum {};
     
