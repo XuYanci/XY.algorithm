@@ -83,6 +83,10 @@ public:
     TreeNode* invertTree(TreeNode* root);
     /// 加一
     vector<int> plusOne(vector<int>& digits);
+    // 字符串反转
+    void reverseString(vector<char>& s) ;
+    // 两数之和
+    vector<int> twoSum(vector<int>& nums, int target);
     
 private:
     bool isPrime(int num);
