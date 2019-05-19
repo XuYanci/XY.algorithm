@@ -381,33 +381,50 @@ int LeetCodeSolution::maxDepth(TreeNode* root) {
 //         return 1;
 //     return fib(N - 1) + fib(N - 2);
 // }
-// 栈做法
-int LeetCodeSolution::fib(int N) {
-    if (N == 0)
-        return 0;
-    else if (N == 1 || N == 2)
-        return 1;
-    
-    stack<int>s1;
-    s1.push(N);
-    int val = 0;
-    
-    while(!s1.empty()) {
-        int n = s1.top();
-        s1.pop();
-        if (n == 1) {
-            val += 1; continue;
-        }
-        if (n == 2) {
-            val += 1; continue;
-        } else if (n > 2){
-            s1.push(n - 1);
-            s1.push(n - 2);
-        }
+
+
+int LeetCodeSolution::fib(int n) {
+    if(n <= 1)
+        return n;
+    int meno_i_1 = 1;
+    int meno_i_2 = 0;
+    int meno_i = 1;
+    for(int i = 2; i <= n; i++)
+    {
+        meno_i = meno_i_1 + meno_i_2;
+        meno_i_2 = meno_i_1;
+        meno_i_1 = meno_i;
     }
-    
-    return val;
+    return meno_i;
 }
+
+// 栈做法
+//int LeetCodeSolution::fib(int N) {
+//    if (N == 0)
+//        return 0;
+//    else if (N == 1 || N == 2)
+//        return 1;
+//    
+//    stack<int>s1;
+//    s1.push(N);
+//    int val = 0;
+//    
+//    while(!s1.empty()) {
+//        int n = s1.top();
+//        s1.pop();
+//        if (n == 1) {
+//            val += 1; continue;
+//        }
+//        if (n == 2) {
+//            val += 1; continue;
+//        } else if (n > 2){
+//            s1.push(n - 1);
+//            s1.push(n - 2);
+//        }
+//    }
+//    
+//    return val;
+//}
 
 // 合并两个数组
 // 解题思路：
