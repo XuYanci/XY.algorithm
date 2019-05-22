@@ -63,6 +63,8 @@ public:
     TreeNode* invertTree(TreeNode* root);
     /// 加一
     vector<int> plusOne(vector<int>& digits);
+    // 最长上升子序列
+    int lengthOfLIS(vector<int>& nums);
     
 private:
     bool isPrime(int num);

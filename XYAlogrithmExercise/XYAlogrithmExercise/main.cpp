@@ -122,4 +122,7 @@ void leetCodes() {
     
     vector<char> array {'a','b','c','d','e','f'};
     s->reverseString(array);
+    
+    vector<int> array1 {10,9,2,5,3,7,101,18};
+    s->lengthOfLIS(array1);
 }

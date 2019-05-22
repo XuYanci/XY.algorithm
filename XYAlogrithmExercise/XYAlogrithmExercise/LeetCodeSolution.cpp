@@ -404,11 +404,11 @@ int LeetCodeSolution::fib(int n) {
 //        return 0;
 //    else if (N == 1 || N == 2)
 //        return 1;
-//    
+//
 //    stack<int>s1;
 //    s1.push(N);
 //    int val = 0;
-//    
+//
 //    while(!s1.empty()) {
 //        int n = s1.top();
 //        s1.pop();
@@ -422,7 +422,7 @@ int LeetCodeSolution::fib(int n) {
 //            s1.push(n - 2);
 //        }
 //    }
-//    
+//
 //    return val;
 //}
 
@@ -481,4 +481,25 @@ TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
 /// 加一
 vector<int> LeetCodeSolution::plusOne(vector<int>& digits) {
     return vector<int>(0,0);
+}
+
+int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
+    int n = nums.size();
+    if (n == 0) return 0;
+    int dp[n];
+    memset(dp, 0, sizeof(dp));
+    int maxLen = 1;
+    for (int i = 0; i < n; ++i)
+    {
+        dp[i] = 1;
+        for (int j = 0; j < i; ++j)
+        {
+            if (nums[i] > nums[j] && dp[i] < (dp[j] + 1))
+            {
+                dp[i] = dp[j] + 1;
+                maxLen = ((maxLen > dp[i]) ? maxLen : dp[i]);
+            }
+        }
+    }
+    return maxLen;
 }
