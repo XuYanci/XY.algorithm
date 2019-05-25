@@ -503,3 +503,4 @@ int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
     }
     return maxLen;
 }
+ 

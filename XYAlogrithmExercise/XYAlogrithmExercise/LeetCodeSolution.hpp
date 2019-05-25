@@ -15,6 +15,7 @@
 #include <stack>
 #include <map>
 #include <set>
+#include <unordered_map>
 using namespace std;
 struct ListNode {
          int val;
@@ -60,6 +61,7 @@ public:
     // 合并两个数组
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
     // 二叉树反转
+    
     TreeNode* invertTree(TreeNode* root);
     /// 加一
     vector<int> plusOne(vector<int>& digits);
@@ -71,5 +73,97 @@ private:
     
 };
 
+
+
+// Double Link List
+class   Node {
+public:
+    int key;
+    int val;
+     Node *prev;
+     Node *next;
+};
+
+class LRUCache {
+public:
+    LRUCache(int capacity) {
+        cap = capacity;
+        head = new Node();
+        tail = new Node();
+        head->next = tail;
+        tail->prev = head;
+    }
+    // 根据key获取value
+    int get(int key) {
+        /// 查找hashMap，有则返回
+        map<int, Node*>::iterator it;
+        if ((it = hashMap.find(key)) != hashMap.end()) {
+            removeNode(it->second);
+            addNode(it->second);
+            return it->second->val;
+        }
+ 
+        return -1;
+    }
+    
+    // 放入指定value到key中
+    void put(int key, int value) {
+        /// 查找hashMap
+        map<int, Node*>::iterator it;
+        /// 如果存在，则删除节点，并将节点放到最后
+        if ((it = hashMap.find(key)) != hashMap.end()) {
+            it->second->val = value;
+            removeNode(it->second);
+            Node *newNode = new Node();
+            newNode->key = key;
+            newNode->val = value;
+            addNode(newNode);
+//            hashMap.insert(make_pair(key, newNode));
+            hashMap[key] = newNode;
+            return;
+        }
+   
+        /// 如果已满
+        /// 删除最近一个节点
+        if (hashMap.size() == cap) {
+            removeFirst();
+        }
+        
+        /// 如果不存在，则新建节点并将节点放到最后
+        Node *newNode = new Node();
+        newNode->key = key;
+        newNode->val = value;
+        addNode(newNode);
+//        hashMap.insert(make_pair(key, newNode));
+        hashMap[key] = newNode;
+    }
+private:
+    // 删除最近一个节点
+    void removeFirst() {
+        Node *tmp = head->next;
+        removeNode(tmp);
+        hashMap.erase(tmp->key);
+    }
+    // 删除节点
+    void removeNode(Node *n) {
+        n->prev->next = n->next;
+        n->next->prev = n->prev;
+  
+    }
+    
+    // 添加节点
+    void addNode(Node *n) {
+        n->next = tail;
+        n->prev = tail->prev;
+        tail->prev->next = n;
+        tail->prev = n;
+    }
+    
+    /// HashMap
+    map<int,Node *> hashMap;
+    int cap;
+    Node *head;
+    Node *tail;
+};
 
 #endif /* Solution_hpp */
