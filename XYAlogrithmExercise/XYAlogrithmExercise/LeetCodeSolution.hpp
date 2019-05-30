@@ -16,6 +16,7 @@
 #include <map>
 #include <set>
 #include <unordered_map>
+#include <list>
 using namespace std;
 struct ListNode {
          int val;
@@ -73,18 +74,16 @@ private:
     
 };
 
-
-
-// Double Link List
-class   Node {
-public:
-    int key;
-    int val;
-     Node *prev;
-     Node *next;
-};
-
+/// LRU Cache
 class LRUCache {
+    // Double Link List
+    class   Node {
+    public:
+        int key;
+        int val;
+        Node *prev;
+        Node *next;
+    };
 public:
     LRUCache(int capacity) {
         cap = capacity;
@@ -164,6 +163,72 @@ private:
     int cap;
     Node *head;
     Node *tail;
+};
+
+/// LFUCache
+/// Refer To : https://mp.weixin.qq.com/s/XBP-38JlpYHTTXIKTTdAXg
+class LFUCache {
+public:
+    int cap;
+    //当前容量
+    int size;
+    // 最小的 freq，删除元素时需要知道该删除哪个链表
+    int minFreq;
+    // 保存 value和freq
+    unordered_map<int, pair<int, int>> valueFreqMap;
+    // 保存 key 在链表中的位置
+    unordered_map<int, list<int>::iterator> iterMap;
+    // freq 对应的链表
+    unordered_map<int, list<int>> freqListMap;
+    
+    // 初始化
+    LFUCache(int capacity) {
+        cap = capacity;
+        size = 0;
+    }
+    
+    int get(int key) {
+        if(valueFreqMap.count(key)==0) return -1;
+        // 删除链表中的节点
+        freqListMap[valueFreqMap[key].second].erase(iterMap[key]);
+        // 增加使用频次
+        valueFreqMap[key].second++;
+        // 把 key 放到链表的末尾
+        freqListMap[valueFreqMap[key].second].push_back(key);
+        // 记录 key 值链表中的位置
+        iterMap[key] = --freqListMap[valueFreqMap[key].second].end();
+        // 修改最小 freq
+        if(freqListMap[minFreq].size() == 0)
+            minFreq++;
+        
+        return valueFreqMap[key].first;
+    }
+    
+    void put(int key, int value) {
+        if(cap <= 0) return;
+        // get 方法会修改使用频次
+        int storedValue=get(key);
+        if(storedValue != -1) {
+            valueFreqMap[key].first = value;
+            return;
+        }
+        
+        // 超出容量限制，该删除了
+        if(size >= cap ){
+            valueFreqMap.erase( freqListMap[minFreq].front() );
+            iterMap.erase( freqListMap[minFreq].front() );
+            freqListMap[minFreq].pop_front();
+            size--;
+        }
+        
+        // 保存到各个 map 中
+        valueFreqMap[key] = {value, 1};
+        freqListMap[1].push_back(key);
+        // 最后一个位置
+        iterMap[key] = --freqListMap[1].end();
+        minFreq = 1;
+        size++;
+    }
 };
 
 #endif /* Solution_hpp */

@@ -138,4 +138,17 @@ void leetCodes() {
     cache->get(1);       // 返回 -1 (未找到)
     cache->get(3);       // 返回  3
     cache->get(4);       // 返回  4
+    
+    LFUCache *cache1 = new LFUCache( 2 /* capacity (缓存容量) */ );
+    
+    cache1->put(1, 1);
+    cache1->put(2, 2);
+    cache1->get(1);       // 返回 1
+    cache1->put(3, 3);    // 去除 key 2
+    cache1->get(2);       // 返回 -1 (未找到key 2)
+    cache1->get(3);       // 返回 3
+    cache1->put(4, 4);    // 去除 key 1
+    cache1->get(1);       // 返回 -1 (未找到 key 1)
+    cache1->get(3);       // 返回 3
+    cache1->get(4);       // 返回 4
 }
