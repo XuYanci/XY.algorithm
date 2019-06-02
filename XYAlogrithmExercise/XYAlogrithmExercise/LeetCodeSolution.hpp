@@ -69,8 +69,12 @@ public:
     // 最长上升子序列
     int lengthOfLIS(vector<int>& nums);
     
+    // 滑动窗口最大值
+    vector<int> maxSlidingWindow(vector<int>& nums, int k);
+    
 private:
     bool isPrime(int num);
+    int LeetCodeSolution:: getMaxValue(vector<int>& nums,int begin,int end) ;
     
 };
 

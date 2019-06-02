@@ -504,3 +504,31 @@ int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
     return maxLen;
 }
  
+
+/* 滑动窗口最大值
+ 自己解决思路: 暴力遍历法
+    
+*/
+ 
+vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
+    vector<int>maxes;
+
+    
+    for (int i = 0; i < nums.size(); i+= 1) {
+        int value = getMaxValue(nums,i,i+k);
+        maxes.push_back(value);
+    }
+    return maxes;
+}
+
+int LeetCodeSolution::getMaxValue(vector<int>& nums,int begin,int end) {
+    int maxValue = nums[begin];
+    
+    for (int i = begin + 1; i < end; i++) {
+        if (nums[i] > maxValue) {
+            maxValue = nums[i];
+        }
+    }
+    
+    return maxValue;
+}
