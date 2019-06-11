@@ -1,3 +1,5 @@
+```
+
 class LeetCodeSolution {
 public:
     // 字符串反转
@@ -44,3 +46,4 @@ private:
     int getMaxValue(vector<int>& nums,int begin,int end) ;
     
 };
+```
