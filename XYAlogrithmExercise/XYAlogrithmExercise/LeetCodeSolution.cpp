@@ -505,20 +505,45 @@ int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
 }
  
 
-/* 滑动窗口最大值
- 自己解决思路: 暴力遍历法
-    
+/*
+ 滑动窗口最大值
+ 1.暴力遍历法
+ 2.双向队列解法
 */
  
 vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
     vector<int>maxes;
 
+    // 暴力遍历法
+//    for (int i = 0; i < nums.size(); i+= 1) {
+//        int value = getMaxValue(nums,i,i+k);
+//        maxes.push_back(value);
+//    }
+//    return maxes;
     
-    for (int i = 0; i < nums.size(); i+= 1) {
-        int value = getMaxValue(nums,i,i+k);
-        maxes.push_back(value);
+    // 双向队列解法
+    if (nums.size() == 0)
+        return vector<int>(0);
+    
+    deque<int> Q;
+    vector<int>B(nums.size() - k + 1);
+    int w = k;
+    int n = nums.size();
+    for (int i = 0; i < w; i++) {
+        while (!Q.empty() && nums[i] >= nums[Q.back()])
+            Q.pop_back();
+        Q.push_back(i);
     }
-    return maxes;
+    for (int i = w; i < n; i++) {
+        B[i-w] = nums[Q.front()];
+        while (!Q.empty() && nums[i] >= nums[Q.back()])
+            Q.pop_back();
+        while (!Q.empty() && Q.front() <= i-w)
+            Q.pop_front();
+        Q.push_back(i);
+    }
+    B[n-w] = nums[Q.front()];
+    return B;
 }
 
 int LeetCodeSolution::getMaxValue(vector<int>& nums,int begin,int end) {

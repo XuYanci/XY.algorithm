@@ -74,7 +74,7 @@ public:
     
 private:
     bool isPrime(int num);
-    int LeetCodeSolution:: getMaxValue(vector<int>& nums,int begin,int end) ;
+    int getMaxValue(vector<int>& nums,int begin,int end) ;
     
 };
 
