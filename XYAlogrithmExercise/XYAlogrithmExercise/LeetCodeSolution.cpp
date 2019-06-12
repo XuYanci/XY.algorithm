@@ -510,7 +510,7 @@ int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
  1.暴力遍历法
  2.双向队列解法
 */
- 
+typedef pair<int, int> Pair;
 vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
     vector<int>maxes;
 
@@ -522,27 +522,46 @@ vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
 //    return maxes;
     
     // 双向队列解法
-    if (nums.size() == 0)
-        return vector<int>(0);
+//    if (nums.size() == 0)
+//        return vector<int>(0);
+//
+//    deque<int> Q;
+//    vector<int>B(nums.size() - k + 1);
+//    int w = k;
+//    int n = nums.size();
+//    for (int i = 0; i < w; i++) {
+//        while (!Q.empty() && nums[i] >= nums[Q.back()])
+//            Q.pop_back();
+//        Q.push_back(i);
+//    }
+//    for (int i = w; i < n; i++) {
+//        B[i-w] = nums[Q.front()];
+//        while (!Q.empty() && nums[i] >= nums[Q.back()])
+//            Q.pop_back();
+//        while (!Q.empty() && Q.front() <= i-w)
+//            Q.pop_front();
+//        Q.push_back(i);
+//    }
+//    B[n-w] = nums[Q.front()];
+//    return B;
     
-    deque<int> Q;
-    vector<int>B(nums.size() - k + 1);
+    /// 最大堆解法
     int w = k;
     int n = nums.size();
-    for (int i = 0; i < w; i++) {
-        while (!Q.empty() && nums[i] >= nums[Q.back()])
-            Q.pop_back();
-        Q.push_back(i);
-    }
+    vector<int>B(nums.size() - k + 1);
+    priority_queue<Pair> Q; //优先级队列保存窗口里面的值
+    for (int i = 0; i < w; i++)
+    Q.push(Pair(nums[i], i));  //构建w个元素的最大堆
     for (int i = w; i < n; i++) {
-        B[i-w] = nums[Q.front()];
-        while (!Q.empty() && nums[i] >= nums[Q.back()])
-            Q.pop_back();
-        while (!Q.empty() && Q.front() <= i-w)
-            Q.pop_front();
-        Q.push_back(i);
+        Pair p = Q.top();
+        B[i-w] = p.first;
+        while (p.second <= i-w) {
+            Q.pop();
+            p = Q.top();
+        }
+        Q.push(Pair(nums[i], i));
     }
-    B[n-w] = nums[Q.front()];
+    B[n-w] = Q.top().first;
     return B;
 }
 
