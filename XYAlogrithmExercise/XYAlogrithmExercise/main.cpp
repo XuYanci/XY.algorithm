@@ -11,6 +11,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include "XYSort.hpp"
+#include "XYHeap.hpp"
 #include "XYSearch.hpp"
 #include "LeetCodeSolution.hpp"
 /// XuYanci Alogrithm Exercise
@@ -68,6 +69,10 @@ void alogrithms() {
         array5[i]=rand()%101;
     }
     sort->mergeSort(array5, 9, false);
+    
+    
+    Max_Heap *max_heap = new Max_Heap();
+    max_heap->justRun();
 }
 
 void leetCodes() {
