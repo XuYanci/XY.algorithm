@@ -24,10 +24,16 @@ int main(int argc, const char * argv[]) {
     
     alogrithms();
     leetCodes();
- 
+//    structures();
     return 0;
 }
 
+
+void structures() {
+    /// 最大堆
+    Max_Heap *max_heap = new Max_Heap();
+    max_heap->justRun();
+}
 
 
 void alogrithms() {
@@ -70,9 +76,13 @@ void alogrithms() {
     }
     sort->mergeSort(array5, 9, false);
     
-    
-    Max_Heap *max_heap = new Max_Heap();
-    max_heap->justRun();
+    /// 堆排序
+    int n = 7;
+    int items[7] = {87,79,38,83,72,43,91};
+    ELEMENT1 heap[7];
+    sort->create_binarytree(heap, items, n);
+    sort->heap_sort(heap, n);///38,43,72,79,83,87,91
+
 }
 
 void leetCodes() {

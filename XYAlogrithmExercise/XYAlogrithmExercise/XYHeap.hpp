@@ -31,6 +31,8 @@ class Max_Heap {
     /// 创建二进制树
     int create_binary_tree(ELEMENT *heap,int items[MAX_ELEMENTS]);
 
+    void __swap(ELEMENT *lhs,ELEMENT *rhs);
+    
     void justRun();
 };
 

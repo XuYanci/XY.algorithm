@@ -310,4 +310,39 @@ void XYSort::merge(int arr[],int left,int mid,int right,int temp[]) {
     
 }
 
+int XYSort:: create_binarytree(ELEMENT1 *heap, int items[MAX_ELEMENTS], int n){
+    if (n <= 0) return 0;
+    for (int i = 0; i < n; i++,heap++) {
+        ELEMENT1 value = {items[i]};
+        *heap = value;
+    }
+    return 1;
+}
+
+void XYSort::heap_sort(ELEMENT1 *heap ,int n){
+    
+    
+    cout << "HEAP SORT - - - - - - - - - - " << endl;
+    cout << "origin array is " << endl;
+    for (int i = 0; i <  n; i++) {
+        cout << heap[i].key << ',';
+    }
+    cout << endl;
+    
+    ///创建一个最大堆
+    create_maxheap(heap, n);
+    ///进行排序过程
+    int i = n - 1;
+    while (i >= 0) {
+        __swap(heap+0, heap + i);/// 将第一个和最后一个进行交换
+        adapt_maxheap(heap, 0, i--);///将总的元素个数减一，适配成最大堆，这里只需要对首元素进行最大堆的操作
+    }
+    
+    cout << "HEAP SORT - - - - - - - - - - " << endl;
+    cout << "Sort array is " << endl;
+    for (int i = 0; i <  n; i++) {
+        cout << heap[i].key << ',';
+    }
+    cout << endl;
+}
 

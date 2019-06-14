@@ -18,6 +18,7 @@ void Max_Heap::insert_max_heap(ELEMENT item,int *n) {
     }
     heap[i] = item;
 }
+
 ELEMENT Max_Heap::delete_max_heap(int *n) {
     int parent,child;
     ELEMENT temp,item;
@@ -90,3 +91,4 @@ void Max_Heap::justRun() {
         printf("heap element is %d\n",(*(heap + i)).key);
     }
 }
+
