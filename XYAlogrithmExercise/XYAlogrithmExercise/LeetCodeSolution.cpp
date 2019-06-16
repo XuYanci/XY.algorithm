@@ -576,3 +576,24 @@ int LeetCodeSolution::getMaxValue(vector<int>& nums,int begin,int end) {
     
     return maxValue;
 }
+
+int LeetCodeSolution::maxProfit(vector<int>& prices) {
+    /// 贪心算法
+    if (prices.size() == 0) {
+        return 0;
+    }
+    
+    unsigned long length = prices.size();
+    int res = 0;
+    int cur = prices[0];
+    for (int i = 0; i < length; i++) {
+        if (prices[i] > cur) {
+            res += (prices[i] - cur);
+            cur = prices[i];
+        } else {
+            cur = prices[i];
+        }
+    }
+    
+    return res;
+}

@@ -73,6 +73,8 @@ public:
     // 滑动窗口最大值
     vector<int> maxSlidingWindow(vector<int>& nums, int k);
     
+    // 买卖股票的最佳时间II
+    int maxProfit(vector<int>& prices);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
