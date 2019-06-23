@@ -479,6 +479,8 @@ TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
 }
 
 /// 加一
+/// 解题思路: wait...
+///
 vector<int> LeetCodeSolution::plusOne(vector<int>& digits) {
     int i = 0;
     for (i = digits.size() - 1;i >= 0;i--) {
