@@ -75,6 +75,9 @@ public:
     
     // 买卖股票的最佳时间II
     int maxProfit(vector<int>& prices);
+    // 买卖股票的最佳时机
+    int maxProfit1(vector<int>& prices);
+   
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

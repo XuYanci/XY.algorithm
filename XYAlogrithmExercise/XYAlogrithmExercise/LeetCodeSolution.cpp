@@ -480,7 +480,21 @@ TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
 
 /// 加一
 vector<int> LeetCodeSolution::plusOne(vector<int>& digits) {
-    return vector<int>(0,0);
+    int i = 0;
+    for (i = digits.size() - 1;i >= 0;i--) {
+        if (digits[i] + 1 >= 10) {
+            digits[i] =  ( digits[i] + 1 ) % 10;
+            continue;
+        } else {
+            digits[i] = digits[i] + 1;
+            break;
+        }
+    }
+    
+    if ( i < 0) {
+        digits.insert(digits.begin(), 1);
+    }
+    return digits;
 }
 
 int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
@@ -597,3 +611,20 @@ int LeetCodeSolution::maxProfit(vector<int>& prices) {
     
     return res;
 }
+
+int LeetCodeSolution::maxProfit1(vector<int> &prices) {
+    if (prices.size() < 2) return 0;
+    
+    int maxProfit = 0;
+    int curMin = prices[0];
+    
+    for (int i = 1; i < prices.size(); i++) {
+        curMin = min(curMin, prices[i]);
+        maxProfit = max(maxProfit, prices[i] - curMin);
+    }
+    
+    return maxProfit;
+    
+}
+
+
