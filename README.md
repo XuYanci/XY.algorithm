@@ -1,4 +1,37 @@
 ```
+//
+//  Solution.hpp
+//  XYAlogrithmExercise
+//
+//  Created by Yanci on 2019/4/28.
+//  Copyright © 2019 Yanci. All rights reserved.
+//
+
+#ifndef Solution_hpp
+#define Solution_hpp
+#include <vector>
+#include <stdio.h>
+#include <math.h>
+#include <algorithm>
+#include <stack>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <list>
+ #include <queue>
+using namespace std;
+struct ListNode {
+         int val;
+         ListNode *next;
+         ListNode(int x) : val(x), next(NULL) {}
+};
+
+struct TreeNode {
+         int val;
+         TreeNode *left;
+         TreeNode *right;
+         TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
 class LeetCodeSolution {
 public:
@@ -41,9 +74,174 @@ public:
     // 滑动窗口最大值
     vector<int> maxSlidingWindow(vector<int>& nums, int k);
     
+    // 买卖股票的最佳时间II
+    int maxProfit(vector<int>& prices);
+    // 买卖股票的最佳时机
+    int maxProfit1(vector<int>& prices);
+   
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
     
 };
+
+/// LRU Cache
+class LRUCache {
+    // Double Link List
+    class   Node {
+    public:
+        int key;
+        int val;
+        Node *prev;
+        Node *next;
+    };
+public:
+    LRUCache(int capacity) {
+        cap = capacity;
+        head = new Node();
+        tail = new Node();
+        head->next = tail;
+        tail->prev = head;
+    }
+    // 根据key获取value
+    int get(int key) {
+        /// 查找hashMap，有则返回
+        map<int, Node*>::iterator it;
+        if ((it = hashMap.find(key)) != hashMap.end()) {
+            removeNode(it->second);
+            addNode(it->second);
+            return it->second->val;
+        }
+ 
+        return -1;
+    }
+    
+    // 放入指定value到key中
+    void put(int key, int value) {
+        /// 查找hashMap
+        map<int, Node*>::iterator it;
+        /// 如果存在，则删除节点，并将节点放到最后
+        if ((it = hashMap.find(key)) != hashMap.end()) {
+            it->second->val = value;
+            removeNode(it->second);
+            Node *newNode = new Node();
+            newNode->key = key;
+            newNode->val = value;
+            addNode(newNode);
+//            hashMap.insert(make_pair(key, newNode));
+            hashMap[key] = newNode;
+            return;
+        }
+   
+        /// 如果已满
+        /// 删除最近一个节点
+        if (hashMap.size() == cap) {
+            removeFirst();
+        }
+        
+        /// 如果不存在，则新建节点并将节点放到最后
+        Node *newNode = new Node();
+        newNode->key = key;
+        newNode->val = value;
+        addNode(newNode);
+//        hashMap.insert(make_pair(key, newNode));
+        hashMap[key] = newNode;
+    }
+private:
+    // 删除最近一个节点
+    void removeFirst() {
+        Node *tmp = head->next;
+        removeNode(tmp);
+        hashMap.erase(tmp->key);
+    }
+    // 删除节点
+    void removeNode(Node *n) {
+        n->prev->next = n->next;
+        n->next->prev = n->prev;
+  
+    }
+    
+    // 添加节点
+    void addNode(Node *n) {
+        n->next = tail;
+        n->prev = tail->prev;
+        tail->prev->next = n;
+        tail->prev = n;
+    }
+    
+    /// HashMap
+    map<int,Node *> hashMap;
+    int cap;
+    Node *head;
+    Node *tail;
+};
+
+/// LFUCache
+/// Refer To : https://mp.weixin.qq.com/s/XBP-38JlpYHTTXIKTTdAXg
+class LFUCache {
+public:
+    int cap;
+    //当前容量
+    int size;
+    // 最小的 freq，删除元素时需要知道该删除哪个链表
+    int minFreq;
+    // 保存 value和freq
+    unordered_map<int, pair<int, int>> valueFreqMap;
+    // 保存 key 在链表中的位置
+    unordered_map<int, list<int>::iterator> iterMap;
+    // freq 对应的链表
+    unordered_map<int, list<int>> freqListMap;
+    
+    // 初始化
+    LFUCache(int capacity) {
+        cap = capacity;
+        size = 0;
+    }
+    
+    int get(int key) {
+        if(valueFreqMap.count(key)==0) return -1;
+        // 删除链表中的节点
+        freqListMap[valueFreqMap[key].second].erase(iterMap[key]);
+        // 增加使用频次
+        valueFreqMap[key].second++;
+        // 把 key 放到链表的末尾
+        freqListMap[valueFreqMap[key].second].push_back(key);
+        // 记录 key 值链表中的位置
+        iterMap[key] = --freqListMap[valueFreqMap[key].second].end();
+        // 修改最小 freq
+        if(freqListMap[minFreq].size() == 0)
+            minFreq++;
+        
+        return valueFreqMap[key].first;
+    }
+    
+    void put(int key, int value) {
+        if(cap <= 0) return;
+        // get 方法会修改使用频次
+        int storedValue=get(key);
+        if(storedValue != -1) {
+            valueFreqMap[key].first = value;
+            return;
+        }
+        
+        // 超出容量限制，该删除了
+        if(size >= cap ){
+            valueFreqMap.erase( freqListMap[minFreq].front() );
+            iterMap.erase( freqListMap[minFreq].front() );
+            freqListMap[minFreq].pop_front();
+            size--;
+        }
+        
+        // 保存到各个 map 中
+        valueFreqMap[key] = {value, 1};
+        freqListMap[1].push_back(key);
+        // 最后一个位置
+        iterMap[key] = --freqListMap[1].end();
+        minFreq = 1;
+        size++;
+    }
+};
+
+#endif /* Solution_hpp */
+
 ```
