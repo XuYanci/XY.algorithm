@@ -634,47 +634,12 @@ int LeetCodeSolution::maxProfit1(vector<int> &prices) {
 /// 1. 取较小的数组，按数组对比较，如果相等，则直接返回，如果不相等，则数组队窗口-1，继续从头比较 (暴力)
 /// 算法复杂度:
 /// TODO: 尝试一下，尚未解答
-vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+vector<int> LeetCodeSolution::intersect(vector<int>& nums1, vector<int>& nums2) {
     
-    vector<int> smallOne;
-    
-    int i = 0;
-    int j = 0;
-    
-    /// 取较小窗口
-    int window = int(nums2.size() > nums1.size() ? nums1.size() : nums2.size());
-    /// 算比较次数: bigSize - smallSize + 1
-    int compare_count = int(nums2.size() - nums1.size());
-    compare_count = abs(compare_count) + 1;
+    vector<int> intersetSet;
+   
  
-    /// 当比较次数 > 0
-    while (compare_count > 0) {
-        /// 循环比较
-        for (i = 0; i < compare_count; i++) {
-            /// 清空数据
-            int k = 0;
-            smallOne.clear();
-            /// 比较数组对
-            for (k  = j; k < window + j; k++ ) {
-                if (nums1[j] != nums2[j]) {
-                    break;
-                } else {
-                    smallOne.push_back(nums1[j]);
-                }
-            }
-            /// 如果匹配成功，则直接返回
-            if (k == window + j) {
-                return smallOne;
-            }
-            /// 右移动一位，继续比较
-            j++;
-        }
-        compare_count--;
-        window--;
-    }
-    
- 
-    return smallOne;
+    return intersetSet;
 }
 
 

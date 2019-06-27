@@ -166,4 +166,11 @@ void leetCodes() {
     cache1->get(1);       // 返回 -1 (未找到 key 1)
     cache1->get(3);       // 返回 3
     cache1->get(4);       // 返回 4
+    
+    int a1[5] = {9,4,9,8,4};
+    int b1[3] = {4,9,5};
+    vector<int> nums11(a1,a1+5);
+    vector<int> nums22(b1,b1+3);
+    s->intersect(nums11, nums22);
+    
 }
