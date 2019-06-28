@@ -171,6 +171,6 @@ void leetCodes() {
     int b1[3] = {4,9,5};
     vector<int> nums11(a1,a1+5);
     vector<int> nums22(b1,b1+3);
-    s->intersect(nums11, nums22);
-    
+//    s->intersect(nums11, nums22);
+    s->intersect1(nums11, nums22);
 }

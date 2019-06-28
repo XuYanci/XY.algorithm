@@ -681,5 +681,31 @@ bool LeetCodeSolution::compareTwoArray(vector<int>&nums1,vector<int>&nums2) {
     return false;
 }
 
+vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2) {
+    unordered_map<int, int> map;
+    vector<int>bigNums = nums1.size() > nums2.size() ? nums1 : nums2;
+    vector<int>smallNums = nums1.size() > nums2.size() ? nums2 : nums1;
+    vector<int>nums;
+    for (int i = 0; i < bigNums.size(); i++) {
+        auto u = map.find(bigNums[i]);
+        if (u != map.end()) {
+            u->second = u->second + 1;
+        } else {
+            map.insert({bigNums[i],1});
+        }
+        map.insert({bigNums[i],0});
+    }
+    
+    for (int i = 0; i < smallNums.size(); i++) {
+        auto u = map.find(smallNums[i]);
+        if (u != map.end()) {
+            if (u->second > 0) {
+                u->second = u->second - 1;
+                nums.push_back(u->first);
+            }
+        }
+    }
 
+    return nums;
+}
 
