@@ -479,8 +479,24 @@ TreeNode* LeetCodeSolution::invertTree(TreeNode* root) {
 }
 
 /// 加一
+/// 解题思路: wait...
+///
 vector<int> LeetCodeSolution::plusOne(vector<int>& digits) {
-    return vector<int>(0,0);
+    int i = 0;
+    for (i = digits.size() - 1;i >= 0;i--) {
+        if (digits[i] + 1 >= 10) {
+            digits[i] =  ( digits[i] + 1 ) % 10;
+            continue;
+        } else {
+            digits[i] = digits[i] + 1;
+            break;
+        }
+    }
+    
+    if ( i < 0) {
+        digits.insert(digits.begin(), 1);
+    }
+    return digits;
 }
 
 int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
@@ -576,3 +592,120 @@ int LeetCodeSolution::getMaxValue(vector<int>& nums,int begin,int end) {
     
     return maxValue;
 }
+
+int LeetCodeSolution::maxProfit(vector<int>& prices) {
+    /// 贪心算法
+    if (prices.size() == 0) {
+        return 0;
+    }
+    
+    unsigned long length = prices.size();
+    int res = 0;
+    int cur = prices[0];
+    for (int i = 0; i < length; i++) {
+        if (prices[i] > cur) {
+            res += (prices[i] - cur);
+            cur = prices[i];
+        } else {
+            cur = prices[i];
+        }
+    }
+    
+    return res;
+}
+
+int LeetCodeSolution::maxProfit1(vector<int> &prices) {
+    if (prices.size() < 2) return 0;
+    
+    int maxProfit = 0;
+    int curMin = prices[0];
+    
+    for (int i = 1; i < prices.size(); i++) {
+        curMin = min(curMin, prices[i]);
+        maxProfit = max(maxProfit, prices[i] - curMin);
+    }
+    
+    return maxProfit;
+    
+}
+
+/// 两个数组的交集,特殊版 (考虑顺序)
+/// 解题思路:
+/// 1. 取较小的数组，按数组对比较，如果相等，则直接返回，如果不相等，则数组队窗口-1，继续从头比较 (暴力)
+/// 495
+/// 1. 4 9 5
+/// 2. 4 9 / 9 5
+/// 3. 4 / 9 / 5
+/// 算法复杂度:
+/// TODO: 尝试一下，尚未解答
+vector<int> LeetCodeSolution::intersect(vector<int>& nums1, vector<int>& nums2) {
+    
+    vector<int> intersetSet;
+  
+    vector<int> small_nums = nums1.size() > nums2.size() ? nums2 : nums1;
+    vector<int> big_nums = nums1.size() > nums2.size() ? nums1 : nums2;
+    int count = int(small_nums.size());
+    
+    while (count > 0) {
+        for (int i = 0; i < small_nums.size() - count + 1; i++) {
+            std::vector<int>::const_iterator first1 = small_nums.begin() + i;
+            std::vector<int>::const_iterator last1  = small_nums.begin() + i + count;
+            std::vector<int> cut1_vector(first1, last1);
+            if (compareTwoArray(cut1_vector, big_nums)) {
+                return cut1_vector;
+            }
+        }
+        count--;
+    }
+    
+ 
+    return intersetSet;
+}
+
+
+
+bool LeetCodeSolution::compareTwoArray(vector<int>&nums1,vector<int>&nums2) {
+    int compareCount = int(nums2.size() - nums1.size()) + 1;
+    
+    for (int i = 0; i < compareCount; i++) {
+        int j;
+        for (j = i; j < nums1.size() + i; j++) {
+            if (nums1[j - i] != nums2[j]) {
+                break;
+            }
+        }
+        if (j == nums1.size() + i) {
+            return true;
+        }
+    }
+    return false;
+}
+
+vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2) {
+    unordered_map<int, int> map;
+    vector<int>bigNums = nums1.size() > nums2.size() ? nums1 : nums2;
+    vector<int>smallNums = nums1.size() > nums2.size() ? nums2 : nums1;
+    vector<int>nums;
+    for (int i = 0; i < bigNums.size(); i++) {
+        auto u = map.find(bigNums[i]);
+        if (u != map.end()) {
+            u->second = u->second + 1;
+        } else {
+            map.insert({bigNums[i],1});
+        }
+        map.insert({bigNums[i],0});
+    }
+    
+    for (int i = 0; i < smallNums.size(); i++) {
+        auto u = map.find(smallNums[i]);
+        if (u != map.end()) {
+            if (u->second > 0) {
+                u->second = u->second - 1;
+                nums.push_back(u->first);
+            }
+        }
+    }
+
+    return nums;
+}
+
