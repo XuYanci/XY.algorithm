@@ -632,14 +632,53 @@ int LeetCodeSolution::maxProfit1(vector<int> &prices) {
 /// 两个数组的交集 II
 /// 解题思路:
 /// 1. 取较小的数组，按数组对比较，如果相等，则直接返回，如果不相等，则数组队窗口-1，继续从头比较 (暴力)
+/// 495
+/// 1. 4 9 5
+/// 2. 4 9 / 9 5
+/// 3. 4 / 9 / 5
 /// 算法复杂度:
 /// TODO: 尝试一下，尚未解答
 vector<int> LeetCodeSolution::intersect(vector<int>& nums1, vector<int>& nums2) {
     
     vector<int> intersetSet;
-   
+    int count = int(nums1.size());
+    vector<int> small_nums = nums1.size() > nums2.size() ? nums2 : nums1;
+    vector<int> big_nums = nums1.size() > nums2.size() ? nums1 : nums2;
+    
+    
+    while (count > 0) {
+        for (int i = 0; i < nums1.size() - count + 1; i++) {
+            std::vector<int>::const_iterator first1 = big_nums.begin() + i;
+            std::vector<int>::const_iterator last1  = big_nums.begin() + i + count;
+            std::vector<int> cut1_vector(first1, last1);
+            if (compareTwoArray(cut1_vector, big_nums)) {
+                return cut1_vector;
+            }
+        }
+        count--;
+    }
+    
  
     return intersetSet;
 }
+
+
+
+bool LeetCodeSolution::compareTwoArray(vector<int>&nums1,vector<int>&nums2) {
+    /// @ TODO: 
+    int i = 0 ;
+    for (i = 0; i < nums1.size(); i++) {
+        if (nums1[i] != nums2[i]) {
+            break;
+        }
+    }
+    
+    if (i == nums1.size()) {
+        return true;
+    }
+    
+    return false;
+}
+
 
 

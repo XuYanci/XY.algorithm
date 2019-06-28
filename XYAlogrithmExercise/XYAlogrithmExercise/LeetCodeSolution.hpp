@@ -82,6 +82,7 @@ public:
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
+    bool compareTwoArray(vector<int>&nums1,vector<int>&nums2);
     
 };
 
