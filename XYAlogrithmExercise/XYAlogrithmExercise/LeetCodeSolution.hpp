@@ -77,7 +77,10 @@ public:
     int maxProfit1(vector<int>& prices);
     // 两个数组的交集 (考虑顺序)
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2);
+    // 两个数组的交集 (不考虑顺序)
     vector<int> intersect1(vector<int>& nums1, vector<int>& nums2);
+    
+    void rotate(vector<vector<int>>& matrix) ;
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

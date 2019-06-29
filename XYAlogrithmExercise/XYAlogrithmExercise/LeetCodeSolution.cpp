@@ -519,47 +519,47 @@ int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
     }
     return maxLen;
 }
- 
+
 
 /*
  滑动窗口最大值
  1.暴力遍历法
  2.双向队列解法
-*/
+ */
 typedef pair<int, int> Pair;
 vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
     vector<int>maxes;
-
+    
     // 暴力遍历法
-//    for (int i = 0; i < nums.size(); i+= 1) {
-//        int value = getMaxValue(nums,i,i+k);
-//        maxes.push_back(value);
-//    }
-//    return maxes;
+    //    for (int i = 0; i < nums.size(); i+= 1) {
+    //        int value = getMaxValue(nums,i,i+k);
+    //        maxes.push_back(value);
+    //    }
+    //    return maxes;
     
     // 双向队列解法
-//    if (nums.size() == 0)
-//        return vector<int>(0);
-//
-//    deque<int> Q;
-//    vector<int>B(nums.size() - k + 1);
-//    int w = k;
-//    int n = nums.size();
-//    for (int i = 0; i < w; i++) {
-//        while (!Q.empty() && nums[i] >= nums[Q.back()])
-//            Q.pop_back();
-//        Q.push_back(i);
-//    }
-//    for (int i = w; i < n; i++) {
-//        B[i-w] = nums[Q.front()];
-//        while (!Q.empty() && nums[i] >= nums[Q.back()])
-//            Q.pop_back();
-//        while (!Q.empty() && Q.front() <= i-w)
-//            Q.pop_front();
-//        Q.push_back(i);
-//    }
-//    B[n-w] = nums[Q.front()];
-//    return B;
+    //    if (nums.size() == 0)
+    //        return vector<int>(0);
+    //
+    //    deque<int> Q;
+    //    vector<int>B(nums.size() - k + 1);
+    //    int w = k;
+    //    int n = nums.size();
+    //    for (int i = 0; i < w; i++) {
+    //        while (!Q.empty() && nums[i] >= nums[Q.back()])
+    //            Q.pop_back();
+    //        Q.push_back(i);
+    //    }
+    //    for (int i = w; i < n; i++) {
+    //        B[i-w] = nums[Q.front()];
+    //        while (!Q.empty() && nums[i] >= nums[Q.back()])
+    //            Q.pop_back();
+    //        while (!Q.empty() && Q.front() <= i-w)
+    //            Q.pop_front();
+    //        Q.push_back(i);
+    //    }
+    //    B[n-w] = nums[Q.front()];
+    //    return B;
     
     /// 最大堆解法
     int w = k;
@@ -567,7 +567,7 @@ vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
     vector<int>B(nums.size() - k + 1);
     priority_queue<Pair> Q; //优先级队列保存窗口里面的值
     for (int i = 0; i < w; i++)
-    Q.push(Pair(nums[i], i));  //构建w个元素的最大堆
+        Q.push(Pair(nums[i], i));  //构建w个元素的最大堆
     for (int i = w; i < n; i++) {
         Pair p = Q.top();
         B[i-w] = p.first;
@@ -641,7 +641,7 @@ int LeetCodeSolution::maxProfit1(vector<int> &prices) {
 vector<int> LeetCodeSolution::intersect(vector<int>& nums1, vector<int>& nums2) {
     
     vector<int> intersetSet;
-  
+    
     vector<int> small_nums = nums1.size() > nums2.size() ? nums2 : nums1;
     vector<int> big_nums = nums1.size() > nums2.size() ? nums1 : nums2;
     int count = int(small_nums.size());
@@ -658,7 +658,7 @@ vector<int> LeetCodeSolution::intersect(vector<int>& nums1, vector<int>& nums2) 
         count--;
     }
     
- 
+    
     return intersetSet;
 }
 
@@ -683,8 +683,8 @@ bool LeetCodeSolution::compareTwoArray(vector<int>&nums1,vector<int>&nums2) {
 
 vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2) {
     unordered_map<int, int> map;
-    vector<int>bigNums = nums1.size() > nums2.size() ? nums1 : nums2;
-    vector<int>smallNums = nums1.size() > nums2.size() ? nums2 : nums1;
+    vector<int>&bigNums = nums1.size() > nums2.size() ? nums1 : nums2;
+    vector<int>&smallNums = nums1.size() > nums2.size() ? nums2 : nums1;
     vector<int>nums;
     for (int i = 0; i < bigNums.size(); i++) {
         auto u = map.find(bigNums[i]);
@@ -705,7 +705,37 @@ vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2)
             }
         }
     }
-
+    
     return nums;
+}
+
+/* 旋转数组
+ 解题思路:
+ 旋转单个 (y,n - x - 1) = (x,y)
+ 考虑层数, 旋转最外层后，层数 - 2, 如果 大于等于2，层数+1,继续遍历
+ 复杂度:
+ */
+void LeetCodeSolution::rotate(vector<vector<int>>& matrix) {
+    
+    // n 代表阶数
+    int n = int(matrix.size());
+    // 层数，最外层 = 0 (row)
+    int floor = 0;
+    
+    while (n >= 2) {
+        /// col 代表列哦
+        for (int col = 0; col < n - 1; col++) {
+            ///  temp = (floor + col , n - 1 - floor)
+            ///  (floor + col , n - 1 - floor) = (floor,floor + col )
+            ///  temp1 = (n - 1 - floor  , n - 1 - floor + col )
+            ///  (n - 1 - floor , n - 1 - floor + col) = temp
+            ///  temp2 = (n - 1 - floor + col, floor)
+            ///  (n - 1 - floor + col , floor) = temp1
+            ///  (floor , floor + col) =  temp2
+        }
+        
+        n = n - 2;
+        floor++;
+    }
 }
 

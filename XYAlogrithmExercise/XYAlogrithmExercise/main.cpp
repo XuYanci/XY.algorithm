@@ -173,4 +173,20 @@ void leetCodes() {
     vector<int> nums22(b1,b1+3);
 //    s->intersect(nums11, nums22);
     s->intersect1(nums11, nums22);
+
+    vector<vector<int>> matrix;
+    int a11[4] = {5,1,9,11};
+    int a22[4] = {2,4,8,10};
+    int a33[4] = {13,3,6,7};
+    int a44[4] = {15,14,12,16};
+    vector<int> nums111(a11,a11+4);
+    vector<int> nums222(a22,a22+4);
+    vector<int> nums333(a33,a33+4);
+    vector<int> nums444(a44,a44+4);
+    
+    matrix.push_back(nums111);
+    matrix.push_back(nums222);
+    matrix.push_back(nums333);
+    matrix.push_back(nums444);
+    s->rotate(matrix);
 }
