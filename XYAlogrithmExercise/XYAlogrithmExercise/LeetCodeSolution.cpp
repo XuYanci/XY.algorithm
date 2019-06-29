@@ -725,13 +725,13 @@ void LeetCodeSolution::rotate(vector<vector<int>>& matrix) {
     while (n >= 2) {
         /// col 代表列哦
         for (int col = 0; col < n - 1; col++) {
-            ///  temp = (floor + col , n - 1 - floor)
-            ///  (floor + col , n - 1 - floor) = (floor,floor + col )
-            ///  temp1 = (n - 1 - floor  , n - 1 - floor + col )
-            ///  (n - 1 - floor , n - 1 - floor + col) = temp
-            ///  temp2 = (n - 1 - floor + col, floor)
-            ///  (n - 1 - floor + col , floor) = temp1
-            ///  (floor , floor + col) =  temp2
+            int temp = matrix[floor + col][n - 1 + floor];
+            matrix[floor + col][n - 1 + floor] = matrix[floor][floor + col];
+            int temp1 = matrix[n - 1 + floor][n - 1 + floor - col];
+            matrix[n - 1 + floor][n - 1 + floor - col] = temp;
+            int temp2 = matrix[n - 1 + floor - col][floor];
+            matrix[n - 1 + floor - col][floor] = temp1;
+            matrix[floor][floor  + col] = temp2;
         }
         
         n = n - 2;
