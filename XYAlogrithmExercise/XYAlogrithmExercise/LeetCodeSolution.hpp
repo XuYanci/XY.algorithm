@@ -80,7 +80,11 @@ public:
     // 两个数组的交集 (不考虑顺序)
     vector<int> intersect1(vector<int>& nums1, vector<int>& nums2);
     
+    /// 选择矩阵
     void rotate(vector<vector<int>>& matrix) ;
+    
+    /// 有效的数独
+    bool isValidSudoku(vector<vector<char>>& board);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

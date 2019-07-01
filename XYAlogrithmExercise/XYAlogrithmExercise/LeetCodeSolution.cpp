@@ -739,3 +739,10 @@ void LeetCodeSolution::rotate(vector<vector<int>>& matrix) {
     }
 }
 
+/** 有效的数独
+ * 解题思路：
+ * 算法复杂度:
+ */
+bool LeetCodeSolution::  isValidSudoku(vector<vector<char>>& board) {
+    return false;
+}
