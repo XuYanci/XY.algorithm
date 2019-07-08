@@ -14,3 +14,6 @@ $ ./a.out
 1. main.c 哈希表测试示例程序。
 
 更多的内容请直接参考代码实现。
+
+
+https://github.com/reeze/tipi/blob/master/book/chapt03/03-01-01-hashtable.markdown
