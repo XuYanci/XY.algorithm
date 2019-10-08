@@ -709,3 +709,7 @@ vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2)
     return nums;
 }
 
+vector<int> LeetCodeSolution::findRightInterval(vector<vector<int>>& intervals) {
+      vector<int>nums;
+    return nums;
+}
