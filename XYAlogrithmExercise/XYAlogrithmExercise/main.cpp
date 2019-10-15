@@ -173,4 +173,15 @@ void leetCodes() {
     vector<int> nums22(b1,b1+3);
 //    s->intersect(nums11, nums22);
     s->intersect1(nums11, nums22);
+    
+    
+    ListNode *l01 = new ListNode(1);
+    ListNode *l02 = new ListNode(2);
+    ListNode *l03 = new ListNode(3);
+//    ListNode *l04 = new ListNode(4);
+    l01->next = l02;
+    l02->next = l03;
+//    l03->next = l04;
+     ListNode *head =  s->swapPairs(l01);
+    
 }

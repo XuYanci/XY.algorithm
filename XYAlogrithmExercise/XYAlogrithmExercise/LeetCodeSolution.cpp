@@ -11,11 +11,21 @@ void LeetCodeSolution::reverseString(vector<char>& s)
 {
     // {1,2,3,4,5,6}
     
-    for (int i = 0; i < s.size() / 2;i++) {
-        char j = s[i];
-        s[i] =  s[s.size() - i - 1];
-        s[s.size() - i - 1] = j;
-    }
+//    for (int i = 0; i < s.size() / 2;i++) {
+//        char j = s[i];
+//        s[i] =  s[s.size() - i - 1];
+//        s[s.size() - i - 1] = j;
+//    }
+    
+    if (s.empty()) return;
+    reverseString_recursive(s, 0, s.size() - 1);
+ 
+}
+
+void LeetCodeSolution::reverseString_recursive(vector<char> &s,int start,int end) {
+    if (start > end) return; // 递归出口
+    reverseString_recursive(s, start + 1, end - 1); // 递归体
+    swap(s[start],s[end]); // 递归函数
 }
 
 vector<int> LeetCodeSolution:: twoSum(vector<int>& nums, int target) {
@@ -712,4 +722,16 @@ vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2)
 vector<int> LeetCodeSolution::findRightInterval(vector<vector<int>>& intervals) {
       vector<int>nums;
     return nums;
+}
+
+/// 两两交换链表中的节点
+ListNode * LeetCodeSolution::swapPairs(ListNode *head) {
+    if (head == NULL) return NULL;
+    ListNode *head1 = head->next;
+    if (head1 == NULL) return head;
+    ListNode *Node = head->next->next;
+    head->next->next = head;
+    ListNode *Node1 = swapPairs(Node);
+    head->next = Node1;
+    return head1;
 }

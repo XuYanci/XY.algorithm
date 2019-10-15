@@ -63,7 +63,6 @@ public:
     // 合并两个数组
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
     // 二叉树反转
-    
     TreeNode* invertTree(TreeNode* root);
     /// 加一
     vector<int> plusOne(vector<int>& digits);
@@ -80,11 +79,14 @@ public:
     vector<int> intersect1(vector<int>& nums1, vector<int>& nums2);
     // 寻找右区间
     vector<int> findRightInterval(vector<vector<int>>& intervals);
+    /// 两两交换链表中的节点
+    ListNode *swapPairs(ListNode *head);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
     bool compareTwoArray(vector<int>&nums1,vector<int>&nums2);
-    
+    void reverseString_recursive(vector<char> &s,int start,int end);
+
 };
 
 /// LRU Cache
