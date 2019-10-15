@@ -47,6 +47,8 @@ public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2);
     // 两个数组的交集 (不考虑顺序)
     vector<int> intersect1(vector<int>& nums1, vector<int>& nums2);
+    /// 两两交换链表中的节点
+    ListNode *swapPairs(ListNode *head);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
