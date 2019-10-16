@@ -91,6 +91,7 @@ private:
     bool compareTwoArray(vector<int>&nums1,vector<int>&nums2);
     void reverseString_recursive(vector<char> &s,int start,int end);
     int generate_00(int i,int j);
+    int generate_000(int i, int j);
 };
 
 /// LRU Cache

@@ -184,6 +184,10 @@ void leetCodes() {
 //    l03->next = l04;
      ListNode *head =  s->swapPairs(l01);
     
-    /// 帕斯卡三角
+    /// YangHui Triangle 1
     s->generate(5);
+    
+    /// YangHui Triangle 2
+    s->getRow(3);
+    
 }

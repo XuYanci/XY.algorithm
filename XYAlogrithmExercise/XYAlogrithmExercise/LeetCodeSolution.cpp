@@ -772,8 +772,25 @@ int LeetCodeSolution::generate_00(int i, int j) {
     if (j == i) return 1 ;
     return generators[i - 1 - 1][j - 1 - 1] + generators[i - 1 - 1][j - 1];
 }
-
+// 输入: 3
+// 输出: [1,3,3,1]
+///思路:做法一样，但是不需要保存所有，只是需要保存上一个记录即可
+vector<int> generator__;
 vector<int> LeetCodeSolution::getRow(int rowIndex) {
     vector<int> generator;
+    for (int i = 1; i <= rowIndex + 1; i++) {
+        generator.clear();
+        for (int j = 1; j <= i; j++) {
+            int value = generate_000(i,j);
+            generator.push_back(value);
+        }
+        generator__ = generator;
+    }
     return generator;
+}
+
+int LeetCodeSolution::generate_000(int i, int j) {
+    if (j == 1) return 1;
+    if (j == i) return 1 ;
+    return generator__[j - 1 - 1] + generator__[j - 1];
 }
