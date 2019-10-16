@@ -184,4 +184,6 @@ void leetCodes() {
 //    l03->next = l04;
      ListNode *head =  s->swapPairs(l01);
     
+    /// 帕斯卡三角
+    s->generate(5);
 }

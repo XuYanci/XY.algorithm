@@ -735,3 +735,45 @@ ListNode * LeetCodeSolution::swapPairs(ListNode *head) {
     head->next = Node1;
     return head1;
 }
+
+//输入: 5
+//输出:
+//[
+// [1],
+// [1,1],
+// [1,2,1],
+// [1,3,3,1],
+// [1,4,6,4,1]
+// ]
+// Functions :
+// f(i,j)=f(i−1,j−1)+f(i−1,j)
+// f(i,j)=1 wherej=1 or j=i
+/// Row Array
+vector<vector<int>> generators;
+
+vector<vector<int>> LeetCodeSolution::generate(int numRows) {
+  
+    /// Row
+    for (int i = 1; i <= numRows; i++) {
+        /// Column Array
+        vector<int> generator;
+        /// Column
+        for (int j = 1; j <= i; j++) {
+            int value = generate_00(i,j);
+            generator.push_back(value);
+        }
+        generators.push_back(generator);
+    }
+    return generators;
+}
+
+int LeetCodeSolution::generate_00(int i, int j) {
+    if (j == 1) return 1;
+    if (j == i) return 1 ;
+    return generators[i - 1 - 1][j - 1 - 1] + generators[i - 1 - 1][j - 1];
+}
+
+vector<int> LeetCodeSolution::getRow(int rowIndex) {
+    vector<int> generator;
+    return generator;
+}
