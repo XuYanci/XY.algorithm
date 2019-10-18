@@ -794,3 +794,8 @@ int LeetCodeSolution::generate_000(int i, int j) {
     if (j == i) return 1 ;
     return generator__[j - 1 - 1] + generator__[j - 1];
 }
+
+//   Pow(x, n)
+double myPow(double x, int n)  {
+    return 0.0;
+}

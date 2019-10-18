@@ -85,6 +85,8 @@ public:
     vector<vector<int>> generate(int numRows);
     /// 杨辉三角形2
     vector<int> getRow(int rowIndex);
+    /// Pow  X的N次方
+    double myPow(double x, int n);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
