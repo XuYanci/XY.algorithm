@@ -741,8 +741,27 @@ void LeetCodeSolution::rotate(vector<vector<int>>& matrix) {
 
 /** 有效的数独
  * 解题思路：
+ * 1. 横向扫描
+ * 2. 纵向扫描
+ * 3. 格子扫描
  * 算法复杂度:
  */
 bool LeetCodeSolution::  isValidSudoku(vector<vector<char>>& board) {
+    
+    /// 横向扫描
+    for (int i = 0; i < board.size(); i++) {
+        
+    }
+    
+    /// 纵向扫描
+    for (int j = 0; j < board.size(); j++) {
+        
+    }
+    
+    /// 小格子扫描
+    for (int i = 0; i < 9; i++) {
+        
+    }
+    
     return false;
 }
