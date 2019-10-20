@@ -799,3 +799,8 @@ int LeetCodeSolution::generate_000(int i, int j) {
 double myPow(double x, int n)  {
     return 0.0;
 }
+
+int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
+{
+    return 0;
+}

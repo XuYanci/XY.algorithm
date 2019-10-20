@@ -87,6 +87,7 @@ public:
     vector<int> getRow(int rowIndex);
     /// Pow  X的N次方
     double myPow(double x, int n);
+    int numIslands(vector<vector<char>>& grid);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
