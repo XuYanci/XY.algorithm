@@ -8,7 +8,7 @@
 
 #ifndef XYQueue_hpp
 #define XYQueue_hpp
-
+#include <list>
 #include <stdio.h>
 class MyCircularQueue {
 public:
@@ -67,5 +67,16 @@ public:
         return (currentIndex + 1 == currentLength ) ? true : false;
     }
 };
- 
+
+
+struct Node {
+    int val;
+    std::list<Node>list;
+};
+
+
+class XYQueue {
+    /// 广度优先搜索
+    int BFS(Node root, Node target);
+};
 #endif /* XYQueue_hpp */
