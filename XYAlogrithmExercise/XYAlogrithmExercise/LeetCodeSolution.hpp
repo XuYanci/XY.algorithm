@@ -87,6 +87,7 @@ public:
     vector<int> getRow(int rowIndex);
     /// Pow  X的N次方
     double myPow(double x, int n);
+    /// 岛屿问题
     int numIslands(vector<vector<char>>& grid);
 private:
     bool isPrime(int num);
@@ -95,6 +96,8 @@ private:
     void reverseString_recursive(vector<char> &s,int start,int end);
     int generate_00(int i,int j);
     int generate_000(int i, int j);
+    int islands_bfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
+    int islands_dfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
 };
 
 /// LRU Cache

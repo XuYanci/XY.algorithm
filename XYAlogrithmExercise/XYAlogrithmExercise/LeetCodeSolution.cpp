@@ -802,5 +802,43 @@ double myPow(double x, int n)  {
 
 int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
 {
+    unsigned long  m = grid[0].size();
+    unsigned long  n = grid.size();
+    int num = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n;j++) {
+            if (grid[i][j] != 1) {
+                islands_bfs(grid, i, j, m, n);
+                num++;
+            }
+        }
+    }
+    return num;
+}
+
+/// Not Verify
+int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
+    queue<char *> _queue;
+    _queue.push(&grid[i][j]);
+    while (_queue.empty() == false) {
+        size_t size = _queue.size();
+        for (int i = 0; i < size; i++) {
+            char *cur = _queue.front();
+            if(i + 1 < m) {
+                _queue.push(&grid[i+1][j]);
+            }
+            if (j + 1 < n) {
+                _queue.push(&grid[i][j + 1]);
+            }
+            *cur = 1;
+            _queue.pop();
+        }
+    }
     return 0;
 }
+
+int LeetCodeSolution::islands_dfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
+    return 0;
+}
+
+
