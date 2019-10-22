@@ -190,4 +190,7 @@ void leetCodes() {
     /// YangHui Triangle 2
     s->getRow(3);
     
+    /// 岛屿数量
+    vector<vector<char> > grid = {{1,1,1,1,0},{1,1,0,1,0},{1,1,0,0,0},{1,1,0,0,0},{0,0,0,0,0}};
+    s->numIslands(grid);
 }

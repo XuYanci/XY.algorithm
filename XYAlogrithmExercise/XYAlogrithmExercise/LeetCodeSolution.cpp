@@ -11,15 +11,15 @@ void LeetCodeSolution::reverseString(vector<char>& s)
 {
     // {1,2,3,4,5,6}
     
-//    for (int i = 0; i < s.size() / 2;i++) {
-//        char j = s[i];
-//        s[i] =  s[s.size() - i - 1];
-//        s[s.size() - i - 1] = j;
-//    }
+    //    for (int i = 0; i < s.size() / 2;i++) {
+    //        char j = s[i];
+    //        s[i] =  s[s.size() - i - 1];
+    //        s[s.size() - i - 1] = j;
+    //    }
     
     if (s.empty()) return;
     reverseString_recursive(s, 0, s.size() - 1);
- 
+    
 }
 
 void LeetCodeSolution::reverseString_recursive(vector<char> &s,int start,int end) {
@@ -529,47 +529,47 @@ int LeetCodeSolution::lengthOfLIS(vector<int>& nums) {
     }
     return maxLen;
 }
- 
+
 
 /*
  滑动窗口最大值
  1.暴力遍历法
  2.双向队列解法
-*/
+ */
 typedef pair<int, int> Pair;
 vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
     vector<int>maxes;
-
+    
     // 暴力遍历法
-//    for (int i = 0; i < nums.size(); i+= 1) {
-//        int value = getMaxValue(nums,i,i+k);
-//        maxes.push_back(value);
-//    }
-//    return maxes;
+    //    for (int i = 0; i < nums.size(); i+= 1) {
+    //        int value = getMaxValue(nums,i,i+k);
+    //        maxes.push_back(value);
+    //    }
+    //    return maxes;
     
     // 双向队列解法
-//    if (nums.size() == 0)
-//        return vector<int>(0);
-//
-//    deque<int> Q;
-//    vector<int>B(nums.size() - k + 1);
-//    int w = k;
-//    int n = nums.size();
-//    for (int i = 0; i < w; i++) {
-//        while (!Q.empty() && nums[i] >= nums[Q.back()])
-//            Q.pop_back();
-//        Q.push_back(i);
-//    }
-//    for (int i = w; i < n; i++) {
-//        B[i-w] = nums[Q.front()];
-//        while (!Q.empty() && nums[i] >= nums[Q.back()])
-//            Q.pop_back();
-//        while (!Q.empty() && Q.front() <= i-w)
-//            Q.pop_front();
-//        Q.push_back(i);
-//    }
-//    B[n-w] = nums[Q.front()];
-//    return B;
+    //    if (nums.size() == 0)
+    //        return vector<int>(0);
+    //
+    //    deque<int> Q;
+    //    vector<int>B(nums.size() - k + 1);
+    //    int w = k;
+    //    int n = nums.size();
+    //    for (int i = 0; i < w; i++) {
+    //        while (!Q.empty() && nums[i] >= nums[Q.back()])
+    //            Q.pop_back();
+    //        Q.push_back(i);
+    //    }
+    //    for (int i = w; i < n; i++) {
+    //        B[i-w] = nums[Q.front()];
+    //        while (!Q.empty() && nums[i] >= nums[Q.back()])
+    //            Q.pop_back();
+    //        while (!Q.empty() && Q.front() <= i-w)
+    //            Q.pop_front();
+    //        Q.push_back(i);
+    //    }
+    //    B[n-w] = nums[Q.front()];
+    //    return B;
     
     /// 最大堆解法
     int w = k;
@@ -577,7 +577,7 @@ vector<int> LeetCodeSolution::maxSlidingWindow(vector<int>& nums, int k) {
     vector<int>B(nums.size() - k + 1);
     priority_queue<Pair> Q; //优先级队列保存窗口里面的值
     for (int i = 0; i < w; i++)
-    Q.push(Pair(nums[i], i));  //构建w个元素的最大堆
+        Q.push(Pair(nums[i], i));  //构建w个元素的最大堆
     for (int i = w; i < n; i++) {
         Pair p = Q.top();
         B[i-w] = p.first;
@@ -651,7 +651,7 @@ int LeetCodeSolution::maxProfit1(vector<int> &prices) {
 vector<int> LeetCodeSolution::intersect(vector<int>& nums1, vector<int>& nums2) {
     
     vector<int> intersetSet;
-  
+    
     vector<int> small_nums = nums1.size() > nums2.size() ? nums2 : nums1;
     vector<int> big_nums = nums1.size() > nums2.size() ? nums1 : nums2;
     int count = int(small_nums.size());
@@ -668,7 +668,7 @@ vector<int> LeetCodeSolution::intersect(vector<int>& nums1, vector<int>& nums2) 
         count--;
     }
     
- 
+    
     return intersetSet;
 }
 
@@ -715,12 +715,12 @@ vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2)
             }
         }
     }
-
+    
     return nums;
 }
 
 vector<int> LeetCodeSolution::findRightInterval(vector<vector<int>>& intervals) {
-      vector<int>nums;
+    vector<int>nums;
     return nums;
 }
 
@@ -752,7 +752,7 @@ ListNode * LeetCodeSolution::swapPairs(ListNode *head) {
 vector<vector<int>> generators;
 
 vector<vector<int>> LeetCodeSolution::generate(int numRows) {
-  
+    
     /// Row
     for (int i = 1; i <= numRows; i++) {
         /// Column Array
@@ -807,7 +807,7 @@ int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
     int num = 0;
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n;j++) {
-            if (grid[i][j] != 1) {
+            if (grid[i][j] == 1) {
                 islands_bfs(grid, i, j, m, n);
                 num++;
             }
@@ -816,24 +816,13 @@ int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
     return num;
 }
 
-/// Not Verify
+/// 思路
+/// 从左上角开始 (0,0)
+/// 从左边往右染色 (1 -> 0)，遇到0,停止左边到右边的染色，出队列，开始上到下的染色
+/// 从上往下染色 (1 -> 0)
+/// 遇到0停止，
 int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
-    queue<char *> _queue;
-    _queue.push(&grid[i][j]);
-    while (_queue.empty() == false) {
-        size_t size = _queue.size();
-        for (int i = 0; i < size; i++) {
-            char *cur = _queue.front();
-            if(i + 1 < m) {
-                _queue.push(&grid[i+1][j]);
-            }
-            if (j + 1 < n) {
-                _queue.push(&grid[i][j + 1]);
-            }
-            *cur = 1;
-            _queue.pop();
-        }
-    }
+    
     return 0;
 }
 
