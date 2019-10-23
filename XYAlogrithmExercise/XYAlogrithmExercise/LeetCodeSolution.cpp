@@ -11,11 +11,21 @@ void LeetCodeSolution::reverseString(vector<char>& s)
 {
     // {1,2,3,4,5,6}
     
-    for (int i = 0; i < s.size() / 2;i++) {
-        char j = s[i];
-        s[i] =  s[s.size() - i - 1];
-        s[s.size() - i - 1] = j;
-    }
+    //    for (int i = 0; i < s.size() / 2;i++) {
+    //        char j = s[i];
+    //        s[i] =  s[s.size() - i - 1];
+    //        s[s.size() - i - 1] = j;
+    //    }
+    
+    if (s.empty()) return;
+    reverseString_recursive(s, 0, s.size() - 1);
+    
+}
+
+void LeetCodeSolution::reverseString_recursive(vector<char> &s,int start,int end) {
+    if (start > end) return; // 递归出口
+    reverseString_recursive(s, start + 1, end - 1); // 递归体
+    swap(s[start],s[end]); // 递归函数
 }
 
 vector<int> LeetCodeSolution:: twoSum(vector<int>& nums, int target) {
@@ -706,6 +716,7 @@ vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2)
         }
     }
     
+ 
     return nums;
 }
 
@@ -765,3 +776,119 @@ bool LeetCodeSolution::  isValidSudoku(vector<vector<char>>& board) {
     
     return false;
 }
+
+
+
+vector<int> LeetCodeSolution::findRightInterval(vector<vector<int>>& intervals) {
+    vector<int>nums;
+    return nums;
+}
+
+/// 两两交换链表中的节点
+ListNode * LeetCodeSolution::swapPairs(ListNode *head) {
+    if (head == NULL) return NULL;
+    ListNode *head1 = head->next;
+    if (head1 == NULL) return head;
+    ListNode *Node = head->next->next;
+    head->next->next = head;
+    ListNode *Node1 = swapPairs(Node);
+    head->next = Node1;
+    return head1;
+}
+
+//输入: 5
+//输出:
+//[
+// [1],
+// [1,1],
+// [1,2,1],
+// [1,3,3,1],
+// [1,4,6,4,1]
+// ]
+// Functions :
+// f(i,j)=f(i−1,j−1)+f(i−1,j)
+// f(i,j)=1 wherej=1 or j=i
+/// Row Array
+vector<vector<int>> generators;
+
+vector<vector<int>> LeetCodeSolution::generate(int numRows) {
+    
+    /// Row
+    for (int i = 1; i <= numRows; i++) {
+        /// Column Array
+        vector<int> generator;
+        /// Column
+        for (int j = 1; j <= i; j++) {
+            int value = generate_00(i,j);
+            generator.push_back(value);
+        }
+        generators.push_back(generator);
+    }
+    return generators;
+}
+
+int LeetCodeSolution::generate_00(int i, int j) {
+    if (j == 1) return 1;
+    if (j == i) return 1 ;
+    return generators[i - 1 - 1][j - 1 - 1] + generators[i - 1 - 1][j - 1];
+}
+// 输入: 3
+// 输出: [1,3,3,1]
+///思路:做法一样，但是不需要保存所有，只是需要保存上一个记录即可
+vector<int> generator__;
+vector<int> LeetCodeSolution::getRow(int rowIndex) {
+    vector<int> generator;
+    for (int i = 1; i <= rowIndex + 1; i++) {
+        generator.clear();
+        for (int j = 1; j <= i; j++) {
+            int value = generate_000(i,j);
+            generator.push_back(value);
+        }
+        generator__ = generator;
+    }
+    return generator;
+}
+
+int LeetCodeSolution::generate_000(int i, int j) {
+    if (j == 1) return 1;
+    if (j == i) return 1 ;
+    return generator__[j - 1 - 1] + generator__[j - 1];
+}
+
+//   Pow(x, n)
+double myPow(double x, int n)  {
+    return 0.0;
+}
+
+int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
+{
+    unsigned long  m = grid[0].size();
+    unsigned long  n = grid.size();
+    int num = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n;j++) {
+            if (grid[i][j] == 1) {
+                islands_bfs(grid, i, j, m, n);
+                num++;
+            }
+        }
+    }
+    return num;
+}
+
+/// 思路
+/// 从左上角开始 (0,0)
+/// 从左边往右染色 (1 -> 0)，遇到0,停止左边到右边的染色，出队列，开始上到下的染色
+/// 从上往下染色 (1 -> 0)
+/// 遇到0停止，
+int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
+    
+    return 0;
+}
+
+int LeetCodeSolution::islands_dfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
+    return 0;
+}
+
+
+

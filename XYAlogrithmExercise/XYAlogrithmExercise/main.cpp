@@ -173,6 +173,7 @@ void leetCodes() {
     vector<int> nums22(b1,b1+3);
 //    s->intersect(nums11, nums22);
     s->intersect1(nums11, nums22);
+ 
 
     vector<vector<int>> matrix;
     int a11[4] = {5,1,9,11};
@@ -189,4 +190,26 @@ void leetCodes() {
     matrix.push_back(nums333);
     matrix.push_back(nums444);
     s->rotate(matrix);
+ 
+    
+    
+    ListNode *l01 = new ListNode(1);
+    ListNode *l02 = new ListNode(2);
+    ListNode *l03 = new ListNode(3);
+//    ListNode *l04 = new ListNode(4);
+    l01->next = l02;
+    l02->next = l03;
+//    l03->next = l04;
+     ListNode *head =  s->swapPairs(l01);
+    
+    /// YangHui Triangle 1
+    s->generate(5);
+    
+    /// YangHui Triangle 2
+    s->getRow(3);
+    
+    /// 岛屿数量
+    vector<vector<char> > grid = {{1,1,1,1,0},{1,1,0,1,0},{1,1,0,0,0},{1,1,0,0,0},{0,0,0,0,0}};
+    s->numIslands(grid);
+ 
 }

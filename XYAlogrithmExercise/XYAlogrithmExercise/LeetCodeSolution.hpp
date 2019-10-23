@@ -63,7 +63,6 @@ public:
     // 合并两个数组
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
     // 二叉树反转
-    
     TreeNode* invertTree(TreeNode* root);
     /// 加一
     vector<int> plusOne(vector<int>& digits);
@@ -79,17 +78,36 @@ public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2);
     // 两个数组的交集 (不考虑顺序)
     vector<int> intersect1(vector<int>& nums1, vector<int>& nums2);
+ 
     
     /// 选择矩阵
     void rotate(vector<vector<int>>& matrix) ;
     
     /// 有效的数独
     bool isValidSudoku(vector<vector<char>>& board);
+ 
+    // 寻找右区间
+    vector<int> findRightInterval(vector<vector<int>>& intervals);
+    /// 两两交换链表中的节点
+    ListNode *swapPairs(ListNode *head);
+    /// 杨辉三角形 (给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。在杨辉三角中，每个数是它左上方和右上方的数的和。)
+    vector<vector<int>> generate(int numRows);
+    /// 杨辉三角形2
+    vector<int> getRow(int rowIndex);
+    /// Pow  X的N次方
+    double myPow(double x, int n);
+    /// 岛屿问题
+    int numIslands(vector<vector<char>>& grid);
+ 
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
     bool compareTwoArray(vector<int>&nums1,vector<int>&nums2);
-    
+    void reverseString_recursive(vector<char> &s,int start,int end);
+    int generate_00(int i,int j);
+    int generate_000(int i, int j);
+    int islands_bfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
+    int islands_dfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
 };
 
 /// LRU Cache

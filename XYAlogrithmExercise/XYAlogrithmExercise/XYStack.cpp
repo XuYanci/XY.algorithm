@@ -7,3 +7,13 @@
 //
 
 #include "XYStack.hpp"
+
+bool XYStack::dfs(Node cur, Node target, std::set<Node *> visited) {
+    if (cur.val == target.val) return true;
+    while(cur.list.empty() == false) {
+        Node next = cur.list.front();
+        visited.insert(&next);
+        return dfs(next, target, visited);
+    }
+    return false;
+}

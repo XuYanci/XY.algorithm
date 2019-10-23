@@ -37,13 +37,30 @@ public:
     vector<int> plusOne(vector<int>& digits);
     // 最长上升子序列
     int lengthOfLIS(vector<int>& nums);
-    
     // 滑动窗口最大值
     vector<int> maxSlidingWindow(vector<int>& nums, int k);
-    
+    // 买卖股票的最佳时间II
+    int maxProfit(vector<int>& prices);
+    // 买卖股票的最佳时机
+    int maxProfit1(vector<int>& prices);
+    // 两个数组的交集 (考虑顺序)
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2);
+    // 两个数组的交集 (不考虑顺序)
+    vector<int> intersect1(vector<int>& nums1, vector<int>& nums2);
+    /// 两两交换链表中的节点
+    ListNode *swapPairs(ListNode *head);
+    /// 杨辉三角形 (给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。在杨辉三角中，每个数是它左上方和右上方的数的和。)
+    vector<vector<int>> generate(int numRows);
+    /// 杨辉三角形2
+    vector<int> getRow(int rowIndex);
+    /// Pow  X的N次方
+    double myPow(double x, int n);
+    /// 岛屿问题
+    int numIslands(vector<vector<char>>& grid);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
+    bool compareTwoArray(vector<int>&nums1,vector<int>&nums2);
     
 };
 ```
