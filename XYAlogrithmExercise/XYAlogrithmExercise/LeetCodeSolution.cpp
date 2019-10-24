@@ -887,9 +887,6 @@ int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
     return num;
 }
 
-
-
-
 int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
     queue<queue_obj>queue;
     queue_obj obj;
@@ -946,5 +943,6 @@ int LeetCodeSolution::islands_dfs(vector<vector<char> > &grid, int i, int j, siz
     return 0;
 }
 
-
-
+int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
+    return 0;
+}

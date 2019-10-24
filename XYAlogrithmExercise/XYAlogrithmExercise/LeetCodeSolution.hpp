@@ -98,6 +98,8 @@ public:
     double myPow(double x, int n);
     /// 岛屿问题
     int numIslands(vector<vector<char>>& grid);
+    /// 打开转盘锁
+     int openLock(vector<string>& deadends, string target)
  
 private:
     bool isPrime(int num);
