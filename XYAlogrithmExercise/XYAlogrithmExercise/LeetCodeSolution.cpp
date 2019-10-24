@@ -860,18 +860,26 @@ double myPow(double x, int n)  {
     return 0.0;
 }
 
+struct queue_obj {
+    int i;
+    int j;
+    //    char *val;
+};
+
 /// 思路:
 /// 上下左右染色 (2) 染色
 /// 染色一遍则代表找到一片岛屿，继续前往
 int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
 {
-    unsigned long  m = grid[0].size();
-    unsigned long  n = grid.size();
+    unsigned int n = grid.size();
+    if (n == 0 ) return 0;
+    unsigned int m = grid[0].size();
+    
     int num = 0;
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n;j++) {
-            if (grid[i][j] == 1) {
-                islands_bfs(grid, i, j, m, n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m;j++) {
+            if (grid[i][j] == '1') {
+                islands_bfs(grid, i, j, n, m);
                 num++;
             }
         }
@@ -880,33 +888,57 @@ int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
 }
 
 
+
+
 int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
-    queue<char *>queue;
-    queue.push(&grid[i][j]);
+    queue<queue_obj>queue;
+    queue_obj obj;
+    grid[i][j] = '2';
+    obj.i = i;
+    obj.j = j;
+    queue.push(obj);
     while (queue.empty() == false) {
-        for (int ii = 0; ii < queue.size(); ++ii) {
-            char *cur = queue.front();
-            *cur = 2; /// 染色
-            /// 上
-            if ( i  < m && j - 1 < n) {
-                queue.push(&grid[i][j-1]);
-            }
-            /// 左
-            if ( i  - 1 < m && j  < n) {
-                
-                queue.push(&grid[i-1][j]);
-            }
-            /// 下
-            if ( i  < m && j + 1 < n) {
-                queue.push(&grid[i][j+1]);
-            }
-            /// 右
-            if ( i + 1 < m && j < n) {
-                queue.push(&grid[i+1][j]);
-            }
-            queue.pop();
+        
+        queue_obj cur = queue.front();
+        
+        /// 左边
+        if ( cur.i  < m && cur.j - 1 >= 0 && grid[cur.i][cur.j-1] == '1') {
+            queue_obj obj;
+            obj.i = cur.i;
+            obj.j = cur.j-1;
+            grid[cur.i][cur.j-1] = '2';
+            queue.push(obj);
         }
+        /// 上
+        if ( cur.i  - 1 >= 0 && cur.j  < n  && grid[cur.i-1][cur.j] == '1') {
+            queue_obj obj;
+            obj.i = cur.i-1;
+            obj.j = cur.j;
+            grid[cur.i-1][cur.j] = '2';
+            queue.push(obj);
+        }
+        
+        /// 右边
+        if ( cur.i  < m && cur.j + 1 < n && grid[cur.i][cur.j+1] == '1') {
+            queue_obj obj;
+            obj.i = cur.i;
+            obj.j = cur.j+1;
+            grid[cur.i][cur.j+1] = '2';
+            queue.push(obj);
+            
+        }
+        
+        /// 下
+        if ( cur.i + 1 < m && cur.j < n && grid[cur.i+1][cur.j] == '1') {
+            queue_obj obj;
+            obj.i = cur.i+1;
+            obj.j = cur.j;
+            grid[cur.i+1][cur.j] = '2';
+            queue.push(obj);
+        }
+        queue.pop();
     }
+    
     return 0;
 }
 
