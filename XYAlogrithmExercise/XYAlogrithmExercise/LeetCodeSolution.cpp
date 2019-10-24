@@ -716,7 +716,7 @@ vector<int> LeetCodeSolution::intersect1(vector<int>& nums1, vector<int>& nums2)
         }
     }
     
- 
+    
     return nums;
 }
 
@@ -860,6 +860,9 @@ double myPow(double x, int n)  {
     return 0.0;
 }
 
+/// 思路:
+/// 上下左右染色 (2) 染色
+/// 染色一遍则代表找到一片岛屿，继续前往
 int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
 {
     unsigned long  m = grid[0].size();
@@ -876,13 +879,34 @@ int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
     return num;
 }
 
-/// 思路
-/// 从左上角开始 (0,0)
-/// 从左边往右染色 (1 -> 0)，遇到0,停止左边到右边的染色，出队列，开始上到下的染色
-/// 从上往下染色 (1 -> 0)
-/// 遇到0停止，
+
 int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
-    
+    queue<char *>queue;
+    queue.push(&grid[i][j]);
+    while (queue.empty() == false) {
+        for (int ii = 0; ii < queue.size(); ++ii) {
+            char *cur = queue.front();
+            *cur = 2; /// 染色
+            /// 上
+            if ( i  < m && j - 1 < n) {
+                queue.push(&grid[i][j-1]);
+            }
+            /// 左
+            if ( i  - 1 < m && j  < n) {
+                
+                queue.push(&grid[i-1][j]);
+            }
+            /// 下
+            if ( i  < m && j + 1 < n) {
+                queue.push(&grid[i][j+1]);
+            }
+            /// 右
+            if ( i + 1 < m && j < n) {
+                queue.push(&grid[i+1][j]);
+            }
+            queue.pop();
+        }
+    }
     return 0;
 }
 
