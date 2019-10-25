@@ -879,16 +879,14 @@ int LeetCodeSolution::numIslands(vector<vector<char> > &grid)
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m;j++) {
             if (grid[i][j] == '1') {
-                islands_bfs(grid, i, j, n, m);
+                //                islands_bfs(grid, i, j, n, m);
+                islands_dfs(grid, i, j, n, m);
                 num++;
             }
         }
     }
     return num;
 }
-
-
-
 
 int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
     queue<queue_obj>queue;
@@ -943,6 +941,57 @@ int LeetCodeSolution::islands_bfs(vector<vector<char> > &grid, int i, int j, siz
 }
 
 int LeetCodeSolution::islands_dfs(vector<vector<char> > &grid, int i, int j, size_t m, size_t n) {
+    stack<queue_obj>queue;
+    queue_obj obj;
+    grid[i][j] = '2';
+    obj.i = i;
+    obj.j = j;
+    queue.push(obj);
+    while (queue.empty() == false) {
+        
+        queue_obj cur = queue.top();
+        
+        /// 左边
+        if ( cur.i  < m && cur.j - 1 >= 0 && grid[cur.i][cur.j-1] == '1') {
+            queue_obj obj;
+            obj.i = cur.i;
+            obj.j = cur.j-1;
+            grid[cur.i][cur.j-1] = '2';
+            queue.push(obj);
+            continue;
+        }
+        /// 上
+        if ( cur.i  - 1 >= 0 && cur.j  < n  && grid[cur.i-1][cur.j] == '1') {
+            queue_obj obj;
+            obj.i = cur.i-1;
+            obj.j = cur.j;
+            grid[cur.i-1][cur.j] = '2';
+            queue.push(obj);
+            continue;
+        }
+        
+        /// 右边
+        if ( cur.i  < m && cur.j + 1 < n && grid[cur.i][cur.j+1] == '1') {
+            queue_obj obj;
+            obj.i = cur.i;
+            obj.j = cur.j+1;
+            grid[cur.i][cur.j+1] = '2';
+            queue.push(obj);
+            continue;
+        }
+        
+        /// 下
+        if ( cur.i + 1 < m && cur.j < n && grid[cur.i+1][cur.j] == '1') {
+            queue_obj obj;
+            obj.i = cur.i+1;
+            obj.j = cur.j;
+            grid[cur.i+1][cur.j] = '2';
+            queue.push(obj);
+            continue;
+        }
+        queue.pop();
+    }
+    
     return 0;
 }
 
