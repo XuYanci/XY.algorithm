@@ -17,19 +17,20 @@
 #include <set>
 #include <unordered_map>
 #include <list>
- #include <queue>
+#include <queue>
+#include <string>
 using namespace std;
 struct ListNode {
-         int val;
-         ListNode *next;
-         ListNode(int x) : val(x), next(NULL) {}
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
 };
 
 struct TreeNode {
-         int val;
-         TreeNode *left;
-         TreeNode *right;
-         TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 class LeetCodeSolution {
@@ -78,14 +79,14 @@ public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2);
     // 两个数组的交集 (不考虑顺序)
     vector<int> intersect1(vector<int>& nums1, vector<int>& nums2);
- 
+    
     
     /// 选择矩阵
     void rotate(vector<vector<int>>& matrix) ;
     
     /// 有效的数独
     bool isValidSudoku(vector<vector<char>>& board);
- 
+    
     // 寻找右区间
     vector<int> findRightInterval(vector<vector<int>>& intervals);
     /// 两两交换链表中的节点
@@ -99,8 +100,8 @@ public:
     /// 岛屿问题
     int numIslands(vector<vector<char>>& grid);
     /// 打开转盘锁
-     int openLock(vector<string>& deadends, string target)
- 
+    int openLock(vector<string>& deadends, string target);
+    
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
@@ -139,7 +140,7 @@ public:
             addNode(it->second);
             return it->second->val;
         }
- 
+        
         return -1;
     }
     
@@ -155,11 +156,11 @@ public:
             newNode->key = key;
             newNode->val = value;
             addNode(newNode);
-//            hashMap.insert(make_pair(key, newNode));
+            //            hashMap.insert(make_pair(key, newNode));
             hashMap[key] = newNode;
             return;
         }
-   
+        
         /// 如果已满
         /// 删除最近一个节点
         if (hashMap.size() == cap) {
@@ -171,7 +172,7 @@ public:
         newNode->key = key;
         newNode->val = value;
         addNode(newNode);
-//        hashMap.insert(make_pair(key, newNode));
+        //        hashMap.insert(make_pair(key, newNode));
         hashMap[key] = newNode;
     }
 private:
@@ -185,7 +186,7 @@ private:
     void removeNode(Node *n) {
         n->prev->next = n->next;
         n->next->prev = n->prev;
-  
+        
     }
     
     // 添加节点
