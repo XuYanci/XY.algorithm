@@ -61,6 +61,13 @@ private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
     bool compareTwoArray(vector<int>&nums1,vector<int>&nums2);
+    void reverseString_recursive(vector<char> &s,int start,int end);
+    int generate_00(int i,int j);
+    int generate_000(int i, int j);
+    int islands_bfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
+    int islands_dfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
     
 };
 ```
+
+Now Not Consider 空间复杂度+时间复杂度 
