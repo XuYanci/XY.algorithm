@@ -1036,7 +1036,7 @@ int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
     queue.push("0000");
     
     while (queue.empty() == false) {
-        int size = queue.size();
+        unsigned long size = queue.size();
         while (size-- > 0) {
             string cur = queue.front();
             queue.pop();
@@ -1045,7 +1045,7 @@ int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
                 return counter;
             }
             char characters[4];
-            strcpy(characters, cur.c_str());
+            cur.copy(characters, 4);
             for(int i = 0; i < 4 ;i++) {
                 int val = characters[i] - '0';
                 /// Decrease 1, four character
@@ -1058,7 +1058,7 @@ int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
                     deal_map.insert({str,1});
                 }
                 /// Increase 1, four character
-                characters[i] = (char)(val + (i + 11) % 10);
+                characters[i] = (char)('0' + (val + 11) % 10);
                 str = convertToString(characters, 4);
                 search = deal_map.find(str);
                 // 检查之前是否存在该键值
