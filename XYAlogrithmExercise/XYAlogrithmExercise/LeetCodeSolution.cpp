@@ -1002,12 +1002,76 @@ int LeetCodeSolution::islands_dfs(vector<vector<char> > &grid, int i, int j, siz
 //注意 "0000" -> "0001" -> "0002" -> "0102" -> "0202" 这样的序列是不能解锁的，
 //因为当拨动到 "0102" 时这个锁就会被锁定。
 
-/// 思路:
-/// 四位数，a , b , c , d , 尽量数字靠近
-/// 可以正向，可以反向
-//  必须完美忽略deadends
+// converts character array
+// to string and returns it
+string convertToString(char* a, int size)
+{
+    int i;
+    string s = "";
+    for (i = 0; i < size; i++) {
+        s = s + a[i];
+    }
+    return s;
+}
 
 int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
     
-    return 0;
+    // queue
+    queue<string>queue;
+    
+    // record deal map
+    unordered_map <string,int> deal_map;
+    
+    // insert deadends to deal_map
+    for (const string& i : deadends) {
+        if (i == "0000") {
+            return -1;
+        }
+        deal_map.insert({i,1});
+    }
+    
+    // counter
+    int counter = 0;
+    // push root
+    queue.push("0000");
+    
+    while (queue.empty() == false) {
+        int size = queue.size();
+        while (size-- > 0) {
+            string cur = queue.front();
+            queue.pop();
+            /// if find the target
+            if (cur == target) {
+                return counter;
+            }
+            char characters[4];
+            strcpy(characters, cur.c_str());
+            for(int i = 0; i < 4 ;i++) {
+                int val = characters[i] - '0';
+                /// Decrease 1, four character
+                characters[i] = (char)('0' + (val + 9)  % 10);
+                string str = convertToString(characters, 4);
+                auto search = deal_map.find(str);
+                // if alreay in deal map ,just ignore it , else push into queue
+                if (search == deal_map.end()) {
+                    queue.push(str);
+                    deal_map.insert({str,1});
+                }
+                /// Increase 1, four character
+                characters[i] = (char)(val + (i + 11) % 10);
+                str = convertToString(characters, 4);
+                search = deal_map.find(str);
+                // 检查之前是否存在该键值
+                if (search == deal_map.end()) {
+                    queue.push(str);
+                    deal_map.insert({str,1});
+                }
+                /// Recovery characters[i]
+                characters[i] = (char)('0'+val);
+            }
+            
+        }
+        counter++;
+    }
+    return -1;
 }

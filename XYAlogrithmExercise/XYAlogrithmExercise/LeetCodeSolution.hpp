@@ -18,7 +18,7 @@
 #include <unordered_map>
 #include <list>
 #include <queue>
-
+#include <cstring>
 #include <string>
 
 using namespace std;
