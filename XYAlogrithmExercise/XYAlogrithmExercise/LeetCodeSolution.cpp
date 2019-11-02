@@ -1096,9 +1096,39 @@ int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
 /// 3 - 1 = 2
 /// 3 - 4 = -1 (Stop)
 
-/// who reach 0 first , return n step 
+/// who reach 0 first , return n step
+/// BFS 的两个主要方案：遍历或找出最短路径。
+/// 确定结点条件: 0
+/// 确定边缘 < n 的平方数
 int LeetCodeSolution::  numSquares(int n) {
+    if (n == 0 ) return 0;
+    queue<int> queue;
+    int step = 0;
+    set<int> used;
+    queue.push(n);
+    used.insert(n);
     
+    while (queue.empty() == false) {
+        
+        unsigned long size = queue.size();
+        for (int i = 0 ; i < size; ++i) {
+            int cur = queue.front();
+            if (cur == 0) { /// 边缘条件
+                return step ;
+            }
+            for (int i = sqrt(cur); i >=1; i--) {
+                int val = cur - pow(i,2);
+                if (val < 0) break;
+                /// If Not Found
+                if (used.find(val) == used.end()) {
+                    used.insert(val);
+                    queue.push(val);
+                }
+            }
+            queue.pop();
+        }
+        step = step + 1;
+    }
     
     return 0;
 }

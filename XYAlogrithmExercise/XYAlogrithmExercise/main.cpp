@@ -215,5 +215,7 @@ void leetCodes() {
     
     vector<string> deadends = {"0201","0101","0102","1212","2002"};
     s->openLock(deadends, "0202");
- 
+  
+    s->numSquares(13);
+    
 }
