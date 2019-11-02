@@ -105,6 +105,8 @@ public:
     /// 打开转盘锁
     int openLock(vector<string>& deadends, string target);
  
+    /// 完全平方数
+    int numSquares(int n);
     
 private:
     bool isPrime(int num);
@@ -273,5 +275,7 @@ public:
         size++;
     }
 };
+
+
 
 #endif /* Solution_hpp */

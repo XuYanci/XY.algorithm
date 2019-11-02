@@ -1015,7 +1015,6 @@ string convertToString(char* a, int size)
 }
 
 int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
-    
     // queue
     queue<string>queue;
     
@@ -1074,4 +1073,32 @@ int LeetCodeSolution::openLock(vector<string> &deadends, string target) {
         counter++;
     }
     return -1;
+}
+
+/// 输入: n = 12
+/// 输出: 3
+/// 解释: 12 = 4 + 4 + 4.
+/// 思路:
+/// 完全平方数1:
+/// 12 - 1 = 10
+/// 12 - 4 = 8
+/// 12 - 9 = 3
+/// 12 - 16 = -4 (Stop)
+
+/// 10 - 1 = 9
+/// 10 - 4 = 6
+/// 10 - 9 = 1
+
+/// 8 - 1 = 7
+/// 8 - 4 = 4
+/// 8 - 9 = -1 (Stop)
+
+/// 3 - 1 = 2
+/// 3 - 4 = -1 (Stop)
+
+/// who reach 0 first , return n step 
+int LeetCodeSolution::  numSquares(int n) {
+    
+    
+    return 0;
 }
