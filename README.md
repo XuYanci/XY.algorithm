@@ -57,6 +57,10 @@ public:
     double myPow(double x, int n);
     /// 岛屿问题
     int numIslands(vector<vector<char>>& grid);
+    /// 打开转盘锁
+    int openLock(vector<string>& deadends, string target);
+    /// 完全平方数
+    int numSquares(int n);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
