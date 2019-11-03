@@ -1132,3 +1132,7 @@ int LeetCodeSolution::  numSquares(int n) {
     
     return 0;
 }
+
+bool  LeetCodeSolution:: isValid(string s) {
+    return false;
+}

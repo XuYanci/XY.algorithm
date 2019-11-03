@@ -108,6 +108,9 @@ public:
     /// 完全平方数
     int numSquares(int n);
     
+    /// 有效的括号
+    bool isValid(string s);
+    
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
