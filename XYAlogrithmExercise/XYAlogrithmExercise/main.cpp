@@ -227,4 +227,5 @@ void leetCodes() {
     int param_3 = obj->top();
     int param_4 = obj->getMin();
     
+    s->isValid("()");
 }

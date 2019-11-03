@@ -80,5 +80,5 @@ int XYSearch::recursiveDivideSearch(int *array,int low,int high,int key) {
         return recursiveDivideSearch(array,low,mid-1,key);
     else
         return recursiveDivideSearch(array,mid+1,high,key);
-
+    
 }
