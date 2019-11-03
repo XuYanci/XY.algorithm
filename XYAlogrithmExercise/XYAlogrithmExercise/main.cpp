@@ -14,17 +14,18 @@
 #include "XYHeap.hpp"
 #include "XYSearch.hpp"
 #include "LeetCodeSolution.hpp"
+#include "XYStack.hpp"
 /// XuYanci Alogrithm Exercise
 void alogrithms();
 void leetCodes();
- 
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
     alogrithms();
     leetCodes();
-//    structures();
+    //    structures();
     return 0;
 }
 
@@ -82,7 +83,7 @@ void alogrithms() {
     ELEMENT1 heap[7];
     sort->create_binarytree(heap, items, n);
     sort->heap_sort(heap, n);///38,43,72,79,83,87,91
-
+    
 }
 
 void leetCodes() {
@@ -171,10 +172,10 @@ void leetCodes() {
     int b1[3] = {4,9,5};
     vector<int> nums11(a1,a1+5);
     vector<int> nums22(b1,b1+3);
-//    s->intersect(nums11, nums22);
+    //    s->intersect(nums11, nums22);
     s->intersect1(nums11, nums22);
- 
-
+    
+    
     vector<vector<int>> matrix;
     int a11[4] = {5,1,9,11};
     int a22[4] = {2,4,8,10};
@@ -190,17 +191,17 @@ void leetCodes() {
     matrix.push_back(nums333);
     matrix.push_back(nums444);
     s->rotate(matrix);
- 
+    
     
     
     ListNode *l01 = new ListNode(1);
     ListNode *l02 = new ListNode(2);
     ListNode *l03 = new ListNode(3);
-//    ListNode *l04 = new ListNode(4);
+    //    ListNode *l04 = new ListNode(4);
     l01->next = l02;
     l02->next = l03;
-//    l03->next = l04;
-     ListNode *head =  s->swapPairs(l01);
+    //    l03->next = l04;
+    ListNode *head =  s->swapPairs(l01);
     
     /// YangHui Triangle 1
     s->generate(5);
@@ -215,7 +216,15 @@ void leetCodes() {
     
     vector<string> deadends = {"0201","0101","0102","1212","2002"};
     s->openLock(deadends, "0202");
-  
+    
     s->numSquares(13);
+    
+    MinStack* obj = new MinStack();
+    obj->push(1);
+    obj->push(2);
+    obj->push(3);
+    obj->pop();
+    int param_3 = obj->top();
+    int param_4 = obj->getMin();
     
 }

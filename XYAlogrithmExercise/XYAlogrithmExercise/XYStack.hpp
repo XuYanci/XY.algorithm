@@ -20,4 +20,38 @@ class XYStack {
     bool dfs(Node cur,Node target, std::set<Node *> visited);
 };
 
+
+class MinStack {
+public:
+    int stack[1024 * 10];
+    int stackIndex = 0;
+    /** initialize your data structure here. */
+    MinStack() {
+        
+    }
+    
+    void push(int x) {
+        stack[stackIndex++] = x;
+    }
+    
+    void pop() {
+        stack[--stackIndex] = 0;
+    }
+    
+    int top() {
+        
+        return stack[stackIndex - 1];
+    }
+    
+    int getMin() {
+        int min = stack[0];
+        for (int i= 1; i < stackIndex; i++) {
+            if (stack[i] < min) {
+                min = stack[i];
+            }
+        }
+        return min;
+    }
+};
+
 #endif /* XYStack_hpp */
