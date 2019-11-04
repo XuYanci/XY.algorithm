@@ -111,6 +111,9 @@ public:
     /// 有效的括号
     bool isValid(string s);
     
+    /// 每日温度
+    vector<int> dailyTemperatures(vector<int>& T);
+    
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

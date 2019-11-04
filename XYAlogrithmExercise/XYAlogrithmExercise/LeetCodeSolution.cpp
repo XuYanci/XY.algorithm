@@ -1167,3 +1167,8 @@ bool  LeetCodeSolution:: isValid(string s) {
     
     return _stack.empty() ? true : false;
 }
+
+vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
+    vector<int> _vector;
+    return _vector;
+}
