@@ -1167,25 +1167,53 @@ bool  LeetCodeSolution:: isValid(string s) {
     
     return _stack.empty() ? true : false;
 }
+
+struct Temperature{
+    int index;
+    int val;
+    
+};
 //例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
 vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
-    /// Solution 1 : 暴力破解法
     vector<int> _vector;
+    /// Solution 1 : 暴力破解法
     
-    for (int i = 0; i < T.size(); i++) {
-        int val = T[i];
-        int counter = 0;
-        int j;
-        for (j = i; j < T.size(); j++) {
-            if (val < T[j]) {
-                _vector.push_back(counter);break;
-            }
-            counter++;
+    //    for (int i = 0; i < T.size(); i++) {
+    //        int val = T[i];
+    //        int counter = 0;
+    //        int j;
+    //        for (j = i; j < T.size(); j++) {
+    //            if (val < T[j]) {
+    //                _vector.push_back(counter);break;
+    //            }
+    //            counter++;
+    //        }
+    //        if (j >= T.size()) {
+    //            _vector.push_back(0);
+    //        }
+    //    }
+    
+    /// Solution 2:  递减栈
+    stack<Temperature> temperatures;
+    for (int i = T.size() - 1;i >=0;i--) {
+        Temperature t;
+        t.index = i;
+        t.val =  T[i];
+        
+        while (temperatures.size() > 0 && t.val >= temperatures.top().val) {
+            temperatures.pop();
         }
-        if (j >= T.size()) {
-            _vector.push_back(0);
+        if (temperatures.size() == 0) {
+            _vector.insert(_vector.begin(), 0);
+            temperatures.push(t);
+        } else {
+            int day = temperatures.top().index - t.index;
+            temperatures.push(t);
+            _vector.insert(_vector.begin(), day);
         }
+        
     }
+    
     
     return _vector;
 }
