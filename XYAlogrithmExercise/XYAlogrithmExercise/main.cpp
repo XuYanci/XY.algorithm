@@ -123,7 +123,6 @@ void leetCodes() {
     // 计算斐波那契数
     s->fib(30);
     
-    
     int a[9] = {-1,0,0,3,3,3,0,0,0};
     int b[3] = {1,2,2};
     
@@ -228,4 +227,7 @@ void leetCodes() {
     int param_4 = obj->getMin();
     
     s->isValid("()");
+    
+    vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
+    s->dailyTemperatures(temperatures);
 }

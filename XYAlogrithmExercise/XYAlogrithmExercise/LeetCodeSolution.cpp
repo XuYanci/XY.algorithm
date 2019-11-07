@@ -1167,8 +1167,25 @@ bool  LeetCodeSolution:: isValid(string s) {
     
     return _stack.empty() ? true : false;
 }
-
+//例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
 vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
+    /// Solution 1 : 暴力破解法
     vector<int> _vector;
+    
+    for (int i = 0; i < T.size(); i++) {
+        int val = T[i];
+        int counter = 0;
+        int j;
+        for (j = i; j < T.size(); j++) {
+            if (val < T[j]) {
+                _vector.push_back(counter);break;
+            }
+            counter++;
+        }
+        if (j >= T.size()) {
+            _vector.push_back(0);
+        }
+    }
+    
     return _vector;
 }
