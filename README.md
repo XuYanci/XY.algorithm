@@ -61,6 +61,12 @@ public:
     int openLock(vector<string>& deadends, string target);
     /// 完全平方数
     int numSquares(int n);
+    /// 有效的括号
+    bool isValid(string s);
+    /// 每日温度
+    vector<int> dailyTemperatures(vector<int>& T);
+    /// 逆波兰表达式求值
+    int evalRPN(vector<string>& tokens);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
