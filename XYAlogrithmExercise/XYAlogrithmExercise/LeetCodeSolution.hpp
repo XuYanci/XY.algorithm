@@ -113,7 +113,8 @@ public:
     
     /// 每日温度
     vector<int> dailyTemperatures(vector<int>& T);
-    
+    /// 逆波兰表达式求值
+    int evalRPN(vector<string>& tokens)
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

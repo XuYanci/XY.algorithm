@@ -1227,3 +1227,7 @@ vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
     
     return _vector;
 }
+
+int LeetCodeSolution::evalRPN(vector<string> &tokens) {
+    return 0;
+}
