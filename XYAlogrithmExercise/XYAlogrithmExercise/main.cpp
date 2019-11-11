@@ -230,4 +230,7 @@ void leetCodes() {
     
     vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
     s->dailyTemperatures(temperatures);
+    
+    vector<string> tokens {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+    s->evalRPN(tokens);
 }

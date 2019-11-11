@@ -1175,7 +1175,7 @@ struct Temperature{
 };
 //例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
 vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
-    vector<int> _vector;
+    vector<int> _vector(T.size() , 0);
     /// Solution 1 : 暴力破解法
     
     //    for (int i = 0; i < T.size(); i++) {
@@ -1228,6 +1228,56 @@ vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
     return _vector;
 }
 
+//输入: ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
+//输出: 22
+//解释:
+//((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+//= ((10 * (6 / (12 * -11))) + 17) + 5
+//= ((10 * (6 / -132)) + 17) + 5
+//= ((10 * 0) + 17) + 5
+//= (0 + 17) + 5
+//= 17 + 5
+//= 22
 int LeetCodeSolution::evalRPN(vector<string> &tokens) {
-    return 0;
+    stack<int> _stack;
+    
+    for (int i = 0; i < tokens.size(); i++) {
+        if (tokens[i] == "+") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z = j + i;
+            _stack.push(z);
+            continue;
+        }else if (tokens[i] == "-") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z = j - i;
+            _stack.push(z);
+            continue;
+        } else if (tokens[i] == "*") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z = j * i;
+            _stack.push(z);
+            continue;
+        } else if (tokens[i] == "/") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z =  j / i;
+            _stack.push(z);
+            continue;
+        }
+        _stack.push(atoi(tokens[i].c_str()));
+    }
+    
+    
+    return _stack.top();
 }
