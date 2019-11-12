@@ -1217,3 +1217,7 @@ vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
     
     return _vector;
 }
+
+Node* LeetCodeSolution::Graph(Node* node) {
+    return node;
+}
