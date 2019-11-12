@@ -233,4 +233,14 @@ void leetCodes() {
     
     vector<string> tokens {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
     s->evalRPN(tokens);
+    
+    TreeNode *root =  new TreeNode(1);
+    TreeNode *right1 =  new TreeNode(2);
+    root->left = NULL;
+    root->right = right1;
+    TreeNode *left1 =  new TreeNode(3);
+    right1->left = left1;
+    right1->right = NULL;
+    
+    s->inorderTraversal(root);
 }

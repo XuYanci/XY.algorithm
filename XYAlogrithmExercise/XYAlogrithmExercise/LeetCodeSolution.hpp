@@ -115,6 +115,8 @@ public:
     vector<int> dailyTemperatures(vector<int>& T);
     /// 逆波兰表达式求值
     int evalRPN(vector<string>& tokens);
+    /// 中序遍历
+    vector<int> inorderTraversal(TreeNode* root);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

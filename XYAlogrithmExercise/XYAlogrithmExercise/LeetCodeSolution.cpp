@@ -1281,3 +1281,32 @@ int LeetCodeSolution::evalRPN(vector<string> &tokens) {
     
     return _stack.top();
 }
+
+
+vector<int> LeetCodeSolution::inorderTraversal(TreeNode* root) {
+    if (root == NULL) return vector<int>{};
+    vector<int> vec;
+    stack<TreeNode *> _stack;
+    _stack.push(root);
+    
+    while (!_stack.empty()) {
+        TreeNode *center = _stack.top();
+        TreeNode *left = center->left;
+        if (left != NULL) {
+            center->left = NULL;
+            _stack.push(left);
+            continue;
+        }
+        
+        center = _stack.top();
+        vec.push_back(center->val);
+        _stack.pop();
+        TreeNode *right = center->right;
+        if (right != NULL) {
+            center->left = NULL;
+            _stack.push(right);
+            continue;
+        }
+    }
+    return vec;
+}
