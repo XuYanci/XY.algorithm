@@ -1175,7 +1175,7 @@ struct Temperature{
 };
 //例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
 vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
-    vector<int> _vector;
+    vector<int> _vector(T.size() , 0);
     /// Solution 1 : 暴力破解法
     
     //    for (int i = 0; i < T.size(); i++) {
@@ -1194,30 +1194,90 @@ vector<int> LeetCodeSolution:: dailyTemperatures(vector<int>& T) {
     //    }
     
     /// Solution 2:  递减栈
-    stack<Temperature> temperatures;
-    for (int i = T.size() - 1;i >=0;i--) {
-        Temperature t;
-        t.index = i;
-        t.val =  T[i];
-        
-        while (temperatures.size() > 0 && t.val >= temperatures.top().val) {
-            temperatures.pop();
+    //    stack<Temperature> temperatures;
+    //    for (int i = T.size() - 1;i >=0;i--) {
+    //        Temperature t;
+    //        t.index = i;
+    //        t.val =  T[i];
+    //
+    //        while (temperatures.size() > 0 && t.val >= temperatures.top().val) {
+    //            temperatures.pop();
+    //        }
+    //        if (temperatures.size() == 0) {
+    //            _vector.insert(_vector.begin(), 0);
+    //            temperatures.push(t);
+    //        } else {
+    //            int day = temperatures.top().index - t.index;
+    //            temperatures.push(t);
+    //            _vector.insert(_vector.begin(), day);
+    //        }
+    //    }
+    
+    /// 参考思路:
+    /// 存index即可，不需要存val
+    stack<int> s;
+    for(int i = 0; i < T.size(); i++){
+        while(!s.empty()&&T[s.top()]<T[i]){
+            _vector[s.top()]=(i-s.top());
+            s.pop();
         }
-        if (temperatures.size() == 0) {
-            _vector.insert(_vector.begin(), 0);
-            temperatures.push(t);
-        } else {
-            int day = temperatures.top().index - t.index;
-            temperatures.push(t);
-            _vector.insert(_vector.begin(), day);
-        }
-        
+        s.push(i);
     }
     
     
     return _vector;
 }
 
-Node* LeetCodeSolution::Graph(Node* node) {
-    return node;
+//输入: ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
+//输出: 22
+//解释:
+//((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+//= ((10 * (6 / (12 * -11))) + 17) + 5
+//= ((10 * (6 / -132)) + 17) + 5
+//= ((10 * 0) + 17) + 5
+//= (0 + 17) + 5
+//= 17 + 5
+//= 22
+int LeetCodeSolution::evalRPN(vector<string> &tokens) {
+    stack<int> _stack;
+    
+    for (int i = 0; i < tokens.size(); i++) {
+        if (tokens[i] == "+") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z = j + i;
+            _stack.push(z);
+            continue;
+        }else if (tokens[i] == "-") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z = j - i;
+            _stack.push(z);
+            continue;
+        } else if (tokens[i] == "*") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z = j * i;
+            _stack.push(z);
+            continue;
+        } else if (tokens[i] == "/") {
+            int i = _stack.top();
+            _stack.pop();
+            int j = _stack.top();
+            _stack.pop();
+            int z =  j / i;
+            _stack.push(z);
+            continue;
+        }
+        _stack.push(atoi(tokens[i].c_str()));
+    }
+    
+    
+    return _stack.top();
 }

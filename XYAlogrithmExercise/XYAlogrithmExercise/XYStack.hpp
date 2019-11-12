@@ -55,7 +55,8 @@ public:
 };
 
 /// 递增栈
-
+class IncrementalStack {};
 /// 递减栈
+class DecreaseStack {};
 
 #endif /* XYStack_hpp */
