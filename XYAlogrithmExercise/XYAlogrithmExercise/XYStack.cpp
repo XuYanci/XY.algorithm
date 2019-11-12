@@ -8,10 +8,10 @@
 
 #include "XYStack.hpp"
 
-bool XYStack::dfs(Node cur, Node target, std::set<Node *> visited) {
+bool XYStack::dfs(Node1 cur, Node1 target, std::set<Node1 *> visited) {
     if (cur.val == target.val) return true;
     while(cur.list.empty() == false) {
-        Node next = cur.list.front();
+        Node1 next = cur.list.front();
         visited.insert(&next);
         return dfs(next, target, visited);
     }

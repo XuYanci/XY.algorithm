@@ -11,13 +11,13 @@
 #include <list>
 #include <stdio.h>
 #include <set>
-struct Node {
+struct Node1 {
     int val;
-    std::list<Node>list;
+    std::list<Node1>list;
 };
 
 class XYStack {
-    bool dfs(Node cur,Node target, std::set<Node *> visited);
+    bool dfs(Node1 cur,Node1 target, std::set<Node1 *> visited);
 };
 
 

@@ -35,6 +35,19 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+class Node {
+public:
+    int val;
+    vector<Node*> neighbors;
+    
+    Node() {}
+    
+    Node(int _val, vector<Node*> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+
 class LeetCodeSolution {
 public:
     // 字符串反转
@@ -113,10 +126,16 @@ public:
     
     /// 每日温度
     vector<int> dailyTemperatures(vector<int>& T);
+ 
+    /// 克隆图
+    Node* cloneGraph(Node* node);
+ 
     /// 逆波兰表达式求值
     int evalRPN(vector<string>& tokens);
+ 
     /// 中序遍历
     vector<int> inorderTraversal(TreeNode* root);
+ 
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
