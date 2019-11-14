@@ -244,7 +244,7 @@ void leetCodes() {
     
     s->inorderTraversal(root);
     
-    vector<int> ways {1, 1, 1, 1, 1};
-    s->findTargetSumWays(ways, 3);
+    vector<int> ways {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    s->findTargetSumWays(ways, 0);
     
 }
