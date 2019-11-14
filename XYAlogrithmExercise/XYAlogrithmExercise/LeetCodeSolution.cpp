@@ -1318,9 +1318,12 @@ int LeetCodeSolution:: findTargetSumWays(vector<int> &nums, int S) {
     
     int nextIndex = 0;
     int counter = 0 ;
-    while (nextIndex <= nums.size()) {
+    while (_stack.empty()) {
         
-        int next = nums[nextIndex++];
+        int next = 0;
+        if (nextIndex < _stack.size()) {
+            next = nums[nextIndex++];
+        }
         int current = _stack.top();
         
         if (current + next == S)  { counter++; } else {
