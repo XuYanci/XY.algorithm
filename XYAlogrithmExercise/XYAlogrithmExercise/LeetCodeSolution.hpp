@@ -135,7 +135,9 @@ public:
  
     /// 中序遍历
     vector<int> inorderTraversal(TreeNode* root);
- 
+    
+    /// 目标和
+    int findTargetSumWays(vector<int>& nums, int S);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

@@ -1310,3 +1310,40 @@ vector<int> LeetCodeSolution::inorderTraversal(TreeNode* root) {
     }
     return vec;
 }
+
+int LeetCodeSolution:: findTargetSumWays(vector<int> &nums, int S) {
+
+    stack<int> _stack;
+    _stack.push(0);
+    
+    int nextIndex = 0;
+    int counter = 0 ;
+    while (nextIndex <= nums.size()) {
+        
+        int next = nums[nextIndex++];
+        int current = _stack.top();
+        
+        if (current + next == S)  { counter++; } else {
+            _stack.push(current + next);
+        }
+        if (current - next == S)  { counter++; } else {
+            _stack.push(current - next);
+      
+        }
+        if (-current + next == S)  { counter++; } else {
+            _stack.push(-current + next);
+       
+        }
+        if (-current - next == S) { counter++; } else {
+            _stack.push(-current - next);
+        }
+        _stack.pop();
+    }
+    return counter;
+    
+}
+
+
+
+
+
