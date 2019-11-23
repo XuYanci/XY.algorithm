@@ -1313,6 +1313,7 @@ vector<int> LeetCodeSolution::inorderTraversal(TreeNode* root) {
 
 int LeetCodeSolution:: findTargetSumWays(vector<int> &nums, int S) {
     
+    /// 思路一: 有点穷举的意思，类似于BFS，问题是浪费空间
     vector<int> _vector;
     _vector.push_back(0);
     int nextIndex = 0;
@@ -1337,9 +1338,41 @@ int LeetCodeSolution:: findTargetSumWays(vector<int> &nums, int S) {
     
     return counter;
     
+    /// 思路二: 深度搜索DFS
+    int res = 0, sum = 0;
+    findTarget_dfs(nums, S, 0, sum, res);
+    return res;
+    
 }
 
+void LeetCodeSolution:: findTarget_dfs(vector<int>& nums, int S, int i, int sum, int& res) {
+    if (i == nums.size()) {
+        if (sum == S) {
+            ++res;
+        }
+        return;
+    }
+    findTarget_dfs(nums, S, i + 1, sum + nums[i], res);
+    findTarget_dfs(nums, S, i + 1, sum - nums[i], res);
+}
 
+vector<int> LeetCodeSolution::findDiagonalOrder(vector<vector<int> > &matrix) {
+    vector<int> result;
+    
+    /// 当前元素
+    int i = 0, j = 0;
+    
+    /// ii, 有多少行
+    /// jj, 有多少列
+    for (int ii = 0; ii < matrix.size(); ii++) {
+        for (int jj = 0; jj < matrix[0].size();jj++) {
+            /// 公式: 如何找到对角线元素(TODO)
+            result.push_back(matrix[i][j]);
+        }
+    }
+    
+    return result;
+}
 
 
 

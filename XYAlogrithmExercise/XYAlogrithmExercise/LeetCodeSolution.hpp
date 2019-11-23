@@ -138,6 +138,9 @@ public:
     
     /// 目标和
     int findTargetSumWays(vector<int>& nums, int S);
+    
+    /// 对角线遍历
+    vector<int> findDiagonalOrder(vector<vector<int>>& matrix) ;
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
@@ -147,6 +150,7 @@ private:
     int generate_000(int i, int j);
     int islands_bfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
     int islands_dfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
+    void findTarget_dfs(vector<int>& nums, int S, int i, int sum, int& res) ;
 };
 
 /// LRU Cache
