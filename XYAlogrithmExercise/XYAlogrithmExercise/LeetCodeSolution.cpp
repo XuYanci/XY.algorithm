@@ -1398,8 +1398,9 @@ vector<int> LeetCodeSolution::findDiagonalOrder(vector<vector<int> > &matrix) {
 //    }
 //
 //    return result;
-
+    
     int M = matrix.size(); /// M 行
+    if (M == 0) return result;
     int N = matrix[0].size(); /// N 列
     
     
