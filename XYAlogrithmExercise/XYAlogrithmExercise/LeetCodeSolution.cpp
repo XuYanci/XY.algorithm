@@ -1356,20 +1356,67 @@ void LeetCodeSolution:: findTarget_dfs(vector<int>& nums, int S, int i, int sum,
     findTarget_dfs(nums, S, i + 1, sum - nums[i], res);
 }
 
+//输入:
+//[
+// [ 1, 2, 3 ],
+// [ 4, 5, 6 ],
+// [ 7, 8, 9 ]
+// ]
+//
+//输出:  [1,2,4,7,5,3,6,8,9]
+
+/// M = 3 , N = 3
+/// Count = M + N - 1
+
+/// -> x (0)
+/// 0, 0 , x, x
+/// -> x (1)
+/// 0, 1 , x - 1 , x
+/// 1, 0   x , x - 1
+/// -> x (2)
+/// 2, 0   x , x - 2
+/// 1, 1   x - 1 , x - 1
+/// 0, 2   x - 2 , x
+/// -> x (3)6
+/// 1, 2   x - 2 , x - 1
+/// 2, 1   x - 1 , x - 2
+/// -> x (4)
+/// 2, 2   x - 2 , x - 2
 vector<int> LeetCodeSolution::findDiagonalOrder(vector<vector<int> > &matrix) {
-    vector<int> result;
+   vector<int> result;
+//
+//    /// 当前元素
+//    int i = 0, j = 0;
+//
+//    /// ii, 有多少行
+//    /// jj, 有多少列
+//    for (int ii = 0; ii < matrix.size(); ii++) {
+//        for (int jj = 0; jj < matrix[0].size();jj++) {
+//            /// 公式: 如何找到对角线元素(TODO)
+//            result.push_back(matrix[i][j]);
+//        }
+//    }
+//
+//    return result;
+
+    int M = matrix.size(); /// M 行
+    int N = matrix[0].size(); /// N 列
     
-    /// 当前元素
-    int i = 0, j = 0;
     
-    /// ii, 有多少行
-    /// jj, 有多少列
-    for (int ii = 0; ii < matrix.size(); ii++) {
-        for (int jj = 0; jj < matrix[0].size();jj++) {
-            /// 公式: 如何找到对角线元素(TODO)
-            result.push_back(matrix[i][j]);
+    /// 列遍历
+    for (int i = 0; i < M + N - 1; i++) {
+       
+        for (int j = 0; j <= i; j++) {
+           
+            int x = i % 2 == 1 ? j : i - j;
+            int y = i % 2 == 1 ? i - j : j;
+            
+            if (x < M && y < N)
+//            printf("%d \n",matrix[x][y]);
+                result.push_back(matrix[x][y]);
         }
     }
+    
     
     return result;
 }

@@ -247,4 +247,7 @@ void leetCodes() {
     vector<int> ways {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
     s->findTargetSumWays(ways, 0);
     
+    vector<vector<int> > orders = {{1,2,3},{4,5,6}};
+    s->findDiagonalOrder(orders);
+    
 }
