@@ -141,6 +141,8 @@ public:
     
     /// 对角线遍历
     vector<int> findDiagonalOrder(vector<vector<int>>& matrix) ;
+    /// 螺旋矩阵
+    vector<int> spiralOrder(vector<vector<int>>& matrix);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

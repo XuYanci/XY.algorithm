@@ -1383,21 +1383,21 @@ void LeetCodeSolution:: findTarget_dfs(vector<int>& nums, int S, int i, int sum,
 /// -> x (4)
 /// 2, 2   x - 2 , x - 2
 vector<int> LeetCodeSolution::findDiagonalOrder(vector<vector<int> > &matrix) {
-   vector<int> result;
-//
-//    /// 当前元素
-//    int i = 0, j = 0;
-//
-//    /// ii, 有多少行
-//    /// jj, 有多少列
-//    for (int ii = 0; ii < matrix.size(); ii++) {
-//        for (int jj = 0; jj < matrix[0].size();jj++) {
-//            /// 公式: 如何找到对角线元素(TODO)
-//            result.push_back(matrix[i][j]);
-//        }
-//    }
-//
-//    return result;
+    vector<int> result;
+    //
+    //    /// 当前元素
+    //    int i = 0, j = 0;
+    //
+    //    /// ii, 有多少行
+    //    /// jj, 有多少列
+    //    for (int ii = 0; ii < matrix.size(); ii++) {
+    //        for (int jj = 0; jj < matrix[0].size();jj++) {
+    //            /// 公式: 如何找到对角线元素(TODO)
+    //            result.push_back(matrix[i][j]);
+    //        }
+    //    }
+    //
+    //    return result;
     
     int M = matrix.size(); /// M 行
     if (M == 0) return result;
@@ -1406,14 +1406,14 @@ vector<int> LeetCodeSolution::findDiagonalOrder(vector<vector<int> > &matrix) {
     
     /// 列遍历
     for (int i = 0; i < M + N - 1; i++) {
-       
+        /// 行
         for (int j = 0; j <= i; j++) {
-           
+            
             int x = i % 2 == 1 ? j : i - j;
             int y = i % 2 == 1 ? i - j : j;
             
             if (x < M && y < N)
-//            printf("%d \n",matrix[x][y]);
+                //            printf("%d \n",matrix[x][y]);
                 result.push_back(matrix[x][y]);
         }
     }
@@ -1422,5 +1422,7 @@ vector<int> LeetCodeSolution::findDiagonalOrder(vector<vector<int> > &matrix) {
     return result;
 }
 
-
-
+vector<int> LeetCodeSolution::  spiralOrder(vector<vector<int>>& matrix) {
+    vector<int> result;
+    return result;
+}
