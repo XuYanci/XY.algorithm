@@ -1445,6 +1445,7 @@ string LeetCodeSolution::longestCommonPrefix(vector<string>& strs) {
     }
     
     
+    /// 正好同样长度字符串比较,例如 ["a","a"] 需要返回
     string prefix = strs[0].substr(0,prefix_length);
     return prefix;
 }

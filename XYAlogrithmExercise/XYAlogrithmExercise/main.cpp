@@ -250,7 +250,7 @@ void leetCodes() {
     vector<vector<int> > orders = {{1,2,3},{4,5,6}};
     s->findDiagonalOrder(orders);
     
-    vector<string> prefixs {"c","c"};
+    vector<string> prefixs {"ca","c"};
     s->longestCommonPrefix(prefixs);
     
 }
