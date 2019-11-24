@@ -126,13 +126,13 @@ public:
     
     /// 每日温度
     vector<int> dailyTemperatures(vector<int>& T);
- 
+    
     /// 克隆图
     Node* cloneGraph(Node* node);
- 
+    
     /// 逆波兰表达式求值
     int evalRPN(vector<string>& tokens);
- 
+    
     /// 中序遍历
     vector<int> inorderTraversal(TreeNode* root);
     
@@ -143,6 +143,8 @@ public:
     vector<int> findDiagonalOrder(vector<vector<int>>& matrix) ;
     /// 螺旋矩阵
     vector<int> spiralOrder(vector<vector<int>>& matrix);
+    /// 最长公共前缀
+    string longestCommonPrefix(vector<string>& strs);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

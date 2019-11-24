@@ -1426,3 +1426,25 @@ vector<int> LeetCodeSolution::  spiralOrder(vector<vector<int>>& matrix) {
     vector<int> result;
     return result;
 }
+
+/// 公共前缀长度
+string LeetCodeSolution::longestCommonPrefix(vector<string>& strs) {
+    int prefix_length = 0;
+    if (strs.size() == 0) return "";
+    if (strs.size() == 1) return strs[0];
+    
+    for (int j = 0; j < strs[0].size();j++) {
+        char p = strs[0][prefix_length];
+        for (int i = 1; i < strs.size(); i++) {
+            if(strs[i][prefix_length] != p) {
+                string prefix = strs[0].substr(0,prefix_length);
+                return prefix;
+            }
+        }
+        prefix_length++;
+    }
+    
+    
+    string prefix = strs[0].substr(0,prefix_length);
+    return prefix;
+}

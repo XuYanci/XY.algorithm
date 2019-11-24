@@ -64,59 +64,59 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
 //4．再重复执行2，3二步，直到i==j，将基准数填入a[i]中。
 
 void recursiveQuickSort(int array[],int l,int r) {
-
-/** 解法1 **/
-//    int beforel = l;
-//    int beforep = p ;
-//
-//    if (r < l) {
-//        return;
-//    }
-//
-//    if (r == l && array[l] > array[p]) {
-//        int temp = array[l];
-//        array[l] = array[p];
-//        array[p] = temp;
-//        return;
-//    }
-//
-//
-//    while (l < r) {
-//        while (array[l] < array[p]) {
-//            l = l + 1;
-//        }
-//
-//
-//        while (array[r] >= array[p] && r > l) {
-//            r = r - 1;
-//        }
-//
-//        if (l < r) {
-//            /// 交换
-//            int temp = array[r];
-//            array[r] = array[l];
-//            array[l] = temp;
-//
-//        }
-//
-//        else if (r < l) {
-//            break;
-//        }
-//        else if (r == l && array[l] > array[p]) {
-//            int temp = array[l];
-//            array[l] = array[p];
-//            array[p] = temp;
-//            break;
-//        }
-//
-//    }
-//
-//    // Left
-//    recursiveQuickSort(array, l - 1, beforel, l - 2);
-//    // Right
-//    recursiveQuickSort(array, beforep,r + 1 , beforep - 1);
     
-/** 解法2 **/
+    /** 解法1 **/
+    //    int beforel = l;
+    //    int beforep = p ;
+    //
+    //    if (r < l) {
+    //        return;
+    //    }
+    //
+    //    if (r == l && array[l] > array[p]) {
+    //        int temp = array[l];
+    //        array[l] = array[p];
+    //        array[p] = temp;
+    //        return;
+    //    }
+    //
+    //
+    //    while (l < r) {
+    //        while (array[l] < array[p]) {
+    //            l = l + 1;
+    //        }
+    //
+    //
+    //        while (array[r] >= array[p] && r > l) {
+    //            r = r - 1;
+    //        }
+    //
+    //        if (l < r) {
+    //            /// 交换
+    //            int temp = array[r];
+    //            array[r] = array[l];
+    //            array[l] = temp;
+    //
+    //        }
+    //
+    //        else if (r < l) {
+    //            break;
+    //        }
+    //        else if (r == l && array[l] > array[p]) {
+    //            int temp = array[l];
+    //            array[l] = array[p];
+    //            array[p] = temp;
+    //            break;
+    //        }
+    //
+    //    }
+    //
+    //    // Left
+    //    recursiveQuickSort(array, l - 1, beforel, l - 2);
+    //    // Right
+    //    recursiveQuickSort(array, beforep,r + 1 , beforep - 1);
+    
+    /** 解法2 **/
     if (l < r) {
         int i = l;
         int j = r;
@@ -126,7 +126,7 @@ void recursiveQuickSort(int array[],int l,int r) {
             while (i < j && array[j] >= x) {
                 j--;
             }
-           
+            
             if(i<j) {
                 array[i++] = array[j];
             }
@@ -262,7 +262,7 @@ void XYSort:: mergeSort(int *array,int count,bool asc) {
         cout << array[i] << ',';
     }
     cout << endl;
- 
+    
     int temp[count];
     merge_Sort(array,0,count-1,temp);
     

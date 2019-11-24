@@ -18,6 +18,7 @@
 		AD80E2AA226C7734005A0256 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD80E2A9226C7734005A0256 /* main.cpp */; };
 		AD80E2B2226C77D1005A0256 /* XYSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD80E2B0226C77D1005A0256 /* XYSort.cpp */; };
 		AD80E2B5226C77DF005A0256 /* XYSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD80E2B3226C77DF005A0256 /* XYSearch.cpp */; };
+		AD93A247238AC58D00A5A96E /* XYArrayChars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD93A245238AC58D00A5A96E /* XYArrayChars.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,8 @@
 		AD80E2B1226C77D1005A0256 /* XYSort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYSort.hpp; sourceTree = "<group>"; };
 		AD80E2B3226C77DF005A0256 /* XYSearch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYSearch.cpp; sourceTree = "<group>"; };
 		AD80E2B4226C77DF005A0256 /* XYSearch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYSearch.hpp; sourceTree = "<group>"; };
+		AD93A245238AC58D00A5A96E /* XYArrayChars.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYArrayChars.cpp; sourceTree = "<group>"; };
+		AD93A246238AC58D00A5A96E /* XYArrayChars.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYArrayChars.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				AD6C731E22720A71003B1A5D /* XYTree.hpp */,
 				AD8037E92275FC6500A31959 /* LeetCodeSolution.cpp */,
 				AD8037EA2275FC6500A31959 /* LeetCodeSolution.hpp */,
+				AD93A245238AC58D00A5A96E /* XYArrayChars.cpp */,
+				AD93A246238AC58D00A5A96E /* XYArrayChars.hpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			files = (
 				AD6C731922720A56003B1A5D /* XYHash.cpp in Sources */,
 				AD6C730D22720A2B003B1A5D /* XYList.cpp in Sources */,
+				AD93A247238AC58D00A5A96E /* XYArrayChars.cpp in Sources */,
 				AD80E2B2226C77D1005A0256 /* XYSort.cpp in Sources */,
 				AD6C731022720A37003B1A5D /* XYArray.cpp in Sources */,
 				AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */,
