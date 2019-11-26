@@ -15,6 +15,7 @@
 #include "XYSearch.hpp"
 #include "LeetCodeSolution.hpp"
 #include "XYStack.hpp"
+#include "XYLinkList.hpp"
 /// XuYanci Alogrithm Exercise
 void alogrithms();
 void leetCodes();
@@ -84,6 +85,18 @@ void alogrithms() {
     sort->create_binarytree(heap, items, n);
     sort->heap_sort(heap, n);///38,43,72,79,83,87,91
     
+    MyLinkedList linkedList ;
+    linkedList.addAtHead(1);
+    linkedList.addAtHead(3);
+    linkedList.addAtTail(5);
+    ;
+    linkedList.addAtIndex(1,2);   //链表变为1-> 2-> 3
+    linkedList.get(1);            //返回2
+    linkedList.deleteAtIndex(1);  //现在链表是1-> 3
+    linkedList.deleteAtIndex(1);
+    linkedList.deleteAtIndex(1);
+    linkedList.deleteAtIndex(0);
+    linkedList.get(1);            //返回3
 }
 
 void leetCodes() {
