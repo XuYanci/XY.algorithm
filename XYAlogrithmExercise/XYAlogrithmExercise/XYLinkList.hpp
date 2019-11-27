@@ -188,6 +188,31 @@ public:
         }
         return NULL;
     }
+    
+    SinglyListNode* removeNthFromEnd(SinglyListNode* head, int n) {
+        int count = 0;
+        unordered_map<int,SinglyListNode *> linkListMap;
+        SinglyListNode * head1 = head;
+        linkListMap[count] = head;
+        while (head1->next) {
+            head1 = head1->next;
+            linkListMap[++count] = head1;
+        }
+        
+        /// Means first head
+        if (count - n < 0) {
+            head = head->next;
+            return head;
+        }
+        SinglyListNode *node =  linkListMap[count - n];
+        if (node == head) {
+            head = head->next;
+            return head;
+        }
+        SinglyListNode *node_next = node->next;
+        node->next = node_next ? node_next->next : NULL;
+        return head;
+    }
 };
 
 #endif /* XYLinkList_hpp */
