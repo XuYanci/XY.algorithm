@@ -133,7 +133,7 @@ public:
             }
             linkListMap[head] = 1;
         }
- 
+        
         return NULL;
     }
     
@@ -166,10 +166,27 @@ public:
          **/
         
         /// 双指针做法
-//        doublePointer();
+        //        doublePointer();
         
         
         return false;
+    }
+    
+    SinglyListNode *getIntersectionNode(SinglyListNode *headA, SinglyListNode *headB) {
+        SinglyListNode* slow = headA;
+        SinglyListNode* fast = headB;
+        SinglyListNode* fast1 = headB;
+        while (slow ) {
+            while (fast1) {
+                if (slow == fast1) {
+                    return slow;
+                }
+                fast1 = fast1->next;
+            }
+            slow = slow->next;
+            fast1 = fast;
+        }
+        return NULL;
     }
 };
 
