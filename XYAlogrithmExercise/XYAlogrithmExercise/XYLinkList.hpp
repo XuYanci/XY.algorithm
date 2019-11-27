@@ -122,7 +122,19 @@ public:
     }
     
     SinglyListNode *detectCycle(SinglyListNode *head) {
-        return head;
+        if (head == NULL) return NULL;
+        unordered_map<SinglyListNode *, int> linkListMap;
+        linkListMap[head] = 1;
+        
+        while (head->next != NULL) {
+            head = head->next;
+            if (linkListMap[head] == 1) {
+                return head;
+            }
+            linkListMap[head] = 1;
+        }
+ 
+        return NULL;
     }
     
     bool hasCycle(SinglyListNode *head) {
