@@ -10,12 +10,21 @@
 #define XYLinkList_hpp
 
 #include <stdio.h>
-
+#include <map>
+#include <unordered_map>
+using namespace std;
 /// Singly List Node
 struct SinglyListNode {
     int val;
     SinglyListNode *next;
     SinglyListNode(int x): val(x), next(NULL) {}
+};
+
+
+struct ListNode_ {
+    int val;
+    ListNode_ *next;
+    ListNode_(int x) : val(x), next(NULL) {}
 };
 
 /**
@@ -87,6 +96,7 @@ public:
     void deleteAtIndex(int index) {
         
         if (index == 0) { head = head->next; return; }
+        
         SinglyListNode *prev = head;
         SinglyListNode *next = prev->next;
         
@@ -98,6 +108,22 @@ public:
         prev->next = next ?  next->next : NULL;
     }
     
+    bool hasCycle(ListNode_ *head) {
+        if (head == NULL) return false;
+ 
+        unordered_map<ListNode_ *, int> linkListMap;
+        linkListMap[head] = 1;
+        
+        while (head->next != NULL) {
+            head = head->next;
+            if (linkListMap[head] == 1) {
+                return true;
+            }
+            linkListMap[head] = 1;
+        }
+        
+        return false;
+    }
 };
 
 #endif /* XYLinkList_hpp */
