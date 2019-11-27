@@ -20,13 +20,6 @@ struct SinglyListNode {
     SinglyListNode(int x): val(x), next(NULL) {}
 };
 
-
-struct ListNode_ {
-    int val;
-    ListNode_ *next;
-    ListNode_(int x) : val(x), next(NULL) {}
-};
-
 /**
  * Your MyLinkedList object will be instantiated and called as such:
  * MyLinkedList* obj = new MyLinkedList();
@@ -108,10 +101,35 @@ public:
         prev->next = next ?  next->next : NULL;
     }
     
-    bool hasCycle(ListNode_ *head) {
+    //    如果没有环，快指针将停在链表的末尾。
+    //    如果有环，快指针最终将与慢指针相遇。
+    bool doublePointer() {
+        // Initialize slow & fast pointers
+        SinglyListNode* slow = head;
+        SinglyListNode* fast = head;
+        /**
+         * Change this condition to fit specific problem.
+         * Attention: remember to avoid null-pointer error
+         **/
+        while (slow && fast && fast->next) {
+            slow = slow->next;          // move slow pointer one step each time
+            fast = fast->next->next;    // move fast pointer two steps each time
+            if (slow == fast) {         // change this condition to fit specific problem
+                return true;
+            }
+        }
+        return false;   // change return value to fit specific problem
+    }
+    
+    SinglyListNode *detectCycle(SinglyListNode *head) {
+        return head;
+    }
+    
+    bool hasCycle(SinglyListNode *head) {
+        /// 哈希表解决
         if (head == NULL) return false;
- 
-        unordered_map<ListNode_ *, int> linkListMap;
+        
+        unordered_map<SinglyListNode *, int> linkListMap;
         linkListMap[head] = 1;
         
         while (head->next != NULL) {
@@ -121,6 +139,23 @@ public:
             }
             linkListMap[head] = 1;
         }
+        
+        /// 野做法
+        /**
+         int counter = 0;
+         while (head != NULL && counter++ <= 10000) {
+         head = head->next;
+         }
+         
+         if ( counter >= 10000) {
+         return true;
+         }
+         return false;
+         **/
+        
+        /// 双指针做法
+//        doublePointer();
+        
         
         return false;
     }
