@@ -20,6 +20,8 @@ struct SinglyListNode {
     SinglyListNode(int x): val(x), next(NULL) {}
 };
 
+
+
 /**
  * Your MyLinkedList object will be instantiated and called as such:
  * MyLinkedList* obj = new MyLinkedList();
@@ -214,5 +216,7 @@ public:
         return head;
     }
 };
+
+
 
 #endif /* XYLinkList_hpp */

@@ -204,8 +204,6 @@ void leetCodes() {
     matrix.push_back(nums444);
     s->rotate(matrix);
     
-    
-    
     ListNode *l01 = new ListNode(1);
     ListNode *l02 = new ListNode(2);
     ListNode *l03 = new ListNode(3);
