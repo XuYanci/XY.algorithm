@@ -23,9 +23,18 @@ class XYTree {
         TreeNode(int x):val(x),left(NULL),right(NULL){}
     };
     
+    /// 先序 (递归)
+    void preorder(TreeNode *root,vector<int> vec) {
+        if (root == NULL) return;
+        vec.push_back(root->val);
+        preorder(root->left,vec);
+        preorder(root->right,vec);
+    }
+    
     /// 先序
     vector<int> preorderTraversal(TreeNode *root) {
         vector<int> vec;
+        preorder(root, vec);
         return vec;
     }
     /// 中序
