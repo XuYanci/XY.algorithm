@@ -24,7 +24,7 @@ class XYTree {
     };
     
     /// 先序 (递归)
-    void preorder(TreeNode *root,vector<int> vec) {
+    void preorder(TreeNode *root,vector<int> &vec) {
         if (root == NULL) return;
         vec.push_back(root->val);
         preorder(root->left,vec);
@@ -37,14 +37,32 @@ class XYTree {
         preorder(root, vec);
         return vec;
     }
+    
+    /// 中序 (递归)
+    void midorder(TreeNode *root,vector<int> &vec) {
+        if (root == NULL) return;
+        midorder(root->left,vec);
+        vec.push_back(root->val);
+        midorder(root->right,vec);
+    }
     /// 中序
     vector<int> midorderTraversal(TreeNode *root) {
         vector<int> vec;
+        midorder(root, vec);
         return vec;
+    }
+    
+    /// 后序 (递归)
+    void postorder(TreeNode *root,vector<int> &vec) {
+        if (root == NULL) return;
+        postorder(root->left,vec);
+        postorder(root->right,vec);
+        vec.push_back(root->val);
     }
     /// 后序
     vector<int> postorderTraversal(TreeNode *root) {
         vector<int> vec;
+        postorder(root, vec);
         return vec;
     }
     /// 层次遍历
@@ -52,7 +70,7 @@ class XYTree {
         vector<int> vec;
         return vec;
     }
-
+    
 };
 
 #endif /* XYTree_hpp */
