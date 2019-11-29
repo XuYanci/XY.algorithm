@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <queue>
 using namespace std;
 //1.前序遍历：先访问根节点——左子树——右子树。
 //2.中序遍历：先访问左子树——根节点——右子树，按照这个顺序。
@@ -65,10 +66,43 @@ class XYTree {
         postorder(root, vec);
         return vec;
     }
+    
     /// 层次遍历
-    vector<int> levelorderTraversal(TreeNode *root) {
-        vector<int> vec;
-        return vec;
+    /// 思路: 广度搜索
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> vec_;
+        
+        if (root == NULL) return vec_;
+        
+        /// 队列存放结点
+        std::queue<TreeNode *>_queue;
+        if (root != NULL) {
+            _queue.push(root);
+        }
+        
+        vector<int> vec__;
+        vec__.push_back(root->val);
+        vec_.push_back(vec__);
+        
+        while (_queue.empty() == false) {
+            unsigned long size = _queue.size();
+            vec__.clear();
+            for (int i = 0; i < size;i++) {
+                TreeNode *cur = _queue.front();
+                if (cur->left != NULL) {
+                    vec__.push_back(cur->left->val);
+                    _queue.push(cur->left);
+                }
+                if (cur->right != NULL) {
+                    vec__.push_back(cur->right->val);
+                    _queue.push(cur->right);
+                }
+                _queue.pop();
+            }
+            if (!vec__.empty())
+              vec_.push_back(vec__);
+        }
+        return vec_;
     }
     
 };
