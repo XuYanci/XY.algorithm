@@ -16,6 +16,7 @@ using namespace std;
 //1.前序遍历：先访问根节点——左子树——右子树。
 //2.中序遍历：先访问左子树——根节点——右子树，按照这个顺序。
 //3.后序遍历：和前面差不多，先访问树的左子树——右子树——根节点。按层遍历：把一棵树从上到下，从左到右依次写出来。
+
 class XYTree {
     struct TreeNode {
         int val;
@@ -103,6 +104,29 @@ class XYTree {
               vec_.push_back(vec__);
         }
         return vec_;
+    }
+    
+    /// 自顶向下
+    int maximum_depth(TreeNode* root) {
+        if (!root) {
+            return 0;                                 // return 0 for null node
+        }
+        int left_depth = maximum_depth(root->left);
+        int right_depth = maximum_depth(root->right);
+        return max(left_depth, right_depth) + 1;      // return depth of the subtree rooted at root
+    }
+    
+    /// 自底向上
+    int answer;               // don't forget to initialize answer before call maximum_depth
+    void maximum_depth(TreeNode* root, int depth) {
+        if (!root) {
+            return;
+        }
+        if (!root->left && !root->right) {
+            answer = max(answer, depth);
+        }
+        maximum_depth(root->left, depth + 1);
+        maximum_depth(root->right, depth + 1);
     }
     
 };
