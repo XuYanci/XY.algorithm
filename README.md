@@ -91,4 +91,5 @@ private:
 };
 ```
 
-Now Not Consider 空间复杂度+时间复杂度 
+Now Not Consider 空间复杂度+时间复杂度 (X)
+习满50道题，入初级，开始复习，考虑空间复杂度，时间复杂度以及总结输出 (DOING)
