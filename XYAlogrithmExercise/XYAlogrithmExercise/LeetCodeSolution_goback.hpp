@@ -33,21 +33,45 @@ public:
     /// 暴力解法: 组合，取2个数字， C(2/m)
     /// 假设 N = 4 , N = 2 ,  ( 4 x 3 x 2 x 1 ) / ( 2 x ( 2 x 1)) = 6
     /// 思路2
-    
-    
+    /// 双哈希表
+    /// 思路3
+    /// 单哈希表
+    /// 遇到一个问题：就是Key相同情况下需要区别
+    /// [3,3] 如果判断是  if (_map[nums[i]] && _map[target-nums[i]]) 则得出结果是 : 1 ,1
+    /// 如果判断是   if (_map[nums[i]] && _map[target-nums[i]] != i)  则得出结果是: 0 , 1
     
     vector<int> twoSum(vector<int>& nums, int target) {
+        
         vector<int> sumTwo;
+        
+        
+        /// Solution 2
+        map<int,int> _map;
+        for (int i = 0; i < nums.size();i++) {
+            _map[nums[i]] = i;
+        }
+        
+        
         for (int i = 0; i < nums.size(); i++) {
-            for (int j = i + 1; j < nums.size();j++) {
-                if (nums[i] + nums[j] == target) {
-                    sumTwo.push_back(i);
-                    sumTwo.push_back(j);
-                    return sumTwo;
-                }
+            if (_map[nums[i]] && _map[target-nums[i]] != i) {
+                sumTwo.push_back(i);
+                sumTwo.push_back(_map[target-nums[i]]);
+                return sumTwo;
             }
         }
         
+        /// Solution 1
+//        for (int i = 0; i < nums.size(); i++) {
+//            for (int j = i + 1; j < nums.size();j++) {
+//                if (nums[i] + nums[j] == target) {
+//                    sumTwo.push_back(i);
+//                    sumTwo.push_back(j);
+//                    return sumTwo;
+//                }
+//            }
+//        }
+        
+         /// Solution 3
 //        map<int,int> _map;
 //        map<int,int>::iterator it1;
 //        for(int i = 0; i < nums.size();i++) {
