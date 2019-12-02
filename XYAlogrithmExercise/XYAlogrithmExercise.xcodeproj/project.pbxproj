@@ -20,6 +20,7 @@
 		AD80E2B5226C77DF005A0256 /* XYSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD80E2B3226C77DF005A0256 /* XYSearch.cpp */; };
 		AD93A247238AC58D00A5A96E /* XYArrayChars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD93A245238AC58D00A5A96E /* XYArrayChars.cpp */; };
 		AD93A24A238D6F5A00A5A96E /* XYLinkList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD93A248238D6F5A00A5A96E /* XYLinkList.cpp */; };
+		ADFD08322394E9900096A0F3 /* LeetCodeSolution_goback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADFD08302394E9900096A0F3 /* LeetCodeSolution_goback.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,8 @@
 		AD93A246238AC58D00A5A96E /* XYArrayChars.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYArrayChars.hpp; sourceTree = "<group>"; };
 		AD93A248238D6F5A00A5A96E /* XYLinkList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYLinkList.cpp; sourceTree = "<group>"; };
 		AD93A249238D6F5A00A5A96E /* XYLinkList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYLinkList.hpp; sourceTree = "<group>"; };
+		ADFD08302394E9900096A0F3 /* LeetCodeSolution_goback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeSolution_goback.cpp; sourceTree = "<group>"; };
+		ADFD08312394E9900096A0F3 /* LeetCodeSolution_goback.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeSolution_goback.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				AD93A246238AC58D00A5A96E /* XYArrayChars.hpp */,
 				AD93A248238D6F5A00A5A96E /* XYLinkList.cpp */,
 				AD93A249238D6F5A00A5A96E /* XYLinkList.hpp */,
+				ADFD08302394E9900096A0F3 /* LeetCodeSolution_goback.cpp */,
+				ADFD08312394E9900096A0F3 /* LeetCodeSolution_goback.hpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				AD6C731022720A37003B1A5D /* XYArray.cpp in Sources */,
 				AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */,
 				AD6C731C22720A66003B1A5D /* XYHeap.cpp in Sources */,
+				ADFD08322394E9900096A0F3 /* LeetCodeSolution_goback.cpp in Sources */,
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				AD80E2AA226C7734005A0256 /* main.cpp in Sources */,
 				AD6C731622720A4B003B1A5D /* XYQueue.cpp in Sources */,

@@ -14,22 +14,31 @@
 #include "XYHeap.hpp"
 #include "XYSearch.hpp"
 #include "LeetCodeSolution.hpp"
+#include "LeetCodeSolution_goback.hpp"
 #include "XYStack.hpp"
 #include "XYLinkList.hpp"
 /// XuYanci Alogrithm Exercise
 void alogrithms();
 void leetCodes();
-
+void leetCodesGoBack();
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-    alogrithms();
-    leetCodes();
-    //    structures();
+//    alogrithms();
+//    leetCodes();
+//    structures();
+    leetCodesGoBack();
     return 0;
 }
 
+
+void leetCodesGoBack() {
+    LeetCodeSolutionGoBack *s = new LeetCodeSolutionGoBack();
+    vector<int>nums{3,3};
+    s->twoSum(nums, 6);
+
+}
 
 void structures() {
     /// 最大堆

@@ -101,7 +101,7 @@ class XYTree {
                 _queue.pop();
             }
             if (!vec__.empty())
-              vec_.push_back(vec__);
+                vec_.push_back(vec__);
         }
         return vec_;
     }
