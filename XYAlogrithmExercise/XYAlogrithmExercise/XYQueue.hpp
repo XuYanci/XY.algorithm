@@ -10,6 +10,7 @@
 #define XYQueue_hpp
 #include <list>
 #include <stdio.h>
+
 class MyCircularQueue {
 public:
     
@@ -79,4 +80,11 @@ class XYQueue {
     /// 广度优先搜索
     int BFS(Node root, Node target);
 };
+
+
+/// 双向队列
+class DoubleEndQueue {
+    
+};
+
 #endif /* XYQueue_hpp */

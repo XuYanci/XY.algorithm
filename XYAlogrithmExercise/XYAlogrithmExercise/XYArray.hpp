@@ -11,4 +11,9 @@
 
 #include <stdio.h>
 
+/// 环形缓冲区
+class CircleBuffer {
+    
+};
+
 #endif /* XYArray_hpp */

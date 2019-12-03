@@ -37,7 +37,7 @@ void leetCodesGoBack() {
     LeetCodeSolutionGoBack *s = new LeetCodeSolutionGoBack();
     vector<int>nums{3,3};
     s->twoSum(nums, 6);
-
+    s->reverse2(-2147483648);
 }
 
 void structures() {
