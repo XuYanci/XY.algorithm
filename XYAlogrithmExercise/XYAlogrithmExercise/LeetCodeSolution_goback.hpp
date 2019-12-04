@@ -120,7 +120,6 @@ public:
     //    直接计算 (需要提前知道数字长度)，这样的话就可以进行提前运算
     ///   溢出类型用Long表示
     
-    
     int reverse(int x) {
         if (x == 0) {
             return 0;
@@ -184,7 +183,53 @@ public:
         }
         return rev;
     }
+    //    编写一个函数来查找字符串数组中的最长公共前缀。
+    //
+    //    如果不存在公共前缀，返回空字符串 ""。
+    //
+    //    示例 1:
+    //
+    //    输入: ["flower","flow","flight"]
+    //    输出: "fl"
+    //    示例 2:
+    //
+    //    输入: ["dog","racecar","car"]
+    //    输出: ""
+    //    解释: 输入不存在公共前缀。
+    //
+    //    来源：力扣（LeetCode）
+    //    链接：https://leetcode-cn.com/problems/longest-common-prefix
+    //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    //    思路一
+    //    以第一个字符串作为base,其实最长公共也就是第一个字符串的size了。
+    //    然后逐个字符串比较，遇到不同则退出，并返回最长公共前缀即可。
+    string longestCommonPrefix(vector<string>& strs) {
+        int prefix_length = 0;
+        if (strs.size() == 0) return "";
+        if (strs.size() == 1) return strs[0];
+        
+        for (int j = 0; j < strs[0].size();j++) {
+            char p = strs[0][prefix_length];
+            for (int i = 1; i < strs.size(); i++) {
+                if(strs[i][prefix_length] != p) {
+                    string prefix = strs[0].substr(0,prefix_length);
+                    return prefix;
+                }
+            }
+            prefix_length++;
+        }
+        
+        /// 正好第一个比较完毕，并没有找到不同的字符串例如: ["ab","abc"]
+        return strs[0];
+    }
     
+    string longestCommonPrefix1(vector<string>& strs) {
+        if(strs.size()==0) return "";
+        auto s1 = max_element(strs.begin(),strs.end());
+        auto s2 = min_element(strs.begin(),strs.end());
+        auto pair = mismatch(s1->begin(),s1->end(),s2->begin());
+        return string(s1->begin(),pair.first);
+    }
     
 };
 #endif /* LeetCodeSolution_goback_hpp */
