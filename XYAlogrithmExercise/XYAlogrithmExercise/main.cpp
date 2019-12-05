@@ -21,14 +21,15 @@
 void alogrithms();
 void leetCodes();
 void leetCodesGoBack();
+void structures();
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-//    alogrithms();
-//    leetCodes();
-//    structures();
-    leetCodesGoBack();
+    //    alogrithms();
+    //    leetCodes();
+    structures();
+    // leetCodesGoBack();
     return 0;
 }
 
@@ -38,12 +39,24 @@ void leetCodesGoBack() {
     vector<int>nums{3,3};
     s->twoSum(nums, 6);
     s->reverse2(-2147483648);
+    vector<string> prefixs {"ca","c"};
+    s->longestCommonPrefix(prefixs);
+    vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
+    s->dailyTemperatures(temperatures);
 }
 
 void structures() {
     /// 最大堆
     Max_Heap *max_heap = new Max_Heap();
     max_heap->justRun();
+    
+    vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
+   
+    XYStack *stack = new XYStack();
+    /// 到下一个比我大的需要多少步
+    stack->nextExceed(temperatures);
+    /// 到下一个比我小的需要多少步
+    stack->prevExceed(temperatures);
 }
 
 

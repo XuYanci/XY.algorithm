@@ -15,6 +15,7 @@
 #include <math.h>
 #include <algorithm>
 #include <string>
+#include <stack>
 using namespace std;
 class LeetCodeSolutionGoBack {
 public:
@@ -229,6 +230,68 @@ public:
         auto s2 = min_element(strs.begin(),strs.end());
         auto pair = mismatch(s1->begin(),s1->end(),s2->begin());
         return string(s1->begin(),pair.first);
+    }
+    
+    //    给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+    //
+    //    有效字符串需满足：
+    //
+    //    左括号必须用相同类型的右括号闭合。
+    //    左括号必须以正确的顺序闭合。
+    //    注意空字符串可被认为是有效字符串。
+    //
+    //    示例 1:
+    //
+    //    输入: "()"
+    //    输出: true
+    //    示例 2:
+    //
+    //    输入: "()[]{}"
+    //    输出: true
+    //    示例 3:
+    //
+    //    输入: "(]"
+    //    输出: false
+    //    示例 4:
+    //
+    //    输入: "([)]"
+    //    输出: false
+    //    示例 5:
+    //
+    //    输入: "{[]}"
+    //    输出: true
+    //
+    //    来源：力扣（LeetCode）
+    //    链接：https://leetcode-cn.com/problems/valid-parentheses
+    //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    
+    bool isValid(string s) {
+        return true;
+    }
+    
+    //    根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。
+    //
+    //    例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
+    //
+    //    提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。
+    //
+    //    来源：力扣（LeetCode）
+    //    链接：https://leetcode-cn.com/problems/daily-temperatures
+    //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    
+    vector<int> dailyTemperatures(vector<int>& T) {
+        stack<int> s;
+        int size = (int)T.size();
+        vector<int> _vector(size , 0);
+        for(int i = 0; i < size; i++){
+            while(!s.empty()&&T[s.top()]<T[i]){
+                _vector[s.top()]= i-s.top();
+                s.pop();
+            }
+            s.push(i);
+        }
+        
+        return _vector;
     }
     
 };

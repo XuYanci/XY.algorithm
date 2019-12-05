@@ -11,6 +11,9 @@
 #include <list>
 #include <stdio.h>
 #include <set>
+#include <vector>
+#include <stack>
+using namespace std;
 struct Node1 {
     int val;
     std::list<Node1>list;
@@ -18,6 +21,31 @@ struct Node1 {
 
 class XYStack {
     bool dfs(Node1 cur,Node1 target, std::set<Node1 *> visited);
+public:
+    vector<int> prevExceed(vector<int> &input) {
+        vector<int> result (input.size(), -1);
+        stack<int> monoStack;
+        for(int i = 0; i < input.size(); i++) {
+            while(!monoStack.empty() && input[monoStack.top()] > input[i]) {
+                result[monoStack.top()] = i - monoStack.top();
+                monoStack.pop();
+            }
+            monoStack.push(i);
+        }
+        return result;
+    }
+    vector<int> nextExceed(vector<int> &input) {
+        vector<int> result (input.size(), -1);
+        stack<int> monoStack;
+        for(int i = 0; i < input.size(); i++) {
+            while(!monoStack.empty() && input[monoStack.top()] < input[i]) {
+                result[monoStack.top()] = i - monoStack.top();
+                monoStack.pop();
+            }
+            monoStack.push(i);
+        }
+        return result;
+    }
 };
 
 
@@ -53,10 +81,6 @@ public:
         return min;
     }
 };
-
-/// 递增栈
-class IncrementalStack {};
-/// 递减栈
-class DecreaseStack {};
+ 
 
 #endif /* XYStack_hpp */
