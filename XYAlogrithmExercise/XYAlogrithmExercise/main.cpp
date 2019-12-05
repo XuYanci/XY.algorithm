@@ -28,8 +28,8 @@ int main(int argc, const char * argv[]) {
     
     //    alogrithms();
     //    leetCodes();
-    structures();
-    // leetCodesGoBack();
+//    structures();
+  leetCodesGoBack();
     return 0;
 }
 
@@ -43,6 +43,7 @@ void leetCodesGoBack() {
     s->longestCommonPrefix(prefixs);
     vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
     s->dailyTemperatures(temperatures);
+    s->dailyTemperatures1(temperatures);
 }
 
 void structures() {

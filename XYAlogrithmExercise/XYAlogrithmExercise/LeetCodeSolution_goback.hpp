@@ -294,5 +294,34 @@ public:
         return _vector;
     }
     
+    /// 官方题解
+    vector<int> dailyTemperatures1(vector<int> &T) {
+        vector<int> ans (T.size());
+        
+        /// next数组记录温度的索引位置
+        /// warmer_index记录比当前温度高的索引位置，取最小值
+        /// warmer_index - i 则是当前温度到比当前温度高的步伐
+        vector<int> next(101,INT_MAX);
+        /// 逆序
+        for (int i = T.size() - 1; i >= 0; --i) {
+            int warmer_index = INT_MAX;
+            
+            /// warmer_index记录比当前温度高的索引位置，取最小值
+            for (int t = T[i] + 1; t<=100;++t) {
+                if (next[t] < warmer_index) {
+                    warmer_index = next[t];
+                }
+            }
+            if (warmer_index < INT_MAX) {
+                ans[i] = warmer_index - i;
+            }
+            next[T[i]] = i;
+        }
+        
+        return ans;
+    }
+    
+    
+    
 };
 #endif /* LeetCodeSolution_goback_hpp */
