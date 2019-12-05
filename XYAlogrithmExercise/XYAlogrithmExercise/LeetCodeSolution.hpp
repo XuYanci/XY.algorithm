@@ -145,6 +145,8 @@ public:
     vector<int> spiralOrder(vector<vector<int>>& matrix);
     /// 最长公共前缀
     string longestCommonPrefix(vector<string>& strs);
+    /// 最大矩形面积
+    int largestRectangleArea(vector<int>& heights);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

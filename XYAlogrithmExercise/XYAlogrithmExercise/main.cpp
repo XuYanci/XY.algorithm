@@ -18,18 +18,24 @@
 #include "XYStack.hpp"
 #include "XYLinkList.hpp"
 /// XuYanci Alogrithm Exercise
+
+/// 算法
 void alogrithms();
+/// LeetCodes
 void leetCodes();
+/// LeetCodes复习
 void leetCodesGoBack();
+/// 数据结构
 void structures();
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-    //    alogrithms();
-    //    leetCodes();
+//    alogrithms();
+//    leetCodes();
 //    structures();
-  leetCodesGoBack();
+    leetCodesGoBack();
     return 0;
 }
 

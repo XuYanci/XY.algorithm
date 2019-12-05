@@ -1451,3 +1451,9 @@ string LeetCodeSolution::longestCommonPrefix(vector<string>& strs) {
     string prefix = strs[0].substr(0,prefix_length);
     return prefix;
 }
+
+/// 最大矩形面积
+int LeetCodeSolution::largestRectangleArea(vector<int>& heights) {
+    int area = 0;
+    return area;
+}
