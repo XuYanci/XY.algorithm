@@ -342,13 +342,16 @@ public:
      来源：力扣（LeetCode）
      链接：https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list
      著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-     思路： 用数组保存所有节点信息
+     思路：
+     
+     1. 用数组保存所有节点信息，缺点需要遍历两次
      然后取删除节点的前一个节点也就是 int index = (int)listVector.size() - n - 1;
      如果index < 0, 则代表是第一个节点，head = head -> next
      如果index >= 0 则代表非并非第一个节点, node->next = node->next->next;
+     
+     2. 双指针技巧，P1,P2，间隔N , 然后P2到达底部也就代表P1就是倒数第N个需要删除。
      */
-    
-    
+
     ListNode_ *removeNthFromEnd(ListNode_ *head, int n) {
         ListNode_ *tail = head;
         vector<ListNode_ *>listVector;
@@ -369,6 +372,7 @@ public:
         
         return head;
     }
+  
     
 };
 #endif /* LeetCodeSolution_goback_hpp */
