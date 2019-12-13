@@ -1454,6 +1454,14 @@ string LeetCodeSolution::longestCommonPrefix(vector<string>& strs) {
 
 /// 最大矩形面积
 int LeetCodeSolution::largestRectangleArea(vector<int>& heights) {
-    int area = 0;
-    return area;
+    int maxarea = 0;
+    for (int i = 0; i < heights.size(); i++) {
+        int minheight = INT_MAX;
+        for (int j = i; j < heights.size(); j++) {
+            minheight = min(minheight, heights[j]);
+            maxarea = max(maxarea, minheight * (j - i + 1));
+        }
+    }
+    return maxarea;
 }
+

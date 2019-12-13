@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD56EE9523A334BD003ADF7D /* XYSort_goback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD56EE9323A334BD003ADF7D /* XYSort_goback.cpp */; };
 		AD6C730D22720A2B003B1A5D /* XYList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C730B22720A2B003B1A5D /* XYList.cpp */; };
 		AD6C731022720A37003B1A5D /* XYArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C730E22720A37003B1A5D /* XYArray.cpp */; };
 		AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731122720A42003B1A5D /* XYStack.cpp */; };
@@ -36,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AD56EE9323A334BD003ADF7D /* XYSort_goback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYSort_goback.cpp; sourceTree = "<group>"; };
+		AD56EE9423A334BD003ADF7D /* XYSort_goback.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYSort_goback.hpp; sourceTree = "<group>"; };
 		AD6C730B22720A2B003B1A5D /* XYList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYList.cpp; sourceTree = "<group>"; };
 		AD6C730C22720A2B003B1A5D /* XYList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYList.hpp; sourceTree = "<group>"; };
 		AD6C730E22720A37003B1A5D /* XYArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYArray.cpp; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				AD8037EA2275FC6500A31959 /* LeetCodeSolution.hpp */,
 				ADFD08302394E9900096A0F3 /* LeetCodeSolution_goback.cpp */,
 				ADFD08312394E9900096A0F3 /* LeetCodeSolution_goback.hpp */,
+				AD56EE9323A334BD003ADF7D /* XYSort_goback.cpp */,
+				AD56EE9423A334BD003ADF7D /* XYSort_goback.hpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				AD6C731022720A37003B1A5D /* XYArray.cpp in Sources */,
 				AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */,
 				AD6C731C22720A66003B1A5D /* XYHeap.cpp in Sources */,
+				AD56EE9523A334BD003ADF7D /* XYSort_goback.cpp in Sources */,
 				ADFD08322394E9900096A0F3 /* LeetCodeSolution_goback.cpp in Sources */,
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				AD80E2AA226C7734005A0256 /* main.cpp in Sources */,

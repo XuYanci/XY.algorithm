@@ -279,20 +279,20 @@ public:
     //    链接：https://leetcode-cn.com/problems/daily-temperatures
     //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
     
-    vector<int> dailyTemperatures(vector<int>& T) {
-        stack<int> s;
-        int size = (int)T.size();
-        vector<int> _vector(size , 0);
-        for(int i = 0; i < size; i++){
-            while(!s.empty()&&T[s.top()]<T[i]){
-                _vector[s.top()]= i-s.top();
-                s.pop();
+        vector<int> dailyTemperatures(vector<int>& T) {
+            stack<int> s;
+            int size = (int)T.size();
+            vector<int> _vector(size , 0);
+            for(int i = 0; i < size; i++){
+                while(!s.empty()&&T[s.top()]<T[i]){
+                    _vector[s.top()]= i-s.top();
+                    s.pop();
+                }
+                s.push(i);
             }
-            s.push(i);
+            
+            return _vector;
         }
-        
-        return _vector;
-    }
     
     /// 官方题解
     vector<int> dailyTemperatures1(vector<int> &T) {

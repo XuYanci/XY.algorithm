@@ -11,12 +11,14 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include "XYSort.hpp"
+#include "XYSort_goback.hpp"
 #include "XYHeap.hpp"
 #include "XYSearch.hpp"
 #include "LeetCodeSolution.hpp"
 #include "LeetCodeSolution_goback.hpp"
 #include "XYStack.hpp"
 #include "XYLinkList.hpp"
+
 /// XuYanci Alogrithm Exercise
 
 /// 算法
@@ -27,6 +29,8 @@ void leetCodes();
 void leetCodesGoBack();
 /// 数据结构
 void structures();
+/// 数据结构复习
+void structuresGoBack();
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -35,7 +39,8 @@ int main(int argc, const char * argv[]) {
 //    alogrithms();
 //    leetCodes();
 //    structures();
-    leetCodesGoBack();
+//    leetCodesGoBack();
+    structuresGoBack();
     return 0;
 }
 
@@ -66,6 +71,12 @@ void structures() {
     stack->prevExceed(temperatures);
 }
 
+void structuresGoBack() {
+    XYSortGoBack *sort = new XYSortGoBack();
+    int array6[] = {12,14,25,32,23,45,13,63,24};
+    // 快速排序
+    sort->quickSort(array6, 9);
+}
 
 void alogrithms() {
     XYSort *sort = new XYSort();
