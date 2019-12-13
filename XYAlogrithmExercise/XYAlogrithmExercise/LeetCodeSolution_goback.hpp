@@ -349,7 +349,7 @@ public:
      如果index < 0, 则代表是第一个节点，head = head -> next
      如果index >= 0 则代表非并非第一个节点, node->next = node->next->next;
      
-     2. 双指针技巧，P1,P2，间隔N , 然后P2到达底部也就代表P1就是倒数第N个需要删除。
+     2. 双指针技巧，P1,P2，间隔N , 然后P2到达底部也就代表P1就是倒数第N个需要删除。(代码晚点实现)
      */
 
     ListNode_ *removeNthFromEnd(ListNode_ *head, int n) {
