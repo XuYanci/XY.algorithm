@@ -35,8 +35,6 @@ void XYSortGoBack::recursiveQuickSort(int *array,int left,int right) {
     j = right;
     temp = array[left];
     
-
-    
     while (i != j) {
         while (array[j] >= temp && i < j ) {
             j--;

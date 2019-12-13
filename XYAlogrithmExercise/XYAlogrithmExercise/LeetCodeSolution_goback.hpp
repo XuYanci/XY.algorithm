@@ -17,8 +17,17 @@
 #include <string>
 #include <stack>
 using namespace std;
+
+class ListNode_ {
+    int val;
+    ListNode_(int x) { val = x; }
+    public :
+    ListNode_ *next;
+};
 class LeetCodeSolutionGoBack {
+    
 public:
+    
     //    给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
     //
     //    你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
@@ -279,20 +288,20 @@ public:
     //    链接：https://leetcode-cn.com/problems/daily-temperatures
     //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
     
-        vector<int> dailyTemperatures(vector<int>& T) {
-            stack<int> s;
-            int size = (int)T.size();
-            vector<int> _vector(size , 0);
-            for(int i = 0; i < size; i++){
-                while(!s.empty()&&T[s.top()]<T[i]){
-                    _vector[s.top()]= i-s.top();
-                    s.pop();
-                }
-                s.push(i);
+    vector<int> dailyTemperatures(vector<int>& T) {
+        stack<int> s;
+        int size = (int)T.size();
+        vector<int> _vector(size , 0);
+        for(int i = 0; i < size; i++){
+            while(!s.empty()&&T[s.top()]<T[i]){
+                _vector[s.top()]= i-s.top();
+                s.pop();
             }
-            
-            return _vector;
+            s.push(i);
         }
+        
+        return _vector;
+    }
     
     /// 官方题解
     vector<int> dailyTemperatures1(vector<int> &T) {
@@ -321,7 +330,45 @@ public:
         return ans;
     }
     
+    /*
+     给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+     
+     示例：
+     
+     给定一个链表: 1->2->3->4->5, 和 n = 2.
+     
+     当删除了倒数第二个节点后，链表变为 1->2->3->5.
+     
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     思路： 用数组保存所有节点信息
+     然后取删除节点的前一个节点也就是 int index = (int)listVector.size() - n - 1;
+     如果index < 0, 则代表是第一个节点，head = head -> next
+     如果index >= 0 则代表非并非第一个节点, node->next = node->next->next;
+     */
     
+    
+    ListNode_ *removeNthFromEnd(ListNode_ *head, int n) {
+        ListNode_ *tail = head;
+        vector<ListNode_ *>listVector;
+        listVector.push_back(head);
+        while (tail->next != NULL) {
+            tail = tail->next;
+            listVector.push_back(tail);
+        }
+        
+        int index = (int)listVector.size() - n - 1;
+        
+        if (index < 0) {
+            head = head->next;
+            return head;
+        }
+        ListNode_ *node = listVector[index];
+        node->next = node->next->next;
+        
+        return head;
+    }
     
 };
 #endif /* LeetCodeSolution_goback_hpp */
