@@ -274,8 +274,40 @@ public:
     //    链接：https://leetcode-cn.com/problems/valid-parentheses
     //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
     
+    /// 解法一、
+    /// 如果是 (,{,[入栈
+    /// 如果是 ),},]判断栈顶是否对应的左部分，是则出栈，否则代表无效
+    /// 最终如果是空则代表合法的
     bool isValid(string s) {
-        return true;
+        stack<char> _stack;
+        unsigned int length = s.length();
+        char c[length+1];
+        strcpy(c,s.c_str());
+        for (int i = 0; i < length; i++) {
+            if (_stack.empty()) {
+                _stack.push(c[i]);
+            }
+            else if (c[i] == ')' ) {
+                if (_stack.top() == '(')
+                    _stack.pop();
+                else return false;
+            }
+            else if (c[i] == '}' ) {
+                if (_stack.top() == '{')
+                    _stack.pop();
+                else
+                    return false;
+            }
+            else if (c[i] == ']') {
+                if ( _stack.top() == '[')
+                    _stack.pop();
+                else return false;
+            } else {
+                _stack.push(c[i]);
+            }
+        }
+        
+        return _stack.empty() ? true : false;
     }
     
     //    根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。
