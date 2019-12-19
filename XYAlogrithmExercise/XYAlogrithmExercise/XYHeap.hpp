@@ -10,6 +10,9 @@
 #define XYHeap_hpp
 
 #include <stdio.h>
+#include <list>
+#include <vector>
+using namespace std;
 #define MAX_ELEMENTS 20
 #define HEAP_FULL(n) (MAX_ELEMENTS - 1 == n)
 #define HEAP_EMPTY(n) (!n)
@@ -17,6 +20,8 @@ typedef struct {
     int key;
 }ELEMENT;
 
+
+/// 最大堆
 class Max_Heap {
    
     ELEMENT heap[MAX_ELEMENTS];
@@ -36,6 +41,44 @@ class Max_Heap {
     void justRun();
 };
 
+
+class Min_Heap {
+    void Sift(vector<int> R,int k,int m) {
+        int i,j,x;
+        int t;
+        i = k;
+        j = 2 * i;
+        t = R[k];
+        x = R[k];
+        while (j <= m) {
+            if ((j < m) && (R[j] > R[j+1])) {
+                j++;
+            }
+            if (x < R[j]) break;
+            else {
+                R[i] = R[j];
+                i = j;
+                j = 2 * i;
+            }
+            
+        }
+        
+        R[i] = t;
+    }
+    
+    void HeapSort(vector<int>R){
+        int i;
+        int n = (int)R.size();
+        for (i = n /2 ;i>=1;i--) {
+            Sift(R, i, n);
+        }
+        for (i = n; i >= 2; i--) {
+            swap(R[1], R[i]);
+            Sift(R, 1, i-1);
+        }
+    }
+    
+};
 
 
 #endif /* XYHeap_hpp */
