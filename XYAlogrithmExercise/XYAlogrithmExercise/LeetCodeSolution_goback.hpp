@@ -19,10 +19,10 @@
 using namespace std;
 
 class ListNode_ {
+public:
     int val;
-    ListNode_(int x) { val = x; }
-    public :
     ListNode_ *next;
+    ListNode_(int x) { val = x; }
 };
 class LeetCodeSolutionGoBack {
     
@@ -405,7 +405,48 @@ public:
         return head;
     }
     
-    
+    //将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+    //
+    //示例：
+    //
+    //输入：1->2->4, 1->3->4
+    //输出：1->1->2->3->4->4
+    //
+    //来源：力扣（LeetCode）
+    //链接：https://leetcode-cn.com/problems/merge-two-sorted-lists
+    //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    /// 解法一、
+    /// 参考归并排序 (分而治之中的治)
+    ListNode_* mergeTwoLists(ListNode_* l1, ListNode_* l2) {
+        ListNode_ *head = new ListNode_(0);
+        ListNode_ *pHead = head;
+        while(l1!=NULL && l2 != NULL) {
+            if (l1->val < l2->val) {
+                pHead->next = l1;
+                pHead = l1;
+                l1 = l1->next;
+            }
+            else {
+                pHead->next = l2;
+                pHead = l2;
+                l2 = l2->next;
+            }
+        }
+        
+        while (l1 != NULL) {
+            pHead->next = l1;
+            pHead = l1;
+            l1 = l1->next;
+        }
+        
+        while (l2 != NULL) {
+            pHead->next = l2;
+            pHead = l2;
+            l2 = l2->next;
+        }
+        
+        return head->next;
+    }
 };
 
 
