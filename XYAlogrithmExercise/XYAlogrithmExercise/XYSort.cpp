@@ -275,6 +275,7 @@ void XYSort:: mergeSort(int *array,int count,bool asc) {
 }
 
 
+/// 递归函数
 void XYSort::merge_Sort(int arr[] ,int left,int right,int temp[]){
     if(left<right){  // 递归出口
         // 递归体

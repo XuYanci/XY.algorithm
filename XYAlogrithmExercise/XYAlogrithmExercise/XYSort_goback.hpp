@@ -15,7 +15,12 @@ public:
   
     // 快速排序 (ASC升序）
     void quickSort(int *array,int count);
+    // 归并排序
+    void mergeSort(int *array,int count);
 private:
     void recursiveQuickSort(int *array,int left,int right);
+    void recrusiveMergeSort(int *array,int left,int right,int *temp);
+    void merge(int *array,int left,int mid,int right,int *temp);
+    
 };
 #endif /* XYSort_goback_hpp */

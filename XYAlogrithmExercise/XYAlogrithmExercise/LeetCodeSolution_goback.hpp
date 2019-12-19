@@ -383,7 +383,7 @@ public:
      
      2. 双指针技巧，P1,P2，间隔N , 然后P2到达底部也就代表P1就是倒数第N个需要删除。(代码晚点实现)
      */
-
+    
     ListNode_ *removeNthFromEnd(ListNode_ *head, int n) {
         ListNode_ *tail = head;
         vector<ListNode_ *>listVector;
@@ -404,9 +404,9 @@ public:
         
         return head;
     }
-  
+    
     
 };
 
- 
+
 #endif /* LeetCodeSolution_goback_hpp */

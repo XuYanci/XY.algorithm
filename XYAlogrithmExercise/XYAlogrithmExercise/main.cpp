@@ -32,6 +32,7 @@ void structures();
 /// 数据结构复习
 void structuresGoBack();
 
+void cache();
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
@@ -41,7 +42,11 @@ int main(int argc, const char * argv[]) {
 //    structures();
 //    leetCodesGoBack();
     structuresGoBack();
-    
+//    cache();
+    return 0;
+}
+
+void cache() {
     XYLRUCache *cache = new XYLRUCache( 2 /* 缓存容量 */ );
     
     cache->put(1, 1);
@@ -53,8 +58,6 @@ int main(int argc, const char * argv[]) {
     cache->get(1);       // 返回 -1 (未找到)
     cache->get(3);       // 返回  3
     cache->get(4);       // 返回  4
-    
-    return 0;
 }
 
 

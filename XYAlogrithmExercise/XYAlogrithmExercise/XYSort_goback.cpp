@@ -61,3 +61,56 @@ void XYSortGoBack::recursiveQuickSort(int *array,int left,int right) {
 }
 
 
+void XYSortGoBack::mergeSort(int *array, int count) {
+    int temp[count];
+    recrusiveMergeSort(array, 0, count,temp);
+}
+
+/// 递归体
+void XYSortGoBack::recrusiveMergeSort(int *array, int left, int right, int *temp) {
+    /// 递归出口
+    if(left<right){
+        
+        /// 递归体
+        int mid = (left + right) / 2;
+        
+        /// 分
+        recrusiveMergeSort(array, left, mid,temp);
+        recrusiveMergeSort(array, mid + 1, right,temp);
+        
+        /// 递归函数
+        merge(array, left, mid, right, temp);
+    }
+}
+
+void XYSortGoBack::merge(int *array, int left, int mid, int right, int *temp) {
+    int i = left;
+    int j = mid + 1;
+    int t = 0;
+    while (i <= mid && j <= right) {
+        if (array[i] < array[j]) {
+            temp[t++] = array[i++];
+        }
+        else {
+            temp[t++] = array[j++];
+        }
+    }
+    
+    while (i <= mid) {
+        temp[t++] = array[i++];
+    }
+    while (j <= mid) {
+        temp[t++] = array[j++];
+    }
+    
+    t = 0;
+    
+    while (left <= right) {
+        array[left++] = temp[t++];
+    }
+    
+}
+
+
+
+

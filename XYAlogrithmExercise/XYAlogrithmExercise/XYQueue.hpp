@@ -10,6 +10,81 @@
 #define XYQueue_hpp
 #include <list>
 #include <stdio.h>
+class MyCircularQueue1 {
+    
+    int front;
+    int rear;
+    int capacity;
+    int *array;
+public:
+    /** Initialize your data structure here. Set the size of the queue to be k. */
+    MyCircularQueue1(int k) {
+        /// 这里+1是因为
+        /// 为了避免“队列为空”和“队列为满”的判别条件冲突，我们有意浪费了一个位置
+        /// 例如: | 0 | 1 | 如果rear = 1,capacity = 2, front = 1,   (enQueue) rear = (rear+1)%capacity , 那么 rear = 0 = front 这样就不对了。
+        capacity = k + 1;
+        array = new int[capacity];
+        front = 0;
+        rear = 0;
+    }
+    
+    /** Insert an element into the circular queue. Return true if the operation is successful. */
+    bool enQueue(int value) {
+        if (isFull()) {
+            return false;
+        }
+        array[rear] = value;
+        rear = (rear + 1) % capacity;
+        return true;
+    }
+    
+    /** Delete an element from the circular queue. Return true if the operation is successful. */
+    bool deQueue() {
+        if (isEmpty()) {
+            return false;
+        }
+        front = (front + 1) % capacity;
+        return true;
+    }
+    
+    /** Get the front item from the queue. */
+    int Front() {
+        if (isEmpty()) {
+            return -1;
+        }
+        
+        return array[front];
+    }
+    
+    /** Get the last item from the queue. */
+    int Rear() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return array[(rear -1 + capacity) % capacity];
+    }
+    
+    /** Checks whether the circular queue is empty or not. */
+    bool isEmpty() {
+        return front == rear;
+    }
+    
+    /** Checks whether the circular queue is full or not. */
+    bool isFull() {
+        return (rear + 1) % capacity == front;
+    }
+};
+
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * MyCircularQueue* obj = new MyCircularQueue(k);
+ * bool param_1 = obj->enQueue(value);
+ * bool param_2 = obj->deQueue();
+ * int param_3 = obj->Front();
+ * int param_4 = obj->Rear();
+ * bool param_5 = obj->isEmpty();
+ * bool param_6 = obj->isFull();
+ */
 
 class MyCircularQueue {
 public:
