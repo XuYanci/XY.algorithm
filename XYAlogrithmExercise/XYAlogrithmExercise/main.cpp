@@ -19,6 +19,7 @@
 #include "XYStack.hpp"
 #include "XYLinkList.hpp"
 #include "XYCache.hpp"
+
 /// XuYanci Alogrithm Exercise
 
 /// 算法
@@ -92,6 +93,10 @@ void structuresGoBack() {
     int array6[] = {12,14,25,32,23,45,13,63,24};
     // 快速排序
     sort->quickSort(array6, 9);
+    
+    /// 堆排序
+    Min_Heap *heap = new Min_Heap();
+    heap->JustRun();
 }
 
 void alogrithms() {
