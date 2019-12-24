@@ -41,8 +41,8 @@ int main(int argc, const char * argv[]) {
 //    alogrithms();
 //    leetCodes();
 //    structures();
-//    leetCodesGoBack();
-    structuresGoBack();
+    leetCodesGoBack();
+//    structuresGoBack();
 //    cache();
     return 0;
 }
@@ -72,6 +72,9 @@ void leetCodesGoBack() {
     vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
     s->dailyTemperatures(temperatures);
     s->dailyTemperatures1(temperatures);
+    
+    vector<int> nums1 {43,9,26,24,39,40,20,11,18,13,14,30,48,47,37,24,32,32,2,26};
+    s->findTargetSumWays1(nums1, 47);
 }
 
 void structures() {

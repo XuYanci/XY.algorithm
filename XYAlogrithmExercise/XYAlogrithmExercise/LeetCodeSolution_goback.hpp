@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <string>
 #include <stack>
+#include <queue>
 using namespace std;
 
 class ListNode_ {
@@ -446,6 +447,64 @@ public:
         }
         
         return head->next;
+    }
+    
+    int findTargetSumWays(vector<int>& nums, int S) {
+        /// BFS
+        queue<int>_queue;
+        int size = (int)nums.size();
+        int i = 0;
+        _queue.push(0);
+        int counter = 0;
+        while (i < size) {
+            int sizeCounter = 0;
+            int size1 = (int)_queue.size();
+            while (sizeCounter < size1) {
+                int front = _queue.front();
+                int val = front + nums[i];
+                int val1 = front - nums[i];
+                
+                _queue.push(val);
+                _queue.push(val1);
+                _queue.pop();
+                sizeCounter++;
+                if (val == S && i == size - 1) {
+                    counter++;
+                }
+                if (val1 == S && i == size - 1) {
+                    counter++;
+                }
+            }
+            i++;
+        }
+        
+        
+        //        while (_queue.empty() == false) {
+        //            int front = _queue.front();
+        //            _queue.pop();
+        //            if (front == S) {
+        //                counter++;
+        //            }
+        //        }
+        return counter;
+    }
+    
+    int findTargetSumWays1(vector<int>& nums, int S) {
+        /// DFS
+        int counter = 0;
+        dfs_findTargetSumWays(0, 0, nums, S,counter);
+        return counter;
+    }
+    void dfs_findTargetSumWays(int curVal,int i,vector<int>& nums,int S,int &counter) {
+        
+        if (i == nums.size()) {
+            if ( S == curVal ){
+                counter++;
+            }
+            return;
+        }
+        dfs_findTargetSumWays(curVal + nums[i], i+1, nums, S,counter);
+        dfs_findTargetSumWays(curVal - nums[i], i+1, nums, S,counter);
     }
 };
 
