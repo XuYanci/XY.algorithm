@@ -101,5 +101,50 @@ int XYBSTree::BSTDelete1(BinSearTreeNode *bt, DataType key) {
 }
 
 int XYBSTree::BSTDelete2(BinSearTreeNode *bt, DataType key) {
+    
+    BSTreeNode *parent,*p,*maxpl;
+    p = bt;
+    parent = NULL;
+    while (p != NULL) {
+        if (p->data == key) break;
+        parent = p;
+        if (p->data > key)
+            p = p->leftchild;
+        else
+            p = p->rightchild;
+    }
+    if (p == NULL) {
+        printf(" not exist \n");return 0;
+    }
+    
+    if (p->leftchild == NULL) {
+        if (parent == NULL) {
+            bt = p->rightchild;
+        }
+        else if (parent->leftchild == p) {
+            parent->leftchild = p->rightchild;
+        }
+        else {
+            parent->rightchild = p->rightchild;
+        }
+    }
+    if (p->leftchild != NULL) {
+     
+        maxpl = p->leftchild;
+        while(maxpl->rightchild != NULL) {
+            maxpl = maxpl->rightchild;
+        }
+        maxpl->rightchild = p->rightchild;
+        if (parent == NULL) {
+            bt = p->leftchild;
+        }
+        else if (parent->leftchild == p){
+            parent->leftchild = p->leftchild;
+        } else {
+            parent->rightchild = p->leftchild;
+        }
+       
+    }
+    free(p);
     return 1;
 }
