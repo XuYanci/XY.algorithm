@@ -506,6 +506,42 @@ public:
         dfs_findTargetSumWays(curVal + nums[i], i+1, nums, S,counter);
         dfs_findTargetSumWays(curVal - nums[i], i+1, nums, S,counter);
     }
+    
+    ListNode_* swapPairs(ListNode_* head) {
+        /// 解法一、双指针
+//        ListNode_ *p1 = head;
+//        ListNode_ *p2 = p1 ? p1->next : NULL;
+//        head = p2 ? p2 : head;
+//        ListNode_ *prep2 = NULL;
+//        while (p1 != NULL && p2 != NULL) {
+//            ListNode *p3 = p2->next;
+//            p2->next = p1;
+//            p1->next = p3;
+//            if (prep2) {
+//                prep2->next = p2;
+//            }
+//            prep2 = p1;
+//            p1 = p3;
+//            p2 = p1 ? p1->next : NULL;
+//        }
+//        return head;
+        
+        
+        /// 解法二、 四指针 (??? 我的天)
+        ListNode_ *p1 = head;
+        ListNode_ *p2 = p1 ? p1->next : NULL;
+        head = p2 ? p2 : head;
+        
+        while(p1 != NULL && p2 != NULL) {
+            ListNode_ *p3 = p2->next;
+            ListNode_ *p4 = p3 ? (p3->next!=NULL ? p3->next: p3) : NULL;
+            p1->next = p4;
+            p2->next = p1;
+            p1 = p3;
+            p2 = p1 ? p1->next : NULL;
+        }
+        return head;
+    }
 };
 
 
