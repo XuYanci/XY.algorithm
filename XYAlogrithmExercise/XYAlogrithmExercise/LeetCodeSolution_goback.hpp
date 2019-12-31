@@ -544,5 +544,28 @@ public:
     }
 };
 
+int removeDuplicates(vector<int>& nums) {
+/// 解法一、由于数组是已经排好序，比较的值与当前值不同，则插入，并且设置不同值为当前值
+//    if (nums.size() == 0) return 0;
+//
+//    int count = 0;
+//    for (int i = 0 ; i < nums.size();i++) {
+//        if(nums[count] != nums[i]) {
+//            nums[++count] = nums[i];
+//        }
+//    }
+//    return count + 1;
 
+/// 解法二、原地删除元素,p_counter - 1 记录前一个，p_counter 记录后一个元素
+    int p_counter = 1;
+    while(p_counter < nums.size()) {
+        /// 如果前后对比一样，则删除前一个数值，同时p_counter保持不变，这样自然后移一位
+        if (nums[p_counter - 1] == nums[p_counter] ) {
+            nums.erase(nums.begin() + p_counter - 1);
+        } else {
+            p_counter++;
+        }
+    }
+    return (int)nums.size();
+}
 #endif /* LeetCodeSolution_goback_hpp */
