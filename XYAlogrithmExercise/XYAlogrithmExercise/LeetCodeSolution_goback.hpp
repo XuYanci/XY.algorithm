@@ -509,22 +509,22 @@ public:
     
     ListNode_* swapPairs(ListNode_* head) {
         /// 解法一、双指针
-//        ListNode_ *p1 = head;
-//        ListNode_ *p2 = p1 ? p1->next : NULL;
-//        head = p2 ? p2 : head;
-//        ListNode_ *prep2 = NULL;
-//        while (p1 != NULL && p2 != NULL) {
-//            ListNode *p3 = p2->next;
-//            p2->next = p1;
-//            p1->next = p3;
-//            if (prep2) {
-//                prep2->next = p2;
-//            }
-//            prep2 = p1;
-//            p1 = p3;
-//            p2 = p1 ? p1->next : NULL;
-//        }
-//        return head;
+        //        ListNode_ *p1 = head;
+        //        ListNode_ *p2 = p1 ? p1->next : NULL;
+        //        head = p2 ? p2 : head;
+        //        ListNode_ *prep2 = NULL;
+        //        while (p1 != NULL && p2 != NULL) {
+        //            ListNode *p3 = p2->next;
+        //            p2->next = p1;
+        //            p1->next = p3;
+        //            if (prep2) {
+        //                prep2->next = p2;
+        //            }
+        //            prep2 = p1;
+        //            p1 = p3;
+        //            p2 = p1 ? p1->next : NULL;
+        //        }
+        //        return head;
         
         
         /// 解法二、 四指针 (??? 我的天)
@@ -542,83 +542,84 @@ public:
         }
         return head;
     }
-};
-
-//给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
-//
-//不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
-//
-//示例 1:
-//
-//给定数组 nums = [1,1,2],
-//
-//函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。
-//
-//你不需要考虑数组中超出新长度后面的元素。
-//示例 2:
-//
-//给定 nums = [0,0,1,1,1,2,2,3,3,4],
-//
-//函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
-//
-//你不需要考虑数组中超出新长度后面的元素。
-//
-//来源：力扣（LeetCode）
-//链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
-
-int removeDuplicates(vector<int>& nums) {
-/// 解法一、由于数组是已经排好序，比较的值与当前值不同，则插入，并且设置不同值为当前值
-//    if (nums.size() == 0) return 0;
-//
-//    int count = 0;
-//    for (int i = 0 ; i < nums.size();i++) {
-//        if(nums[count] != nums[i]) {
-//            nums[++count] = nums[i];
-//        }
-//    }
-//    return count + 1;
-
-/// 解法二、原地删除元素,p_counter - 1 记录前一个，p_counter 记录后一个元素
-    int p_counter = 1;
-    while(p_counter < nums.size()) {
-        /// 如果前后对比一样，则删除前一个数值，同时p_counter保持不变，这样自然后移一位
-        if (nums[p_counter - 1] == nums[p_counter] ) {
-            nums.erase(nums.begin() + p_counter - 1);
-        } else {
-            p_counter++;
-        }
-    }
-    return (int)nums.size();
-}
-
-//给定一个 n × n 的二维矩阵表示一个图像。
-//
-//将图像顺时针旋转 90 度。
-//
-//说明：
-//
-//你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。
-//
-//示例 1:
-//
-//给定 matrix =
-//[
-// [1,2,3],
-// [4,5,6],
-// [7,8,9]
-// ],
-//
-//原地旋转输入矩阵，使其变为:
-//[
-// [7,4,1],
-// [8,5,2],
-// [9,6,3]
-// ]
-//
-//来源：力扣（LeetCode）
-//链接：https://leetcode-cn.com/problems/rotate-image
-//著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-void rotate(vector<vector<int>>& matrix) {
     
-}
+    
+    //给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+    //
+    //不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+    //
+    //示例 1:
+    //
+    //给定数组 nums = [1,1,2],
+    //
+    //函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。
+    //
+    //你不需要考虑数组中超出新长度后面的元素。
+    //示例 2:
+    //
+    //给定 nums = [0,0,1,1,1,2,2,3,3,4],
+    //
+    //函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
+    //
+    //你不需要考虑数组中超出新长度后面的元素。
+    //
+    //来源：力扣（LeetCode）
+    //链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
+    
+    int removeDuplicates(vector<int>& nums) {
+        /// 解法一、由于数组是已经排好序，比较的值与当前值不同，则插入，并且设置不同值为当前值
+        //    if (nums.size() == 0) return 0;
+        //
+        //    int count = 0;
+        //    for (int i = 0 ; i < nums.size();i++) {
+        //        if(nums[count] != nums[i]) {
+        //            nums[++count] = nums[i];
+        //        }
+        //    }
+        //    return count + 1;
+        
+        /// 解法二、原地删除元素,p_counter - 1 记录前一个，p_counter 记录后一个元素
+        int p_counter = 1;
+        while(p_counter < nums.size()) {
+            /// 如果前后对比一样，则删除前一个数值，同时p_counter保持不变，这样自然后移一位
+            if (nums[p_counter - 1] == nums[p_counter] ) {
+                nums.erase(nums.begin() + p_counter - 1);
+            } else {
+                p_counter++;
+            }
+        }
+        return (int)nums.size();
+    }
+    
+    //给定一个 n × n 的二维矩阵表示一个图像。
+    //
+    //将图像顺时针旋转 90 度。
+    //
+    //说明：
+    //
+    //你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。
+    //
+    //示例 1:
+    //
+    //给定 matrix =
+    //[
+    // [1,2,3],
+    // [4,5,6],
+    // [7,8,9]
+    // ],
+    //
+    //原地旋转输入矩阵，使其变为:
+    //[
+    // [7,4,1],
+    // [8,5,2],
+    // [9,6,3]
+    // ]
+    //
+    //来源：力扣（LeetCode）
+    //链接：https://leetcode-cn.com/problems/rotate-image
+    //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    void rotate(vector<vector<int>>& matrix) {
+        
+    }
+};
 #endif /* LeetCodeSolution_goback_hpp */
