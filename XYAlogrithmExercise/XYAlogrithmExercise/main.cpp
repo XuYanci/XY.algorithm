@@ -76,6 +76,23 @@ void leetCodesGoBack() {
     vector<int> nums1 {43,9,26,24,39,40,20,11,18,13,14,30,48,47,37,24,32,32,2,26};
     s->findTargetSumWays1(nums1, 47);
     
+    
+    vector<vector<int>> matrix;
+    int a11[4] = {1,2,3,4};
+    int a22[4] = {5,6,7,8};
+    int a33[4] = {9,10,11,12};
+    int a44[4] = {13,14,15,16};
+    vector<int> nums111(a11,a11+4);
+    vector<int> nums222(a22,a22+4);
+    vector<int> nums333(a33,a33+4);
+    vector<int> nums444(a44,a44+4);
+    
+    matrix.push_back(nums111);
+    matrix.push_back(nums222);
+    matrix.push_back(nums333);
+    matrix.push_back(nums444);
+    s->rotate(matrix);
+    
 }
 
 void structures() {

@@ -613,13 +613,60 @@ public:
     // [7,4,1],
     // [8,5,2],
     // [9,6,3]
-    // ]
+    // ]ee
     //
     //来源：力扣（LeetCode）
     //链接：https://leetcode-cn.com/problems/rotate-image
     //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    /// 解法一、
+    /// 推导出公式
+    /// N 为 长度
+    /// X0,Y0 => Y0,N - X0
     void rotate(vector<vector<int>>& matrix) {
-        
+        int n = (int)matrix.size();
+        int x0;int y0;
+        x0 = 0;
+        y0 = 0;
+        for (int i = 0; i < n / 2 ;i++) {
+            for (int j = 0; j < n - 2 * i - 1;j++) {
+                /// 左上角
+                int x00 = x0;
+                int y00 = y0 + j;
+               
+                /// 右上角
+                int x11 = y00;
+                int y11 = n - x00 - 1;
+                
+                /// 右下角
+                int x22 = y11;
+                int y22 = n - x11 - 1;
+                
+                /// 左下角
+                int x33 = y22;
+                int y33 = n - x22 - 1;
+                
+                /// temp = 左上角
+                int temp = matrix[x00][y00];
+                /// temp0 = 右上角
+                int temp0 = matrix[x11][y11];
+                /// temp1 = 右下角
+                int temp1 = matrix[x22][y22];
+                /// temp2 = 左下角
+                int temp2 = matrix[x33][y33];
+                
+                /// 左上角 = 左下角
+                matrix[x00][y00] = temp2;
+                /// 右上角 = 左上角
+                matrix[x11][y11] = temp;
+                /// 右下角 = 右上角
+                matrix[x22][y22] = temp0;
+                /// 左下角 = 右下角
+                matrix[x33][y33] = temp1;
+            }
+            x0++;
+            y0++;
+        }
+       
     }
 };
 #endif /* LeetCodeSolution_goback_hpp */
