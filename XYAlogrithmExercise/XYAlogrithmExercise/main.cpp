@@ -92,7 +92,6 @@ void leetCodesGoBack() {
     matrix.push_back(nums333);
     matrix.push_back(nums444);
     s->rotate(matrix);
-    
 }
 
 void structures() {
