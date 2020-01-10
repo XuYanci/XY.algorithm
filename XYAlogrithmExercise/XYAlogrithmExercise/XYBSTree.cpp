@@ -19,9 +19,12 @@ BSTreeNode* XYBSTree::BSTSearch(BinSearTreeNode *bt, DataType key) {
             printf("exit this key \n");
             return NULL;
         }
+        /// 如果寻找的值大于结点值，则往左边继续寻找
         if (p->data > key) {
             p = p->leftchild;
-        } else {
+        }
+        /// 如果寻找的值小于结点值，则往右边继续寻找
+        else {
             p = p->rightchild;
         }
     }
@@ -30,18 +33,23 @@ BSTreeNode* XYBSTree::BSTSearch(BinSearTreeNode *bt, DataType key) {
 
 int XYBSTree::BSTInsert(BinSearTreeNode *bt, DataType key) {
     BSTreeNode *p,*temp;
+    /// 找到对应的节点
     temp = BSTSearch(bt, key);
     if (temp == NULL) {
         printf("exist this key \n"); return 0;
     }
+    /// 如果节点为空，则新建节点
     p =  new BinSearTreeNode();
     if (p == NULL) {
         printf("Alloc Failure! \n"); return 0;
     }
     p->data = key;
+    /// 如果值小于搜索到父节点，则插入左边
     if (key < temp->data) {
         temp->leftchild = p;
-    } else {
+    }
+    /// 如果值大于搜索到父节点，则插入右边
+    else {
         temp->rightchild = p;
     }
     
