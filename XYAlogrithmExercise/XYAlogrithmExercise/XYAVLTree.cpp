@@ -94,20 +94,20 @@ void XYAVLTree::leftBalance(AVLNode *bt) {
     AVLNode lc_rc;
     /// 查看平衡因子bf
     switch (lc->bf) {
-        /// 特殊删除情况
+            //特殊情况, 删除时候要考虑0, 否则会出现删除节点不平衡情况
         case 0:
             (*bt)->bf = 1;
             lc->bf = 0;
             rightRotate(bt);
             break;
-        /// L,L
+            /// L,L
         case 1:
             (*bt)->bf = 0;
             lc->bf = 0;
             rightRotate(bt);
             break;
             
-        /// LR, 先左旋再右旋
+            /// LR, 先左旋再右旋
         case -1:
             lc_rc = lc->rightchild;
             switch (lc_rc->bf) {
@@ -142,12 +142,12 @@ void XYAVLTree::rightBalance(AVLNode *bt) {
     AVLNode rc = (*bt)->rightchild;
     AVLNode rc_lc;
     switch (rc->bf) {
-        /// 特殊删除情况
+            //特殊情况, 删除时候要考虑0, 否则会出现删除节点不平衡情况
         case 0:
             (*bt)->bf = -1;rc->bf = 0;
             leftRotate(bt);
             break;
-        /// RL, 先右旋再左旋
+            /// RL, 先右旋再左旋
         case 1:
             rc_lc = rc->leftchild;
             switch (rc_lc->bf) {
@@ -170,7 +170,7 @@ void XYAVLTree::rightBalance(AVLNode *bt) {
             rightRotate(&((*bt)->rightchild));
             leftRotate(bt);
             break;
-        /// RR
+            /// RR
         case -1:
             (*bt)->bf = 0;
             rc->bf = 0;
@@ -201,18 +201,18 @@ Status XYAVLTree::insertAVL(AVLNode *bt, DataType data, Status *more) {
             }
             if (true == *more) {
                 switch ((*bt)->bf) {
-                    /// LL,左平衡操作，more = false,不需要继续向上回溯
+                        /// LL,左平衡操作，more = false,不需要继续向上回溯
                     case 1:
-                    /// 左平衡
+                        /// 左平衡
                         leftBalance(bt);
                         *more = false;
                         break;
-                    /// 深度+1,more = true, 需要继续向上回溯
+                        /// 深度+1,more = true, 需要继续向上回溯
                     case 0:
                         (*bt)->bf = 1;
                         *more = true;
                         break;
-                    /// 深度+1,more = false,不需要继续向上回溯
+                        /// 深度+1,more = false,不需要继续向上回溯
                     case -1:
                         (*bt)->bf = 0;
                         *more = false;
@@ -227,14 +227,14 @@ Status XYAVLTree::insertAVL(AVLNode *bt, DataType data, Status *more) {
             if (insertAVL(&((*bt)->rightchild), data, more) == 0) return 0;
             if (true == *more) {
                 switch ((*bt)->bf) {
-                    
-                    /// more = false,不需要回溯
+                        
+                        /// more = false,不需要回溯
                     case 1:
                         (*bt)->bf = 0;
                         *more = false;
                         break;
                         
-                    /// more = true, 需要回溯
+                        /// more = true, 需要回溯
                     case 0:
                         (*bt)->bf = -1;
                         *more = true;
