@@ -27,7 +27,7 @@ typedef AVLTree *PAVLTree;
 
 
 
-
+/// 这个看懂后更加理解递归了，就是栈 :) 
 class XYAVLTree {
     /// AVL树深度
     Status AVLDepth(AVLNode bt);

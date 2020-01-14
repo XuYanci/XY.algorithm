@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/// 计算树的深度
+/// 计算树的深度 
 Status XYAVLTree::AVLDepth(AVLNode bt) {
     //// 递归出口，bt为NULL时候，返回0
     if (bt == NULL) return 0;
@@ -94,7 +94,7 @@ void XYAVLTree::leftBalance(AVLNode *bt) {
     AVLNode lc_rc;
     /// 查看平衡因子bf
     switch (lc->bf) {
-            //特殊情况, 删除时候要考虑0, 否则会出现删除节点不平衡情况
+            // 特殊情况, 删除时候要考虑0, 否则会出现删除节点不平衡情况
         case 0:
             (*bt)->bf = 1;
             lc->bf = 0;
@@ -203,16 +203,16 @@ Status XYAVLTree::insertAVL(AVLNode *bt, DataType data, Status *more) {
                 switch ((*bt)->bf) {
                         /// LL,左平衡操作，more = false,不需要继续向上回溯
                     case 1:
-                        /// 左平衡
+                        /// 左平衡,原左高，左平衡
                         leftBalance(bt);
                         *more = false;
                         break;
-                        /// 深度+1,more = true, 需要继续向上回溯
+                        /// 深度+1,more = true, 需要继续向上回溯,原等高，左变高
                     case 0:
                         (*bt)->bf = 1;
                         *more = true;
                         break;
-                        /// 深度+1,more = false,不需要继续向上回溯
+                        /// 深度+1,more = false,不需要继续向上回溯,原右高，变等高
                     case -1:
                         (*bt)->bf = 0;
                         *more = false;
@@ -228,19 +228,19 @@ Status XYAVLTree::insertAVL(AVLNode *bt, DataType data, Status *more) {
             if (true == *more) {
                 switch ((*bt)->bf) {
                         
-                        /// more = false,不需要回溯
+                        /// more = false,不需要回溯,原左高，变等高
                     case 1:
                         (*bt)->bf = 0;
                         *more = false;
                         break;
                         
-                        /// more = true, 需要回溯
+                        /// more = true, 需要回溯,原等高，变右高
                     case 0:
                         (*bt)->bf = -1;
                         *more = true;
                         break;
                         
-                        /// RR OR RL, 右平衡操作, more = false,不需要回溯
+                        /// RR OR RL, 右平衡操作, more = false,不需要回溯，原右高，右平衡
                     case -1:
                         
                         rightBalance(bt);
@@ -257,21 +257,29 @@ Status XYAVLTree::insertAVL(AVLNode *bt, DataType data, Status *more) {
 
 Status XYAVLTree::deleteAVL(AVLNode *bt, DataType data, Status *less) {
     AVLNode q = NULL;
-    if ((*bt) == NULL) {
+    if ((*bt) == NULL) /// 空树
+    {
         *less = false;
         return 0;
     }
+    /// 相等
     else if(data == (*bt)->data) {
+        /// 左子树为空，接右子树
         if ((*bt)->leftchild == NULL) {
             (*bt) = (*bt)->rightchild; *less = true;
-        } else if((*bt)->rightchild == NULL) {
+        }
+        /// 右子树为空，接左子树
+        else if((*bt)->rightchild == NULL) {
             (*bt) = (*bt)->leftchild; *less = true;
-        } else {
+        }
+        /// 左右子树均不为空，则用其左子树的最大值取代
+        else {
             q = (*bt)->leftchild;
             while (q->rightchild != NULL) {
                 q = q->rightchild;
             }
             (*bt)->data = q->data;
+            /// 递归删除左子树
             if (deleteAVL(&((*bt)->leftchild), q->data, less ) == 0) return 0;
             if (true == *less) {
                 switch ((*bt)->bf) {
@@ -296,7 +304,10 @@ Status XYAVLTree::deleteAVL(AVLNode *bt, DataType data, Status *less) {
                 }
             }
         }
-    } else if (data < (*bt)->data) {
+    }
+    /// 左子树中继续查找
+    else if (data < (*bt)->data) {
+        /// 递归删除左孩子
         if (deleteAVL(&((*bt)->leftchild), data, less) == 0) return 0;
         if (true == *less) {
             switch ((*bt)->bf) {
@@ -317,7 +328,10 @@ Status XYAVLTree::deleteAVL(AVLNode *bt, DataType data, Status *less) {
                     break;
             }
         }
-    } else {
+    }
+    /// 右子树中继续查找
+    else {
+        /// 递归删除右孩子
         if (deleteAVL(&((*bt)->rightchild), data, less) == 0) return 0;
         if (true == *less) {
             switch ((*bt)->bf) {
