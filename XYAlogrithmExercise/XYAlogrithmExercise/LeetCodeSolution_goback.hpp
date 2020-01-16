@@ -668,5 +668,48 @@ public:
         }
        
     }
+    
+    
+//    给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+//    求在该柱状图中，能够勾勒出来的矩形的最大面积。
+//    解法一、递增栈
+//    利用递增栈确保柱形是递增的关系，这样就能计算出值，然后取最大值即可
+//    例如柱形是 1,2,3,4,0, 到达0之前是递增关系，遇到0时候，便可以计算出前面的面积，1,1*4,2,2*3,3,3*2,4 取最大值就是最大面积
+////  栈比较时候,递增栈( i - stack[top - 1] - 1 ) * a[stack[top]]
+////  栈停止 (length - stack[top-1] - 1) * a[stack[top]]
+    int largestRectangleArea(vector<int>& heights) {
+        int value = 0;
+        stack<int> increaseStack;
+        increaseStack.push(-1);
+        
+        /// 递增栈
+        for (int i = 0; i < (int)heights.size();i++) {
+            
+            while(increaseStack.top() != -1
+                  && !increaseStack.empty()
+                  && heights[increaseStack.top()] > heights[i]) {
+                
+                int top = increaseStack.top();
+                increaseStack.pop();
+                int top1 = increaseStack.top();
+                /// 公式:  ( i - stack[top - 1] - 1 ) * a[stack[top]]
+                value = max(value, ( i - top1 - 1) * heights[top]);
+            }
+            
+            increaseStack.push(i);
+        }
+        
+        int height = (int)heights.size();
+        /// 栈停止
+        while (increaseStack.size() > 1) {
+            int top = increaseStack.top();
+            increaseStack.pop();
+            int top1 = increaseStack.top();
+            /// 公式: (length - stack[top-1] - 1) * a[stack[top]]
+            value = max(value,(height - top1 - 1) * heights[top]);
+        }
+        
+        return value;
+    }
 };
 #endif /* LeetCodeSolution_goback_hpp */

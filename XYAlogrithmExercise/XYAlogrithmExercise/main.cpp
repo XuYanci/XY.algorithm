@@ -92,6 +92,9 @@ void leetCodesGoBack() {
     matrix.push_back(nums333);
     matrix.push_back(nums444);
     s->rotate(matrix);
+    
+    vector<int> heights {2,1,5,6,2,3};
+    s->largestRectangleArea(heights);
 }
 
 void structures() {
