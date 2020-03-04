@@ -16,6 +16,7 @@ using namespace std;
 
 
 class JianZhiOffer {
+public:
 //    找出数组中重复的数字。
 //
 //

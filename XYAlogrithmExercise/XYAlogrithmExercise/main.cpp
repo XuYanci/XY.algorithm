@@ -19,6 +19,7 @@
 #include "XYStack.hpp"
 #include "XYLinkList.hpp"
 #include "XYCache.hpp"
+#include "jianzhiOffer.hpp"
 
 /// XuYanci Alogrithm Exercise
 
@@ -44,6 +45,7 @@ int main(int argc, const char * argv[]) {
     leetCodesGoBack();
 //    structuresGoBack();
 //    cache();
+//    JianZhiOfferRun();
     return 0;
 }
 
@@ -348,4 +350,10 @@ void leetCodes() {
     vector<string> prefixs {"ca","c"};
     s->longestCommonPrefix(prefixs);
     
+}
+
+void JianZhiOfferRun() {
+    JianZhiOffer *offer = new JianZhiOffer();
+    vector<int> numbers {73, 74, 75, 71, 69, 72, 76, 73};
+    offer->findRepeatNumber(numbers);
 }
