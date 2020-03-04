@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */; };
 		AD56EE9523A334BD003ADF7D /* XYSort_goback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD56EE9323A334BD003ADF7D /* XYSort_goback.cpp */; };
 		AD62542723A60B7000E635C3 /* XYCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD62542523A60B7000E635C3 /* XYCache.cpp */; };
 		AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD62544723B0822C00E635C3 /* XYBSTree.cpp */; };
@@ -41,6 +42,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jianzhiOffer.cpp; sourceTree = "<group>"; };
+		AD461BEB240F58A400BABDFC /* jianzhiOffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = jianzhiOffer.hpp; sourceTree = "<group>"; };
 		AD56EE9323A334BD003ADF7D /* XYSort_goback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYSort_goback.cpp; sourceTree = "<group>"; };
 		AD56EE9423A334BD003ADF7D /* XYSort_goback.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYSort_goback.hpp; sourceTree = "<group>"; };
 		AD62542523A60B7000E635C3 /* XYCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYCache.cpp; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				AD62542623A60B7000E635C3 /* XYCache.hpp */,
 				AD66927323BDCD7400AD491D /* XYDp.cpp */,
 				AD66927423BDCD7400AD491D /* XYDp.hpp */,
+				AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */,
+				AD461BEB240F58A400BABDFC /* jianzhiOffer.hpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				AD6C731C22720A66003B1A5D /* XYHeap.cpp in Sources */,
 				AD56EE9523A334BD003ADF7D /* XYSort_goback.cpp in Sources */,
 				ADFD08322394E9900096A0F3 /* LeetCodeSolution_goback.cpp in Sources */,
+				AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */,
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */,
 				AD80E2AA226C7734005A0256 /* main.cpp in Sources */,
