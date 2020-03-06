@@ -33,7 +33,8 @@ void leetCodesGoBack();
 void structures();
 /// 数据结构复习
 void structuresGoBack();
-
+/// 剑指Offer
+void JianZhiOfferRun();//
 void cache();
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -42,10 +43,10 @@ int main(int argc, const char * argv[]) {
 //    alogrithms();
 //    leetCodes();
 //    structures();
-    leetCodesGoBack();
+    //leetCodesGoBack();
 //    structuresGoBack();
 //    cache();
-//    JianZhiOfferRun();
+    JianZhiOfferRun();
     return 0;
 }
 
@@ -354,6 +355,8 @@ void leetCodes() {
 
 void JianZhiOfferRun() {
     JianZhiOffer *offer = new JianZhiOffer();
-    vector<int> numbers {73, 74, 75, 71, 69, 72, 76, 73};
-    offer->findRepeatNumber(numbers);
+//    vector<int> numbers {73, 74, 75, 71, 69, 72, 76, 73};
+//    offer->findRepeatNumber(numbers);
+//
+    offer->replaceSpace("We are happy.");
 }
