@@ -20,6 +20,7 @@
 #include "XYLinkList.hpp"
 #include "XYCache.hpp"
 #include "jianzhiOffer.hpp"
+#include "LeetCodeEveryDay.hpp"
 
 /// XuYanci Alogrithm Exercise
 
@@ -35,6 +36,8 @@ void structures();
 void structuresGoBack();
 /// 剑指Offer
 void JianZhiOfferRun();//
+/// LeetCode每日一题
+void LeetCodeEveryDayss();
 void cache();
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -359,4 +362,11 @@ void JianZhiOfferRun() {
 //    offer->findRepeatNumber(numbers);
 //
     offer->replaceSpace("We are happy.");
+}
+
+
+void LeetCodeEveryDayss() {
+    LeetCodeEveryDay *everyDay = new LeetCodeEveryDay();
+    vector<int> nums{3,2,3};
+    everyDay->majorityElement(nums);
 }
