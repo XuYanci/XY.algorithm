@@ -13,17 +13,17 @@
 #include <vector>
 #include <unordered_map>
 #include <stack>
-
+#include <string>
 using namespace std;
 class LeetCodeEveryDay {
 public:
-//    给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
-//    
-//    你可以假设数组是非空的，并且给定的数组总是存在多数元素。
-//    
-//    来源：力扣（LeetCode）
-//    链接：https://leetcode-cn.com/problems/majority-element
-//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    //    给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+    //
+    //    你可以假设数组是非空的，并且给定的数组总是存在多数元素。
+    //
+    //    来源：力扣（LeetCode）
+    //    链接：https://leetcode-cn.com/problems/majority-element
+    //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
     int majorityElement(vector<int>& nums) {
         int count = nums.size() / 2;
         unordered_map<int,int>map;
@@ -37,7 +37,7 @@ public:
         return 0;
     }
     
-//    给定一个无序的整数数组，找到其中最长上升子序列的长度。
+    //    给定一个无序的整数数组，找到其中最长上升子序列的长度。
     int lengthOfLIS(vector<int>& nums) {
         if (nums.size() == 0) return 0;
         /// 动态规划表
@@ -55,13 +55,13 @@ public:
         return *max_element(dp.begin(), dp.end());
     }
     
-//    给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。
-//
-//    找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。)
-//
-//    来源：力扣（LeetCode）
-//    链接：https://leetcode-cn.com/problems/max-area-of-island
-//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    //    给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。
+    //
+    //    找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。)
+    //
+    //    来源：力扣（LeetCode）
+    //    链接：https://leetcode-cn.com/problems/max-area-of-island
+    //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
     int maxAreaOfIsland(vector<vector<int>>& grid) {
         
         if (grid.size() == 0) return 0;
@@ -82,7 +82,7 @@ public:
             }
         }
         
-
+        
         return maxArea;
     }
     
@@ -90,7 +90,7 @@ public:
         /// Reverse Exit
         if (i >= grid.size() || j >= grid[0].size()) return ;
         if (grid[i][j] == 0) return ;
-  
+        
         
         /// Reset grid zero
         grid[i][j] = 0;
@@ -106,6 +106,36 @@ public:
         dfs_maxAreaOfIsland(grid, i, j + 1,area);
     }
     
+    string compressString(string S) {
+        char SS[50005];
+        memset(SS, 0, 50005);
+        char *ss = (char*)S.c_str();
+        char *ss1 = ss + 1;
+        int n = 1;
+        int p = 0;
+        while(*ss1 != '\0' && p < 50000) {
+            if (*ss1 == *ss) {
+                n++;
+            }
+            else {
+                SS[p++] = *ss;
+                string a =  to_string(n);
+                memcpy(&SS[p],(char*)a.c_str(),a.size());
+                p+=a.size();
+                n = 1;
+            }
+            ss = ss + 1;
+            ss1 = ss1 + 1;
+        }
+        
+        SS[p++] = *ss;
+        string a =  to_string(n);
+        memcpy(&SS[p],(char*)a.c_str(),a.size());
+        p+=a.size();
+        
+        return S.size() <= p ? S : SS;
+        
+    }
     
 };
 

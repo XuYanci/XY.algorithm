@@ -384,5 +384,5 @@ void LeetCodeEveryDayss() {
     
 
     everyDay->maxAreaOfIsland(grid);
-    
+    everyDay->compressString("ccc");
 }
