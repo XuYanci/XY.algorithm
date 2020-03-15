@@ -13,6 +13,7 @@
 #include <vector>
 #include <unordered_map>
 #include <stack>
+
 using namespace std;
 class LeetCodeEveryDay {
 public:
@@ -53,6 +54,59 @@ public:
         
         return *max_element(dp.begin(), dp.end());
     }
+    
+//    给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。
+//
+//    找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。)
+//
+//    来源：力扣（LeetCode）
+//    链接：https://leetcode-cn.com/problems/max-area-of-island
+//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+        
+        if (grid.size() == 0) return 0;
+        int maxArea = 0;
+        
+        int i = 0;
+        int j = 0;
+        
+        for (i = 0; i < grid.size(); i++) {
+            for (j = 0; j < grid[0].size();j++) {
+                if (grid[i][j] == 1) {
+                    int area = 0;
+                    dfs_maxAreaOfIsland(grid, i, j, area);
+                    maxArea = max(area,maxArea);
+                } else {
+                    continue;
+                }
+            }
+        }
+        
+
+        return maxArea;
+    }
+    
+    void dfs_maxAreaOfIsland(vector<vector<int>>& grid,int i,int j,int &area) {
+        /// Reverse Exit
+        if (i >= grid.size() || j >= grid[0].size()) return ;
+        if (grid[i][j] == 0) return ;
+  
+        
+        /// Reset grid zero
+        grid[i][j] = 0;
+        area += 1;
+        
+        /// UP
+        dfs_maxAreaOfIsland(grid, i - 1, j,area);
+        /// Down
+        dfs_maxAreaOfIsland(grid, i + 1, j,area);
+        /// Left
+        dfs_maxAreaOfIsland(grid, i, j - 1,area);
+        /// Right
+        dfs_maxAreaOfIsland(grid, i, j + 1,area);
+    }
+    
+    
 };
 
 #endif /* LeetCodeEveryDay_hpp */

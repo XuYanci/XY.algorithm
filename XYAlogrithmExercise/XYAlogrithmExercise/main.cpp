@@ -49,7 +49,8 @@ int main(int argc, const char * argv[]) {
     //leetCodesGoBack();
 //    structuresGoBack();
 //    cache();
-    JianZhiOfferRun();
+//    JianZhiOfferRun();
+    LeetCodeEveryDayss();
     return 0;
 }
 
@@ -367,6 +368,21 @@ void JianZhiOfferRun() {
 
 void LeetCodeEveryDayss() {
     LeetCodeEveryDay *everyDay = new LeetCodeEveryDay();
-    vector<int> nums{3,2,3};
-    everyDay->majorityElement(nums);
+//    vector<int> nums{3,2,3};
+//    everyDay->majorityElement(nums);
+//    everyDay->lengthOfLIS(nums);
+    
+    vector<vector<int>>grid {
+        {0,0,1,0,0,0,0,1,0,0,0,0,0},
+        {0,0,0,0,0,0,0,1,1,1,0,0,0},
+        {0,1,1,0,1,0,0,0,0,0,0,0,0},
+        {0,1,0,0,1,1,0,0,1,0,1,0,0},
+        {0,1,0,0,1,1,0,0,1,1,1,0,0},
+        {0,0,0,0,0,0,0,0,0,0,1,0,0},
+        {0,0,0,0,0,0,0,1,1,1,0,0,0},
+        {0,0,0,0,0,0,0,1,1,0,0,0,0}};
+    
+
+    everyDay->maxAreaOfIsland(grid);
+    
 }
