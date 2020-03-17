@@ -385,4 +385,9 @@ void LeetCodeEveryDayss() {
 
     everyDay->maxAreaOfIsland(grid);
     everyDay->compressString("ccc");
+    
+    vector<string> words{"boygirdlggnh"};
+ 
+    string chars = "usdruypficfbpfbivlrhutcgvyjenlxzeovdyjtgvvfdjzcmikjraspdfp";
+    everyDay->countCharacters(words,chars );
 }
