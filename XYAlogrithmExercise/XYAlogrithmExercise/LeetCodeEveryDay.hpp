@@ -196,14 +196,56 @@ public:
 //    给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
 //
 //    在构造过程中，请注意区分大小写。比如 "Aa" 不能当做一个回文字符串。
+    /// 思路1:
+    /// 判断重复字符
+    /// 最终结果是重复字符数+未重复字符数都算为(1)
+    /// hashmap遍历
+    /// 思路2:
+    /// 大写字母26，小写字母26，可以字符转成int存放到数组对应位置
+    /// 遍历数组即可
     int longestPalindrome(string s) {
-        /// 判断重复字符
-        /// 最终结果是重复字符数+未重复字符数都算为(1)
-        /// hashmap遍历
+   
+//
+//        unordered_map<char,int> _map;
+//        for (int i = 0; i < s.length();i++) {
+//            char c = s[i];
+//            if (_map[c]) {
+//                _map[c] = _map[c]+1;
+//            } else {
+//                _map[c] = 1;
+//            }
+//        }
+//
+//
+//        std::unordered_map<char,int>::iterator iter;
+//        int count = 0;
+//        bool flag = false; /// 标记未重复数目
+//        for (iter=_map.begin(); iter!=_map.end(); iter++)
+//        {
+//
+//            if(iter->second == 1 && flag == false) {
+//                count += 1; flag = true;
+//            } else if(iter->second > 1) {
+//
+//                if (iter->second % 2 == 0) {
+//                    count+= iter->second ;
+//                } else {
+//                    count+= (flag == false ? iter->second : iter->second -1) ;
+//                    flag = true;
+//                }
+//            }
+//        }
+//
+//
+//        return count;
         
-        map<char,int> _map;
+        /// Solution 2
+        int _map[125];
+        memset(_map, 0, sizeof(int) * 125);
+        int count = 0;
+        bool flag = false; /// 标记未重复数目
         for (int i = 0; i < s.length();i++) {
-            char c = s[i];
+            int c = s[i];
             if (_map[c]) {
                 _map[c] = _map[c]+1;
             } else {
@@ -211,26 +253,21 @@ public:
             }
         }
         
-    
-        std::map<char,int>::iterator iter;
-        int count = 0;
-        bool flag = false; /// 标记未重复数目
-        for (iter=_map.begin(); iter!=_map.end(); iter++)
+        for (int i = 0; i < 125;i++)
         {
-    
-            if(iter->second == 1 && flag == false) {
+            int j = _map[i];
+            if(j == 1 && flag == false) {
                 count += 1; flag = true;
-            } else if(iter->second > 1) {
+            } else if(j > 1) {
                 
-                if (iter->second % 2 == 0) {
-                    count+= iter->second ;
+                if (j % 2 == 0) {
+                    count+= j ;
                 } else {
-                    count+= (flag == false ? iter->second : iter->second -1) ;
+                    count+= (flag == false ? j : j -1) ;
                     flag = true;
                 }
             }
         }
-        
         
         return count;
         
