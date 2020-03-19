@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include <stack>
 #include <string>
-
+#include <map>
 using namespace std;
 class LeetCodeEveryDay {
 public:
@@ -191,6 +191,49 @@ public:
                  rec1[1] >= rec2[3]);    // top
         
     
+    }
+    
+//    给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
+//
+//    在构造过程中，请注意区分大小写。比如 "Aa" 不能当做一个回文字符串。
+    int longestPalindrome(string s) {
+        /// 判断重复字符
+        /// 最终结果是重复字符数+未重复字符数都算为(1)
+        /// hashmap遍历
+        
+        map<char,int> _map;
+        for (int i = 0; i < s.length();i++) {
+            char c = s[i];
+            if (_map[c]) {
+                _map[c] = _map[c]+1;
+            } else {
+                _map[c] = 1;
+            }
+        }
+        
+    
+        std::map<char,int>::iterator iter;
+        int count = 0;
+        bool flag = false; /// 标记未重复数目
+        for (iter=_map.begin(); iter!=_map.end(); iter++)
+        {
+    
+            if(iter->second == 1 && flag == false) {
+                count += 1; flag = true;
+            } else if(iter->second > 1) {
+                
+                if (iter->second % 2 == 0) {
+                    count+= iter->second ;
+                } else {
+                    count+= (flag == false ? iter->second : iter->second -1) ;
+                    flag = true;
+                }
+            }
+        }
+        
+        
+        return count;
+        
     }
 };
 
