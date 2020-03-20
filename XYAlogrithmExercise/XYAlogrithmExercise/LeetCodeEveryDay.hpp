@@ -137,17 +137,17 @@ public:
         return S.size() <= p ? S : SS;
         
     }
-//    给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。
-//
-//    假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。
-//
-//    注意：每次拼写时，chars 中的每个字母都只能用一次。
-//
-//    返回词汇表 words 中你掌握的所有单词的 长度之和。
-//
-//    来源：力扣（LeetCode）
-//    链接：https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters
-//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    //    给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。
+    //
+    //    假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。
+    //
+    //    注意：每次拼写时，chars 中的每个字母都只能用一次。
+    //
+    //    返回词汇表 words 中你掌握的所有单词的 长度之和。
+    //
+    //    来源：力扣（LeetCode）
+    //    链接：https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters
+    //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
     int countCharacters(vector<string>& words, string chars) {
         int count = 0;
         
@@ -174,28 +174,28 @@ public:
         
         return count;
     }
-//    矩形以列表 [x1, y1, x2, y2] 的形式表示，其中 (x1, y1) 为左下角的坐标，(x2, y2) 是右上角的坐标。
-//
-//    如果相交的面积为正，则称两矩形重叠。需要明确的是，只在角或边接触的两个矩形不构成重叠。
-//
-//    给出两个矩形，判断它们是否重叠并返回结果。
-//
-//    来源：力扣（LeetCode）
-//    链接：https://leetcode-cn.com/problems/rectangle-overlap
-//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-/// 这道题用了官方题解，一开始思考的是重叠部分，发现太多情况判断。
+    //    矩形以列表 [x1, y1, x2, y2] 的形式表示，其中 (x1, y1) 为左下角的坐标，(x2, y2) 是右上角的坐标。
+    //
+    //    如果相交的面积为正，则称两矩形重叠。需要明确的是，只在角或边接触的两个矩形不构成重叠。
+    //
+    //    给出两个矩形，判断它们是否重叠并返回结果。
+    //
+    //    来源：力扣（LeetCode）
+    //    链接：https://leetcode-cn.com/problems/rectangle-overlap
+    //    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    /// 这道题用了官方题解，一开始思考的是重叠部分，发现太多情况判断。
     bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
         return !(rec1[2] <= rec2[0] ||   // left
                  rec1[3] <= rec2[1] ||   // bottom
                  rec1[0] >= rec2[2] ||   // right
                  rec1[1] >= rec2[3]);    // top
         
-    
+        
     }
     
-//    给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
-//
-//    在构造过程中，请注意区分大小写。比如 "Aa" 不能当做一个回文字符串。
+    //    给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
+    //
+    //    在构造过程中，请注意区分大小写。比如 "Aa" 不能当做一个回文字符串。
     /// 思路1:
     /// 判断重复字符
     /// 最终结果是重复字符数+未重复字符数都算为(1)
@@ -204,40 +204,40 @@ public:
     /// 大写字母26，小写字母26，可以字符转成int存放到数组对应位置
     /// 遍历数组即可
     int longestPalindrome(string s) {
-   
-//
-//        unordered_map<char,int> _map;
-//        for (int i = 0; i < s.length();i++) {
-//            char c = s[i];
-//            if (_map[c]) {
-//                _map[c] = _map[c]+1;
-//            } else {
-//                _map[c] = 1;
-//            }
-//        }
-//
-//
-//        std::unordered_map<char,int>::iterator iter;
-//        int count = 0;
-//        bool flag = false; /// 标记未重复数目
-//        for (iter=_map.begin(); iter!=_map.end(); iter++)
-//        {
-//
-//            if(iter->second == 1 && flag == false) {
-//                count += 1; flag = true;
-//            } else if(iter->second > 1) {
-//
-//                if (iter->second % 2 == 0) {
-//                    count+= iter->second ;
-//                } else {
-//                    count+= (flag == false ? iter->second : iter->second -1) ;
-//                    flag = true;
-//                }
-//            }
-//        }
-//
-//
-//        return count;
+        
+        //
+        //        unordered_map<char,int> _map;
+        //        for (int i = 0; i < s.length();i++) {
+        //            char c = s[i];
+        //            if (_map[c]) {
+        //                _map[c] = _map[c]+1;
+        //            } else {
+        //                _map[c] = 1;
+        //            }
+        //        }
+        //
+        //
+        //        std::unordered_map<char,int>::iterator iter;
+        //        int count = 0;
+        //        bool flag = false; /// 标记未重复数目
+        //        for (iter=_map.begin(); iter!=_map.end(); iter++)
+        //        {
+        //
+        //            if(iter->second == 1 && flag == false) {
+        //                count += 1; flag = true;
+        //            } else if(iter->second > 1) {
+        //
+        //                if (iter->second % 2 == 0) {
+        //                    count+= iter->second ;
+        //                } else {
+        //                    count+= (flag == false ? iter->second : iter->second -1) ;
+        //                    flag = true;
+        //                }
+        //            }
+        //        }
+        //
+        //
+        //        return count;
         
         /// Solution 2
         int _map[125];
@@ -271,6 +271,15 @@ public:
         
         return count;
         
+    }
+    
+    vector<int> getLeastNumbers(vector<int>& arr, int k) {
+        /// 1.排序
+        sort(arr.begin(),arr.begin()+arr.size());
+        /// 2.copy K个数到排序
+        vector<int> copyArray;
+        copyArray.assign(arr.begin(), arr.begin() + k);
+        return copyArray;
     }
 };
 
