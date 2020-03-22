@@ -281,6 +281,34 @@ public:
         copyArray.assign(arr.begin(), arr.begin() + k);
         return copyArray;
     }
+    
+//    给定整数数组 A，每次 move 操作将会选择任意 A[i]，并将其递增 1。
+//    
+//    返回使 A 中的每个值都是唯一的最少操作次数。
+    int minIncrementForUnique(vector<int>& A) {
+        if (A.size() == 0) return 0;
+        
+        int increment = 0;
+        /// 1.排序
+        sort(A.begin(),A.begin()+A.size());
+        
+        int a = A[0];
+        for (int i = 1; i < A.size(); i++) {
+            if (A[i] - a == 0) {
+                A[i] += 1;
+                increment+=1;
+            }
+            if (A[i] - a < 0) {
+                int n = a - A[i]  + 1;
+                A[i] += n;
+                increment+=n;
+                
+            }
+            a = A[i];
+        }
+        
+        return increment;
+    }
 };
 
 #endif /* LeetCodeEveryDay_hpp */

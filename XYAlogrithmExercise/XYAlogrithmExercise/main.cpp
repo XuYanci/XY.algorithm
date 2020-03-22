@@ -396,4 +396,8 @@ void LeetCodeEveryDayss() {
     int ret =  everyDay->isRectangleOverlap(rec1,rec2);
     
     everyDay->longestPalindrome("aasdfdsfbbcde");
+    
+    
+    vector<int> A{1,2,2};
+    everyDay->minIncrementForUnique(A);
 }
