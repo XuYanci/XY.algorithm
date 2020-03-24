@@ -400,4 +400,6 @@ void LeetCodeEveryDayss() {
     
     vector<int> A{1,2,2};
     everyDay->minIncrementForUnique(A);
+    vector<int> nums{1,2,3,1};
+    everyDay->massage(nums);
 }

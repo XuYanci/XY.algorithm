@@ -283,7 +283,7 @@ public:
     }
     
 //    给定整数数组 A，每次 move 操作将会选择任意 A[i]，并将其递增 1。
-//    
+//
 //    返回使 A 中的每个值都是唯一的最少操作次数。
     int minIncrementForUnique(vector<int>& A) {
         if (A.size() == 0) return 0;
@@ -309,6 +309,57 @@ public:
         
         return increment;
     }
+    
+//    有两个容量分别为 x升 和 y升 的水壶以及无限多的水。请判断能否通过使用这两个水壶，从而可以得到恰好 z升 的水？
+//
+//    如果可以，最后请用以上水壶中的一或两个来盛放取得的 z升 水。
+//
+//    你允许：
+//
+//    装满任意一个水壶
+//    清空任意一个水壶
+//    从一个水壶向另外一个水壶倒水，直到装满或者倒空
+//
+//    来源：力扣（LeetCode）
+//    链接：https://leetcode-cn.com/problems/water-and-jug-problem
+//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    
+    bool canMeasureWater(int x, int y, int z) {
+        return true;
+    }
+    
+//    一个有名的按摩师会收到源源不断的预约请求，每个预约都可以选择接或不接。在每次预约服务之间要有休息时间，因此她不能接受相邻的预约。给定一个预约请求序列，替按摩师找到最优的预约集合（总预约时间最长），返回总的分钟数。
+//
+//    注意：本题相对原题稍作改动
+//
+//    来源：力扣（LeetCode）
+//    链接：https://leetcode-cn.com/problems/the-masseuse-lcci
+//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    int massage(vector<int>& nums) {
+      
+        if (nums.size() == 0) return 0;
+        vector<int> dp_table(nums.size(),0);
+        int massage = 0;
+        for (int i = (int)nums.size() -1 ; i >=0; i--) {
+            dp_table[i] = nums[i];
+            for (int j = i+ 2; j < nums.size(); j++) {
+                dp_table[i] = max(dp_table[i], nums[i] + dp_table[j]);
+            }
+            massage = max(massage,dp_table[i]);
+        }
+      
+        return massage;
+        
+    }
+    
+    
+    
+    
+    
+    
+ 
+    
 };
+   
 
 #endif /* LeetCodeEveryDay_hpp */
