@@ -1461,16 +1461,19 @@ int LeetCodeSolution::largestRectangleArea(vector<int>& heights) {
 }
  
 /// 合并区间
-/// 解决方法： 超时
+/// 解决方法1： 超时
 vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
        int i = 0;
          sort(intervals.begin(),intervals.begin() + intervals.size());
          while(i + 1 < intervals.size()) {
+         /// 判断是否可合并
          if (!(intervals[i][1] < intervals[i+1][0] || intervals[i+1][1] < intervals[i][0])) {
+             /// 合并
              int minL = intervals[i][0] > intervals[i+1][0] ? intervals[i+1][0] : intervals[i][0];
              int maxR = intervals[i][1] > intervals[i+1][1] ? intervals[i][1] : intervals[i+1][1];
              intervals[i+1][0] = minL;
              intervals[i+1][1] = maxR;
+             /// 移除元素
              intervals.erase(intervals.begin() + i);
              continue;
          }
