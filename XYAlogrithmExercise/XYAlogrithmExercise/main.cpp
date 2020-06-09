@@ -44,13 +44,13 @@ int main(int argc, const char * argv[]) {
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
 //    alogrithms();
-//    leetCodes();
+     leetCodes();
 //    structures();
     //leetCodesGoBack();
 //    structuresGoBack();
 //    cache();
 //    JianZhiOfferRun();
-    LeetCodeEveryDayss();
+//    LeetCodeEveryDayss();
     return 0;
 }
 
@@ -355,6 +355,8 @@ void leetCodes() {
     vector<string> prefixs {"ca","c"};
     s->longestCommonPrefix(prefixs);
     
+    vector<vector<int> > intervals = {{2,6},{1,3},{8,10},{15,18}};
+    s->merge(intervals);
 }
 
 void JianZhiOfferRun() {
