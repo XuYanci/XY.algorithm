@@ -150,7 +150,7 @@ public:
     /// 合并区间
     vector<vector<int>> merge(vector<vector<int>>& intervals);
     /// 区间覆盖
-    vector<vector<int>> LeetCodeSolution::cover(vector<vector<int>>& intervals);
+    vector<vector<int>> cover(vector<vector<int>>& intervals);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
