@@ -1460,3 +1460,15 @@ int LeetCodeSolution::largestRectangleArea(vector<int>& heights) {
     return maxarea;
 }
 
+/// 合并区间 TODO:
+vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
+    vector<vector<int>> vc;
+    return vc;
+}
+
+/// 区间覆盖 TODO:
+vector<vector<int>> LeetCodeSolution::cover(vector<vector<int>>& intervals) {
+    vector<vector<int>> vc;
+    return vc;
+}
+

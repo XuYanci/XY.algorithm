@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3657F426248F356F00A3BCD2 /* XYGreedy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3657F424248F356F00A3BCD2 /* XYGreedy.cpp */; };
 		AD1376DF241B76CB008EBBDE /* LeetCodeEveryDay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */; };
 		AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */; };
 		AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */; };
@@ -44,6 +45,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3657F424248F356F00A3BCD2 /* XYGreedy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGreedy.cpp; sourceTree = "<group>"; };
+		3657F425248F356F00A3BCD2 /* XYGreedy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYGreedy.hpp; sourceTree = "<group>"; };
 		AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeEveryDay.cpp; sourceTree = "<group>"; };
 		AD1376DE241B76CB008EBBDE /* LeetCodeEveryDay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeEveryDay.hpp; sourceTree = "<group>"; };
 		AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGreed.cpp; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				AD461BEB240F58A400BABDFC /* jianzhiOffer.hpp */,
 				AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */,
 				AD1376DE241B76CB008EBBDE /* LeetCodeEveryDay.hpp */,
+				3657F424248F356F00A3BCD2 /* XYGreedy.cpp */,
+				3657F425248F356F00A3BCD2 /* XYGreedy.hpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				AD56EE9523A334BD003ADF7D /* XYSort_goback.cpp in Sources */,
 				ADFD08322394E9900096A0F3 /* LeetCodeSolution_goback.cpp in Sources */,
 				AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */,
+				3657F426248F356F00A3BCD2 /* XYGreedy.cpp in Sources */,
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */,
 				AD80E2AA226C7734005A0256 /* main.cpp in Sources */,
