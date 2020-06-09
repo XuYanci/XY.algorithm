@@ -162,9 +162,7 @@ private:
     int islands_dfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
     void findTarget_dfs(vector<int>& nums, int S, int i, int sum, int& res) ;
     
-    bool merge_canMerge(vector<int>a,vector<int>b);
-    vector<int> merge_merge(vector<int>a,vector<int>b);
-    bool merge_cmp(vector<int> a,vector<int> b);
+  
 };
 
 /// LRU Cache

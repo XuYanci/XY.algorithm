@@ -1460,43 +1460,26 @@ int LeetCodeSolution::largestRectangleArea(vector<int>& heights) {
     return maxarea;
 }
  
-/// 合并区间 TODO:
-vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
-    int i = 0;
-    sort(intervals.begin(),intervals.begin() + intervals.size());
-    while(i + 1 < intervals.size()) {
-        if (merge_canMerge(intervals[i],intervals[i+1])) {
-            intervals[i+1] = merge_merge(intervals[i],intervals[i+1]);
-            intervals.erase(intervals.begin() + i);
-        } else {
-            i+=1;
-        }
-    }
-    return intervals;;
-}
-
-
-/// 判断是否可合并
-/// @param a 区间a
-/// @param b 区间b
-bool LeetCodeSolution::merge_canMerge(vector<int> a, vector<int> b) {
-    if (!(a[1] < b[0] || b[1] < a[0])) {
-        return true;
-    }
-    return false;
-}
-
-
 /// 合并区间
-/// @param a 区间a
-/// @param b 区间b
-vector<int> LeetCodeSolution::merge_merge(vector<int> a, vector<int> b) {
-    int minL = a[0] > b[0] ? b[0] : a[0];
-    int maxR = a[1] > b[1] ? a[1] : b[1];
-    return vector<int>{minL,maxR};
+/// 解决方法： 超时
+vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
+       int i = 0;
+         sort(intervals.begin(),intervals.begin() + intervals.size());
+         while(i + 1 < intervals.size()) {
+         if (!(intervals[i][1] < intervals[i+1][0] || intervals[i+1][1] < intervals[i][0])) {
+             int minL = intervals[i][0] > intervals[i+1][0] ? intervals[i+1][0] : intervals[i][0];
+             int maxR = intervals[i][1] > intervals[i+1][1] ? intervals[i][1] : intervals[i+1][1];
+             intervals[i+1][0] = minL;
+             intervals[i+1][1] = maxR;
+             intervals.erase(intervals.begin() + i);
+             continue;
+         }
+         i++;
+     }
+     return intervals;;
 }
 
-
+ 
 
 /// 区间覆盖 TODO:
 /// 思路: DFS 或者 递归思路
