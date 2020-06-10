@@ -1461,30 +1461,39 @@ int LeetCodeSolution::largestRectangleArea(vector<int>& heights) {
 }
 
 /// 合并区间
-/// 解决方法1： 超时
+/// 发现有一个不好的习惯，太依赖于调试工具，而不是先捋清思路
 vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
+    
+    /// 边界判断
     if (intervals.size() == 0) return intervals;
     
     int i = 0;
     int j = i + 1;
     vector<vector<int>> retIntervals;
+    
+    /// 首先必须排序一遍,从小到大
     sort(intervals.begin(),intervals.begin() + intervals.size());
 
     while(j < intervals.size()) {
-        /// 可合并
+        /// 判断是否可以合并，取非不可合并条件
+        /// 然后将合并的值放入j,以便下一次判断
         if (!(intervals[i][1] < intervals[j][0] || intervals[j][1] < intervals[i][0])) {
             int min = intervals[i][0] > intervals[j][0] ? intervals[j][0] : intervals[i][0];
             int max = intervals[i][1] > intervals[j][1] ? intervals[i][1] : intervals[j][1];
             intervals[j][0] = min;
             intervals[j][1] = max;
-        } else {
+        }
+        // 区间不可合并，则加入当前值，继续i,j右移
+        else {
             retIntervals.push_back(intervals[i]);
         }
         
+        // i,j右移
         i = i+1;
         j = i+1;
     }
     
+    /// 已经结束，则将最后一个加入
     retIntervals.push_back(intervals[i]);
     return retIntervals;
 }
