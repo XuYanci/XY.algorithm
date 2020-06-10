@@ -355,7 +355,9 @@ void leetCodes() {
     vector<string> prefixs {"ca","c"};
     s->longestCommonPrefix(prefixs);
     
-    vector<vector<int> > intervals = {{2,6},{1,3},{8,10},{15,18}};
+    vector<vector<int> > intervals =
+    {{74,78},{61,63},{46,50},{51,54},{50,50},{60,64},{39,42},{25,27},{91,95},{14,16},{85,85},{5,7},{45,46},{45,49},{66,66},{73,73},{25,26},{25,26},{45,48},
+        {67,67}};
     s->merge(intervals);
 }
 
