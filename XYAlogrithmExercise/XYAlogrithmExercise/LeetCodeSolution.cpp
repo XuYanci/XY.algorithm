@@ -1473,7 +1473,7 @@ vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
     
     /// 首先必须排序一遍,从小到大
     sort(intervals.begin(),intervals.begin() + intervals.size());
-
+    
     while(j < intervals.size()) {
         /// 判断是否可以合并，取非不可合并条件
         /// 然后将合并的值放入j,以便下一次判断
@@ -1499,11 +1499,8 @@ vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
 }
 
 
-
-/// 区间覆盖 TODO:
-/// 思路: DFS 或者 递归思路
-vector<vector<int>> LeetCodeSolution::cover(vector<vector<int>>& intervals) {
-    vector<vector<int>> vc;
-    return vc;
+/// 删除被覆盖区间
+int  LeetCodeSolution:: removeCoveredIntervals(vector<vector<int>>& intervals) {
+    return 0;
 }
 

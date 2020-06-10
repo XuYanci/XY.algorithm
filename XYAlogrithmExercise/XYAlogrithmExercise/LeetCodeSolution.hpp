@@ -150,7 +150,7 @@ public:
     /// 合并区间
     vector<vector<int>> merge(vector<vector<int>>& intervals);
     /// 区间覆盖
-    vector<vector<int>> cover(vector<vector<int>>& intervals);
+    int removeCoveredIntervals(vector<vector<int>>& intervals);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
@@ -161,8 +161,6 @@ private:
     int islands_bfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
     int islands_dfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
     void findTarget_dfs(vector<int>& nums, int S, int i, int sum, int& res) ;
-    
-  
 };
 
 /// LRU Cache
