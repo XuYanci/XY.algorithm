@@ -1498,7 +1498,6 @@ vector<vector<int>> LeetCodeSolution::merge(vector<vector<int>>& intervals) {
     return retIntervals;
 }
 
-
 /// 删除被覆盖区间
 int  LeetCodeSolution:: removeCoveredIntervals(vector<vector<int>>& intervals) {
     return 0;

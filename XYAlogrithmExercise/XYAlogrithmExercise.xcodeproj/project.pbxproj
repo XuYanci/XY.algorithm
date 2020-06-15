@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3657F426248F356F00A3BCD2 /* XYGreedy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3657F424248F356F00A3BCD2 /* XYGreedy.cpp */; };
+		363BA6F92497B27200C7830E /* XYFenZhi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363BA6F72497B27200C7830E /* XYFenZhi.cpp */; };
+		363BA6FC2497B28000C7830E /* XYHuiSu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363BA6FA2497B28000C7830E /* XYHuiSu.cpp */; };
 		AD1376DF241B76CB008EBBDE /* LeetCodeEveryDay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */; };
 		AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */; };
 		AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */; };
@@ -45,8 +46,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3657F424248F356F00A3BCD2 /* XYGreedy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGreedy.cpp; sourceTree = "<group>"; };
-		3657F425248F356F00A3BCD2 /* XYGreedy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYGreedy.hpp; sourceTree = "<group>"; };
+		363BA6F72497B27200C7830E /* XYFenZhi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYFenZhi.cpp; sourceTree = "<group>"; };
+		363BA6F82497B27200C7830E /* XYFenZhi.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYFenZhi.hpp; sourceTree = "<group>"; };
+		363BA6FA2497B28000C7830E /* XYHuiSu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYHuiSu.cpp; sourceTree = "<group>"; };
+		363BA6FB2497B28000C7830E /* XYHuiSu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYHuiSu.hpp; sourceTree = "<group>"; };
 		AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeEveryDay.cpp; sourceTree = "<group>"; };
 		AD1376DE241B76CB008EBBDE /* LeetCodeEveryDay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeEveryDay.hpp; sourceTree = "<group>"; };
 		AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGreed.cpp; sourceTree = "<group>"; };
@@ -152,10 +155,6 @@
 				AD93A249238D6F5A00A5A96E /* XYLinkList.hpp */,
 				AD62542523A60B7000E635C3 /* XYCache.cpp */,
 				AD62542623A60B7000E635C3 /* XYCache.hpp */,
-				AD66927323BDCD7400AD491D /* XYDp.cpp */,
-				AD66927423BDCD7400AD491D /* XYDp.hpp */,
-				AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */,
-				AD1376E4241CD5C7008EBBDE /* XYGreed.hpp */,
 				AD8037E92275FC6500A31959 /* LeetCodeSolution.cpp */,
 				AD8037EA2275FC6500A31959 /* LeetCodeSolution.hpp */,
 				ADFD08302394E9900096A0F3 /* LeetCodeSolution_goback.cpp */,
@@ -166,8 +165,14 @@
 				AD461BEB240F58A400BABDFC /* jianzhiOffer.hpp */,
 				AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */,
 				AD1376DE241B76CB008EBBDE /* LeetCodeEveryDay.hpp */,
-				3657F424248F356F00A3BCD2 /* XYGreedy.cpp */,
-				3657F425248F356F00A3BCD2 /* XYGreedy.hpp */,
+				AD66927323BDCD7400AD491D /* XYDp.cpp */,
+				AD66927423BDCD7400AD491D /* XYDp.hpp */,
+				AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */,
+				AD1376E4241CD5C7008EBBDE /* XYGreed.hpp */,
+				363BA6F72497B27200C7830E /* XYFenZhi.cpp */,
+				363BA6F82497B27200C7830E /* XYFenZhi.hpp */,
+				363BA6FA2497B28000C7830E /* XYHuiSu.cpp */,
+				363BA6FB2497B28000C7830E /* XYHuiSu.hpp */,
 			);
 			path = XYAlogrithmExercise;
 			sourceTree = "<group>";
@@ -232,18 +237,19 @@
 				AD6C731922720A56003B1A5D /* XYHash.cpp in Sources */,
 				AD62542723A60B7000E635C3 /* XYCache.cpp in Sources */,
 				AD93A24A238D6F5A00A5A96E /* XYLinkList.cpp in Sources */,
+				363BA6F92497B27200C7830E /* XYFenZhi.cpp in Sources */,
 				AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */,
 				AD6C730D22720A2B003B1A5D /* XYList.cpp in Sources */,
 				AD93A247238AC58D00A5A96E /* XYArrayChars.cpp in Sources */,
 				AD80E2B2226C77D1005A0256 /* XYSort.cpp in Sources */,
 				AD6C731022720A37003B1A5D /* XYArray.cpp in Sources */,
 				AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */,
+				363BA6FC2497B28000C7830E /* XYHuiSu.cpp in Sources */,
 				AD6C731C22720A66003B1A5D /* XYHeap.cpp in Sources */,
 				AD1376DF241B76CB008EBBDE /* LeetCodeEveryDay.cpp in Sources */,
 				AD56EE9523A334BD003ADF7D /* XYSort_goback.cpp in Sources */,
 				ADFD08322394E9900096A0F3 /* LeetCodeSolution_goback.cpp in Sources */,
 				AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */,
-				3657F426248F356F00A3BCD2 /* XYGreedy.cpp in Sources */,
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */,
 				AD80E2AA226C7734005A0256 /* main.cpp in Sources */,

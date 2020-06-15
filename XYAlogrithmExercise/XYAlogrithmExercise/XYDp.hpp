@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
+/// 动态规划
 class XYdp {
     
     int w[5] = { 0 , 2 , 3 , 4 , 5 };            //商品的体积2、3、4、5
@@ -67,5 +68,7 @@ class XYdp {
         
         return 0;
     }
+    
+    	
 };
 #endif /* XYDp_hpp */

@@ -10,5 +10,8 @@
 #define XYGreed_hpp
 
 #include <stdio.h>
-
+/// 贪心算法
+class XYGreed {
+    
+};
 #endif /* XYGreed_hpp */
