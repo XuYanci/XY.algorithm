@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 using namespace std;
 /// 动态规划
 class XYdp {
@@ -69,6 +70,58 @@ class XYdp {
         return 0;
     }
     
-    	
+
+   /// weight:物品重量，n:物品个数，w:背包可承载重量
+//    public int knapsack(int[] weight, int n, int w) {
+//      boolean[][] states = new boolean[n][w+1]; // 默认值false
+//      states[0][0] = true;  // 第一行的数据要特殊处理，可以利用哨兵优化
+//      if (weight[0] <= w) {
+//        states[0][weight[0]] = true;
+//      }
+//      for (int i = 1; i < n; ++i) { // 动态规划状态转移
+//        for (int j = 0; j <= w; ++j) {// 不把第i个物品放入背包
+//          if (states[i-1][j] == true) states[i][j] = states[i-1][j];
+//        }
+//        for (int j = 0; j <= w-weight[i]; ++j) {//把第i个物品放入背包
+//          if (states[i-1][j]==true) states[i][j+weight[i]] = true;
+//        }
+//      }
+//      for (int i = w; i >= 0; --i) { // 输出结果
+//        if (states[n-1][i] == true) return i;
+//      }
+//      return 0;
+//    }
+    
+    int knapsack(vector<int> weight,int n,int w) {
+        /// states[i][j] 第i个物品，j决策值
+        /// 默认都为0
+        vector<vector<bool>> states;
+        states[0][0] = true;
+        if (weight[0] <= w) {
+            states[0][weight[0]] = true;
+        }
+        
+        /// 顺序放第i个物品
+        for (int i = 1; i < n; ++i) {
+            /// 不把第i个物品放入
+            for (int j = 0; j <= w; ++j) {
+                /// 如果前一个物品决策了，则当前状态等于前一个物品决策 （不放入）
+                if (states[i-1][j] == true) states[i][j] = states[i-1][j];
+            }
+            /// 把第i个物品放入
+            for (int j = 0; j <= w-weight[i]; ++j) {
+                /// 如果前一个物品决策了，则当前状态加上决策值得 （放入）
+                if(states[i-1][j] == true) states[i][j+weight[i]] = true;
+            }
+        }
+        
+        /// 打印值
+        for (int i = w; i >= 0; --i) {
+            if (states[n-1][i] == true) return i;
+        }
+        
+        return 0;
+    }
+
 };
 #endif /* XYDp_hpp */
