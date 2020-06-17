@@ -17,6 +17,7 @@ using namespace std;
 /// 动态规划
 class XYdp {
     
+    /// 简单背包问题
     int w[5] = { 0 , 2 , 3 , 4 , 5 };            //商品的体积2、3、4、5
     int v[5] = { 0 , 3 , 4 , 5 , 6 };            //商品的价值3、4、5、6
     int bagV = 8;                            //背包大小
@@ -70,26 +71,36 @@ class XYdp {
         return 0;
     }
     
-
+    
     int knapsack(vector<int> weight,int n,int w) {
-        /// states[i][j] 第i个物品，j决策值
-        /// 默认都为0
+        /*
+            states代表DP表
+            states[i][j] 第i个物品，j代表决策值, 整个代表是否放入
+            默认都为false
+            思想：
+            1. 枚举所有状态
+            2. 根据前状态，继续枚举所有状态
+            3. 找出最优解
+        */
         vector<vector<bool>> states;
+        
+        /// 初始化第0个物品放入与否
         states[0][0] = true;
         if (weight[0] <= w) {
+            /// 先放入第一个物品
             states[0][weight[0]] = true;
         }
         
-        /// 顺序放第i个物品
+        /// 顺序放第i个物品 (从第一个物品开始决策)
         for (int i = 1; i < n; ++i) {
-            /// 不把第i个物品放入
+            /// 不把第i个物品放入, 遍历填值
             for (int j = 0; j <= w; ++j) {
-                /// 如果前一个物品决策了，则当前状态等于前一个物品决策 （不放入）
+                /// 如果前一个物品决策并放入了，则当前状态等于前一个物品决策（不放入）
                 if (states[i-1][j] == true) states[i][j] = states[i-1][j];
             }
-            /// 把第i个物品放入
+            /// 把第i个物品放入, 遍历填值
             for (int j = 0; j <= w-weight[i]; ++j) {
-                /// 如果前一个物品决策了，则当前状态加上决策值得 （放入）
+                /// 如果前一个物品决策并放入了，则当前状态加上决策值 （放入）
                 if(states[i-1][j] == true) states[i][j+weight[i]] = true;
             }
         }
@@ -121,9 +132,9 @@ class XYdp {
         }
         return 0;
     }
-
- 
-
-
+    
+    
+    
+    
 };
 #endif /* XYDp_hpp */
