@@ -16,13 +16,13 @@
 using namespace std;
 /// 动态规划
 class XYdp {
-    
+public:
     /// 简单背包问题
     int w[5] = { 0 , 2 , 3 , 4 , 5 };            //商品的体积2、3、4、5
     int v[5] = { 0 , 3 , 4 , 5 , 6 };            //商品的价值3、4、5、6
-    int bagV = 8;                            //背包大小
+    int bagV = 8;                                //背包大小
     int dp[5][9] = { { 0 } };                    //动态规划表
-    int item[5];                            //最优解情况
+    int item[5];                                 //最优解情况
     
     void findMax() {                    //动态规划
         for (int i = 1; i <= 4; i++) {
@@ -62,79 +62,28 @@ class XYdp {
         cout << endl;
     }
     
+    /// 背包问题1
+    int knapsack(vector<int> weight,int n,int w) {
+        return 0;
+    }
+    
+    /// 背包问题2
+    int knapsack2(vector<int>items,int n ,int w) {
+        return 0;
+    }
+    
+    /// 背包问题3
+    int knapsack3(vector<int>weight,vector<int>value,int n ,int w) {
+        return 0;
+    }
+    
     int main()
     {
         findMax();
         findWhat(4, 8);
         print();
-        
         return 0;
     }
-    
-    
-    int knapsack(vector<int> weight,int n,int w) {
-        /*
-            states代表DP表
-            states[i][j] 第i个物品，j代表决策值, 整个代表是否放入
-            默认都为false
-            思想：
-            1. 枚举所有状态
-            2. 根据前状态，继续枚举所有状态
-            3. 找出最优解
-        */
-        vector<vector<bool>> states;
-        
-        /// 初始化第0个物品放入与否
-        states[0][0] = true;
-        if (weight[0] <= w) {
-            /// 先放入第一个物品
-            states[0][weight[0]] = true;
-        }
-        
-        /// 顺序放第i个物品 (从第一个物品开始决策)
-        for (int i = 1; i < n; ++i) {
-            /// 不把第i个物品放入, 遍历填值
-            for (int j = 0; j <= w; ++j) {
-                /// 如果前一个物品决策并放入了，则当前状态等于前一个物品决策（不放入）
-                if (states[i-1][j] == true) states[i][j] = states[i-1][j];
-            }
-            /// 把第i个物品放入, 遍历填值
-            for (int j = 0; j <= w-weight[i]; ++j) {
-                /// 如果前一个物品决策并放入了，则当前状态加上决策值 （放入）
-                if(states[i-1][j] == true) states[i][j+weight[i]] = true;
-            }
-        }
-        
-        /// 打印值
-        for (int i = w; i >= 0; --i) {
-            if (states[n-1][i] == true) return i;
-        }
-        
-        return 0;
-    }
-    
-    int knapsack2(vector<int>items,int n ,int w) {
-        vector<bool>states;
-        states[0] = true;
-        if (items[0] <= w) {
-            states[items[0]] = true;
-        }
-        
-        for (int i =1; i < n; ++i) {
-            /// 把第i个物品放入背包 (重复状态)
-            for (int j = w - items[i]; j >= 0; --j) {
-                if(states[j] == true) states[j+items[i]] = true;
-            }
-        }
-        
-        for (int i = w; i >= 0; --i) {
-            if (states[i] == true) return i;
-        }
-        return 0;
-    }
-    
-    
-    
     
 };
 #endif /* XYDp_hpp */
