@@ -22,6 +22,7 @@
 #include "jianzhiOffer.hpp"
 #include "LeetCodeEveryDay.hpp"
 #include "XYDp.hpp"
+#include "XYHuiSu.hpp"
 /// XuYanci Alogrithm Exercise
 
 /// 算法
@@ -191,11 +192,16 @@ void alogrithms() {
     
     
      XYdp *dp = new XYdp();
-     vector<int> weight = {2,2,4,6,3}; // 物品重量
+     vector<int> weight = {1,222,1,1,2}; // 物品重量
      int _n = 5; // 物品个数
      int _w = 9; // 背包承受的最大重量
      dp->knapsack(weight, _n, _w);
      dp->knapsack2(weight, _n, _w);
+    
+    
+    XYHuiSu *huisu = new XYHuiSu();
+    huisu->knapsack(weight, _n, _w);
+    
 }
 
 void leetCodes() {
