@@ -71,6 +71,8 @@ public:
     /// 我们刚刚讲的背包问题，只涉及背包重量和物品重量。我们现在引入物品价值这一变量。
     /// 对于一组不同重量、不同价值、不可分割的物品，我们选择将某些物品装入背包，在满足背包最大重量限制的前提下，背包中可装入物品的总价值最大是多少呢？
     int knapsack2(vector<int>weight,vector<int>value,int n ,int w) {
+        recursiveKnapSack2(weight,value, n, w, 0, 0,0);
+        printf("XYHuiSu knapsack MaxV = %d",maxV);
         return 0;
     }
     
