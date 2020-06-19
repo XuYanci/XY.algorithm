@@ -193,6 +193,7 @@ void alogrithms() {
     
      XYdp *dp = new XYdp();
      vector<int> weight = {1,222,1,1,2}; // 物品重量
+     vector<int> value = {1,222,1,1,2}; // 物品重量
      int _n = 5; // 物品个数
      int _w = 9; // 背包承受的最大重量
      dp->knapsack(weight, _n, _w);
@@ -201,6 +202,7 @@ void alogrithms() {
     
     XYHuiSu *huisu = new XYHuiSu();
     huisu->knapsack(weight, _n, _w);
+    huisu->knapsack2(weight, value, _n, _w);
     
 }
 
