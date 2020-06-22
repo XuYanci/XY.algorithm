@@ -39,15 +39,16 @@ void structuresGoBack();
 void JianZhiOfferRun();//
 /// LeetCode每日一题
 void LeetCodeEveryDayss();
+/// 缓存
 void cache();
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-     alogrithms();
-     leetCodes();
+    alogrithms();
+//    leetCodes();
 //    structures();
-    //leetCodesGoBack();
+//    leetCodesGoBack();
 //    structuresGoBack();
 //    cache();
 //    JianZhiOfferRun();
@@ -111,7 +112,7 @@ void structures() {
     max_heap->justRun();
     
     vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
-   
+    
     XYStack *stack = new XYStack();
     /// 到下一个比我大的需要多少步
     stack->nextExceed(temperatures);
@@ -191,13 +192,13 @@ void alogrithms() {
     linkedList.get(1);            //返回3
     
     
-     XYdp *dp = new XYdp();
-     vector<int> weight = {1,2,1,1,1}; // 物品重量
-     vector<int> value = {1,222,1,1,226}; // 物品重量
-     int _n = 5; // 物品个数
-     int _w = 3; // 背包承受的最大重量
-     dp->knapsack(weight, _n, _w);
-     dp->knapsack2(weight, _n, _w);
+    XYdp *dp = new XYdp();
+    vector<int> weight = {1,2,1,1,1}; // 物品重量
+    vector<int> value = {1,222,1,1,226}; // 物品重量
+    int _n = 5; // 物品个数
+    int _w = 3; // 背包承受的最大重量
+    dp->knapsack(weight, _n, _w);
+    dp->knapsack2(weight, _n, _w);
     
     
     XYHuiSu *huisu = new XYHuiSu();
@@ -379,18 +380,18 @@ void leetCodes() {
 
 void JianZhiOfferRun() {
     JianZhiOffer *offer = new JianZhiOffer();
-//    vector<int> numbers {73, 74, 75, 71, 69, 72, 76, 73};
-//    offer->findRepeatNumber(numbers);
-//
+    //    vector<int> numbers {73, 74, 75, 71, 69, 72, 76, 73};
+    //    offer->findRepeatNumber(numbers);
+    //
     offer->replaceSpace("We are happy.");
 }
 
 
 void LeetCodeEveryDayss() {
     LeetCodeEveryDay *everyDay = new LeetCodeEveryDay();
-//    vector<int> nums{3,2,3};
-//    everyDay->majorityElement(nums);
-//    everyDay->lengthOfLIS(nums);
+    //    vector<int> nums{3,2,3};
+    //    everyDay->majorityElement(nums);
+    //    everyDay->lengthOfLIS(nums);
     
     vector<vector<int>>grid {
         {0,0,1,0,0,0,0,1,0,0,0,0,0},
@@ -402,12 +403,12 @@ void LeetCodeEveryDayss() {
         {0,0,0,0,0,0,0,1,1,1,0,0,0},
         {0,0,0,0,0,0,0,1,1,0,0,0,0}};
     
-
+    
     everyDay->maxAreaOfIsland(grid);
     everyDay->compressString("ccc");
     
     vector<string> words{"boygirdlggnh"};
- 
+    
     string chars = "usdruypficfbpfbivlrhutcgvyjenlxzeovdyjtgvvfdjzcmikjraspdfp";
     everyDay->countCharacters(words,chars );
     

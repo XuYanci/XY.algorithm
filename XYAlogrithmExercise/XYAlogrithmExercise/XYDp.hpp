@@ -72,10 +72,11 @@ public:
         return 0;
     }
     
-    /// 背包问题3
-    int knapsack3(vector<int>weight,vector<int>value,int n ,int w) {
-        return 0;
+    
+    void minDistBT(int i,int j,int dist,vector<vector<int>> w,int n)  {
+        
     }
+    
     
     int main()
     {

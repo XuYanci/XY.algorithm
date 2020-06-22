@@ -18,6 +18,7 @@ class XYHuiSu {
 private:
     int maxW = 0;
     int maxV = 0;
+    int minDist = 0;
     void recursiveKnapSack(vector<int> weight,int n,int w,int i,int cw) {
         /// 如果装满了，或者已经是最大重量，则直接返回
         if (cw == w || i == n ) {
@@ -76,6 +77,30 @@ public:
         return 0;
     }
     
+    /**
+     假设我们有一个 n 乘以 n 的矩阵 w[n][n]。矩阵存储的都是正整数。棋子起始位置在左上角，终止位置在右下角。我们将棋子从左上角移动到右下角。每次只能向右或者向下移动一位。从左上角到右下角，会有很多不同的路径可以走。我们把每条路径经过的数字加起来看作路径的长度。那从左上角移动到右下角的最短路径长度是多少呢？
+     */
+    void minDistBT(int i,int j,int dist,vector<vector<int>> w,int n) {
+        /// 如果已经到达最右边直接返回
+        if (i == n && j == n) {
+            if (dist < minDist) {
+                minDist = dist;
+            }
+            return;
+        }
+        
+        /// 下移
+        if (i < n) {
+            minDistBT(i + 1, j, dist + w[i][j], w, n);
+        }
+        
+        /// 右移
+        if (j < n) {
+            minDistBT(i, j + 1, dist+w[i][j], w, n);
+        }
+    }
+    
+
     
 };
 #endif /* XYHuiSu_hpp */
