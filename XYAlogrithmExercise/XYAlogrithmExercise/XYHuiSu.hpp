@@ -54,9 +54,7 @@ private:
         if (cw + weight[i] <= w) {
             recursiveKnapSack2(weight,value, n, w, i + 1, cw + weight[i],cv + value[i]);
         }
-        
     }
-    
     
 public:
     
@@ -66,7 +64,6 @@ public:
         recursiveKnapSack(weight, n, w, 0, 0);
         printf("XYHuiSu knapsack MaxW = %d",maxW);
     }
-    
     
     /// 背包问题升级版本:
     /// 我们刚刚讲的背包问题，只涉及背包重量和物品重量。我们现在引入物品价值这一变量。
@@ -99,8 +96,6 @@ public:
             minDistBT(i, j + 1, dist+w[i][j], w, n);
         }
     }
-    
-
     
 };
 #endif /* XYHuiSu_hpp */

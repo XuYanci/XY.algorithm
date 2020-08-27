@@ -48,15 +48,19 @@ public:
             }
         }
         
+        /// 如果找到的话，则排到前面
         if (findIndex != -1) {
             keys.erase(keys.begin() + findIndex);
             keys.insert(keys.begin(), key);
             items[key] = value;
             return;
         }
+        
+        /// 如果没有找到的话，则插入到前面
         keys.insert(keys.begin(), key);
         items[key] = value;
         
+        /// 如果已经塞满了，则删除最后一个元素
         if (keys.size() > _capacity) {
             items[keys.back()] = NULL;
             keys.erase(keys.end() - 1);
@@ -155,4 +159,6 @@ public:
         
     }
 };
+
+
 #endif /* XYCache_hpp */
