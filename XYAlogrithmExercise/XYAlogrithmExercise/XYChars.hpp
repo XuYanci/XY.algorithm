@@ -29,7 +29,7 @@ class XYChars {
         
         for (int i = 0; i < n - m + 1; i++) {
             isMatch = true;
-            /// Recursive Math char
+            /// 逐个遍历比较
             for(int j = 0;j < m;j++){
                 if (a[j] != b[j + offset]) {
                     isMatch = false;
@@ -46,6 +46,7 @@ class XYChars {
             }
         }
     }
+    
     /// RK (BF算法升级版，主要是求哈希以及哈希碰撞处理一下)
     /// 题目:主串M，模式串N ( 10)， 查找模式串 (1)
     /// 算法复杂度: O(n)
@@ -57,11 +58,31 @@ class XYChars {
         int m = (int)a.size();
         
         int hash_a = 0; /// 计算a子串哈希值
-        vector<int>hash_b(n-m+1,0); /// 计算b哈希值,a子串长度计算
-        int offset = 0;
+        for (int i = 0; i < m ; i++) {
+            hash_a += a[i];
+        }
         
+        vector<int>hash_b(n-m+1,0); /// 计算b哈希值,a子串长度计算
+        
+        /// 计算出第一个b值
+        for (int j = 0; j < m; j++) {
+            hash_b[0] += b[j];
+        }
+        
+        /// 递推计算b值
+        for (int j = 1; j < n-m; j++) {
+            hash_b[j] = hash_b[j - 1] - b[j - 1] + b[j - 1 + m];
+        }
+        
+        int offset = 0;
         for (int i = 0; i < n - m + 1; i++) {
+            /// 如何哈希值相同，在做一次比较避免哈希冲突
             if (hash_a == hash_b[offset]) {
+                for(int j = 0;j < m;j++){
+                    if (a[j] != b[j + offset]) {
+                        break;
+                    }
+                }
                 break;
             }
             offset+=1;
