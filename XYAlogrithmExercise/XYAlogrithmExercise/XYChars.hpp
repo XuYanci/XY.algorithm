@@ -92,25 +92,76 @@ class XYChars {
     
     /// 坏字符散列表
     void bm_generateBC(vector<char>b,int m,vector<int>bc) {
-        
+        for (int i = 0; i < SIZE; i++) {
+            bc[i] = -1;
+        }
+        /// 如果有相同的ascii，取最后一个，因为坏字符在后面哦
+        for (int i = 0; i < m; ++i) {
+            int ascii = (int)b[i];
+            bc[ascii] = i;
+        }
     }
     
     /// 公共后缀子串
     void bm_generateGS(vector<char>b,int m,vector<int>suffix,vector<bool>prefix) {
+        for (int i = 0; i < m; ++i) {
+            suffix[i] = -1;
+            prefix[i] = false;
+        }
         
+        for (int i = 0; i < m - 1; ++i) {
+            int j = i;
+            int k = 0;
+            while (j >= 0 && b[j] == b[m-1-k]) {
+                --j;
+                ++k;
+                suffix[k] = j + 1;
+            }
+            if ( j==-1) {
+                prefix[k] = true;
+            }
+        }
     }
     
     
     // j表示坏字符对应的模式串中的字符下标; m表示模式串长度
     int bm_moveByGS(int j,int m,vector<int>suffix,vector<bool>prefix) {
-        return 0;
+        int k = m - 1 - j;
+        if (suffix[k] != -1) return j - suffix[k] + 1;
+        for (int r = j+2; r<= m-1; ++r) {
+            if (prefix[m-r] == true) {
+                return r;
+            }
+        }
+        return m;
     }
     
     /// BM
     /// 题目:主串M，模式串N ( 10)， 查找模式串 (1)
     // a,b表示主串和模式串；n，m表示主串和模式串的长度。
     int bm(vector<char>a,int n,vector<char>b,int m) {
-        return 0;
+        vector<int>bc(0,SIZE);
+        bm_generateBC(b, m, bc); /// 构建坏字符哈希表
+        vector<int>suffix(0,m);
+        vector<bool>prefix(0,m);
+        bm_generateGS(b, m, suffix, prefix); /// 构建好后缀
+        int i = 0;
+        while (i <= n - m) {
+            int j;
+            for (j = m -1; j >= 0; --j) {
+                if(a[i+j]!=b[j])break;
+            }
+            if (j<0){
+                return i;
+            }
+            int x = j-bc[(int)a[i+j]];
+            int y = 0;
+            if (j < m-1) {
+                y = bm_moveByGS(j,m, suffix, prefix);
+            }
+            i = i + max(x, y);
+        }
+        return -1;
     }
     
     /// KMP
