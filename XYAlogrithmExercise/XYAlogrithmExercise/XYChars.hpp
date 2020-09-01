@@ -15,6 +15,7 @@
 using namespace std;
 
 class XYChars {
+    
     /// BF: 暴力查找法
     /// 题目:主串M，模式串N (10)， 查找模式串 (1)
     /// 算法复杂度: (N - M + 1) * M = O(n * m)
@@ -89,14 +90,36 @@ class XYChars {
         }
     }
     
-    /// BM
-    /// 题目:主串M，模式串N ( 10)， 查找模式串 (1)
-    void bm() {
+    /// 坏字符散列表
+    void bm_generateBC(vector<char>b,int m,vector<int>bc) {
         
     }
+    
+    /// 公共后缀子串
+    void bm_generateGS(vector<char>b,int m,vector<int>suffix,vector<bool>prefix) {
+        
+    }
+    
+    
+    // j表示坏字符对应的模式串中的字符下标; m表示模式串长度
+    int bm_moveByGS(int j,int m,vector<int>suffix,vector<bool>prefix) {
+        return 0;
+    }
+    
+    /// BM
+    /// 题目:主串M，模式串N ( 10)， 查找模式串 (1)
+    // a,b表示主串和模式串；n，m表示主串和模式串的长度。
+    int bm(vector<char>a,int n,vector<char>b,int m) {
+        return 0;
+    }
+    
     /// KMP
     void kmp() {
         
     }
+    
+private:
+    int SIZE = 256;
+    
 };
 #endif /* XYChars_hpp */
