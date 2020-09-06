@@ -103,31 +103,35 @@ class XYChars {
     }
     
     /// 公共后缀子串
+    /// suffix 后缀记录
+    /// prefix 前缀记录
     void bm_generateGS(vector<char>b,int m,vector<int>suffix,vector<bool>prefix) {
         for (int i = 0; i < m; ++i) {
             suffix[i] = -1;
             prefix[i] = false;
         }
         
-        for (int i = 0; i < m - 1; ++i) {
+        for (int i = 0; i < m - 1; ++i) { /// b[0,i]
             int j = i;
             int k = 0;
-            while (j >= 0 && b[j] == b[m-1-k]) {
+            while (j >= 0 && b[j] == b[m-1-k]) { /// 与b[0,m-1]求公共后缀子串
                 --j;
                 ++k;
                 suffix[k] = j + 1;
             }
+            /// 如果公共后缀子串也是模式串的前缀子串
             if ( j==-1) {
                 prefix[k] = true;
             }
         }
     }
     
-    
     // j表示坏字符对应的模式串中的字符下标; m表示模式串长度
     int bm_moveByGS(int j,int m,vector<int>suffix,vector<bool>prefix) {
-        int k = m - 1 - j;
+        int k = m - 1 - j; /// 好后缀长度
+        /// 存在好后缀模式子串,移动位数: move = j - suffix[k] + 1
         if (suffix[k] != -1) return j - suffix[k] + 1;
+        /// 否则看看是否存在公共后缀子串也是前缀子串，有就移动呗
         for (int r = j+2; r<= m-1; ++r) {
             if (prefix[m-r] == true) {
                 return r;
@@ -139,6 +143,7 @@ class XYChars {
     /// BM
     /// 题目:主串M，模式串N ( 10)， 查找模式串 (1)
     // a,b表示主串和模式串；n，m表示主串和模式串的长度。
+    /// 返回的是匹配的下标
     int bm(vector<char>a,int n,vector<char>b,int m) {
         vector<int>bc(0,SIZE);
         bm_generateBC(b, m, bc); /// 构建坏字符哈希表
@@ -146,19 +151,26 @@ class XYChars {
         vector<bool>prefix(0,m);
         bm_generateGS(b, m, suffix, prefix); /// 构建好后缀
         int i = 0;
+        /// 最多匹配 n - m , i代表主串匹配开始地址
         while (i <= n - m) {
             int j;
+            /// 倒序匹配字符串
             for (j = m -1; j >= 0; --j) {
                 if(a[i+j]!=b[j])break;
             }
+            // 匹配成功，返回下标
             if (j<0){
                 return i;
             }
+            /// 存在坏字符，则计算移动位置
             int x = j-bc[(int)a[i+j]];
             int y = 0;
+            /// 如果存在好后缀
             if (j < m-1) {
+                /// 计算好后缀
                 y = bm_moveByGS(j,m, suffix, prefix);
             }
+            /// 取坏字符，好后缀比较大一个（⚠️坏字符偏移计算可能是负数)
             i = i + max(x, y);
         }
         return -1;

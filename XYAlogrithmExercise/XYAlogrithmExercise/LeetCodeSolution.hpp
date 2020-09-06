@@ -151,6 +151,8 @@ public:
     vector<vector<int>> merge(vector<vector<int>>& intervals);
     /// 区间覆盖
     int removeCoveredIntervals(vector<vector<int>>& intervals);
+    /// 最长重复子串
+    string longestDupSubstring(string S);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

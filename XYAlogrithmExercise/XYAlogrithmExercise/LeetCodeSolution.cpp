@@ -1503,3 +1503,8 @@ int  LeetCodeSolution:: removeCoveredIntervals(vector<vector<int>>& intervals) {
     return 0;
 }
 
+/// 最长重复子串
+string longestDupSubstring(string S) {
+    string s = "";
+    return s;
+}
