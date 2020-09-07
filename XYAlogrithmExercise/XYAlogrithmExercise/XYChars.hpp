@@ -14,6 +14,7 @@
 #include <vector>
 using namespace std;
 
+
 class XYChars {
     
     /// BF: 暴力查找法
@@ -181,8 +182,57 @@ class XYChars {
         
     }
     
+    /// Trie
+    void trieTree()  {
+        
+    }
+    
 private:
     int SIZE = 256;
     
 };
+
+class TrieNode {
+   
+public:
+    char data;
+    TrieNode *children[26];
+    bool isEndingChar = false;
+    TrieNode(char data) {
+        this->data = data;
+    }
+};
+   
+   
+class Trie {
+    TrieNode *root = new TrieNode('/');
+    
+    void insert(vector<char>text) {
+        TrieNode *p = root;
+        for (int i = 0;i < text.size();++i) {
+            int index = text[i] - 'a';
+            if (p->children[index] == NULL) {
+                TrieNode *newNode = new TrieNode(text[i]);
+                p->children[index] = newNode;
+            }
+            p = p->children[index];
+        }
+        p->isEndingChar = true;
+    }
+    
+    bool find(vector<char>pattern) {
+        TrieNode *p = root;
+        for (int i = 0; i < pattern.size();++i) {
+            int index = pattern[i] - 'a';
+            if (p->children[index] == NULL) {
+                return false;
+            }
+            p = p->children[index];
+        }
+        if (p->isEndingChar == false) return false;
+        return true;
+    }
+};
+
+
 #endif /* XYChars_hpp */
