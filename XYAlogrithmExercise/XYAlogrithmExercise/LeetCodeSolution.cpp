@@ -1515,20 +1515,20 @@ void LeetCodeSolution::reverse_findKthLargest(vector<int> &array,int l,int r, in
    
     int partition = findKthLargestPartition(array, l, r);
     
-    /// Because k is count from 1 , so array[partition] is k - 1
+    /// Because k is count from 1 , so array[partition] is k - 1 (ING)
     if (partition + 1 == k) {
         printf("find k = %d",array[partition]);
         return;
     }
     
-    /// Find largest k in left area
-    else if (k < partition + 1) {
-        reverse_findKthLargest(array, 0, partition - 1, k);
-    }
-    
     /// Find largest k in right area
     else if (k > partition + 1) {
-        reverse_findKthLargest(array,partition + 1, (int)array.size() - 1, k);
+        reverse_findKthLargest(array,partition + 1, r, k);
+    }
+    
+    /// Find largest k in left area
+    else if (k < partition + 1) {
+        reverse_findKthLargest(array, l, partition - 1, k);
     }
     
 }
@@ -1536,15 +1536,16 @@ void LeetCodeSolution::reverse_findKthLargest(vector<int> &array,int l,int r, in
 /// Return Partition
 int LeetCodeSolution::findKthLargestPartition(vector<int> &array, int l, int r) {
     int i = l;
-    for (int j = l; j < r - 1; j++) {
-        if (array[i] < array[r]) {
+    for (int j = l; j < r ; j++) {
+        /// 这里修改为 > , 则从大到小
+        if (array[j] > array[r]) {
             swap(array[i], array[j]);
             i++;
             continue;
         }
     }
-    swap(array[r], array[i]);
-    return i;
+    swap(array[i], array[r]);
+    return i ;
 }
 
 
