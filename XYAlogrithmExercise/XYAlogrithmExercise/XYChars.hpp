@@ -182,8 +182,8 @@ class XYChars {
         
     }
     
-    /// Trie
-    void trieTree()  {
+    /// AC自动机
+    void AC() {
         
     }
     
@@ -202,7 +202,6 @@ public:
         this->data = data;
     }
 };
-   
    
 class Trie {
     TrieNode *root = new TrieNode('/');

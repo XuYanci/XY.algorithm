@@ -123,19 +123,11 @@ void recursiveQuickSort(int array[],int l,int r) {
         int x = array[l];
         while ( i < j) {
             // 从右向左找第一个小于等于x的数
-            while (i < j && array[j] >= x) {
-                j--;
-            }
-            
-            if(i<j) {
-                array[i++] = array[j];
-            }
+            while (i < j && array[j] >= x) j--;
+            array[i] = array[j];
             // 从左向右找第一个小于x的数
-            while (i < j && array[i] < x) {
-                i++;
-            }
-            if(i < j)
-                array[j--] = array[i];
+            while (i < j && array[i] < x) i++;
+            array[j] = array[i];
         }
         array[i] = x;
         recursiveQuickSort(array,l,i-1);

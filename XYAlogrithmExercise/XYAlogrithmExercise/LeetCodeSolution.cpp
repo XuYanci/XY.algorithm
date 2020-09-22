@@ -1503,6 +1503,53 @@ int  LeetCodeSolution:: removeCoveredIntervals(vector<vector<int>>& intervals) {
     return 0;
 }
 
+/// 获取最大K值
+/// 思路: 快速排序，判断 p + 1 = k ,则 p 位置是k值，如果 p + 1 < k ,左边查找， p + 1 > k 右边查找, 效率 O(n)
+int LeetCodeSolution::findKthLargest(vector<int> nums, int k) {
+    reverse_findKthLargest(nums, 0, (int)nums.size() - 1, k);
+    return 0;
+}
+
+/// Simple quick sort
+void LeetCodeSolution::reverse_findKthLargest(vector<int> &array,int l,int r, int k) {
+   
+    int partition = findKthLargestPartition(array, l, r);
+    
+    /// Because k is count from 1 , so array[partition] is k - 1
+    if (partition + 1 == k) {
+        printf("find k = %d",array[partition]);
+        return;
+    }
+    
+    /// Find largest k in left area
+    else if (k < partition + 1) {
+        reverse_findKthLargest(array, 0, partition - 1, k);
+    }
+    
+    /// Find largest k in right area
+    else if (k > partition + 1) {
+        reverse_findKthLargest(array,partition + 1, (int)array.size() - 1, k);
+    }
+    
+}
+
+/// Return Partition
+int LeetCodeSolution::findKthLargestPartition(vector<int> &array, int l, int r) {
+    int i = l;
+    for (int j = l; j < r - 1; j++) {
+        if (array[i] < array[r]) {
+            swap(array[i], array[j]);
+            i++;
+            continue;
+        }
+    }
+    swap(array[r], array[i]);
+    return i;
+}
+
+
+
+
 /// 最长重复子串
 string longestDupSubstring(string S) {
     string s = "";

@@ -153,6 +153,8 @@ public:
     int removeCoveredIntervals(vector<vector<int>>& intervals);
     /// 最长重复子串
     string longestDupSubstring(string S);
+    /// 获取最大K值
+    int findKthLargest(vector<int> array,int k);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
@@ -163,6 +165,8 @@ private:
     int islands_bfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
     int islands_dfs(vector<vector<char>>& grid,int i,int j,size_t m,size_t n);
     void findTarget_dfs(vector<int>& nums, int S, int i, int sum, int& res) ;
+    void reverse_findKthLargest(vector<int> &array,int l,int r, int k);
+    int findKthLargestPartition(vector<int> &array,int l,int r);
 };
 
 /// LRU Cache

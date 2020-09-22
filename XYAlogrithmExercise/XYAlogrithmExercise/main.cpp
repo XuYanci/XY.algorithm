@@ -47,7 +47,7 @@ int main(int argc, const char * argv[]) {
     
     alogrithms();
 //    leetCodes();
-//    structures();
+    structures();
 //    leetCodesGoBack();
 //    structuresGoBack();
 //    cache();
@@ -111,7 +111,7 @@ void structures() {
     Max_Heap *max_heap = new Max_Heap();
     max_heap->justRun();
     
-    vector<int> temperatures {73, 74, 75, 71, 69, 72, 76, 73};
+    vector<int> temperatures {5,3,1,2,4};
     
     XYStack *stack = new XYStack();
     /// 到下一个比我大的需要多少步
@@ -376,6 +376,10 @@ void leetCodes() {
     {{74,78},{61,63},{46,50},{51,54},{50,50},{60,64},{39,42},{25,27},{91,95},{14,16},{85,85},{5,7},{45,46},{45,49},{66,66},{73,73},{25,26},{25,26},{45,48},
         {67,67}};
     s->merge(intervals);
+    
+    /// Find Largest Numbers
+    vector<int> largestNumbers {6, 11, 3, 9, 8};
+    s->findKthLargest(largestNumbers, 1);
 }
 
 void JianZhiOfferRun() {
