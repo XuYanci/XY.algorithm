@@ -15,6 +15,8 @@ typedef struct {
 }ELEMENT1;
 
 #include <stdio.h>
+#include <vector>
+using namespace std;
 class XYSort {
 public:
     XYSort();
@@ -25,6 +27,9 @@ public:
     
     // 快速排序
     void quickSort(int *array,int count,bool asc);
+    
+    /// 快速排序2
+    void quickSort2(vector<int> &array,int count,bool asc);
     
     // 插入排序
     void insertSort(int *array,int count,bool asc);
@@ -45,7 +50,8 @@ private:
     // 私有方法:合并两个有序数组
     void merge(int array0[],int left,int mid,int right,int temp[]);
     void merge_Sort(int arr[],int left,int right,int temp[]);
-    
+    void quickSort2_reverse(vector<int> &array,int l,int r,bool asc);
+    int quickSort2_partition(vector<int> &array,int l,int r,bool asc);
     /// 私有方法:堆排序
     void __swap(ELEMENT1 *lhs,ELEMENT1 *rhs){
         ELEMENT1 temp = *lhs;

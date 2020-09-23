@@ -45,8 +45,8 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-//    alogrithms();
-   leetCodes();
+    alogrithms();
+//   leetCodes();
 //    structures();
 //    leetCodesGoBack();
 //    structuresGoBack();
@@ -164,13 +164,15 @@ void alogrithms() {
     // 快速排序
     sort->quickSort(array6, 9, false);
     
+    vector<int> array7 = {1,3,2,6,3,8};
+    sort->quickSort2(array7,6, false);
     
     // @TODO 归并排序
     for(int i=0;i<9;i++){
         array5[i]=rand()%101;
     }
     sort->mergeSort(array5, 9, false);
-    
+
     /// 堆排序
     int n = 7;
     int items[7] = {87,79,38,83,72,43,91};
@@ -380,6 +382,7 @@ void leetCodes() {
     /// Find Largest Numbers
     vector<int> largestNumbers {3, 2, 1, 5, 6,4};
     s->findKthLargest(largestNumbers, 2);
+
 }
 
 void JianZhiOfferRun() {

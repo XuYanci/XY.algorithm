@@ -155,6 +155,51 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     cout << endl;
 }
 
+void XYSort::quickSort2(vector<int> &array, int count, bool asc) {
+    cout << "QUICK SORT2 - - - - - - - - - - " << endl;
+    cout << "origin array is " << endl;
+    for (int i = 0; i <  count; i++) {
+        cout << array[i] << ',';
+    }
+    cout << endl;
+    
+    quickSort2_reverse(array, 0, count - 1,asc);
+    cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
+    for (int i = 0; i <  count; i++) {
+        cout << array[i] << ',';
+    }
+    cout << endl;
+}
+
+void XYSort::quickSort2_reverse(vector<int> &array, int l, int r,bool asc) {
+    if (l >= r) return;
+    int partition = quickSort2_partition(array, l, r,asc);
+    quickSort2_reverse(array, l, partition - 1,asc);
+    quickSort2_reverse(array, partition + 1, r,asc);
+}
+
+int XYSort::quickSort2_partition(vector<int> &array, int l,int r,bool asc) {
+    int i = l;
+    for (int j = l; j < r; j++) {
+        
+        if (asc) {
+            if (array[j] < array[r]) {
+                      swap(array[i], array[j]);
+                      i++;
+                  }
+        } else {
+            if (array[j] > array[r]) {
+                      swap(array[i], array[j]);
+                      i++;
+                  }
+        }
+        
+      
+    }
+    swap(array[i], array[r]);
+    return i;
+}
+
 
 
 // 一个有序数组，一个无序数组， 默认取第一个元素放到有序数组, 假设最大
