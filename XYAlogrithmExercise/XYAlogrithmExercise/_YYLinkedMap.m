@@ -96,7 +96,7 @@
 //            dispatch_async(queue, ^{
 //                CFRelease(holder); // hold and release in specified queue
 //            });
-        } else if (_releaseOnMainThread && !pthread_main_np()) {
+        } else if (_releaseOnMainThread /*&& !pthread_main_np()*/) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 CFRelease(holder); // hold and release in specified queue
             });
