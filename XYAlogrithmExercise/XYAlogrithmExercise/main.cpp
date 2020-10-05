@@ -45,14 +45,14 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-    alogrithms();
-//   leetCodes();
-//    structures();
-//    leetCodesGoBack();
-//    structuresGoBack();
-//    cache();
-//    JianZhiOfferRun();
-//    LeetCodeEveryDayss();
+    //    alogrithms();
+    //   leetCodes();
+    structures();
+    //    leetCodesGoBack();
+    //    structuresGoBack();
+    //    cache();
+    //    JianZhiOfferRun();
+    //    LeetCodeEveryDayss();
     return 0;
 }
 
@@ -118,6 +118,12 @@ void structures() {
     stack->nextExceed(temperatures);
     /// 到下一个比我小的需要多少步
     stack->prevExceed(temperatures);
+
+    XYHeap2 *heap2 = new XYHeap2(10);
+    vector<int> nums {0,12,14,25,32,23,45,13,63,24};
+//    heap2->buildHeap(nums, 10,true);
+    heap2->sort(nums, 10, true);
+
 }
 
 void structuresGoBack() {

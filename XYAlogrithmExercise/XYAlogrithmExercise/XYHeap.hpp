@@ -100,4 +100,99 @@ public: /// C++ 不加public,默认私有private
 };
 
 
+class XYHeap2 {
+    vector<int> a;
+    int n;
+    int count;
+
+public:
+
+    XYHeap2(int capacity) {
+        n = capacity;
+        count = 0;
+    }
+
+    /// 建堆方式1
+    void buildHeap(vector<int>&a,int n,bool asc) {
+        /// 建立堆（从下到上）
+        for (int i = 1; i < n; i++) {
+            up(a, n, i,asc);
+        }
+
+        if (asc) {
+            printf("Build Min Heap is: \n");
+        } else {
+            printf("Build Max Heap is: \n");
+        }
+
+        for (int i = 1; i < n; i++) {
+            printf("%d,",a[i]);
+        }
+        printf("\n");
+    }
+
+    /// 上浮操作
+    void up(vector<int>&a,int n,int i,bool asc) {
+        /// 根节点停止
+        while (i / 2 > 0) {
+            /// 如果父亲节点比我小，则交换节点（这里是大根堆）
+            int pos = asc == true ? (a[i/2] > a[i] ? i / 2 : i) : (a[i/2] < a[i] ? i / 2 : i);
+            swap(a[i], a[pos]);
+            i = i / 2;
+        }
+    }
+
+    void down(vector<int>&a,int n,bool asc) {
+        /// 下沉动作
+        int i = 1;
+        while (i * 2 <= n) {
+            /// 取较小的一个
+            int pos = a[i * 2] < a[i] ? i * 2 : i;
+            if (i * 2 + 1 <= n) {
+                pos = a[i * 2 + 1] < a[pos] ? i * 2 + 1 : pos;
+            }
+            swap(a[i], a[pos]);
+            i = pos;
+        }
+    }
+
+
+    /// 堆排序
+    /// @param a 排序数组
+    /// @param n 数组个数
+    /// @param asc 升序，降序
+    void sort(vector<int>&a,int n,bool asc) {
+        /// 根据排序条件建立堆
+        buildHeap(a, n,asc);
+
+        /// 最后一个元素
+        int j = n - 1;
+        while (j > 1) {
+
+            /// 放到最后一个元素 (有序数组)
+            swap(a[1], a[j]);
+
+            /// 下沉动作
+            down(a, j - 1, asc);
+
+            j--;
+        }
+
+        if (asc) {
+            printf("Min Heap Sort is: \n");
+        } else {
+            printf("Max Heap Sort is: \n");
+        }
+
+
+        for (int i = n - 1; i >= 1; i--) {
+            printf("%d,",a[i]);
+        }
+        printf("\n");
+    }
+
+};
+
+
+
 #endif /* XYHeap_hpp */
