@@ -135,8 +135,12 @@ public:
     void up(vector<int>&a,int n,int i,bool asc) {
         /// 根节点停止
         while (i / 2 > 0) {
-            /// 如果父亲节点比我小，则交换节点（这里是大根堆）
-            int pos = asc == true ? (a[i/2] > a[i] ? i / 2 : i) : (a[i/2] < a[i] ? i / 2 : i);
+            int pos = i;
+            if (asc) {
+                pos = a[i/2] > a[i] ? i / 2 : i;
+            } else {
+                pos = a[i/2] < a[i] ? i / 2 : i;
+            }
             swap(a[i], a[pos]);
             i = i / 2;
         }
@@ -145,11 +149,30 @@ public:
     void down(vector<int>&a,int n,bool asc) {
         /// 下沉动作
         int i = 1;
-        while (i * 2 <= n) {
-            /// 取较小的一个
-            int pos = a[i * 2] < a[i] ? i * 2 : i;
-            if (i * 2 + 1 <= n) {
-                pos = a[i * 2 + 1] < a[pos] ? i * 2 + 1 : pos;
+        while (i < n) {
+            int pos = i;
+            if (asc) {
+                if (i * 2 <= n) {
+                    pos = a[i * 2] < a[i] ? i * 2 : i;
+                } else {
+                    break;
+                }
+                if (i * 2 + 1 <= n) {
+                    pos = a[i * 2 + 1] < a[pos] ? i * 2 + 1 : pos;
+                } else {
+                    break;
+                }
+            } else {
+                if (i * 2 <= n) {
+                    pos = a[i * 2] > a[i] ? i * 2 : i;
+                } else {
+                    break;
+                }
+                if (i * 2 + 1 <= n) {
+                    pos = a[i * 2 + 1] > a[pos] ? i * 2 + 1 : pos;
+                } else {
+                    break;
+                }
             }
             swap(a[i], a[pos]);
             i = pos;
@@ -165,17 +188,11 @@ public:
         /// 根据排序条件建立堆
         buildHeap(a, n,asc);
 
-        /// 最后一个元素
-        int j = n - 1;
-        while (j > 1) {
-
+        for (int j = n - 1; j > 1; j--) {
             /// 放到最后一个元素 (有序数组)
             swap(a[1], a[j]);
-
             /// 下沉动作
             down(a, j - 1, asc);
-
-            j--;
         }
 
         if (asc) {
