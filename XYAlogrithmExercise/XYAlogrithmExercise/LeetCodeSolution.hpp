@@ -155,6 +155,9 @@ public:
     string longestDupSubstring(string S);
     /// 获取最大K值
     int findKthLargest(vector<int> array,int k);
+    /// 获取最大k值
+    int findKthLargest2(vector<int> &array,int k);
+
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;
@@ -167,6 +170,7 @@ private:
     void findTarget_dfs(vector<int>& nums, int S, int i, int sum, int& res) ;
     void reverse_findKthLargest(vector<int> &array,int l,int r, int k);
     int findKthLargestPartition(vector<int> &array,int l,int r);
+   
 };
 
 /// LRU Cache

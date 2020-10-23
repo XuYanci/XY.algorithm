@@ -46,8 +46,8 @@ int main(int argc, const char * argv[]) {
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
     //    alogrithms();
-    //   leetCodes();
-    structures();
+       leetCodes();
+//    structures();
     //    leetCodesGoBack();
     //    structuresGoBack();
     //    cache();
@@ -386,8 +386,10 @@ void leetCodes() {
     s->merge(intervals);
     
     /// Find Largest Numbers
-    vector<int> largestNumbers {3, 2, 1, 5, 6,4};
+    vector<int> largestNumbers  {3,2,3,1,2,4,5,5,6};
     s->findKthLargest(largestNumbers, 2);
+
+    s->findKthLargest2(largestNumbers, 9);
 
 }
 

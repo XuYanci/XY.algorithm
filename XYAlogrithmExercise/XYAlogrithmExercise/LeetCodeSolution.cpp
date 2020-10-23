@@ -1549,7 +1549,40 @@ int LeetCodeSolution::findKthLargestPartition(vector<int> &array, int l, int r) 
 }
 
 
+int LeetCodeSolution:: findKthLargest2(vector<int> &array,int k) {
+    /// 第一位占位0，方便下标运算
+    array.insert(array.begin(), 0);
+    int n = (int)array.size();
+    /// 开始建立最大堆
+    for (int i = 1; i < n; i++) {
+        int j = i;
+        while (j >> 1 > 0) {
+            swap(array[j], array[array[j] < array[j >> 1] ? j : j >> 1]);
+            j = j >> 1;
+        }
+    }
 
+    for (int i = 0; i < k - 1; i++) {
+        int end = n - 1 - i;
+        swap(array[1], array[end]);
+        int j = 1;
+        while (true) {
+            int pos = j;
+            if (j << 1 < end) {
+                pos = array[j] > array[j << 1] ? j : j << 1;
+            }
+            if ((j << 1) + 1 < end) {
+                pos = array[pos] > array[(j << 1) + 1] ? pos : (j << 1) + 1;
+            }
+            if (j == pos)  break;
+            swap(array[j], array[pos]);
+            j = pos;
+        }
+    }
+
+    return array[1];
+}
+ 
 
 /// 最长重复子串
 string longestDupSubstring(string S) {
