@@ -1582,6 +1582,11 @@ int LeetCodeSolution:: findKthLargest2(vector<int> &array,int k) {
 
     return array[1];
 }
+
+/// 判断回文串
+bool LeetCodeSolution::isPalindrome(string s) {
+    return true;
+}
  
 
 /// 最长重复子串

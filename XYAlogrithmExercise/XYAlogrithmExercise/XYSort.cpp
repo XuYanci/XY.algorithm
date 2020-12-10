@@ -121,6 +121,8 @@ void recursiveQuickSort(int array[],int l,int r) {
         int i = l;
         int j = r;
         int x = array[l];
+        
+        /* 双边扫描法 (挖坑法)*/
         while ( i < j) {
             // 从右向左找第一个小于等于x的数
             while (i < j && array[j] >= x) j--;
@@ -130,6 +132,20 @@ void recursiveQuickSort(int array[],int l,int r) {
             array[j] = array[i];
         }
         array[i] = x;
+        
+        /* 单边扫描法 (简写逻辑，未验证)*/
+//        int i_ = l;
+//        int x_ = array[r];
+//        int j_ = 0;
+//        for (j_ = 0; j_ < r; j_++) {
+//            if (array[i] < x_) {
+//                swap(array[i], array[j]);
+//                i+=1;
+//            }
+//        }
+//        swap(array[i], array[r]);
+        
+        
         recursiveQuickSort(array,l,i-1);
         recursiveQuickSort(array, i+1, r);
     }
@@ -253,27 +269,39 @@ void XYSort:: selectSort(int *array,int count,bool asc) {
     }
     cout << endl;
     
+    
     /// 选择排序，线性搜索最小，然后交换放到数组位置，逐个交换；
-    /// 外循环 存放最小值数组
-    /// 内循环 搜索最小
     for (int i = 0; i < count; i++) {
-        int temp = array[i];
-        int downSign = -1;
-        for (int j = i+1; j < count; j++) {
-            if (asc && array[j] < temp) {
-                temp = array[j];
-                downSign = j;
-            }
-            if (!asc && array[j] > temp) {
-                temp = array[j];
-                downSign = j;
+        /// 已排序区间最后值
+        int min = i;
+        /// 内循环 搜索最小
+        for (int j = i + 1; j < count; j++) {
+            if (array[j] < array[min]) {
+                min = j;
             }
         }
-        if (downSign> 0) {
-            array[downSign] = array[i];
-            array[i] = temp;
-        }
+        /// 存放最小值
+        swap(array[i], array[min]);
     }
+    
+//    for (int i = 0; i < count; i++) {
+//        int temp = array[i];
+//        int downSign = -1;
+//        for (int j = i+1; j < count; j++) {
+//            if (asc && array[j] < temp) {
+//                temp = array[j];
+//                downSign = j;
+//            }
+//            if (!asc && array[j] > temp) {
+//                temp = array[j];
+//                downSign = j;
+//            }
+//        }
+//        if (downSign> 0) {
+//            array[downSign] = array[i];
+//            array[i] = temp;
+//        }
+//    }
     
     
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;

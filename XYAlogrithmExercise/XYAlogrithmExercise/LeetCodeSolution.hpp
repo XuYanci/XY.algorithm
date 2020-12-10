@@ -157,6 +157,8 @@ public:
     int findKthLargest(vector<int> array,int k);
     /// 获取最大k值
     int findKthLargest2(vector<int> &array,int k);
+    /// 验证回文串
+    bool isPalindrome(string s);
 
 private:
     bool isPrime(int num);

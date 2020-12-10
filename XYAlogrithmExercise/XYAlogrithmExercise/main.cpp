@@ -45,8 +45,8 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-    //    alogrithms();
-       leetCodes();
+      alogrithms();
+//       leetCodes();
 //    structures();
     //    leetCodesGoBack();
     //    structuresGoBack();
