@@ -17,7 +17,6 @@
 using namespace std;
 
 class XYLRUCache {
-    
     /// 容量
     int _capacity;
     /// 存放项 (按时间排序)
@@ -64,9 +63,7 @@ public:
         if (keys.size() > _capacity) {
             items[keys.back()] = NULL;
             keys.erase(keys.end() - 1);
-            
         }
-        
     }
 };
 
@@ -88,8 +85,12 @@ class XYLFUCache {
     /// 存储最小次数
     int minFreq;
     /// Map<Key,<Value,Freq>>
+    /// 这个地方是最别扭的地方，Key Value的值设置都是在这里
+    /// Key - Value 一对一
+    /// Key - Freq 一对多
     unordered_map<int, pair<int, int>> valueFreqMap;
     /// Map<Freq,List>
+    /// Freq - List 一对一
     unordered_map<int, list<int>> freqListMap;
     /// Map<Key,Iter>
     unordered_map<int, list<int>::iterator> iterMap;
@@ -100,12 +101,14 @@ public:
         size = 0;
         cap = capacity;
     }
-    
+  
     int get(int key) {
         
         /// 查找ValueFreq里面是否存在Key，不存在则代表没有存此Key的Value
         if (valueFreqMap.count(key) == 0) return -1;
         
+        /** 刷新Key次数排序和时间排序 **/
+     
         /// 根据Freq Key找到Freq列表删除Key节点
         freqListMap[valueFreqMap[key].second].erase(iterMap[key]);
         /// Freq增加1
