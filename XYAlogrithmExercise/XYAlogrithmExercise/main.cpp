@@ -23,6 +23,7 @@
 #include "LeetCodeEveryDay.hpp"
 #include "XYDp.hpp"
 #include "XYHuiSu.hpp"
+#include "XYCacheGoBack.hpp"
 /// XuYanci Alogrithm Exercise
 
 /// 算法
@@ -45,19 +46,21 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-      alogrithms();
+//      alogrithms();
 //       leetCodes();
 //    structures();
     //    leetCodesGoBack();
     //    structuresGoBack();
-    //    cache();
+        cache();
     //    JianZhiOfferRun();
     //    LeetCodeEveryDayss();
     return 0;
 }
 
 void cache() {
-    XYLRUCache *cache = new XYLRUCache( 2 /* 缓存容量 */ );
+//    XYLRUCache *cache = new XYLRUCache( 2 /* 缓存容量 */ );
+    
+    XYCacheGoBack::XYLRUCache *cache = new XYCacheGoBack::XYLRUCache();
     
     cache->put(1, 1);
     cache->put(2, 2);
