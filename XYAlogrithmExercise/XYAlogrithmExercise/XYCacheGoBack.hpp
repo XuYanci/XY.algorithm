@@ -40,7 +40,7 @@ public:
         void put(int key,int value) {
             /// 如果存在Key,则更新Key位置，并重新赋值
             /// 如果不存在Key，插入Key到首位，如果容量已满，则删除末尾
-        if (get(key) == -1) {
+            if (get(key) == -1) {
                 /// 如果已经满了，则删除最后一个键
                 if (keyCount + 1> capacity) {
                     keyCount = capacity;
@@ -49,7 +49,7 @@ public:
                 /// 如果未满，则增加键数
                 else {
                     keyCount++;
-                }      
+                }
                 /// 移动数组,空出位置
                 int n = keyCount - 1;
                 while (n > 0) {

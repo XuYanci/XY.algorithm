@@ -15,7 +15,8 @@
 using namespace std;
 //1.前序遍历：先访问根节点——左子树——右子树。
 //2.中序遍历：先访问左子树——根节点——右子树，按照这个顺序。
-//3.后序遍历：和前面差不多，先访问树的左子树——右子树——根节点。按层遍历：把一棵树从上到下，从左到右依次写出来。
+//3.后序遍历：和前面差不多，先访问树的左子树——右子树——根节点。
+//4.按层遍历：把一棵树从上到下，从左到右依次写出来。
 
 class XYTree {
     struct TreeNode {
@@ -106,28 +107,69 @@ class XYTree {
         return vec_;
     }
     
-    /// 自顶向下
+    /// 自底向上
     int maximum_depth(TreeNode* root) {
         if (!root) {
             return 0;                                 // return 0 for null node
         }
+        
         int left_depth = maximum_depth(root->left);
         int right_depth = maximum_depth(root->right);
+        
+        /// 左子树深度，右子树深度（选择较大） + 1
         return max(left_depth, right_depth) + 1;      // return depth of the subtree rooted at root
     }
     
-    /// 自底向上
+    /// 自顶到下
     int answer;               // don't forget to initialize answer before call maximum_depth
     void maximum_depth(TreeNode* root, int depth) {
         if (!root) {
             return;
         }
+        
+        /// 如果左节点以及右节点都不存在的话
         if (!root->left && !root->right) {
             answer = max(answer, depth);
         }
+        
+        /// 继续遍历左
         maximum_depth(root->left, depth + 1);
+        
+        /// 继续遍历右
         maximum_depth(root->right, depth + 1);
     }
+    
+    /// 恢复二叉树
+    void recoverTree(TreeNode* root) {
+        
+    }
+    /// 从前序与中序遍历序列构造二叉树
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        return NULL;
+    }
+    
+    /// 二叉树中的最大路径和
+    int maxValue = INT_MIN;
+    int maxPathSum(TreeNode* root) {
+        reverse(root);
+        return maxValue;
+    }
+    
+private:
+    int reverse(TreeNode *root) {
+        if (root == NULL) {
+            return 0;
+        }
+        /// 后序遍历
+        int left = max(0,reverse(root->left));
+        int right = max(0,reverse(root->right));
+        int lmr = left + right + root->val;
+        int ret = max(left,right) + root->val;
+        maxValue = max(maxValue,lmr);
+        maxValue = max(maxValue,ret);
+        return ret;
+    }
+    
     
 };
 
