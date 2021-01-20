@@ -139,11 +139,28 @@ class XYTree {
         maximum_depth(root->right, depth + 1);
     }
     
-    /// 恢复二叉树
+    /// 恢复二叉搜索树
+    /// 题目:给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。
+    /// 思路:
+    //    会出现一对，或两对不符合 ai < ai+ 1,
+    //    一对的话就交换即可
+    //    两对的话，去除交集部分，交换即可
+    //
+    //    [3 ,2 ,1]
+    //    3 > 2 NO
+    //    2 > 1 NO
+    //
+    //    [1,3,2,4]
+    //
+    //    3 > 2   NO
     void recoverTree(TreeNode* root) {
-        
+         
     }
+    
+   
+    
     /// 从前序与中序遍历序列构造二叉树
+    /// 思路:先序遍历（根，左，右），中序遍历（左，根，右），属于递归问题，从上到下
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         return NULL;
     }
