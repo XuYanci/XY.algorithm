@@ -151,33 +151,45 @@ public:
     
     vector<TreeNode *> recoverTreeList;
     
+    TreeNode *prev = NULL;
+    TreeNode *x = NULL;
+    TreeNode *y = NULL;
     void recoverTree(TreeNode* root) {
         
-        if (root == NULL) {
-            return;
-        }
-
+        /** 方式1 */
+//        if (root == NULL) {
+//            return;
+//        }
+//
+//        recoverTreeList = vector<TreeNode*>();
+//        recoverTreeMiddle(root);
+//
+//        TreeNode *x = NULL;
+//        TreeNode *y = NULL;
+//
+//        for (int i = 0; i < recoverTreeList.size() - 1; i++) {
+//            if (recoverTreeList[i]->val > recoverTreeList[i + 1]->val) {
+//                y = recoverTreeList[i+1];
+//                if (x == NULL) {
+//                    x = recoverTreeList[i];
+//                }
+//            }
+//        }
+//
+//        int tmp = x->val;
+//        x->val = y->val;
+//        y->val = tmp;
         
-        recoverTreeList = vector<TreeNode*>();
-        recoverTreeMiddle(root);
-        
-        TreeNode *x = NULL;
-        TreeNode *y = NULL;
-        
-        for (int i = 0; i < recoverTreeList.size() - 1; i++) {
-            if (recoverTreeList[i]->val > recoverTreeList[i + 1]->val) {
-                y = recoverTreeList[i+1];
-                if (x == NULL) {
-                    x = recoverTreeList[i];
-                }
-            }
-        }
+        /** 方式2
+            不扫描一遍，浪费O(N)存储空间
+         */
+        recoverTreeMiddle2(root);
         
         int tmp = x->val;
         x->val = y->val;
         y->val = tmp;
-    }
     
+    }
     
     void recoverTreeMiddle(TreeNode *root) {
         if (root == NULL) {
@@ -186,6 +198,23 @@ public:
         recoverTreeMiddle(root->left);
         recoverTreeList.push_back(root);
         recoverTreeMiddle(root->right);
+    }
+
+    void recoverTreeMiddle2(TreeNode *root) {
+        if (root == NULL) {
+            return;
+        }
+        recoverTreeMiddle2(root->left);
+        
+        if (prev != NULL && prev->val > root->val) {
+            if (x == NULL) {
+                x = prev;
+            }
+            y = root;
+        }
+        
+        prev = root;
+        recoverTreeMiddle2(root->right);
     }
    
     
