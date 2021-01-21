@@ -72,6 +72,10 @@ void tree() {
     node1->right=node2;
     
     tree->recoverTree(root);
+    
+    vector<int> preorder {3,9};
+    vector<int> inorder {9,3};
+    tree->buildTree(preorder, inorder);
 }
 
 

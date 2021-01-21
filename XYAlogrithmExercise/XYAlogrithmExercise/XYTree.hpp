@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include <queue>
+#include <unordered_map>
 using namespace std;
 //1.前序遍历：先访问根节点——左子树——右子树。
 //2.中序遍历：先访问左子树——根节点——右子树，按照这个顺序。
@@ -26,7 +27,7 @@ public:
         TreeNode *right;
         TreeNode(int x):val(x),left(NULL),right(NULL){}
     };
-
+    
     /// 先序 (递归)
     void preorder(TreeNode *root,vector<int> &vec) {
         if (root == NULL) return;
@@ -157,38 +158,38 @@ public:
     void recoverTree(TreeNode* root) {
         
         /** 方式1 */
-//        if (root == NULL) {
-//            return;
-//        }
-//
-//        recoverTreeList = vector<TreeNode*>();
-//        recoverTreeMiddle(root);
-//
-//        TreeNode *x = NULL;
-//        TreeNode *y = NULL;
-//
-//        for (int i = 0; i < recoverTreeList.size() - 1; i++) {
-//            if (recoverTreeList[i]->val > recoverTreeList[i + 1]->val) {
-//                y = recoverTreeList[i+1];
-//                if (x == NULL) {
-//                    x = recoverTreeList[i];
-//                }
-//            }
-//        }
-//
-//        int tmp = x->val;
-//        x->val = y->val;
-//        y->val = tmp;
+        //        if (root == NULL) {
+        //            return;
+        //        }
+        //
+        //        recoverTreeList = vector<TreeNode*>();
+        //        recoverTreeMiddle(root);
+        //
+        //        TreeNode *x = NULL;
+        //        TreeNode *y = NULL;
+        //
+        //        for (int i = 0; i < recoverTreeList.size() - 1; i++) {
+        //            if (recoverTreeList[i]->val > recoverTreeList[i + 1]->val) {
+        //                y = recoverTreeList[i+1];
+        //                if (x == NULL) {
+        //                    x = recoverTreeList[i];
+        //                }
+        //            }
+        //        }
+        //
+        //        int tmp = x->val;
+        //        x->val = y->val;
+        //        y->val = tmp;
         
         /** 方式2
-            不扫描一遍，浪费O(N)存储空间
+         不扫描一遍，浪费O(N)存储空间
          */
         recoverTreeMiddle2(root);
         
         int tmp = x->val;
         x->val = y->val;
         y->val = tmp;
-    
+        
     }
     
     void recoverTreeMiddle(TreeNode *root) {
@@ -199,7 +200,7 @@ public:
         recoverTreeList.push_back(root);
         recoverTreeMiddle(root->right);
     }
-
+    
     void recoverTreeMiddle2(TreeNode *root) {
         if (root == NULL) {
             return;
@@ -216,12 +217,66 @@ public:
         prev = root;
         recoverTreeMiddle2(root->right);
     }
-   
+    
     
     /// 从前序与中序遍历序列构造二叉树
     /// 思路:先序遍历（根，左，右），中序遍历（左，根，右），属于递归问题，从上到下
+    ///  1,2,3,[4],5,6,7
+    /// [4],1,2,3,5,6,7
+    unordered_map<int, int> buildTreeMap;
+    
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        return NULL;
+        /// 根据中序遍历建立映射
+        buildTreeMap1(inorder);
+        /// 递归构造二叉树
+        TreeNode *root = buildTreeRecursive(preorder,
+                                            0,
+                                            (int)preorder.size() - 1,
+                                            inorder,
+                                            0,
+                                            (int)inorder.size() - 1);
+        return root;
+    }
+    
+    void buildTreeMap1(vector<int>&inorder) {
+        for (int i = 0; i < inorder.size(); i++) {
+            buildTreeMap[inorder[i]] = i;
+        }
+    }
+    //    [3,9];
+    //    [9,3];
+    TreeNode * buildTreeRecursive(vector<int>& preorder,
+                                  int preBegin,
+                                  int preEnd,
+                                  vector<int>& inorder,
+                                  int inBegin,
+                                  int inEnd) {
+        if (preBegin > preEnd) {
+            return NULL;
+        }
+        
+        TreeNode *node = new TreeNode(preorder[preBegin]);
+        
+        /// 根据哈希查找对应中序遍历的根节点(全局的)
+        int inorderRootIndex = buildTreeMap[preorder[preBegin]];
+        /// 根据中序遍历的根节点 【left, root, right】，计算出左节点数目
+        /// LeftNum = PreEnd - findRootIndex (global map)
+        int leftNum = inorderRootIndex - inBegin;
+        
+        node->left = buildTreeRecursive(preorder,
+                                        preBegin + 1,
+                                        preBegin + leftNum,
+                                        inorder,
+                                        inBegin,
+                                        inBegin + leftNum - 1);
+        
+        node->right = buildTreeRecursive(preorder,
+                                         preBegin + leftNum + 1,
+                                         preEnd,
+                                         inorder,
+                                         inBegin + leftNum + 1,
+                                         inEnd);
+        return node;
     }
     
     /// 二叉树中的最大路径和
