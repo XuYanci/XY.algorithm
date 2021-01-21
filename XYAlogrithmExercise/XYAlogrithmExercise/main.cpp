@@ -24,6 +24,8 @@
 #include "XYDp.hpp"
 #include "XYHuiSu.hpp"
 #include "XYCacheGoBack.hpp"
+#include "XYTree.hpp"
+
 /// XuYanci Alogrithm Exercise
 
 /// 算法
@@ -42,20 +44,36 @@ void JianZhiOfferRun();//
 void LeetCodeEveryDayss();
 /// 缓存
 void cache();
+/// 树
+void tree();
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
+    tree();
     
-//      alogrithms();
-//       leetCodes();
+//    alogrithms();
+//    leetCodes();
 //    structures();
-    //    leetCodesGoBack();
-    //    structuresGoBack();
-        cache();
-    //    JianZhiOfferRun();
-    //    LeetCodeEveryDayss();
+//    leetCodesGoBack();
+//    structuresGoBack();
+//    cache();
+//    JianZhiOfferRun();
+//    LeetCodeEveryDayss();
     return 0;
 }
+
+void tree() {
+    XYTree *tree = new XYTree();
+    
+    XYTree::TreeNode *root = new XYTree::TreeNode(1);
+    XYTree::TreeNode *node1 = new XYTree::TreeNode(3);
+    XYTree::TreeNode *node2 = new XYTree::TreeNode(2);
+    root->left=node1;
+    node1->right=node2;
+    
+    tree->recoverTree(root);
+}
+
 
 void cache() {
 //    XYLRUCache *cache = new XYLRUCache( 2 /* 缓存容量 */ );

@@ -19,13 +19,14 @@ using namespace std;
 //4.按层遍历：把一棵树从上到下，从左到右依次写出来。
 
 class XYTree {
+public:
     struct TreeNode {
         int val;
         TreeNode *left;
         TreeNode *right;
         TreeNode(int x):val(x),left(NULL),right(NULL){}
     };
-    
+
     /// 先序 (递归)
     void preorder(TreeNode *root,vector<int> &vec) {
         if (root == NULL) return;
@@ -142,21 +143,50 @@ class XYTree {
     /// 恢复二叉搜索树
     /// 题目:给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。
     /// 思路:
-    //    会出现一对，或两对不符合 ai < ai+ 1,
-    //    一对的话就交换即可
-    //    两对的话，去除交集部分，交换即可
-    //
-    //    [3 ,2 ,1]
-    //    3 > 2 NO
-    //    2 > 1 NO
-    //
-    //    [1,3,2,4]
-    //
-    //    3 > 2   NO
+    //    a1,a2,a3, b1,b2,b3
+    //    a2与b2交换时候 a1,b2,a3,b1,a2,b3
+    //    找出不满足（ 第一个节点 < 第二个节点)
+    //    b2 > a3 选择第一个节点
+    //    b1 > a2 选择后一个节点
+    
+    vector<TreeNode *> recoverTreeList;
+    
     void recoverTree(TreeNode* root) {
-         
+        
+        if (root == NULL) {
+            return;
+        }
+
+        
+        recoverTreeList = vector<TreeNode*>();
+        recoverTreeMiddle(root);
+        
+        TreeNode *x = NULL;
+        TreeNode *y = NULL;
+        
+        for (int i = 0; i < recoverTreeList.size() - 1; i++) {
+            if (recoverTreeList[i]->val > recoverTreeList[i + 1]->val) {
+                y = recoverTreeList[i+1];
+                if (x == NULL) {
+                    x = recoverTreeList[i];
+                }
+            }
+        }
+        
+        int tmp = x->val;
+        x->val = y->val;
+        y->val = tmp;
     }
     
+    
+    void recoverTreeMiddle(TreeNode *root) {
+        if (root == NULL) {
+            return;;
+        }
+        recoverTreeMiddle(root->left);
+        recoverTreeList.push_back(root);
+        recoverTreeMiddle(root->right);
+    }
    
     
     /// 从前序与中序遍历序列构造二叉树
@@ -168,18 +198,18 @@ class XYTree {
     /// 二叉树中的最大路径和
     int maxValue = INT_MIN;
     int maxPathSum(TreeNode* root) {
-        reverse(root);
+        reverseMaxPathSum(root);
         return maxValue;
     }
     
 private:
-    int reverse(TreeNode *root) {
+    int reverseMaxPathSum(TreeNode *root) {
         if (root == NULL) {
             return 0;
         }
         /// 后序遍历
-        int left = max(0,reverse(root->left));
-        int right = max(0,reverse(root->right));
+        int left = max(0,reverseMaxPathSum(root->left));
+        int right = max(0,reverseMaxPathSum(root->right));
         int lmr = left + right + root->val;
         int ret = max(left,right) + root->val;
         maxValue = max(maxValue,lmr);
