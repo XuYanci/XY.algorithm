@@ -46,10 +46,13 @@ void LeetCodeEveryDayss();
 void cache();
 /// 树
 void tree();
+/// 动态规划
+void dp();
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
-    tree();
+//    tree();
+    dp();
     
 //    alogrithms();
 //    leetCodes();
@@ -60,6 +63,12 @@ int main(int argc, const char * argv[]) {
 //    JianZhiOfferRun();
 //    LeetCodeEveryDayss();
     return 0;
+}
+
+void dp() {
+    XYdp *dp = new XYdp();
+    vector<int> coins{1,2};
+    dp->coinChange(coins, 100);
 }
 
 void tree() {
@@ -230,8 +239,8 @@ void alogrithms() {
     vector<int> value = {1,222,1,1,226}; // 物品重量
     int _n = 5; // 物品个数
     int _w = 3; // 背包承受的最大重量
-    dp->knapsack(weight, _n, _w);
-    dp->knapsack2(weight, _n, _w);
+//    dp->knapsack(weight, _n, _w);
+//    dp->knapsack2(weight, _n, _w);
     
     
     XYHuiSu *huisu = new XYHuiSu();
