@@ -97,5 +97,35 @@ public:
         }
     }
     
+    
+    
+    vector<vector<int>> permute1;
+    /// 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+    vector<vector<int>> permute(vector<int>& nums) {
+      
+        vector<int>arrange;
+        premuteReverse(nums, arrange);
+        return permute1;
+    }
+    
+    void premuteReverse(vector<int>& nums, vector<int>&arrange) {
+            
+        if (arrange.size() == nums.size()) {
+            permute1.push_back(arrange);
+            return;
+        }
+        
+        for (int i = 0; i < nums.size(); i++) {
+            int num = nums[i];
+            // 如果不包含
+            if (!count(arrange.begin(), arrange.end(), num)) {
+                arrange.push_back(num);
+                premuteReverse(nums, arrange);
+                arrange.erase(arrange.end() - 1);
+            }
+        }
+        
+    }
+    
 };
 #endif /* XYHuiSu_hpp */

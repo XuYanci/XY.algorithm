@@ -48,11 +48,13 @@ void cache();
 void tree();
 /// 动态规划
 void dp();
+void huisu();
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
-    dp();
-    
+//    dp();
+    huisu();
     //    tree();
     //    alogrithms();
     //    leetCodes();
@@ -69,6 +71,12 @@ void dp() {
     XYdp *dp = new XYdp();
     vector<int> coins{1,2};
     dp->coinChange(coins, 100);
+}
+
+void huisu() {
+    XYHuiSu *huisu = new XYHuiSu();
+    vector<int> nums = {0,1};
+    huisu->permute(nums);
 }
 
 void tree() {
@@ -246,6 +254,7 @@ void alogrithms() {
     XYHuiSu *huisu = new XYHuiSu();
     huisu->knapsack(weight, _n, _w);
     huisu->knapsack2(weight, value, _n, _w);
+    
     
 }
 

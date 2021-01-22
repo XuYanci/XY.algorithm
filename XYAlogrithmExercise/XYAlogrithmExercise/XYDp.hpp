@@ -63,11 +63,14 @@ public:
         vector<int> dpTable(amount + 1, amount + 1);
         dpTable[0] = 0;
         
+      
         for (int i = 0; i < dpTable.size(); i++) {
             for (int j = 0; j < coins.size(); j++) {
                 if (i - coins[j] < 0) {
                     continue;;
                 }
+                
+                /// dp[i] = min (dp[i],  dp[i - coins[j]] + 1)
                 dpTable[i] = min(dpTable[i],1 + dpTable[i - coins[j]]);
             }
         }
