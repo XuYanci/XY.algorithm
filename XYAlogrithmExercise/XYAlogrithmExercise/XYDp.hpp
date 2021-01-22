@@ -28,6 +28,9 @@ public:
     }
     
     int coinChangeReverse(vector<int>& coins, int amount) {
+        if (dpMap[amount]) {
+            return dpMap[amount];
+        }
         /// 如果金额等于0，则返回0，结束递归
         if (amount == 0) {
             return 0;
@@ -36,10 +39,6 @@ public:
         /// 如果金额小于0,则返回-1,结束递归(说明没有解决)
         if (amount < 0) {
             return -1;
-        }
-        
-        if (dpMap[amount]) {
-            return dpMap[amount];
         }
         
         int minCost = INT8_MAX;
@@ -53,10 +52,28 @@ public:
             minCost = min(minCost,result + 1);
         }
          dpMap[amount] = (minCost != INT8_MAX) ? minCost : -1;
-         return (minCost != INT8_MAX) ? minCost : -1;
+         return  dpMap[amount];
     }
     
-    
+    /// 动态规划，使用DP_Table实现 (自下到上)
+    /// dp[i] = x, 当目标金额为i的时候，至少需要x枚硬币
+    /// 三要素: 重叠子问题，最优子结构，状态转移方程 (子问题间必须独立)
+    int coinChange1(vector<int>& coins, int amount) {
+        /// 这里为什么要amount + 1
+        vector<int> dpTable(amount + 1, amount + 1);
+        dpTable[0] = 0;
+        
+        for (int i = 0; i < dpTable.size(); i++) {
+            for (int j = 0; j < coins.size(); j++) {
+                if (i - coins[j] < 0) {
+                    continue;;
+                }
+                dpTable[i] = min(dpTable[i],1 + dpTable[i - coins[j]]);
+            }
+        }
+
+        return (dpTable[amount] == amount + 1) ? -1 : dpTable[amount];;
+    }
     
     int main()
     {

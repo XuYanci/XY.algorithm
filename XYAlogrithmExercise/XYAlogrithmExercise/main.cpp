@@ -51,17 +51,17 @@ void dp();
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
-//    tree();
     dp();
     
-//    alogrithms();
-//    leetCodes();
-//    structures();
-//    leetCodesGoBack();
-//    structuresGoBack();
-//    cache();
-//    JianZhiOfferRun();
-//    LeetCodeEveryDayss();
+    //    tree();
+    //    alogrithms();
+    //    leetCodes();
+    //    structures();
+    //    leetCodesGoBack();
+    //    structuresGoBack();
+    //    cache();
+    //    JianZhiOfferRun();
+    //    LeetCodeEveryDayss();
     return 0;
 }
 
@@ -89,7 +89,7 @@ void tree() {
 
 
 void cache() {
-//    XYLRUCache *cache = new XYLRUCache( 2 /* 缓存容量 */ );
+    //    XYLRUCache *cache = new XYLRUCache( 2 /* 缓存容量 */ );
     
     XYCacheGoBack::XYLRUCache *cache = new XYCacheGoBack::XYLRUCache();
     
@@ -152,12 +152,12 @@ void structures() {
     stack->nextExceed(temperatures);
     /// 到下一个比我小的需要多少步
     stack->prevExceed(temperatures);
-
+    
     XYHeap2 *heap2 = new XYHeap2(10);
     vector<int> nums {0,12,14,25,32,23,45,13,63,24};
-//    heap2->buildHeap(nums, 10,true);
+    //    heap2->buildHeap(nums, 10,true);
     heap2->sort(nums, 10, true);
-
+    
 }
 
 void structuresGoBack() {
@@ -212,7 +212,7 @@ void alogrithms() {
         array5[i]=rand()%101;
     }
     sort->mergeSort(array5, 9, false);
-
+    
     /// 堆排序
     int n = 7;
     int items[7] = {87,79,38,83,72,43,91};
@@ -239,8 +239,8 @@ void alogrithms() {
     vector<int> value = {1,222,1,1,226}; // 物品重量
     int _n = 5; // 物品个数
     int _w = 3; // 背包承受的最大重量
-//    dp->knapsack(weight, _n, _w);
-//    dp->knapsack2(weight, _n, _w);
+    //    dp->knapsack(weight, _n, _w);
+    //    dp->knapsack2(weight, _n, _w);
     
     
     XYHuiSu *huisu = new XYHuiSu();
@@ -422,9 +422,9 @@ void leetCodes() {
     /// Find Largest Numbers
     vector<int> largestNumbers  {3,2,3,1,2,4,5,5,6};
     s->findKthLargest(largestNumbers, 2);
-
+    
     s->findKthLargest2(largestNumbers, 9);
-
+    
 }
 
 void JianZhiOfferRun() {
