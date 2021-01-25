@@ -77,6 +77,7 @@ void huisu() {
     XYHuiSu *huisu = new XYHuiSu();
     vector<int> nums = {0,1};
     huisu->permute(nums);
+    huisu->solveNQueens(5);
 }
 
 void tree() {

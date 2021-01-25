@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <string>
 using namespace std;
 /// 回溯算法
 class XYHuiSu {
@@ -98,18 +99,15 @@ public:
     }
     
     
-    
     vector<vector<int>> permute1;
     /// 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
     vector<vector<int>> permute(vector<int>& nums) {
-      
         vector<int>arrange;
         premuteReverse(nums, arrange);
         return permute1;
     }
     
     void premuteReverse(vector<int>& nums, vector<int>&arrange) {
-            
         if (arrange.size() == nums.size()) {
             permute1.push_back(arrange);
             return;
@@ -125,6 +123,69 @@ public:
             }
         }
         
+    }
+    
+    
+    vector<vector<string>> solveNQueensArray;
+   
+    //n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
+    vector<vector<string>> solveNQueens(int n) {
+        vector<string> board(n, string(n, '.'));
+        solveNQueensReverse(0,board);
+        return solveNQueensArray;
+    }
+    
+    void solveNQueensReverse(int row, vector<string> &board) {
+        /// 如果已经走完了，则记录有效棋盘字符串
+        if (row == board.size()) {
+            solveNQueensArray.push_back(board);
+            return;;
+        }
+        
+        /// 获取当前列数
+        int col = (int)board[row].size();
+        
+        /// 穷举
+        for (int i = 0; i < col; i++) {
+            if (!isValidQueen(board,row,i)) {
+                continue;
+            }
+            board[row][i] = 'Q';
+            solveNQueensReverse(row + 1, board);
+            board[row][i] = '.';
+        }
+    }
+    
+    /// 判断皇后是否放置正确
+    /// 任何两个皇后都不能处于同一条横行、纵行或斜线上。
+    bool isValidQueen(vector<string> &board,int row,int i) {
+      
+        /// 判断同一列是否存在皇后
+        for (int j = 0; j < row + 1; j++) {
+            if (board[j][i] == 'Q') {
+                return false;
+            }
+        }
+        
+        /// 判断是否在同一行皇后
+        for (int j = 0; j < i; j++) {
+            if (board[row][j] == 'Q') {
+                return false;
+            }
+        }
+        
+        /// 判断左上斜 / 右上斜
+        for (int j = row - 1; j >= 0 ; j--) {
+            if (i - (row - j) >= 0 &&  board[j][i -  (row - j)] == 'Q') {
+                return false;
+            }
+            if (i +  (row - j) < board[j].size() && board[j][i + (row - j)] == 'Q') {
+                return false;
+            }
+        }
+
+     
+        return true;
     }
     
 };
