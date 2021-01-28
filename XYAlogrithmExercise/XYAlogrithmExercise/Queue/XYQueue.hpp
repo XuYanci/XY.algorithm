@@ -10,8 +10,11 @@
 #define XYQueue_hpp
 #include <list>
 #include <stdio.h>
+#include <vector>
+#include <string>
+using namespace std;
+
 class MyCircularQueue1 {
-    
     int front;
     int rear;
     int capacity;
@@ -152,8 +155,23 @@ struct Node {
 
 
 class XYQueue {
+    struct TreeNode {
+        int val;
+        TreeNode *left;
+        TreeNode *right;
+        TreeNode(int x):val(x),left(NULL),right(NULL){}
+    };
+    
     /// 广度优先搜索
     int BFS(Node root, Node target);
+    /// 最小深度
+    int minDepth(TreeNode* root) {
+        return 0;
+    }
+    /// 打开转盘锁
+    int openLock(vector<string>& deadends, string target) {
+        return 0;
+    }
 };
 
 
