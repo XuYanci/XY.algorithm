@@ -9,6 +9,8 @@
 #include "XYQueue.hpp"
 #include <queue>
 #include <set>
+using namespace std;
+
 int XYQueue::BFS(Node root, Node target) {
     std::queue<Node>_queue;
     int step = 0;
@@ -30,6 +32,40 @@ int XYQueue::BFS(Node root, Node target) {
             _queue.pop();
         }
     }
+    return 0;
+}
+
+int XYQueue::minDepth(TreeNode *root) {
+    
+    if (root == NULL) {
+        return 0;
+    }
+    
+    queue<TreeNode *>_queue;
+    int step = 0;
+    _queue.push(root);
+    
+    while (_queue.empty() == false) {
+        step = step + 1;
+        unsigned long size = _queue.size();
+        for (int i = 0; i < size; i++) {
+            TreeNode *cur = _queue.front();
+            if (cur->left == NULL && cur->right== NULL) {
+                return step;
+            }
+            if (cur->left) {
+                _queue.push(cur->left);
+            }
+            if (cur->right) {
+                _queue.push(cur->right);
+            }
+            _queue.pop();
+        }
+    }
+    return 0;
+}
+
+int XYQueue::openLock(vector<string> &deadends, string target) {
     return 0;
 }
 
