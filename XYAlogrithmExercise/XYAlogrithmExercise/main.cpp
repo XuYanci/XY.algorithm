@@ -39,21 +39,22 @@ void structures();
 /// 数据结构复习
 void structuresGoBack();
 /// 剑指Offer
-void JianZhiOfferRun();//
+void JianZhiOfferRun();
 /// LeetCode每日一题
-void LeetCodeEveryDayss();
+void LeetCodeEveryDays();
 /// 缓存
 void cache();
 /// 树
 void tree();
 /// 动态规划
 void dp();
+/// 回溯
 void huisu();
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
-//    dp();
+    
     huisu();
     //    tree();
     //    alogrithms();
@@ -63,16 +64,20 @@ int main(int argc, const char * argv[]) {
     //    structuresGoBack();
     //    cache();
     //    JianZhiOfferRun();
-    //    LeetCodeEveryDayss();
+    //    LeetCodeEveryDays();
+    //    dp();
     return 0;
 }
 
+
+/// DP
 void dp() {
     XYdp *dp = new XYdp();
     vector<int> coins{1,2};
     dp->coinChange(coins, 100);
 }
 
+/// 回溯
 void huisu() {
     XYHuiSu *huisu = new XYHuiSu();
     vector<int> nums = {0,1};
@@ -80,6 +85,7 @@ void huisu() {
     huisu->solveNQueens(5);
 }
 
+/// 树
 void tree() {
     XYTree *tree = new XYTree();
     
@@ -96,7 +102,7 @@ void tree() {
     tree->buildTree(preorder, inorder);
 }
 
-
+/// 缓存
 void cache() {
     //    XYLRUCache *cache = new XYLRUCache( 2 /* 缓存容量 */ );
     
@@ -113,7 +119,7 @@ void cache() {
     cache->get(4);       // 返回  4
 }
 
-
+/// Leetcode复习
 void leetCodesGoBack() {
     LeetCodeSolutionGoBack *s = new LeetCodeSolutionGoBack();
     vector<int>nums{3,3};
@@ -149,37 +155,36 @@ void leetCodesGoBack() {
     s->largestRectangleArea(heights);
 }
 
+/// 数据结构
 void structures() {
-    /// 最大堆
+    /// 堆
     Max_Heap *max_heap = new Max_Heap();
     max_heap->justRun();
     
+    XYHeap2 *heap2 = new XYHeap2(10);
+    vector<int> nums {0,12,14,25,32,23,45,13,63,24};
+    heap2->sort(nums, 10, true);
+    /// 栈
     vector<int> temperatures {5,3,1,2,4};
-    
     XYStack *stack = new XYStack();
     /// 到下一个比我大的需要多少步
     stack->nextExceed(temperatures);
     /// 到下一个比我小的需要多少步
     stack->prevExceed(temperatures);
-    
-    XYHeap2 *heap2 = new XYHeap2(10);
-    vector<int> nums {0,12,14,25,32,23,45,13,63,24};
-    //    heap2->buildHeap(nums, 10,true);
-    heap2->sort(nums, 10, true);
-    
 }
 
+/// 数据结构复习
 void structuresGoBack() {
     XYSortGoBack *sort = new XYSortGoBack();
     int array6[] = {12,14,25,32,23,45,13,63,24};
     // 快速排序
     sort->quickSort(array6, 9);
-    
     /// 堆排序
     Min_Heap *heap = new Min_Heap();
     heap->JustRun();
 }
 
+/// 算法
 void alogrithms() {
     XYSort *sort = new XYSort();
     XYSearch *search = new XYSearch();
@@ -242,23 +247,17 @@ void alogrithms() {
     linkedList.deleteAtIndex(0);
     linkedList.get(1);            //返回3
     
-    
-    XYdp *dp = new XYdp();
+    XYHuiSu *huisu = new XYHuiSu();
     vector<int> weight = {1,2,1,1,1}; // 物品重量
     vector<int> value = {1,222,1,1,226}; // 物品重量
     int _n = 5; // 物品个数
     int _w = 3; // 背包承受的最大重量
-    //    dp->knapsack(weight, _n, _w);
-    //    dp->knapsack2(weight, _n, _w);
-    
-    
-    XYHuiSu *huisu = new XYHuiSu();
     huisu->knapsack(weight, _n, _w);
     huisu->knapsack2(weight, value, _n, _w);
     
-    
 }
 
+/// LeetCodes
 void leetCodes() {
     // Leecode
     LeetCodeSolution *s = new LeetCodeSolution();
@@ -364,14 +363,6 @@ void leetCodes() {
     matrix.push_back(nums444);
     s->rotate(matrix);
     
-    ListNode *l01 = new ListNode(1);
-    ListNode *l02 = new ListNode(2);
-    ListNode *l03 = new ListNode(3);
-    //    ListNode *l04 = new ListNode(4);
-    l01->next = l02;
-    l02->next = l03;
-    //    l03->next = l04;
-    ListNode *head =  s->swapPairs(l01);
     
     /// YangHui Triangle 1
     s->generate(5);
@@ -394,8 +385,6 @@ void leetCodes() {
     obj->push(2);
     obj->push(3);
     obj->pop();
-    int param_3 = obj->top();
-    int param_4 = obj->getMin();
     
     s->isValid("()");
     
@@ -446,7 +435,7 @@ void JianZhiOfferRun() {
 }
 
 
-void LeetCodeEveryDayss() {
+void LeetCodeEveryDays() {
     LeetCodeEveryDay *everyDay = new LeetCodeEveryDay();
     //    vector<int> nums{3,2,3};
     //    everyDay->majorityElement(nums);
@@ -473,7 +462,7 @@ void LeetCodeEveryDayss() {
     
     vector<int> rec1{7,8,13,15};
     vector<int> rec2{10,8,12,20};
-    int ret =  everyDay->isRectangleOverlap(rec1,rec2);
+    everyDay->isRectangleOverlap(rec1,rec2);
     
     everyDay->longestPalindrome("aasdfdsfbbcde");
     
