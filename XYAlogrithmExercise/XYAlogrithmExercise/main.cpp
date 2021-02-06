@@ -25,7 +25,7 @@
 #include "XYHuiSu.hpp"
 #include "XYCacheGoBack.hpp"
 #include "XYTree.hpp"
-
+#include "XYSlideWindow.hpp"
 /// XuYanci Alogrithm Exercise
 
 /// 算法
@@ -50,12 +50,14 @@ void tree();
 void dp();
 /// 回溯
 void huisu();
+/// 滑动窗口
+void slideWindow();
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "XuYanci Alogrithm Exercise!\n";
     
-    huisu();
+    //    huisu();
     //    tree();
     //    alogrithms();
     //    leetCodes();
@@ -66,9 +68,15 @@ int main(int argc, const char * argv[]) {
     //    JianZhiOfferRun();
     //    LeetCodeEveryDays();
     //    dp();
+    slideWindow();
     return 0;
 }
 
+void slideWindow() {
+    XYSlideWindow *slideWindow = new XYSlideWindow();
+    slideWindow->minWindow("abc", "b");
+    
+}
 
 /// DP
 void dp() {
