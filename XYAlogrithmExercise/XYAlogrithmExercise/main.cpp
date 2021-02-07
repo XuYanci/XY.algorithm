@@ -74,8 +74,8 @@ int main(int argc, const char * argv[]) {
 
 void slideWindow() {
     XYSlideWindow *slideWindow = new XYSlideWindow();
-    slideWindow->minWindow("abc", "b");
-    
+    slideWindow->minWindow("ABBCDBDBDBDCCCBBC", "BCD");
+ 
 }
 
 /// DP
