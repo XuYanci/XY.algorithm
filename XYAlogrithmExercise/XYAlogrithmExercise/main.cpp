@@ -67,8 +67,8 @@ int main(int argc, const char * argv[]) {
     //    cache();
     //    JianZhiOfferRun();
     //    LeetCodeEveryDays();
-    //    dp();
-    slideWindow();
+    dp();
+//    slideWindow();
     return 0;
 }
 

@@ -49,6 +49,7 @@ public:
             if (result == -1) {
                 continue;
             }
+            /// 在相同层级选择最小费用
             minCost = min(minCost,result + 1);
         }
          dpMap[amount] = (minCost != INT8_MAX) ? minCost : -1;
