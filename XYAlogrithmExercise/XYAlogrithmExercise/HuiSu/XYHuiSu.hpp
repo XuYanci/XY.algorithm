@@ -99,8 +99,8 @@ public:
     }
     
     
-    vector<vector<int>> permute1;
     /// 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+    vector<vector<int>> permute1;
     vector<vector<int>> permute(vector<int>& nums) {
         vector<int>arrange;
         premuteReverse(nums, arrange);
@@ -108,27 +108,30 @@ public:
     }
     
     void premuteReverse(vector<int>& nums, vector<int>&arrange) {
+        /// 达到全排列标准 （大小等于nums's count）
         if (arrange.size() == nums.size()) {
             permute1.push_back(arrange);
             return;
         }
         
+        /// 遍历数组所有数字
         for (int i = 0; i < nums.size(); i++) {
+            /// 取出数字
             int num = nums[i];
-            // 如果不包含
+            // 判断是否包含取出数字，不包含则继续找
             if (!count(arrange.begin(), arrange.end(), num)) {
+                /// 记录该数字
                 arrange.push_back(num);
                 premuteReverse(nums, arrange);
+                /// 删除该数字
                 arrange.erase(arrange.end() - 1);
             }
         }
         
     }
     
-    
-    vector<vector<string>> solveNQueensArray;
-   
     //n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
+    vector<vector<string>> solveNQueensArray;
     vector<vector<string>> solveNQueens(int n) {
         vector<string> board(n, string(n, '.'));
         solveNQueensReverse(0,board);

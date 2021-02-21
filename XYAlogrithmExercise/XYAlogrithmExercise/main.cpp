@@ -26,6 +26,8 @@
 #include "XYCacheGoBack.hpp"
 #include "XYTree.hpp"
 #include "XYSlideWindow.hpp"
+#include "XYCircleQueue.hpp"
+
 /// XuYanci Alogrithm Exercise
 
 /// 算法
@@ -75,8 +77,6 @@ int main(int argc, const char * argv[]) {
 void slideWindow() {
     XYSlideWindow *slideWindow = new XYSlideWindow();
     slideWindow->minWindow("cabwefgewcwaefgcf", "cae");
- 
-    
 }
 
 /// DP

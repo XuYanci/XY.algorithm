@@ -6,12 +6,12 @@
 //  Copyright © 2019 Yanci. All rights reserved.
 //
 
-#include "XYQueue.hpp"
+#include "XYBFS.hpp"
 #include <queue>
 #include <set>
 using namespace std;
 
-int XYQueue::BFS(Node root, Node target) {
+int XYBFS::BFS(Node root, Node target) {
     std::queue<Node>_queue;
     int step = 0;
     _queue.push(root);
@@ -35,7 +35,7 @@ int XYQueue::BFS(Node root, Node target) {
     return 0;
 }
 
-int XYQueue::minDepth(TreeNode *root) {
+int XYBFS::minDepth(TreeNode *root) {
     
     if (root == NULL) {
         return 0;
@@ -65,7 +65,8 @@ int XYQueue::minDepth(TreeNode *root) {
     return 0;
 }
 
-int XYQueue::openLock(vector<string> &deadends, string target) {
+#warning TODOING 
+int XYBFS::openLock(vector<string> &deadends, string target) {
     return 0;
 }
 
