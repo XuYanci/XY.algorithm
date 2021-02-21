@@ -125,16 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2376B14F25CCC82300CFC7F6 /* SlideWindow */ = {
+		2376B14F25CCC82300CFC7F6 /* SlideWindow(滑动窗口) */ = {
 			isa = PBXGroup;
 			children = (
 				2376B15725CCC84C00CFC7F6 /* XYSlideWindow.hpp */,
 				2376B15625CCC84C00CFC7F6 /* XYSlideWindow.cpp */,
 			);
-			path = SlideWindow;
+			path = "SlideWindow(滑动窗口)";
 			sourceTree = "<group>";
 		};
-		237A2E2E25C23FB3002B1339 /* Sort */ = {
+		237A2E2E25C23FB3002B1339 /* Sort(排序) */ = {
 			isa = PBXGroup;
 			children = (
 				AD80E2B1226C77D1005A0256 /* XYSort.hpp */,
@@ -142,37 +142,37 @@
 				AD56EE9423A334BD003ADF7D /* XYSort_goback.hpp */,
 				AD56EE9323A334BD003ADF7D /* XYSort_goback.cpp */,
 			);
-			path = Sort;
+			path = "Sort(排序)";
 			sourceTree = "<group>";
 		};
-		237A2E2F25C23FBB002B1339 /* Stack */ = {
+		237A2E2F25C23FBB002B1339 /* Stack(栈) */ = {
 			isa = PBXGroup;
 			children = (
 				AD6C731222720A42003B1A5D /* XYStack.hpp */,
 				AD6C731122720A42003B1A5D /* XYStack.cpp */,
 			);
-			path = Stack;
+			path = "Stack(栈)";
 			sourceTree = "<group>";
 		};
-		237A2E3025C23FC2002B1339 /* Queue */ = {
+		237A2E3025C23FC2002B1339 /* Queue(队列) */ = {
 			isa = PBXGroup;
 			children = (
 				866E7F6F25E29DBA00284648 /* XYCircleQueue.hpp */,
 				866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */,
 			);
-			path = Queue;
+			path = "Queue(队列)";
 			sourceTree = "<group>";
 		};
-		237A2E3125C23FC9002B1339 /* Heap */ = {
+		237A2E3125C23FC9002B1339 /* Heap(堆) */ = {
 			isa = PBXGroup;
 			children = (
 				AD6C731B22720A66003B1A5D /* XYHeap.hpp */,
 				AD6C731A22720A66003B1A5D /* XYHeap.cpp */,
 			);
-			path = Heap;
+			path = "Heap(堆)";
 			sourceTree = "<group>";
 		};
-		237A2E3225C23FD0002B1339 /* Tree */ = {
+		237A2E3225C23FD0002B1339 /* Tree(树) */ = {
 			isa = PBXGroup;
 			children = (
 				AD62544823B0822C00E635C3 /* XYBSTree.hpp */,
@@ -182,28 +182,28 @@
 				AD6C731E22720A71003B1A5D /* XYTree.hpp */,
 				AD6C731D22720A71003B1A5D /* XYTree.cpp */,
 			);
-			path = Tree;
+			path = "Tree(树)";
 			sourceTree = "<group>";
 		};
-		237A2E3325C23FEE002B1339 /* Search */ = {
+		237A2E3325C23FEE002B1339 /* Search(搜索) */ = {
 			isa = PBXGroup;
 			children = (
 				AD80E2B4226C77DF005A0256 /* XYSearch.hpp */,
 				AD80E2B3226C77DF005A0256 /* XYSearch.cpp */,
 			);
-			path = Search;
+			path = "Search(搜索)";
 			sourceTree = "<group>";
 		};
-		237A2E3725C24003002B1339 /* Array */ = {
+		237A2E3725C24003002B1339 /* Array(数组) */ = {
 			isa = PBXGroup;
 			children = (
 				AD93A246238AC58D00A5A96E /* XYArrayChars.hpp */,
 				AD93A245238AC58D00A5A96E /* XYArrayChars.cpp */,
 			);
-			path = Array;
+			path = "Array(数组)";
 			sourceTree = "<group>";
 		};
-		237A2E3825C2400E002B1339 /* LinkList */ = {
+		237A2E3825C2400E002B1339 /* LinkList(链表) */ = {
 			isa = PBXGroup;
 			children = (
 				36EE42052520720700AC1C7C /* XYCycleLinkList.h */,
@@ -211,10 +211,10 @@
 				AD93A249238D6F5A00A5A96E /* XYLinkList.hpp */,
 				AD93A248238D6F5A00A5A96E /* XYLinkList.cpp */,
 			);
-			path = LinkList;
+			path = "LinkList(链表)";
 			sourceTree = "<group>";
 		};
-		237A2E3925C24016002B1339 /* Cache */ = {
+		237A2E3925C24016002B1339 /* Cache(缓存) */ = {
 			isa = PBXGroup;
 			children = (
 				363E174624F7B445003B6979 /* _YYLinkedMap.h */,
@@ -224,7 +224,7 @@
 				864A94A52585FF87000DA0CD /* XYCacheGoBack.hpp */,
 				864A94A42585FF87000DA0CD /* XYCacheGoBack.cpp */,
 			);
-			path = Cache;
+			path = "Cache(缓存)";
 			sourceTree = "<group>";
 		};
 		237A2E3A25C24021002B1339 /* LeetCode */ = {
@@ -248,58 +248,58 @@
 			path = LeetCode;
 			sourceTree = "<group>";
 		};
-		237A2E3B25C2402F002B1339 /* DP */ = {
+		237A2E3B25C2402F002B1339 /* DP(动态规划) */ = {
 			isa = PBXGroup;
 			children = (
 				AD66927423BDCD7400AD491D /* XYDp.hpp */,
 				AD66927323BDCD7400AD491D /* XYDp.cpp */,
 			);
-			path = DP;
+			path = "DP(动态规划)";
 			sourceTree = "<group>";
 		};
-		237A2E3C25C24037002B1339 /* Greed */ = {
+		237A2E3C25C24037002B1339 /* Greed(贪心) */ = {
 			isa = PBXGroup;
 			children = (
 				AD1376E4241CD5C7008EBBDE /* XYGreed.hpp */,
 				AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */,
 			);
-			path = Greed;
+			path = "Greed(贪心)";
 			sourceTree = "<group>";
 		};
-		237A2E3D25C2403D002B1339 /* FenZhi */ = {
+		237A2E3D25C2403D002B1339 /* FenZhi(分治) */ = {
 			isa = PBXGroup;
 			children = (
 				363BA6F82497B27200C7830E /* XYFenZhi.hpp */,
 				363BA6F72497B27200C7830E /* XYFenZhi.cpp */,
 			);
-			path = FenZhi;
+			path = "FenZhi(分治)";
 			sourceTree = "<group>";
 		};
-		237A2E3E25C24043002B1339 /* HuiSu */ = {
+		237A2E3E25C24043002B1339 /* HuiSu(回溯) */ = {
 			isa = PBXGroup;
 			children = (
 				363BA6FB2497B28000C7830E /* XYHuiSu.hpp */,
 				363BA6FA2497B28000C7830E /* XYHuiSu.cpp */,
 			);
-			path = HuiSu;
+			path = "HuiSu(回溯)";
 			sourceTree = "<group>";
 		};
-		237A2E3F25C24052002B1339 /* Chars */ = {
+		237A2E3F25C24052002B1339 /* Chars(字符串) */ = {
 			isa = PBXGroup;
 			children = (
 				368DDFB424B4595500A8A72D /* XYChars.hpp */,
 				368DDFB324B4595500A8A72D /* XYChars.cpp */,
 			);
-			path = Chars;
+			path = "Chars(字符串)";
 			sourceTree = "<group>";
 		};
-		866E7F7425E29E1700284648 /* BFS */ = {
+		866E7F7425E29E1700284648 /* BFS(广度搜索) */ = {
 			isa = PBXGroup;
 			children = (
 				AD6C731522720A4B003B1A5D /* XYBFS.hpp */,
 				AD6C731422720A4B003B1A5D /* XYBFS.cpp */,
 			);
-			path = BFS;
+			path = "BFS(广度搜索)";
 			sourceTree = "<group>";
 		};
 		AD80E29D226C7734005A0256 = {
@@ -321,23 +321,23 @@
 		AD80E2A8226C7734005A0256 /* XYAlogrithmExercise */ = {
 			isa = PBXGroup;
 			children = (
-				866E7F7425E29E1700284648 /* BFS */,
-				2376B14F25CCC82300CFC7F6 /* SlideWindow */,
+				866E7F7425E29E1700284648 /* BFS(广度搜索) */,
+				2376B14F25CCC82300CFC7F6 /* SlideWindow(滑动窗口) */,
 				237A2E3A25C24021002B1339 /* LeetCode */,
-				237A2E2E25C23FB3002B1339 /* Sort */,
-				237A2E3F25C24052002B1339 /* Chars */,
-				237A2E3E25C24043002B1339 /* HuiSu */,
-				237A2E3D25C2403D002B1339 /* FenZhi */,
-				237A2E3C25C24037002B1339 /* Greed */,
-				237A2E3B25C2402F002B1339 /* DP */,
-				237A2E3925C24016002B1339 /* Cache */,
-				237A2E3825C2400E002B1339 /* LinkList */,
-				237A2E3725C24003002B1339 /* Array */,
-				237A2E3325C23FEE002B1339 /* Search */,
-				237A2E3225C23FD0002B1339 /* Tree */,
-				237A2E3125C23FC9002B1339 /* Heap */,
-				237A2E3025C23FC2002B1339 /* Queue */,
-				237A2E2F25C23FBB002B1339 /* Stack */,
+				237A2E2E25C23FB3002B1339 /* Sort(排序) */,
+				237A2E3F25C24052002B1339 /* Chars(字符串) */,
+				237A2E3E25C24043002B1339 /* HuiSu(回溯) */,
+				237A2E3D25C2403D002B1339 /* FenZhi(分治) */,
+				237A2E3C25C24037002B1339 /* Greed(贪心) */,
+				237A2E3B25C2402F002B1339 /* DP(动态规划) */,
+				237A2E3925C24016002B1339 /* Cache(缓存) */,
+				237A2E3825C2400E002B1339 /* LinkList(链表) */,
+				237A2E3725C24003002B1339 /* Array(数组) */,
+				237A2E3325C23FEE002B1339 /* Search(搜索) */,
+				237A2E3225C23FD0002B1339 /* Tree(树) */,
+				237A2E3125C23FC9002B1339 /* Heap(堆) */,
+				237A2E3025C23FC2002B1339 /* Queue(队列) */,
+				237A2E2F25C23FBB002B1339 /* Stack(栈) */,
 				AD80E2A9226C7734005A0256 /* main.cpp */,
 			);
 			path = XYAlogrithmExercise;
