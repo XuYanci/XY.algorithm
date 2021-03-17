@@ -11,13 +11,13 @@
 		363BA6F92497B27200C7830E /* XYFenZhi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363BA6F72497B27200C7830E /* XYFenZhi.cpp */; };
 		363BA6FC2497B28000C7830E /* XYHuiSu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363BA6FA2497B28000C7830E /* XYHuiSu.cpp */; };
 		363E174824F7B445003B6979 /* _YYLinkedMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 363E174724F7B445003B6979 /* _YYLinkedMap.m */; };
-		364ACE8A2525A43E00F5F426 /* XYCheckSum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 364ACE882525A43E00F5F426 /* XYCheckSum.cpp */; };
 		3683D07724A599AF00AE04EC /* XYBAT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3683D07524A599AF00AE04EC /* XYBAT.cpp */; };
 		368DDFB524B4595500A8A72D /* XYChars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 368DDFB324B4595500A8A72D /* XYChars.cpp */; };
 		36EE42072520720700AC1C7C /* XYCycleLinkList.c in Sources */ = {isa = PBXBuildFile; fileRef = 36EE42062520720700AC1C7C /* XYCycleLinkList.c */; };
 		864A94A62585FF87000DA0CD /* XYCacheGoBack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 864A94A42585FF87000DA0CD /* XYCacheGoBack.cpp */; };
 		865484932581C3BF001D9099 /* XYGeekTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 865484912581C3BF001D9099 /* XYGeekTime.cpp */; };
 		866E7F7025E29DBA00284648 /* XYCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */; };
+		866E7F8C25E3ED6E00284648 /* XYDoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */; };
 		AD1376DF241B76CB008EBBDE /* LeetCodeEveryDay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */; };
 		AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */; };
 		AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */; };
@@ -60,8 +60,6 @@
 		363BA6FB2497B28000C7830E /* XYHuiSu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYHuiSu.hpp; sourceTree = "<group>"; };
 		363E174624F7B445003B6979 /* _YYLinkedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _YYLinkedMap.h; sourceTree = "<group>"; };
 		363E174724F7B445003B6979 /* _YYLinkedMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _YYLinkedMap.m; sourceTree = "<group>"; };
-		364ACE882525A43E00F5F426 /* XYCheckSum.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYCheckSum.cpp; sourceTree = "<group>"; };
-		364ACE892525A43E00F5F426 /* XYCheckSum.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYCheckSum.hpp; sourceTree = "<group>"; };
 		3683D07524A599AF00AE04EC /* XYBAT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYBAT.cpp; sourceTree = "<group>"; };
 		3683D07624A599AF00AE04EC /* XYBAT.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYBAT.hpp; sourceTree = "<group>"; };
 		368DDFB324B4595500A8A72D /* XYChars.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYChars.cpp; sourceTree = "<group>"; };
@@ -74,6 +72,8 @@
 		865484922581C3BF001D9099 /* XYGeekTime.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYGeekTime.hpp; sourceTree = "<group>"; };
 		866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYCircleQueue.cpp; sourceTree = "<group>"; };
 		866E7F6F25E29DBA00284648 /* XYCircleQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYCircleQueue.hpp; sourceTree = "<group>"; };
+		866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYDoublePointer.cpp; sourceTree = "<group>"; };
+		866E7F8B25E3ED6E00284648 /* XYDoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYDoublePointer.hpp; sourceTree = "<group>"; };
 		AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeEveryDay.cpp; sourceTree = "<group>"; };
 		AD1376DE241B76CB008EBBDE /* LeetCodeEveryDay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeEveryDay.hpp; sourceTree = "<group>"; };
 		AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGreed.cpp; sourceTree = "<group>"; };
@@ -230,8 +230,6 @@
 		237A2E3A25C24021002B1339 /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
-				364ACE892525A43E00F5F426 /* XYCheckSum.hpp */,
-				364ACE882525A43E00F5F426 /* XYCheckSum.cpp */,
 				865484922581C3BF001D9099 /* XYGeekTime.hpp */,
 				865484912581C3BF001D9099 /* XYGeekTime.cpp */,
 				3683D07624A599AF00AE04EC /* XYBAT.hpp */,
@@ -302,6 +300,15 @@
 			path = "BFS(广度搜索)";
 			sourceTree = "<group>";
 		};
+		866E7F8925E3ED5900284648 /* DoublePointer(双指针) */ = {
+			isa = PBXGroup;
+			children = (
+				866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */,
+				866E7F8B25E3ED6E00284648 /* XYDoublePointer.hpp */,
+			);
+			path = "DoublePointer(双指针)";
+			sourceTree = "<group>";
+		};
 		AD80E29D226C7734005A0256 = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +328,7 @@
 		AD80E2A8226C7734005A0256 /* XYAlogrithmExercise */ = {
 			isa = PBXGroup;
 			children = (
+				866E7F8925E3ED5900284648 /* DoublePointer(双指针) */,
 				866E7F7425E29E1700284648 /* BFS(广度搜索) */,
 				2376B14F25CCC82300CFC7F6 /* SlideWindow(滑动窗口) */,
 				237A2E3A25C24021002B1339 /* LeetCode */,
@@ -402,7 +410,6 @@
 				AD66927523BDCD7400AD491D /* XYDp.cpp in Sources */,
 				AD62542723A60B7000E635C3 /* XYCache.cpp in Sources */,
 				866E7F7025E29DBA00284648 /* XYCircleQueue.cpp in Sources */,
-				364ACE8A2525A43E00F5F426 /* XYCheckSum.cpp in Sources */,
 				AD93A24A238D6F5A00A5A96E /* XYLinkList.cpp in Sources */,
 				363BA6F92497B27200C7830E /* XYFenZhi.cpp in Sources */,
 				AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */,
@@ -418,6 +425,7 @@
 				363E174824F7B445003B6979 /* _YYLinkedMap.m in Sources */,
 				368DDFB524B4595500A8A72D /* XYChars.cpp in Sources */,
 				AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */,
+				866E7F8C25E3ED6E00284648 /* XYDoublePointer.cpp in Sources */,
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				865484932581C3BF001D9099 /* XYGeekTime.cpp in Sources */,
 				AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */,

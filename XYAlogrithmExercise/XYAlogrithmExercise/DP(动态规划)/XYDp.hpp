@@ -81,6 +81,30 @@ public:
         return (dpTable[amount] == amount + 1) ? -1 : dpTable[amount];;
     }
     
+    /// 最长增长子序列
+    int lengthOfLIS(vector<int>nums) {
+        /// Base Case: dp代表nums[i]时候，最长子序列长度
+        vector<int> dp(nums.size() - 1,1);
+        
+        
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = 0; j < i;j++) {
+                /// 状态转移方程
+                /// 当前num与之前比较过的nums对比，nums[i]大于nums[j]，则取dp[i],dp[j]+1较大一个。
+                if (nums[i] > nums[j]) {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+            }
+        }
+        
+        /// 遍历DP表，找出最大值
+        int maxLength = 1;
+        for (int i = 0; i < nums.size(); i++) {
+            maxLength = max(maxLength,dp[i]);
+        }
+        return maxLength;
+    }
+    
     int main()
     {
         return 0;
