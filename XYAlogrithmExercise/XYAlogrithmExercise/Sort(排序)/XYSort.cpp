@@ -118,19 +118,23 @@ void recursiveQuickSort(int array[],int l,int r) {
     
     /** 解法2 **/
     if (l < r) {
+        
         int i = l;
         int j = r;
+        /// 这里也就开辟了一个坑位
         int x = array[l];
         
         /* 双边扫描法 (挖坑法)*/
         while ( i < j) {
-            // 从右向左找第一个小于等于x的数
+            // 从右向左找第一个小于x的数，送坑位，填坑 （小于x的），往左边填充
             while (i < j && array[j] >= x) j--;
             array[i] = array[j];
-            // 从左向右找第一个小于x的数
+            // 从左向右找第一个大于等于x的数，送坑位，填坑 （大于等于x的)，往右边填充
             while (i < j && array[i] < x) i++;
             array[j] = array[i];
         }
+        
+        /// 填坑x到i，这里就分界了
         array[i] = x;
         
         /* 单边扫描法 (简写逻辑，未验证)*/
@@ -145,8 +149,9 @@ void recursiveQuickSort(int array[],int l,int r) {
 //        }
 //        swap(array[i], array[r]);
         
-        
+        /// 以 l , i - 1 左分区
         recursiveQuickSort(array,l,i-1);
+        /// 以 i + 1, r 右分区
         recursiveQuickSort(array, i+1, r);
     }
 }
