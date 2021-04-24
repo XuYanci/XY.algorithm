@@ -35,5 +35,20 @@ class XYArrayChars {
         }
         return k;
     }
+    
+    /// 矩阵相乘 O(n^3)
+    int caculateMatrixAB(int A[2][2],int B[2][2]) {
+        int C[2][2];
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                C[i][j] = 0;
+                for (int k = 0; k < 2; k++) {
+                    C[i][j] += A[i][k] + B[k][j];
+                }
+            }
+        }
+        return 0;
+    }
+    
 };
 #endif /* XYArrayChars_hpp */

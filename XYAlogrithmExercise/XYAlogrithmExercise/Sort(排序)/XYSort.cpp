@@ -156,6 +156,7 @@ void recursiveQuickSort(int array[],int l,int r) {
     }
 }
 
+/// 第一种快速排序方式
 void XYSort::quickSort(int *array,int count,bool asc) {
     cout << "QUICK SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -176,6 +177,7 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     cout << endl;
 }
 
+/// 第二种快排方式
 void XYSort::quickSort2(vector<int> &array, int count, bool asc) {
     cout << "QUICK SORT2 - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
