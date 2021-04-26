@@ -11,12 +11,13 @@
 		363BA6F92497B27200C7830E /* XYFenZhi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363BA6F72497B27200C7830E /* XYFenZhi.cpp */; };
 		363BA6FC2497B28000C7830E /* XYHuiSu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363BA6FA2497B28000C7830E /* XYHuiSu.cpp */; };
 		363E174824F7B445003B6979 /* _YYLinkedMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 363E174724F7B445003B6979 /* _YYLinkedMap.m */; };
-		364ACE8A2525A43E00F5F426 /* XYCheckSum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 364ACE882525A43E00F5F426 /* XYCheckSum.cpp */; };
 		3683D07724A599AF00AE04EC /* XYBAT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3683D07524A599AF00AE04EC /* XYBAT.cpp */; };
 		368DDFB524B4595500A8A72D /* XYChars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 368DDFB324B4595500A8A72D /* XYChars.cpp */; };
 		36EE42072520720700AC1C7C /* XYCycleLinkList.c in Sources */ = {isa = PBXBuildFile; fileRef = 36EE42062520720700AC1C7C /* XYCycleLinkList.c */; };
 		864A94A62585FF87000DA0CD /* XYCacheGoBack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 864A94A42585FF87000DA0CD /* XYCacheGoBack.cpp */; };
 		865484932581C3BF001D9099 /* XYGeekTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 865484912581C3BF001D9099 /* XYGeekTime.cpp */; };
+		866E7F7025E29DBA00284648 /* XYCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */; };
+		866E7F8C25E3ED6E00284648 /* XYDoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */; };
 		AD1376DF241B76CB008EBBDE /* LeetCodeEveryDay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */; };
 		AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */; };
 		AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */; };
@@ -25,7 +26,7 @@
 		AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD62544723B0822C00E635C3 /* XYBSTree.cpp */; };
 		AD66927523BDCD7400AD491D /* XYDp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD66927323BDCD7400AD491D /* XYDp.cpp */; };
 		AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731122720A42003B1A5D /* XYStack.cpp */; };
-		AD6C731622720A4B003B1A5D /* XYQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731422720A4B003B1A5D /* XYQueue.cpp */; };
+		AD6C731622720A4B003B1A5D /* XYBFS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731422720A4B003B1A5D /* XYBFS.cpp */; };
 		AD6C731C22720A66003B1A5D /* XYHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731A22720A66003B1A5D /* XYHeap.cpp */; };
 		AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD6C731D22720A71003B1A5D /* XYTree.cpp */; };
 		AD8037EB2275FC6500A31959 /* LeetCodeSolution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD8037E92275FC6500A31959 /* LeetCodeSolution.cpp */; };
@@ -59,8 +60,6 @@
 		363BA6FB2497B28000C7830E /* XYHuiSu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYHuiSu.hpp; sourceTree = "<group>"; };
 		363E174624F7B445003B6979 /* _YYLinkedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _YYLinkedMap.h; sourceTree = "<group>"; };
 		363E174724F7B445003B6979 /* _YYLinkedMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _YYLinkedMap.m; sourceTree = "<group>"; };
-		364ACE882525A43E00F5F426 /* XYCheckSum.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYCheckSum.cpp; sourceTree = "<group>"; };
-		364ACE892525A43E00F5F426 /* XYCheckSum.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYCheckSum.hpp; sourceTree = "<group>"; };
 		3683D07524A599AF00AE04EC /* XYBAT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYBAT.cpp; sourceTree = "<group>"; };
 		3683D07624A599AF00AE04EC /* XYBAT.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYBAT.hpp; sourceTree = "<group>"; };
 		368DDFB324B4595500A8A72D /* XYChars.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYChars.cpp; sourceTree = "<group>"; };
@@ -71,6 +70,10 @@
 		864A94A52585FF87000DA0CD /* XYCacheGoBack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYCacheGoBack.hpp; sourceTree = "<group>"; };
 		865484912581C3BF001D9099 /* XYGeekTime.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGeekTime.cpp; sourceTree = "<group>"; };
 		865484922581C3BF001D9099 /* XYGeekTime.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYGeekTime.hpp; sourceTree = "<group>"; };
+		866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYCircleQueue.cpp; sourceTree = "<group>"; };
+		866E7F6F25E29DBA00284648 /* XYCircleQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYCircleQueue.hpp; sourceTree = "<group>"; };
+		866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYDoublePointer.cpp; sourceTree = "<group>"; };
+		866E7F8B25E3ED6E00284648 /* XYDoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYDoublePointer.hpp; sourceTree = "<group>"; };
 		AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeEveryDay.cpp; sourceTree = "<group>"; };
 		AD1376DE241B76CB008EBBDE /* LeetCodeEveryDay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeEveryDay.hpp; sourceTree = "<group>"; };
 		AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGreed.cpp; sourceTree = "<group>"; };
@@ -87,8 +90,8 @@
 		AD66927423BDCD7400AD491D /* XYDp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYDp.hpp; sourceTree = "<group>"; };
 		AD6C731122720A42003B1A5D /* XYStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYStack.cpp; sourceTree = "<group>"; };
 		AD6C731222720A42003B1A5D /* XYStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYStack.hpp; sourceTree = "<group>"; };
-		AD6C731422720A4B003B1A5D /* XYQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYQueue.cpp; sourceTree = "<group>"; };
-		AD6C731522720A4B003B1A5D /* XYQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYQueue.hpp; sourceTree = "<group>"; };
+		AD6C731422720A4B003B1A5D /* XYBFS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYBFS.cpp; sourceTree = "<group>"; };
+		AD6C731522720A4B003B1A5D /* XYBFS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYBFS.hpp; sourceTree = "<group>"; };
 		AD6C731A22720A66003B1A5D /* XYHeap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYHeap.cpp; sourceTree = "<group>"; };
 		AD6C731B22720A66003B1A5D /* XYHeap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYHeap.hpp; sourceTree = "<group>"; };
 		AD6C731D22720A71003B1A5D /* XYTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYTree.cpp; sourceTree = "<group>"; };
@@ -122,16 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2376B14F25CCC82300CFC7F6 /* SlideWindow */ = {
+		2376B14F25CCC82300CFC7F6 /* SlideWindow(滑动窗口) */ = {
 			isa = PBXGroup;
 			children = (
 				2376B15725CCC84C00CFC7F6 /* XYSlideWindow.hpp */,
 				2376B15625CCC84C00CFC7F6 /* XYSlideWindow.cpp */,
 			);
-			path = SlideWindow;
+			path = "SlideWindow(滑动窗口)";
 			sourceTree = "<group>";
 		};
-		237A2E2E25C23FB3002B1339 /* Sort */ = {
+		237A2E2E25C23FB3002B1339 /* Sort(排序) */ = {
 			isa = PBXGroup;
 			children = (
 				AD80E2B1226C77D1005A0256 /* XYSort.hpp */,
@@ -139,37 +142,37 @@
 				AD56EE9423A334BD003ADF7D /* XYSort_goback.hpp */,
 				AD56EE9323A334BD003ADF7D /* XYSort_goback.cpp */,
 			);
-			path = Sort;
+			path = "Sort(排序)";
 			sourceTree = "<group>";
 		};
-		237A2E2F25C23FBB002B1339 /* Stack */ = {
+		237A2E2F25C23FBB002B1339 /* Stack(栈) */ = {
 			isa = PBXGroup;
 			children = (
 				AD6C731222720A42003B1A5D /* XYStack.hpp */,
 				AD6C731122720A42003B1A5D /* XYStack.cpp */,
 			);
-			path = Stack;
+			path = "Stack(栈)";
 			sourceTree = "<group>";
 		};
-		237A2E3025C23FC2002B1339 /* Queue */ = {
+		237A2E3025C23FC2002B1339 /* Queue(队列) */ = {
 			isa = PBXGroup;
 			children = (
-				AD6C731522720A4B003B1A5D /* XYQueue.hpp */,
-				AD6C731422720A4B003B1A5D /* XYQueue.cpp */,
+				866E7F6F25E29DBA00284648 /* XYCircleQueue.hpp */,
+				866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */,
 			);
-			path = Queue;
+			path = "Queue(队列)";
 			sourceTree = "<group>";
 		};
-		237A2E3125C23FC9002B1339 /* Heap */ = {
+		237A2E3125C23FC9002B1339 /* Heap(堆) */ = {
 			isa = PBXGroup;
 			children = (
 				AD6C731B22720A66003B1A5D /* XYHeap.hpp */,
 				AD6C731A22720A66003B1A5D /* XYHeap.cpp */,
 			);
-			path = Heap;
+			path = "Heap(堆)";
 			sourceTree = "<group>";
 		};
-		237A2E3225C23FD0002B1339 /* Tree */ = {
+		237A2E3225C23FD0002B1339 /* Tree(树) */ = {
 			isa = PBXGroup;
 			children = (
 				AD62544823B0822C00E635C3 /* XYBSTree.hpp */,
@@ -179,28 +182,28 @@
 				AD6C731E22720A71003B1A5D /* XYTree.hpp */,
 				AD6C731D22720A71003B1A5D /* XYTree.cpp */,
 			);
-			path = Tree;
+			path = "Tree(树)";
 			sourceTree = "<group>";
 		};
-		237A2E3325C23FEE002B1339 /* Search */ = {
+		237A2E3325C23FEE002B1339 /* Search(搜索) */ = {
 			isa = PBXGroup;
 			children = (
 				AD80E2B4226C77DF005A0256 /* XYSearch.hpp */,
 				AD80E2B3226C77DF005A0256 /* XYSearch.cpp */,
 			);
-			path = Search;
+			path = "Search(搜索)";
 			sourceTree = "<group>";
 		};
-		237A2E3725C24003002B1339 /* Array */ = {
+		237A2E3725C24003002B1339 /* Array(数组) */ = {
 			isa = PBXGroup;
 			children = (
 				AD93A246238AC58D00A5A96E /* XYArrayChars.hpp */,
 				AD93A245238AC58D00A5A96E /* XYArrayChars.cpp */,
 			);
-			path = Array;
+			path = "Array(数组)";
 			sourceTree = "<group>";
 		};
-		237A2E3825C2400E002B1339 /* LinkList */ = {
+		237A2E3825C2400E002B1339 /* LinkList(链表) */ = {
 			isa = PBXGroup;
 			children = (
 				36EE42052520720700AC1C7C /* XYCycleLinkList.h */,
@@ -208,10 +211,10 @@
 				AD93A249238D6F5A00A5A96E /* XYLinkList.hpp */,
 				AD93A248238D6F5A00A5A96E /* XYLinkList.cpp */,
 			);
-			path = LinkList;
+			path = "LinkList(链表)";
 			sourceTree = "<group>";
 		};
-		237A2E3925C24016002B1339 /* Cache */ = {
+		237A2E3925C24016002B1339 /* Cache(缓存) */ = {
 			isa = PBXGroup;
 			children = (
 				363E174624F7B445003B6979 /* _YYLinkedMap.h */,
@@ -221,14 +224,12 @@
 				864A94A52585FF87000DA0CD /* XYCacheGoBack.hpp */,
 				864A94A42585FF87000DA0CD /* XYCacheGoBack.cpp */,
 			);
-			path = Cache;
+			path = "Cache(缓存)";
 			sourceTree = "<group>";
 		};
 		237A2E3A25C24021002B1339 /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
-				364ACE892525A43E00F5F426 /* XYCheckSum.hpp */,
-				364ACE882525A43E00F5F426 /* XYCheckSum.cpp */,
 				865484922581C3BF001D9099 /* XYGeekTime.hpp */,
 				865484912581C3BF001D9099 /* XYGeekTime.cpp */,
 				3683D07624A599AF00AE04EC /* XYBAT.hpp */,
@@ -245,49 +246,67 @@
 			path = LeetCode;
 			sourceTree = "<group>";
 		};
-		237A2E3B25C2402F002B1339 /* DP */ = {
+		237A2E3B25C2402F002B1339 /* DP(动态规划) */ = {
 			isa = PBXGroup;
 			children = (
 				AD66927423BDCD7400AD491D /* XYDp.hpp */,
 				AD66927323BDCD7400AD491D /* XYDp.cpp */,
 			);
-			path = DP;
+			path = "DP(动态规划)";
 			sourceTree = "<group>";
 		};
-		237A2E3C25C24037002B1339 /* Greed */ = {
+		237A2E3C25C24037002B1339 /* Greed(贪心) */ = {
 			isa = PBXGroup;
 			children = (
 				AD1376E4241CD5C7008EBBDE /* XYGreed.hpp */,
 				AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */,
 			);
-			path = Greed;
+			path = "Greed(贪心)";
 			sourceTree = "<group>";
 		};
-		237A2E3D25C2403D002B1339 /* FenZhi */ = {
+		237A2E3D25C2403D002B1339 /* FenZhi(分治) */ = {
 			isa = PBXGroup;
 			children = (
 				363BA6F82497B27200C7830E /* XYFenZhi.hpp */,
 				363BA6F72497B27200C7830E /* XYFenZhi.cpp */,
 			);
-			path = FenZhi;
+			path = "FenZhi(分治)";
 			sourceTree = "<group>";
 		};
-		237A2E3E25C24043002B1339 /* HuiSu */ = {
+		237A2E3E25C24043002B1339 /* HuiSu(回溯) */ = {
 			isa = PBXGroup;
 			children = (
 				363BA6FB2497B28000C7830E /* XYHuiSu.hpp */,
 				363BA6FA2497B28000C7830E /* XYHuiSu.cpp */,
 			);
-			path = HuiSu;
+			path = "HuiSu(回溯)";
 			sourceTree = "<group>";
 		};
-		237A2E3F25C24052002B1339 /* Chars */ = {
+		237A2E3F25C24052002B1339 /* Chars(字符串) */ = {
 			isa = PBXGroup;
 			children = (
 				368DDFB424B4595500A8A72D /* XYChars.hpp */,
 				368DDFB324B4595500A8A72D /* XYChars.cpp */,
 			);
-			path = Chars;
+			path = "Chars(字符串)";
+			sourceTree = "<group>";
+		};
+		866E7F7425E29E1700284648 /* BFS(广度搜索) */ = {
+			isa = PBXGroup;
+			children = (
+				AD6C731522720A4B003B1A5D /* XYBFS.hpp */,
+				AD6C731422720A4B003B1A5D /* XYBFS.cpp */,
+			);
+			path = "BFS(广度搜索)";
+			sourceTree = "<group>";
+		};
+		866E7F8925E3ED5900284648 /* DoublePointer(双指针) */ = {
+			isa = PBXGroup;
+			children = (
+				866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */,
+				866E7F8B25E3ED6E00284648 /* XYDoublePointer.hpp */,
+			);
+			path = "DoublePointer(双指针)";
 			sourceTree = "<group>";
 		};
 		AD80E29D226C7734005A0256 = {
@@ -309,22 +328,24 @@
 		AD80E2A8226C7734005A0256 /* XYAlogrithmExercise */ = {
 			isa = PBXGroup;
 			children = (
-				2376B14F25CCC82300CFC7F6 /* SlideWindow */,
+				866E7F8925E3ED5900284648 /* DoublePointer(双指针) */,
+				866E7F7425E29E1700284648 /* BFS(广度搜索) */,
+				2376B14F25CCC82300CFC7F6 /* SlideWindow(滑动窗口) */,
 				237A2E3A25C24021002B1339 /* LeetCode */,
-				237A2E2E25C23FB3002B1339 /* Sort */,
-				237A2E3F25C24052002B1339 /* Chars */,
-				237A2E3E25C24043002B1339 /* HuiSu */,
-				237A2E3D25C2403D002B1339 /* FenZhi */,
-				237A2E3C25C24037002B1339 /* Greed */,
-				237A2E3B25C2402F002B1339 /* DP */,
-				237A2E3925C24016002B1339 /* Cache */,
-				237A2E3825C2400E002B1339 /* LinkList */,
-				237A2E3725C24003002B1339 /* Array */,
-				237A2E3325C23FEE002B1339 /* Search */,
-				237A2E3225C23FD0002B1339 /* Tree */,
-				237A2E3125C23FC9002B1339 /* Heap */,
-				237A2E3025C23FC2002B1339 /* Queue */,
-				237A2E2F25C23FBB002B1339 /* Stack */,
+				237A2E2E25C23FB3002B1339 /* Sort(排序) */,
+				237A2E3F25C24052002B1339 /* Chars(字符串) */,
+				237A2E3E25C24043002B1339 /* HuiSu(回溯) */,
+				237A2E3D25C2403D002B1339 /* FenZhi(分治) */,
+				237A2E3C25C24037002B1339 /* Greed(贪心) */,
+				237A2E3B25C2402F002B1339 /* DP(动态规划) */,
+				237A2E3925C24016002B1339 /* Cache(缓存) */,
+				237A2E3825C2400E002B1339 /* LinkList(链表) */,
+				237A2E3725C24003002B1339 /* Array(数组) */,
+				237A2E3325C23FEE002B1339 /* Search(搜索) */,
+				237A2E3225C23FD0002B1339 /* Tree(树) */,
+				237A2E3125C23FC9002B1339 /* Heap(堆) */,
+				237A2E3025C23FC2002B1339 /* Queue(队列) */,
+				237A2E2F25C23FBB002B1339 /* Stack(栈) */,
 				AD80E2A9226C7734005A0256 /* main.cpp */,
 			);
 			path = XYAlogrithmExercise;
@@ -388,7 +409,7 @@
 			files = (
 				AD66927523BDCD7400AD491D /* XYDp.cpp in Sources */,
 				AD62542723A60B7000E635C3 /* XYCache.cpp in Sources */,
-				364ACE8A2525A43E00F5F426 /* XYCheckSum.cpp in Sources */,
+				866E7F7025E29DBA00284648 /* XYCircleQueue.cpp in Sources */,
 				AD93A24A238D6F5A00A5A96E /* XYLinkList.cpp in Sources */,
 				363BA6F92497B27200C7830E /* XYFenZhi.cpp in Sources */,
 				AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */,
@@ -404,6 +425,7 @@
 				363E174824F7B445003B6979 /* _YYLinkedMap.m in Sources */,
 				368DDFB524B4595500A8A72D /* XYChars.cpp in Sources */,
 				AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */,
+				866E7F8C25E3ED6E00284648 /* XYDoublePointer.cpp in Sources */,
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				865484932581C3BF001D9099 /* XYGeekTime.cpp in Sources */,
 				AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */,
@@ -411,7 +433,7 @@
 				ADCC2CD023B5DBE000313FC2 /* XYAVLTree.cpp in Sources */,
 				3683D07724A599AF00AE04EC /* XYBAT.cpp in Sources */,
 				2376B15825CCC84C00CFC7F6 /* XYSlideWindow.cpp in Sources */,
-				AD6C731622720A4B003B1A5D /* XYQueue.cpp in Sources */,
+				AD6C731622720A4B003B1A5D /* XYBFS.cpp in Sources */,
 				36EE42072520720700AC1C7C /* XYCycleLinkList.c in Sources */,
 				AD8037EB2275FC6500A31959 /* LeetCodeSolution.cpp in Sources */,
 				AD80E2B5226C77DF005A0256 /* XYSearch.cpp in Sources */,

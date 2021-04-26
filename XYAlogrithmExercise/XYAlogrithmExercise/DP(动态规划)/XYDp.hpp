@@ -49,6 +49,7 @@ public:
             if (result == -1) {
                 continue;
             }
+            /// 在相同层级选择最小费用
             minCost = min(minCost,result + 1);
         }
          dpMap[amount] = (minCost != INT8_MAX) ? minCost : -1;
@@ -58,24 +59,50 @@ public:
     /// 动态规划，使用DP_Table实现 (自下到上)
     /// dp[i] = x, 当目标金额为i的时候，至少需要x枚硬币
     /// 三要素: 重叠子问题，最优子结构，状态转移方程 (子问题间必须独立)
-    int coinChange1(vector<int>& coins, int amount) {
-        /// 这里为什么要amount + 1
+    int coinChangeUseDp(vector<int>& coins, int amount) {
+        /// 这里设置amount+1代表最大值，因为最大值最多是amount
         vector<int> dpTable(amount + 1, amount + 1);
+        /// Base case
         dpTable[0] = 0;
         
-      
+        /// 外层for循环遍历所有状态的所有取值
         for (int i = 0; i < dpTable.size(); i++) {
+            /// 内层for循环求所有选择的最小值
             for (int j = 0; j < coins.size(); j++) {
+                /// 子问题无解，跳过
                 if (i - coins[j] < 0) {
                     continue;;
                 }
-                
                 /// dp[i] = min (dp[i],  dp[i - coins[j]] + 1)
                 dpTable[i] = min(dpTable[i],1 + dpTable[i - coins[j]]);
             }
         }
 
         return (dpTable[amount] == amount + 1) ? -1 : dpTable[amount];;
+    }
+    
+    /// 最长增长子序列
+    int lengthOfLIS(vector<int>nums) {
+        /// Base Case: dp代表nums[i]时候，最长子序列长度
+        vector<int> dp(nums.size() - 1,1);
+        
+        
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = 0; j < i;j++) {
+                /// 状态转移方程
+                /// 当前num与之前比较过的nums对比，nums[i]大于nums[j]，则取dp[i],dp[j]+1较大一个。
+                if (nums[i] > nums[j]) {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+            }
+        }
+        
+        /// 遍历DP表，找出最大值
+        int maxLength = 1;
+        for (int i = 0; i < nums.size(); i++) {
+            maxLength = max(maxLength,dp[i]);
+        }
+        return maxLength;
     }
     
     int main()

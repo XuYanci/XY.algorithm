@@ -207,6 +207,7 @@ public:
         }
         recoverTreeMiddle2(root->left);
         
+        /// 中序遍历（这里就是排好序的了，判断前后值如果不符合排序，则记录）
         if (prev != NULL && prev->val > root->val) {
             if (x == NULL) {
                 x = prev;
@@ -243,8 +244,14 @@ public:
             buildTreeMap[inorder[i]] = i;
         }
     }
-    //    [3,9];
-    //    [9,3];
+    
+    /// 递归构造树
+    /// @param preorder 先序
+    /// @param preBegin 先序开始
+    /// @param preEnd 先序结束
+    /// @param inorder 中序
+    /// @param inBegin 中序开始
+    /// @param inEnd 中序结束
     TreeNode * buildTreeRecursive(vector<int>& preorder,
                                   int preBegin,
                                   int preEnd,
@@ -255,6 +262,7 @@ public:
             return NULL;
         }
         
+        /// 先序遍历
         TreeNode *node = new TreeNode(preorder[preBegin]);
         
         /// 根据哈希查找对应中序遍历的根节点(全局的)
@@ -280,7 +288,7 @@ public:
     }
     
     /// 二叉树中的最大路径和
-    int maxValue = INT_MIN;
+    int maxValue = INT_MIN; /// 最小值
     int maxPathSum(TreeNode* root) {
         reverseMaxPathSum(root);
         return maxValue;
@@ -291,11 +299,14 @@ private:
         if (root == NULL) {
             return 0;
         }
-        /// 后序遍历
+        /// 后序遍历 (获取路径最大和)
         int left = max(0,reverseMaxPathSum(root->left));
         int right = max(0,reverseMaxPathSum(root->right));
+        /// 左中右
         int lmr = left + right + root->val;
+        /// 左中，右中
         int ret = max(left,right) + root->val;
+        /// 取最大值
         maxValue = max(maxValue,lmr);
         maxValue = max(maxValue,ret);
         return ret;
