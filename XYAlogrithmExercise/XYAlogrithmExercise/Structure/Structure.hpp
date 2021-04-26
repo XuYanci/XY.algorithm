@@ -20,7 +20,16 @@ class Structure {
         MobileLinkNode *next;
     };
     
+    typedef struct node {
+        int data;
+        node *next;
+    }LinkL,*LinkList;
+    
+ 
+   
+    
     MobileLinkNode *head;
+    LinkList linkListHead;
     
     int findK(int a[],int n,int k) {
         for (int i = 0; i < n; i++) {
@@ -35,6 +44,9 @@ class Structure {
     void initLink() {
         head = new MobileLinkNode();
         head->next = NULL;
+        
+        linkListHead = new LinkL();
+        linkListHead->next = NULL;
     }
     
     /// 价格从低到高存储在一个带有头节点的单循环链表中
@@ -62,6 +74,33 @@ class Structure {
             prev->next = newNode;
             return;
         }
+    }
+    
+    void deleteMaxLinkValue(LinkList head) {
+        LinkList _head = head;
+        LinkList _next = _head->next;
+        LinkList _max = _next;
+        LinkList _max_prev = _head;
+    
+        /// Find Max Value
+        while (_next != NULL) {
+            if (_next->data > _max->data) {
+                _max_prev = _head;
+                _max = _next;
+            }
+            _head = _next;
+            _next = _next->next;
+        }
+        
+        /// Not the last node
+        if (_max_prev->next) {
+            _max_prev->next = _max_prev->next->next;
+        }
+        /// Is the last node
+        else {
+            _max_prev->next = NULL;
+        }
+
     }
     
 };
