@@ -103,6 +103,50 @@ class Structure {
 
     }
     
+    /// 带头结点的单链表head中计算值为x的结点数
+    int CountLinkList(LinkList head,int x) {
+        LinkList _head = head->next;
+        int count = 0;
+        while (_head != NULL) {
+            if (_head->data == x) {
+                count++;
+            }
+            _head = _head->next;
+        }
+        return count;
+    }
+    
+    /// 不带头结点的单链表head中计算值为x的结点数
+    int CountLink1(LinkList head) {
+        int count = 0;
+        while (head != NULL) {
+            head = head->next;
+            count++;
+        }
+        return count;
+    }
+    
+    /// 插入value到线性表
+    void insertLinearTable(int index,int value) {
+        int arrsize = 10;
+        int A[arrsize];
+        
+        if (index > arrsize - 1) {
+            return;
+        }
+        
+        /// 向右移动，空出位置
+        for (int i = arrsize - 1; i > index; i--) {
+            A[i] = A[i - 1];
+        }
+        
+        A[index] = value;
+    }
+    
+    /// LinkA (递增有序), LinkB(递增有序), A,B合并递减有序、原地排序
+    void mergeLinkList(LinkList A,LinkList B) {
+        
+    }
 };
 
 #endif /* Structure_hpp */
