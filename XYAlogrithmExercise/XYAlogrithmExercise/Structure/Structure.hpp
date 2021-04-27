@@ -143,9 +143,10 @@ class Structure {
         A[index] = value;
     }
     
-    /// LinkA (递增有序), LinkB(递增有序), A,B合并递减有序、原地排序
+    /// LinkA (递增有序), LinkB(递增有序), A,B合并递减有序、原地排序 ING
     void mergeLinkList(LinkList A,LinkList B) {
-        
+        /// 1. 合并并升序
+        /// 2. 双指针倒转链表
     }
 };
 
