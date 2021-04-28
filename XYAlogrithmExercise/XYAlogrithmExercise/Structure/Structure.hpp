@@ -148,7 +148,7 @@ class Structure {
         /// 1. 合并两个有序链表
         LinkList p = A->next;
         LinkList q = B->next;
-        /// A的头结点作为第一个结点
+        /// 1.新建头结点
         LinkList tail = new LinkL();
         LinkList head = tail;
         while (p != NULL  && q != NULL) {
