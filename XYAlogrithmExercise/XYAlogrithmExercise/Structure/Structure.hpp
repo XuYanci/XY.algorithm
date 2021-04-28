@@ -25,8 +25,8 @@ class Structure {
         node *next;
     }LinkL,*LinkList;
     
- 
-   
+    
+    
     
     MobileLinkNode *head;
     LinkList linkListHead;
@@ -68,7 +68,7 @@ class Structure {
             prev = head->next;
             next = _head->next;
         }
-      
+        
         /// 如果是空链表，则插入到第一个
         if (next == NULL) {
             prev->next = newNode;
@@ -81,7 +81,7 @@ class Structure {
         LinkList _next = _head->next;
         LinkList _max = _next;
         LinkList _max_prev = _head;
-    
+        
         /// Find Max Value
         while (_next != NULL) {
             if (_next->data > _max->data) {
@@ -100,7 +100,7 @@ class Structure {
         else {
             _max_prev->next = NULL;
         }
-
+        
     }
     
     /// 带头结点的单链表head中计算值为x的结点数
@@ -143,10 +143,34 @@ class Structure {
         A[index] = value;
     }
     
-    /// LinkA (递增有序), LinkB(递增有序), A,B合并递减有序、原地排序 ING
-    void mergeLinkList(LinkList A,LinkList B) {
-        /// 1. 合并并升序
-        /// 2. 双指针倒转链表
+    /// LinkA (递增有序), LinkB(递增有序), A,B合并递增有序
+    LinkList mergeLinkList(LinkList A,LinkList B) {
+        /// 1. 合并两个有序链表
+        LinkList p = A->next;
+        LinkList q = B->next;
+        /// A的头结点作为第一个结点
+        LinkList tail = new LinkL();
+        LinkList head = tail;
+        while (p != NULL  && q != NULL) {
+            if (p->data <= q->data) {
+                tail->next = p;
+                p = p->next;
+            } else {
+                tail->next = q;
+                q = q->next;
+            }
+            tail = tail->next;
+        }
+        
+        if (p != NULL) {
+            tail->next = p;
+        }
+        
+        if (q != NULL) {
+            tail->next = q;
+        }
+        
+        return head;
     }
 };
 
