@@ -10,7 +10,8 @@
 #define Structure_hpp
 
 #include <stdio.h>
-
+#include <vector>
+using namespace std;
 /// 数据结构主观题
 class Structure {
     
@@ -171,6 +172,187 @@ class Structure {
         }
         
         return head;
+    }
+    
+    /// LinkA (递增有序), LinkB(递增有序), A,B合并递减有序 (前插)
+    LinkList mergeLinkListA(LinkList A,LinkList B) {
+        /// 1. 合并两个有序链表
+        LinkList p = A->next;
+        LinkList q = B->next;
+        /// 1.新建头结点
+        LinkList head = new LinkL();
+        LinkList next = head->next;
+        
+        while (p != NULL  && q != NULL) {
+            if (p->data <= q->data) {
+                p->next = next;
+                head->next = p;
+                next = p;
+                p = p->next;
+            } else {
+                q->next = next;
+                head->next = q;
+                next = q;
+                q = q->next;
+            }
+        }
+        
+        /// 这里不能直接插入，需要逐个前插入
+        while (p != NULL) {
+            p->next = next;
+            head->next = p;
+            next = p;
+            p = p->next;
+        }
+        
+        /// 这里不能直接插入，需要逐个前插入
+        while (q != NULL) {
+            p->next = next;
+            head->next = q;
+            next = q;
+            q = q->next;
+        }
+        
+        return head;
+    }
+    
+    /// 判断带头结点的单链表L的元素值是否递增
+    bool analysisIsLinkListIncrease(LinkList A) {
+        LinkList head = A;
+        LinkList next = head;
+        if (!next) {
+            return false;
+        }
+        int val = next->data;
+        while (next != NULL && val >= next->data) {
+            next = next->next;
+        }
+        return  next == NULL ?  true : false;
+    }
+    
+    void deletaABC(vector<int> A,vector<int> B,vector<int> C) {
+        int max = A[0];
+        
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        
+        int countA = (int)A.size();
+        int countB = (int)B.size();
+        int countC = (int)C.size();
+        
+        while (i < countA && j < countB && k < countC) {
+            
+            if (A[i] == B[j] == C[k]) {
+                
+                /// 左移删除结点
+                int l = (int)A.size() - i - 1;
+                while (l-- > 0) {
+                    A[i] = A[i+1];
+                }
+                
+                /// 左移删除结点
+                l = (int)B.size() - j - 1;
+                while (l-- > 0) {
+                    B[j] = B[j+1];
+                    
+                    }
+                
+                /// 左移删除结点
+                l = (int)C.size() - k - 1;
+                while (l-- > 0) {
+                    C[k] = C[k+1];
+                }
+                
+                countA--;
+                countB--;
+                countC--;
+                
+                if(i < countA || j < countB || k < countC) {
+                    max = A[i];
+                }
+                
+            }
+            
+            if(i >= countA || j >= countB || k >= countC) {
+                break;;
+            }
+            
+            if (A[i] < max) {
+                i++;
+                max = A[i] > max ? A[i] : max;
+            }
+            
+            if (B[j] < max) {
+                j++;
+                max = B[j] > max ? B[j] : max;
+            }
+            
+            if (C[k] < max) {
+                k++;
+                max = C[k] > max ? C[k] : max;
+            }
+        }
+        
+    }
+    
+    /// A,B,C三个线性表，删除即在B又在C出现的元素
+    /// O(A+B+C)
+    void deleteABC(LinkList A,LinkList B, LinkList C) {
+        LinkList maxLinkList;
+        /// 默认最大值，作为瞄点
+        maxLinkList = A;
+        
+        /// 假设是带头节点
+        LinkList APrev = A;
+        LinkList BPrev = B;
+        LinkList CPrev = C;
+        
+        A = A->next;
+        B = B->next;
+        C = C->next;
+        
+        /// 边界：A，B，C都不为空的时候
+        while (A != NULL && B!= NULL && C!=NULL) {
+            /// 如果结点都相等的情况下，则删除当前结点
+            if (A->data == B->data == C->data) {
+                APrev->next = A->next;
+                A=A->next;
+                BPrev->next = B->next;
+                B=B->next;
+                CPrev->next = C->next;
+                C=C->next;
+                
+                if (A == NULL || B== NULL || C==NULL) {
+                    break;;
+                } else {
+                    maxLinkList = A;
+                }
+                
+            }
+            
+            if (A == NULL || B == NULL || C==NULL) {
+                break;;
+            }
+            
+            /// 往瞄点靠近
+            if (A->data < maxLinkList->data) {
+                A = A->next;
+                maxLinkList = A->data > maxLinkList->data ? A : maxLinkList;
+            }
+            /// 往瞄点靠近
+            if (B->data < maxLinkList->data) {
+                B = B->next;
+                maxLinkList = B->data > maxLinkList->data ? B : maxLinkList;
+            }
+            /// 往瞄点靠近
+            if (C->data < maxLinkList->data) {
+                C = C->next;
+                maxLinkList = C->data > maxLinkList->data ? C : maxLinkList;
+            }
+            
+        }
+        
     }
 };
 
