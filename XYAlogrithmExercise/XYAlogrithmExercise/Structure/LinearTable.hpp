@@ -6,14 +6,14 @@
 //  Copyright © 2021 Yanci. All rights reserved.
 //
 
-#ifndef Structure_hpp
-#define Structure_hpp
+#ifndef LinearTable_hpp
+#define LinearTable_hpp
 
 #include <stdio.h>
 #include <vector>
 using namespace std;
-/// 数据结构主观题
-class Structure {
+/// 线性表
+class LinearTable {
     
     struct MobileLinkNode{
         char *nameType;
@@ -25,10 +25,7 @@ class Structure {
         int data;
         node *next;
     }LinkL,*LinkList;
-    
-    
-    
-    
+        
     MobileLinkNode *head;
     LinkList linkListHead;
     
@@ -230,6 +227,7 @@ class Structure {
         return  next == NULL ?  true : false;
     }
     
+    /// A,B,C三个线性表，删除即在B又在C出现的元素 (数组)
     void deletaABC(vector<int> A,vector<int> B,vector<int> C) {
         int max = A[0];
         
@@ -268,7 +266,9 @@ class Structure {
                 countB--;
                 countC--;
                 
-                if(i < countA || j < countB || k < countC) {
+                if(i >= countA || j >= countB || k >= countC) {
+                    break;
+                } else {
                     max = A[i];
                 }
                 
@@ -296,7 +296,7 @@ class Structure {
         
     }
     
-    /// A,B,C三个线性表，删除即在B又在C出现的元素
+    /// A,B,C三个线性表，删除即在B又在C出现的元素 (链表)
     /// O(A+B+C)
     void deleteABC(LinkList A,LinkList B, LinkList C) {
         LinkList maxLinkList;
@@ -324,7 +324,7 @@ class Structure {
                 C=C->next;
                 
                 if (A == NULL || B== NULL || C==NULL) {
-                    break;;
+                    break;
                 } else {
                     maxLinkList = A;
                 }
@@ -332,7 +332,7 @@ class Structure {
             }
             
             if (A == NULL || B == NULL || C==NULL) {
-                break;;
+                break;
             }
             
             /// 往瞄点靠近
@@ -354,6 +354,15 @@ class Structure {
         }
         
     }
-};
+    
+    /// 无头结点无头指针，寻找前驱结点
+    LinkList findPrev(LinkList current) {
+        while (current->next != current) {
+            current = current->next;
+        }
+        return current;
+    }
+    
+ };
 
 #endif /* Structure_hpp */

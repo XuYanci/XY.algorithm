@@ -6,4 +6,4 @@
 //  Copyright © 2021 Yanci. All rights reserved.
 //
 
-#include "Structure.hpp"
+#include "LinearTable.hpp"
