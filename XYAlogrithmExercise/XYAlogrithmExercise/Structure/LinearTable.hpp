@@ -26,6 +26,7 @@ class LinearTable {
         node *next;
     }LinkL,*LinkList;
         
+    
     MobileLinkNode *head;
     LinkList linkListHead;
     
@@ -74,6 +75,7 @@ class LinearTable {
         }
     }
     
+    /// 删除链表最大值
     void deleteMaxLinkValue(LinkList head) {
         LinkList _head = head;
         LinkList _next = _head->next;
