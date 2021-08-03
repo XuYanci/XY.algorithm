@@ -20,6 +20,7 @@
 		866E7F7025E29DBA00284648 /* XYCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */; };
 		866E7F8C25E3ED6E00284648 /* XYDoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */; };
 		86A64460263EDAC300222420 /* StackQueueArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86A6445E263EDAC300222420 /* StackQueueArray.cpp */; };
+		86A644652647688E00222420 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86A644632647688E00222420 /* Tree.cpp */; };
 		AD1376DF241B76CB008EBBDE /* LeetCodeEveryDay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */; };
 		AD1376E5241CD5C7008EBBDE /* XYGreed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */; };
 		AD461BEC240F58A400BABDFC /* jianzhiOffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD461BEA240F58A400BABDFC /* jianzhiOffer.cpp */; };
@@ -80,6 +81,8 @@
 		866E7F8B25E3ED6E00284648 /* XYDoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYDoublePointer.hpp; sourceTree = "<group>"; };
 		86A6445E263EDAC300222420 /* StackQueueArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StackQueueArray.cpp; sourceTree = "<group>"; };
 		86A6445F263EDAC300222420 /* StackQueueArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StackQueueArray.hpp; sourceTree = "<group>"; };
+		86A644632647688E00222420 /* Tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tree.cpp; sourceTree = "<group>"; };
+		86A644642647688E00222420 /* Tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tree.hpp; sourceTree = "<group>"; };
 		AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeEveryDay.cpp; sourceTree = "<group>"; };
 		AD1376DE241B76CB008EBBDE /* LeetCodeEveryDay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeEveryDay.hpp; sourceTree = "<group>"; };
 		AD1376E3241CD5C7008EBBDE /* XYGreed.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGreed.cpp; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 				8625CE9F2636F407003CF2EE /* LinearTable.cpp */,
 				86A6445F263EDAC300222420 /* StackQueueArray.hpp */,
 				86A6445E263EDAC300222420 /* StackQueueArray.cpp */,
+				86A644642647688E00222420 /* Tree.hpp */,
+				86A644632647688E00222420 /* Tree.cpp */,
 			);
 			path = Structure;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				864A94A62585FF87000DA0CD /* XYCacheGoBack.cpp in Sources */,
 				AD93A247238AC58D00A5A96E /* XYArrayChars.cpp in Sources */,
 				AD80E2B2226C77D1005A0256 /* XYSort.cpp in Sources */,
+				86A644652647688E00222420 /* Tree.cpp in Sources */,
 				AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */,
 				363BA6FC2497B28000C7830E /* XYHuiSu.cpp in Sources */,
 				AD6C731C22720A66003B1A5D /* XYHeap.cpp in Sources */,
