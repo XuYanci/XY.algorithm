@@ -14,5 +14,36 @@
 
 class Tree {
     
+    typedef struct  btnode {
+        int data;
+        struct btnode *lchild,*rchild;
+    } * BinTree;
+    
+    
+    int Height(BinTree bt) {
+        return 0;
+    }
+    
+    void PreOrderTree(BinTree root) {
+        
+    }
+    
+    void CopyTree(BinTree root,BinTree newRoot) {
+        
+    }
+    
+    int Count(BinTree root,int val) {
+        return 0;
+    }
+    
+    int leftnode_num(BinTree root) {
+        return 0;
+    }
+    
+    int node_num(BinTree root) {
+        return  0;
+    }
+    
+    
 };
 #endif /* Tree_hpp */
