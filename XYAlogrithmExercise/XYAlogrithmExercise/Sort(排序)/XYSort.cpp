@@ -55,67 +55,13 @@ void XYSort::bubleSort(int *array, int count,bool asc) {
 /// L,R,P
 /// L -> R, L直到找到比自己大的,Stop,如果碰撞到R，并不会停止
 /// R -> L, R直到找到比自己小的,Stop,停止并交换, 如果碰撞到L,停止并交换,如果已经被L标记，停止并交换
-
 /// 解法2:
-/// 个人觉得更加方便
-//1．i =L; j = R; 将基准数挖出形成第一个坑a[i]。
-//2．j--由后向前找比它小的数，找到后挖出此数填前一个坑a[i]中。
-//3．i++由前向后找比它大的数，找到后也挖出此数填到前一个坑a[j]中。
-//4．再重复执行2，3二步，直到i==j，将基准数填入a[i]中。
-
+/// 双边扫描法
+/// 1．i =L; j = R; 将基准数挖出形成第一个坑a[i]。
+/// 2．j--由后向前找比它小的数，找到后挖出此数填前一个坑a[i]中。
+/// 3．i++由前向后找比它大的数，找到后也挖出此数填到前一个坑a[j]中。
+/// 4．再重复执行2，3二步，直到i==j，将基准数填入a[i]中。
 void recursiveQuickSort(int array[],int l,int r) {
-    
-    /** 解法1 **/
-    //    int beforel = l;
-    //    int beforep = p ;
-    //
-    //    if (r < l) {
-    //        return;
-    //    }
-    //
-    //    if (r == l && array[l] > array[p]) {
-    //        int temp = array[l];
-    //        array[l] = array[p];
-    //        array[p] = temp;
-    //        return;
-    //    }
-    //
-    //
-    //    while (l < r) {
-    //        while (array[l] < array[p]) {
-    //            l = l + 1;
-    //        }
-    //
-    //
-    //        while (array[r] >= array[p] && r > l) {
-    //            r = r - 1;
-    //        }
-    //
-    //        if (l < r) {
-    //            /// 交换
-    //            int temp = array[r];
-    //            array[r] = array[l];
-    //            array[l] = temp;
-    //
-    //        }
-    //
-    //        else if (r < l) {
-    //            break;
-    //        }
-    //        else if (r == l && array[l] > array[p]) {
-    //            int temp = array[l];
-    //            array[l] = array[p];
-    //            array[p] = temp;
-    //            break;
-    //        }
-    //
-    //    }
-    //
-    //    // Left
-    //    recursiveQuickSort(array, l - 1, beforel, l - 2);
-    //    // Right
-    //    recursiveQuickSort(array, beforep,r + 1 , beforep - 1);
-    
     /** 解法2 **/
     if (l < r) {
         
@@ -177,7 +123,7 @@ void XYSort::quickSort(int *array,int count,bool asc) {
     cout << endl;
 }
 
-/// 第二种快排方式
+/// 第二种快排方式 (单边扫描法)
 void XYSort::quickSort2(vector<int> &array, int count, bool asc) {
     cout << "QUICK SORT2 - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -203,6 +149,7 @@ void XYSort::quickSort2_reverse(vector<int> &array, int l, int r,bool asc) {
 
 int XYSort::quickSort2_partition(vector<int> &array, int l,int r,bool asc) {
     int i = l;
+    /// j 为左区已排序
     for (int j = l; j < r; j++) {
         
         if (asc) {
@@ -223,11 +170,10 @@ int XYSort::quickSort2_partition(vector<int> &array, int l,int r,bool asc) {
     return i;
 }
 
-
-
-// 一个有序数组，一个无序数组， 默认取第一个元素放到有序数组, 假设最大
-// 然后依次取无序数组，与有序数组比较 (升序，降序)，并做插入操作
-// 比较完毕，则有序数组排序完毕
+/// 插入排序
+/// 一个有序数组，一个无序数组， 默认取第一个元素放到有序数组, 假设最大
+/// 然后依次取无序数组，与有序数组比较 (升序，降序)，并做插入操作
+/// 比较完毕，则有序数组排序完毕
 void XYSort::insertSort(int *array,int count,bool asc) {
     cout << "INSERT SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;
@@ -290,27 +236,7 @@ void XYSort:: selectSort(int *array,int count,bool asc) {
         /// 存放最小值
         swap(array[i], array[min]);
     }
-    
-//    for (int i = 0; i < count; i++) {
-//        int temp = array[i];
-//        int downSign = -1;
-//        for (int j = i+1; j < count; j++) {
-//            if (asc && array[j] < temp) {
-//                temp = array[j];
-//                downSign = j;
-//            }
-//            if (!asc && array[j] > temp) {
-//                temp = array[j];
-//                downSign = j;
-//            }
-//        }
-//        if (downSign> 0) {
-//            array[downSign] = array[i];
-//            array[i] = temp;
-//        }
-//    }
-    
-    
+ 
     cout << "sort array is " <<  (asc ? "asc":"not asc") << endl;
     for (int i = 0; i <  count; i++) {
         cout << array[i] << ',';
@@ -345,7 +271,6 @@ void XYSort:: mergeSort(int *array,int count,bool asc) {
     
     cout << endl;
 }
-
 
 /// 递归函数
 void XYSort::merge_Sort(int arr[] ,int left,int right,int temp[]){
@@ -393,7 +318,6 @@ int XYSort:: create_binarytree(ELEMENT1 *heap, int items[MAX_ELEMENTS], int n){
 }
 
 void XYSort::heap_sort(ELEMENT1 *heap ,int n){
-    
     
     cout << "HEAP SORT - - - - - - - - - - " << endl;
     cout << "origin array is " << endl;

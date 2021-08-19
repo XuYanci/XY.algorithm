@@ -52,6 +52,7 @@ private:
     void merge_Sort(int arr[],int left,int right,int temp[]);
     void quickSort2_reverse(vector<int> &array,int l,int r,bool asc);
     int quickSort2_partition(vector<int> &array,int l,int r,bool asc);
+    
     /// 私有方法:堆排序
     void __swap(ELEMENT1 *lhs,ELEMENT1 *rhs){
         ELEMENT1 temp = *lhs;
@@ -76,8 +77,8 @@ private:
         *(heap + parent) = temp;
     }
     
+    /// 自上而下构建
     int create_maxheap(ELEMENT1 *heap ,int n){
-        
         for (int node = n/2; node > 0; node--) {
             adapt_maxheap(heap, node, n);
         }
