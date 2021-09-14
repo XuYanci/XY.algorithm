@@ -27,6 +27,7 @@
 #include "XYTree.hpp"
 #include "XYSlideWindow.hpp"
 #include "XYCircleQueue.hpp"
+#include "XYGraph.hpp"
 
 /// XuYanci Alogrithm Exercise
 
@@ -48,6 +49,9 @@ void LeetCodeEveryDays();
 void cache();
 /// 树
 void tree();
+/// 图
+void graph();
+
 /// 动态规划
 void dp();
 /// 回溯
@@ -69,7 +73,8 @@ int main(int argc, const char * argv[]) {
     //    cache();
     //    JianZhiOfferRun();
     //    LeetCodeEveryDays();
-    dp();
+//    dp();
+    graph();
 //    slideWindow();
     return 0;
 }
@@ -109,6 +114,18 @@ void tree() {
     vector<int> preorder {3,9};
     vector<int> inorder {9,3};
     tree->buildTree(preorder, inorder);
+}
+
+void graph() {
+    XYGraph *graph = new XYGraph();
+    
+    vector<vector<int>> graph_data;
+    graph_data.push_back(vector<int>({4,3,1}));
+    graph_data.push_back(vector<int>({3,2,4}));
+    graph_data.push_back(vector<int>({3}));
+    graph_data.push_back(vector<int>({4}));
+    graph_data.push_back(vector<int>());
+    graph->allPathsSourceTarget(graph_data);
 }
 
 /// 缓存

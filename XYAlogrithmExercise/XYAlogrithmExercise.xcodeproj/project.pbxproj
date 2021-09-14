@@ -19,6 +19,7 @@
 		865484932581C3BF001D9099 /* XYGeekTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 865484912581C3BF001D9099 /* XYGeekTime.cpp */; };
 		866E7F7025E29DBA00284648 /* XYCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */; };
 		866E7F8C25E3ED6E00284648 /* XYDoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */; };
+		8693DF9D26F0E1DC0005FD17 /* XYGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8693DF9B26F0E1DC0005FD17 /* XYGraph.cpp */; };
 		86A64460263EDAC300222420 /* StackQueueArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86A6445E263EDAC300222420 /* StackQueueArray.cpp */; };
 		86A644652647688E00222420 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86A644632647688E00222420 /* Tree.cpp */; };
 		AD1376DF241B76CB008EBBDE /* LeetCodeEveryDay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1376DD241B76CB008EBBDE /* LeetCodeEveryDay.cpp */; };
@@ -79,6 +80,8 @@
 		866E7F6F25E29DBA00284648 /* XYCircleQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYCircleQueue.hpp; sourceTree = "<group>"; };
 		866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYDoublePointer.cpp; sourceTree = "<group>"; };
 		866E7F8B25E3ED6E00284648 /* XYDoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYDoublePointer.hpp; sourceTree = "<group>"; };
+		8693DF9B26F0E1DC0005FD17 /* XYGraph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGraph.cpp; sourceTree = "<group>"; };
+		8693DF9C26F0E1DC0005FD17 /* XYGraph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYGraph.hpp; sourceTree = "<group>"; };
 		86A6445E263EDAC300222420 /* StackQueueArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StackQueueArray.cpp; sourceTree = "<group>"; };
 		86A6445F263EDAC300222420 /* StackQueueArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StackQueueArray.hpp; sourceTree = "<group>"; };
 		86A644632647688E00222420 /* Tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tree.cpp; sourceTree = "<group>"; };
@@ -331,6 +334,15 @@
 			path = "DoublePointer(双指针)";
 			sourceTree = "<group>";
 		};
+		8693DF9A26F0E1CA0005FD17 /* Graph(图) */ = {
+			isa = PBXGroup;
+			children = (
+				8693DF9B26F0E1DC0005FD17 /* XYGraph.cpp */,
+				8693DF9C26F0E1DC0005FD17 /* XYGraph.hpp */,
+			);
+			path = "Graph(图)";
+			sourceTree = "<group>";
+		};
 		AD80E29D226C7734005A0256 = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +362,7 @@
 		AD80E2A8226C7734005A0256 /* XYAlogrithmExercise */ = {
 			isa = PBXGroup;
 			children = (
+				8693DF9A26F0E1CA0005FD17 /* Graph(图) */,
 				8625CE9E2636F3EE003CF2EE /* Structure */,
 				866E7F8925E3ED5900284648 /* DoublePointer(双指针) */,
 				866E7F7425E29E1700284648 /* BFS(广度搜索) */,
@@ -453,6 +466,7 @@
 				AD6C731322720A42003B1A5D /* XYStack.cpp in Sources */,
 				865484932581C3BF001D9099 /* XYGeekTime.cpp in Sources */,
 				AD62544923B0822D00E635C3 /* XYBSTree.cpp in Sources */,
+				8693DF9D26F0E1DC0005FD17 /* XYGraph.cpp in Sources */,
 				8625CEA12636F407003CF2EE /* LinearTable.cpp in Sources */,
 				AD80E2AA226C7734005A0256 /* main.cpp in Sources */,
 				ADCC2CD023B5DBE000313FC2 /* XYAVLTree.cpp in Sources */,
