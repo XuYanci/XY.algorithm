@@ -126,6 +126,14 @@ void graph() {
     graph_data.push_back(vector<int>({4}));
     graph_data.push_back(vector<int>());
     graph->allPathsSourceTarget(graph_data);
+    
+    vector<vector<int>> prerequisites;
+    prerequisites.push_back(vector<int>({1,4}));
+    prerequisites.push_back(vector<int>({2,4}));
+    prerequisites.push_back(vector<int>({3,1}));
+    prerequisites.push_back(vector<int>({3,2}));
+    
+    graph->canFinish(5, prerequisites);
 }
 
 /// 缓存
