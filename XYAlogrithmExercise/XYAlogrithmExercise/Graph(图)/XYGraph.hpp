@@ -19,7 +19,7 @@ private:
     vector<int> recordPath;
     vector<vector<int>> allPaths;
     bool hasCycle;
-    
+    vector<int>preorder;
     /// 访问路径
     vector<bool>onPathes;
     /// 访问节点
@@ -91,6 +91,7 @@ private:
             int to = graph[k][i];
             canFinishTraverse(graph, visited, to);
         }
+        preorder.push_back(k);
         onPathes[k] = false;
     }
     
@@ -111,7 +112,6 @@ public:
         if(prerequisites.size() <= 0) {
             return true;
         }
-        
         /// 构建图
         vector<vector<int>>graph = vector<vector<int>>(numCourses);
         /// 访问节点
@@ -132,13 +132,42 @@ public:
             canFinishTraverse(graph, visited, i);
         }
         
+        
         return !hasCycle;
         
     }
     // 课程表2
     vector<int> findOrder(int numCourses, vector<vector<int>> prerequisites) {
-        return vector<int>();
+        
+        if(prerequisites.size() <= 0) {
+            for(int i = 0; i < numCourses;i++) {
+                preorder.push_back(i);
+            }
+            reverse(preorder.begin(), preorder.end());
+            return preorder;
+        }
+        
+        if (!canFinish(numCourses, prerequisites)) {
+            return vector<int>();
+        }
+
+        /// 反转数组
+        reverse(preorder.begin(), preorder.end());
+        return preorder;
     }
+    
+    
+    void traverse(vector<vector<int>>graph,int i) {
+        if (visited[i]) {
+            return;
+        }
+        visited[i] = true;
+        for (int j = 0; j < graph[i].size(); j++) {
+            traverse(graph, graph[i][j]);
+        }
+        preorder.push_back(i);
+    }
+    
     /// 网络延迟时间
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         return 0;
@@ -171,7 +200,7 @@ public:
             }
             queue.pop();
         }
-   
+        
         return vector<int>();
     }
 };
