@@ -13,7 +13,20 @@
 #include <vector>
 #include <queue>
 using namespace std;
+
+
 class XYGraph {
+public:
+    class State {
+    public:
+        int id;
+        int distFromStart;
+
+        State(int id, int distFromStart) {
+            id = id;
+            distFromStart = distFromStart;
+        }
+    };
     
 private:
     vector<int> recordPath;
@@ -177,30 +190,36 @@ public:
         return 0;
     }
     
+  
+    
     /// 迪杰斯特拉
     vector<int> dijkstra(int start, vector<vector<int>> graph) {
         /// DistTo代表从起始点到dist[i]第i个节点的最短距离
         vector<int> distTo = vector<int>(graph.size(), INT8_MAX);
         /// 队列，主要用于层次遍历
-        queue<int> queue;
+        queue<XYGraph::State> queue;
+        /// 初始化状态节点
+        State startState = State(0, INT8_MAX);
         /// 压入首节点到队列
-        queue.push(start);
+        queue.push(startState);
         /// 首节点默认为0
         distTo[start] = 0;
         
         while (!queue.empty()) {
-            int curIndex = queue.front();
-            for(int i = 0; i < graph[curIndex].size();i++) {
-                int nextGraphIndex = graph[curIndex][i];
-                int caculateDistTo = distTo[curIndex] + weight(curIndex, nextGraphIndex); /// 计算到目标节点的路径
+            State curState = queue.front();
+            if (curState.distFromStart > distTo[curState.id]) {
+                continue;
+            }
+            for(int i = 0; i < graph[curState.id].size();i++) {
+                int nextGraphIndex = graph[curState.id][i];
+                int caculateDistTo = distTo[curState.id] + weight(curState.id, nextGraphIndex); /// 计算到目标节点的路径
                 if (caculateDistTo < distTo[nextGraphIndex]) {
                     distTo[nextGraphIndex] = caculateDistTo;
-                    queue.push(nextGraphIndex);
+                    queue.push(State(nextGraphIndex,caculateDistTo));
                 }
             }
             queue.pop();
         }
-        
         return vector<int>();
     }
 };
