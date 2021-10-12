@@ -73,8 +73,8 @@ int main(int argc, const char * argv[]) {
     //    cache();
     //    JianZhiOfferRun();
     //    LeetCodeEveryDays();
-//    dp();
-    graph();
+     dp();
+//    graph();
 //    slideWindow();
     return 0;
 }
@@ -89,6 +89,9 @@ void dp() {
     XYdp *dp = new XYdp();
     vector<int> coins{1,2};
     dp->coinChange(coins, 100);
+    
+    vector<int> nums ={-2,1,-3,4,-1,2,1,-5,4};
+    dp->maxSubArray(nums);
 }
 
 /// 回溯

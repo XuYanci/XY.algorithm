@@ -52,8 +52,8 @@ public:
             /// 在相同层级选择最小费用
             minCost = min(minCost,result + 1);
         }
-         dpMap[amount] = (minCost != INT8_MAX) ? minCost : -1;
-         return  dpMap[amount];
+        dpMap[amount] = (minCost != INT8_MAX) ? minCost : -1;
+        return  dpMap[amount];
     }
     
     /// 动态规划，使用DP_Table实现 (自下到上)
@@ -77,7 +77,7 @@ public:
                 dpTable[i] = min(dpTable[i],1 + dpTable[i - coins[j]]);
             }
         }
-
+        
         return (dpTable[amount] == amount + 1) ? -1 : dpTable[amount];;
     }
     
@@ -103,6 +103,37 @@ public:
             maxLength = max(maxLength,dp[i]);
         }
         return maxLength;
+    }
+    
+    int maxSubArray(vector<int>& nums) {
+        int size = (int)nums.size();
+        
+        /// 边界判断
+        if (size <= 0 ) return 0;
+        
+        /// 初始化dp数组，这里的含义是 dp[x]存放的是前x个连续数组最大值
+        int dp[size];
+        
+        /// 初始化dp[0]
+        int largest = 0;
+        dp[0] = nums[0];
+        largest = dp[0];
+        for(int i = 1;i < nums.size();i++) {
+            /// 如果前dp值<0，则最大就是自身值
+            if (dp[i - 1] < 0) {
+                dp[i] = nums[i];
+            }
+            
+            /// 如果前dp值>0，则最大就是自身值+前dp值
+            else {
+                dp[i] = dp[i - 1] + nums[i];
+            }
+            
+            /// 取最大值
+            largest = max(largest,dp[i]);
+        }
+        
+        return largest;
     }
     
     int main()
