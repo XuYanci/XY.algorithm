@@ -159,7 +159,8 @@ public:
     int findKthLargest2(vector<int> &array,int k);
     /// 验证回文串
     bool isPalindrome(string s);
-
+    /// 三数之和
+    vector<vector<int>> threeSum(vector<int>& nums);
 private:
     bool isPrime(int num);
     int getMaxValue(vector<int>& nums,int begin,int end) ;

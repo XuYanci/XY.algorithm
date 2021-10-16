@@ -66,14 +66,14 @@ int main(int argc, const char * argv[]) {
     //    huisu();
     //    tree();
     //    alogrithms();
-    //    leetCodes();
+        leetCodes();
     //    structures();
     //    leetCodesGoBack();
     //    structuresGoBack();
     //    cache();
     //    JianZhiOfferRun();
     //    LeetCodeEveryDays();
-     dp();
+//     dp();
 //    graph();
 //    slideWindow();
     return 0;
@@ -298,6 +298,10 @@ void alogrithms() {
 void leetCodes() {
     // Leecode
     LeetCodeSolution *s = new LeetCodeSolution();
+    vector<int>list{-1,0,1,2,-1,-4,-2,-3,3,0,4};
+    
+    s->threeSum(list);
+    return;
     std::vector<int>array6 = {1,2,3,4,5,6} ;
     
     // 移除重复项

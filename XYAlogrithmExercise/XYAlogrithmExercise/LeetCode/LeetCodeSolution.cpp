@@ -1512,7 +1512,7 @@ int LeetCodeSolution::findKthLargest(vector<int> nums, int k) {
 
 /// Simple quick sort
 void LeetCodeSolution::reverse_findKthLargest(vector<int> &array,int l,int r, int k) {
-   
+    
     int partition = findKthLargestPartition(array, l, r);
     
     /// Because k is count from 1 , so array[partition] is k - 1 (ING)
@@ -1561,7 +1561,7 @@ int LeetCodeSolution:: findKthLargest2(vector<int> &array,int k) {
             j = j >> 1;
         }
     }
-
+    
     for (int i = 0; i < k - 1; i++) {
         int end = n - 1 - i;
         swap(array[1], array[end]);
@@ -1579,7 +1579,7 @@ int LeetCodeSolution:: findKthLargest2(vector<int> &array,int k) {
             j = pos;
         }
     }
-
+    
     return array[1];
 }
 
@@ -1587,10 +1587,54 @@ int LeetCodeSolution:: findKthLargest2(vector<int> &array,int k) {
 bool LeetCodeSolution::isPalindrome(string s) {
     return true;
 }
- 
+
 
 /// 最长重复子串
 string longestDupSubstring(string S) {
     string s = "";
     return s;
+}
+
+
+/// 三数之和
+vector<vector<int>> LeetCodeSolution:: threeSum(vector<int>& nums) {
+    vector<vector<int>> threeSums;
+     sort(nums.begin(), nums.end());
+     int one = 0,two = 0,three = 0;
+     
+     for (int i = 0; i < nums.size(); i++) {
+         if (i > 0 && nums[i] == one) continue;
+         if (nums[i] > 0) continue;
+         one = nums[i];
+         
+         int begin = i + 1;
+         int end = (int)nums.size() - 1;
+         
+         while (begin < end) {
+             if (nums[begin] == two && begin != i + 1) {
+                 begin++;
+                 continue;
+             }
+             if (nums[end] == three && end != nums.size() - 1) {
+                 end--;
+                 continue;
+             }
+             if (nums[begin] + nums[end] + one  > 0) {
+                 three = nums[end];
+                 end--;
+             }
+             else if (one + nums[begin] + nums[end] < 0) {
+                 two = nums[begin];
+                 begin++;
+             } else {
+                  two = nums[begin];
+                 three = nums[end];
+                 threeSums.push_back(vector<int>{one,two,three});
+                
+                 begin++;
+                 end--;
+             }
+         }
+     }
+     return threeSums;
 }
