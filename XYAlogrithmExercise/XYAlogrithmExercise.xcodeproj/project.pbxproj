@@ -19,6 +19,7 @@
 		865484932581C3BF001D9099 /* XYGeekTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 865484912581C3BF001D9099 /* XYGeekTime.cpp */; };
 		866E7F7025E29DBA00284648 /* XYCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F6E25E29DBA00284648 /* XYCircleQueue.cpp */; };
 		866E7F8C25E3ED6E00284648 /* XYDoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */; };
+		868353F8271B10BD00C7A0C5 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 868353F6271B10BD00C7A0C5 /* Graph.cpp */; };
 		8693DF9D26F0E1DC0005FD17 /* XYGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8693DF9B26F0E1DC0005FD17 /* XYGraph.cpp */; };
 		86A64460263EDAC300222420 /* StackQueueArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86A6445E263EDAC300222420 /* StackQueueArray.cpp */; };
 		86A644652647688E00222420 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86A644632647688E00222420 /* Tree.cpp */; };
@@ -80,6 +81,8 @@
 		866E7F6F25E29DBA00284648 /* XYCircleQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYCircleQueue.hpp; sourceTree = "<group>"; };
 		866E7F8A25E3ED6E00284648 /* XYDoublePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYDoublePointer.cpp; sourceTree = "<group>"; };
 		866E7F8B25E3ED6E00284648 /* XYDoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYDoublePointer.hpp; sourceTree = "<group>"; };
+		868353F6271B10BD00C7A0C5 /* Graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
+		868353F7271B10BD00C7A0C5 /* Graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
 		8693DF9B26F0E1DC0005FD17 /* XYGraph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = XYGraph.cpp; sourceTree = "<group>"; };
 		8693DF9C26F0E1DC0005FD17 /* XYGraph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XYGraph.hpp; sourceTree = "<group>"; };
 		86A6445E263EDAC300222420 /* StackQueueArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StackQueueArray.cpp; sourceTree = "<group>"; };
@@ -312,6 +315,8 @@
 				86A6445E263EDAC300222420 /* StackQueueArray.cpp */,
 				86A644642647688E00222420 /* Tree.hpp */,
 				86A644632647688E00222420 /* Tree.cpp */,
+				868353F6271B10BD00C7A0C5 /* Graph.cpp */,
+				868353F7271B10BD00C7A0C5 /* Graph.hpp */,
 			);
 			path = Structure;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				864A94A62585FF87000DA0CD /* XYCacheGoBack.cpp in Sources */,
 				AD93A247238AC58D00A5A96E /* XYArrayChars.cpp in Sources */,
 				AD80E2B2226C77D1005A0256 /* XYSort.cpp in Sources */,
+				868353F8271B10BD00C7A0C5 /* Graph.cpp in Sources */,
 				86A644652647688E00222420 /* Tree.cpp in Sources */,
 				AD6C731F22720A71003B1A5D /* XYTree.cpp in Sources */,
 				363BA6FC2497B28000C7830E /* XYHuiSu.cpp in Sources */,

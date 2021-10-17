@@ -9,8 +9,9 @@
 #ifndef XYCircleQueue_hpp
 #define XYCircleQueue_hpp
 
+#include <stack>
 #include <stdio.h>
-
+using namespace std;
 /// 循环队列A
 class MyCircularQueueA {
     int front;
@@ -145,5 +146,66 @@ public:
     }
 };
 
+class CQueue {
+    stack<int> stackOne;
+    stack<int> stackTwo;
+public:
+    CQueue() {
 
+    }
+    
+    void appendTail(int value) {
+        stackOne.push(value);
+        
+//        stack<int> copyStackOne;
+//        stack<int> copyStackTwo;
+//        copyStackOne = stackOne;
+//        while (copyStackOne.empty() == false) {
+//            int value = copyStackOne.top();
+//            copyStackTwo.push(value);
+//            copyStackOne.pop();
+//        }
+//        stackTwo = copyStackTwo;
+    }
+    
+    int deleteHead() {
+        int head = -1;
+        
+        if (stackOne.empty() && stackTwo.empty()) return -1;
+        
+        /// 如果为空，则重新倒入一遍
+        if (stackTwo.empty()) {
+            while (stackOne.empty() == false) {
+                int v = stackOne.top();
+                stackTwo.push(v);
+                stackOne.pop();
+            }
+        }
+        
+//        if (stackTwo.size() > 0) {
+//            head = stackTwo.top();
+//            stackTwo.pop();
+//            stack<int> copyStackOne;
+//            stack<int> copyStackTwo;
+//            copyStackTwo = stackTwo;
+//            while (copyStackTwo.empty() == false) {
+//                int value = copyStackTwo.top();
+//                copyStackOne.push(value);
+//                copyStackTwo.pop();
+//            }
+//            stackOne = copyStackOne;
+//        }
+        
+        int top = stackTwo.top();
+        stackTwo.pop();
+        return top;
+    }
+};
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * CQueue* obj = new CQueue();
+ * obj->appendTail(value);
+ * int param_2 = obj->deleteHead();
+ */
 #endif /* XYCircleQueue_hpp */
