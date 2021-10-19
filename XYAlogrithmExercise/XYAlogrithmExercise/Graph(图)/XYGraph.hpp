@@ -21,7 +21,7 @@ public:
     public:
         int id;
         int distFromStart;
-
+        
         State(int id, int distFromStart) {
             id = id;
             distFromStart = distFromStart;
@@ -149,6 +149,7 @@ public:
         return !hasCycle;
         
     }
+    
     // 课程表2
     vector<int> findOrder(int numCourses, vector<vector<int>> prerequisites) {
         
@@ -163,7 +164,7 @@ public:
         if (!canFinish(numCourses, prerequisites)) {
             return vector<int>();
         }
-
+        
         /// 反转数组
         reverse(preorder.begin(), preorder.end());
         return preorder;
@@ -179,11 +180,6 @@ public:
             traverse(graph, graph[i][j]);
         }
         preorder.push_back(i);
-    }
-    
-    /// 网络延迟时间
-    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
-        return 0;
     }
     
     int weight(int from,int to) {

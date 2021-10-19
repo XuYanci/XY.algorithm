@@ -173,7 +173,7 @@ private:
     void findTarget_dfs(vector<int>& nums, int S, int i, int sum, int& res) ;
     void reverse_findKthLargest(vector<int> &array,int l,int r, int k);
     int findKthLargestPartition(vector<int> &array,int l,int r);
-   
+    vector<int> reversePrint(ListNode* head);
 };
 
 /// LRU Cache

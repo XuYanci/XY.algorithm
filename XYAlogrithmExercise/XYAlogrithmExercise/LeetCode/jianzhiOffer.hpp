@@ -10,21 +10,33 @@
 #define jianzhiOffer_hpp
 #include <vector>
 #include <unordered_map>
-
-using namespace std;
 #include <stdio.h>
 #include <string>
 #include<iostream>
+using namespace std;
+
 class JianZhiOffer {
+    
+    struct ListNode {
+        int val;
+        ListNode *next;
+        ListNode(int x) : val(x), next(NULL) {}
+    };
+    
+    class Node {
+    public:
+        int val;
+        Node* next;
+        Node* random;
+        
+        Node(int _val) {
+            val = _val;
+            next = NULL;
+            random = NULL;
+        }
+    };
 public:
-//    找出数组中重复的数字。
-//
-//
-//    在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
-//
-//    来源：力扣（LeetCode）
-//    链接：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof
-//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    
     int findRepeatNumber(vector<int>& nums) {
         unordered_map<int, int> map;
         for (int i = 0; i < nums.size(); i++) {
@@ -38,12 +50,6 @@ public:
         return -1;
     }
     
-    
-//    在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
-//
-//    来源：力扣（LeetCode）
-//    链接：https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof
-//    著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
     bool findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
         
         if (matrix.size() == 0) return false;
@@ -70,16 +76,99 @@ public:
     string replaceSpace(string s) {
         string::size_type position = 0;
         string flag = " ";
- 
+        
         while((position=s.find(flag,position))!=string::npos)
         {
-          
+            
             s.replace(position, 1 , "%20");
-  
+            
         }
         return s;
     }
     
+    string replaceSpace1(string s) {
+        string::iterator it = s.begin();
+        string replaceSpace;
+        while(it!=s.end()) {
+            if (*it == ' ') {
+                replaceSpace += "%20";
+            } else {
+                replaceSpace += *it;
+            }
+            *it++;
+        }
+        return replaceSpace;
+    }
+    
+    string reverseLeftWords(string s, int n) {
+        int size = (int)s.size();
+        int moveLength = n % size;
+        int i = 0;
+        
+        if (n >= size) return s;
+        if (moveLength == 0) return s;
+        
+        char moveStr[moveLength];
+        while(i < moveLength) {
+            moveStr[i] = s[i];
+            i++;
+        }
+        
+        i = 0;
+        while(i < size - moveLength) {
+            s[i] =  s[i + moveLength];
+            i++;
+        }
+        
+        int j = 0;
+        while(j < moveLength) {
+            s[i + j] = moveStr[j];
+            j++;
+        }
+        return s;
+    }
+    
+    vector<int> reversePrint(ListNode* head) {
+        vector<int> nums;
+        vector<int>reverseNum;
+        while(head != NULL) {
+            nums.push_back(head->val);
+            head = head->next;
+        }
+        for (int i = (int)nums.size() - 1; i >= 0; i--) {
+            reverseNum.push_back(nums[i]);
+        }
+        return reverseNum;
+    }
+    
+    ListNode* reverseList(ListNode* head) {
+        ListNode *tail = NULL;
+        while(head != NULL) {
+            ListNode *q = head->next;
+            head->next = tail;
+            tail = head;
+            head = q;
+        }
+        return tail;
+    }
+    
+    Node* copyRandomList(Node* head) {
+        if (head == NULL) {
+            return NULL;
+        }
+        
+        Node *headNode = new Node(head->val);
+        Node *h = headNode;
+        while(head != NULL) {
+            head = head->next;
+            if (head) {
+                Node *nextNode = new Node(head->val);
+                headNode->next = nextNode;
+                headNode = nextNode;
+            }
+        }
+        return h;
+    }
     
 };
 

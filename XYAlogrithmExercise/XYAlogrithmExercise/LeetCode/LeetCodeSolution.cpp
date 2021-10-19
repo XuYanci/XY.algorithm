@@ -297,6 +297,16 @@ ListNode* LeetCodeSolution::reverseList(ListNode* head) {
     }
     
     return p;
+    
+/// * 前插 :)
+//    ListNode *tail = NULL;
+//          while(head != NULL) {
+//              ListNode *q = head->next;
+//              head->next = tail;
+//              tail = head;
+//              head = q;
+//          }
+//          return tail;
 }
 
 /*
@@ -1637,4 +1647,53 @@ vector<vector<int>> LeetCodeSolution:: threeSum(vector<int>& nums) {
          }
      }
      return threeSums;
+}
+
+
+vector<int>LeetCodeSolution::reversePrint(ListNode *head) {
+    vector<int> nums;
+    vector<int>reverseNum;
+    while(head != NULL) {
+        nums.push_back(head->val);
+        head = head->next;
+    }
+    for (int i = (int)nums.size() - 1; i > 0; i--) {
+        reverseNum.push_back(nums[i]);
+    }
+    return reverseNum;
+}
+
+class Node1 {
+public:
+    int val;
+    Node1* next;
+    Node1* random;
+    
+    Node1(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
+};
+
+Node1* copyRandomList(Node1* head) {
+ 
+    if (head == NULL) {
+        return NULL;
+    }
+    
+    Node1 *headNode = new Node1(head->val);
+
+    while(head != NULL) {
+        head = head->next;
+        if (head) {
+            Node1 *nextNode = new Node1(head->val);
+            headNode->next = nextNode;
+            headNode = nextNode;
+        }
+    }
+    
+
+    
+    return headNode;
 }

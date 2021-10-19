@@ -104,12 +104,6 @@ public:
     bool isDoubleStackFull() {
        return stack1Top + 1 == stack2Top;
     }
-    
-    /// 3. 稀疏矩阵转换三元组
-    
-    
-    
-    /// 4. 两个稀疏矩阵相加，返回三元组
 };
 
 #endif /* StackQueueArray_hpp */
