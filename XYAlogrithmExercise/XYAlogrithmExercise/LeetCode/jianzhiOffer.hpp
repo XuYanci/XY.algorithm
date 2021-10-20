@@ -35,8 +35,8 @@ class JianZhiOffer {
             random = NULL;
         }
     };
-public:
     
+public:
     int findRepeatNumber(vector<int>& nums) {
         unordered_map<int, int> map;
         for (int i = 0; i < nums.size(); i++) {
@@ -51,7 +51,6 @@ public:
     }
     
     bool findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
-        
         if (matrix.size() == 0) return false;
         
         int row = 0;
@@ -153,21 +152,66 @@ public:
     }
     
     Node* copyRandomList(Node* head) {
+        map<Node *,Node*> nodeMap;
+        
         if (head == NULL) {
             return NULL;
         }
+        Node *copyHead = new Node(head->val);
+        Node *copyHeadReserved = copyHead;
+        copyHead->random = head->random;
+        nodeMap[head] = copyHead;
         
-        Node *headNode = new Node(head->val);
-        Node *h = headNode;
         while(head != NULL) {
             head = head->next;
-            if (head) {
-                Node *nextNode = new Node(head->val);
-                headNode->next = nextNode;
-                headNode = nextNode;
+            if (head != NULL) {
+                Node *node = new Node(head->val);
+                node->random = head->random;
+                nodeMap[head] = node;
+                copyHead->next = node;
+                copyHead = node;
             }
         }
-        return h;
+        
+        copyHead = copyHeadReserved;
+        while(copyHead != NULL) {
+            copyHead->random = nodeMap[copyHead->random];
+            copyHead = copyHead->next;
+            
+        }
+        
+        return copyHeadReserved;
+    }
+    
+    int findRepeatNumber1(vector<int>& nums) {
+        unordered_map<int, int> map;
+        for (int i = 0; i < nums.size(); i++) {
+            if (map[nums[i]] == 1) {
+                return nums[i];
+            }
+            map[nums[i]] = 1;
+        }
+        return -1;
+    }
+    
+    int search(vector<int>& nums, int target) {
+        int count = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == target) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    int missingNumber(vector<int>& nums) {
+        int j = 0;
+        for (j = 0; j < nums.size();j++) {
+            if (nums[j] != j) {
+                return j;
+            }
+        }
+        return j;
     }
     
 };
