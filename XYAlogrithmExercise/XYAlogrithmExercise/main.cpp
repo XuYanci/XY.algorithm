@@ -66,12 +66,12 @@ int main(int argc, const char * argv[]) {
     //    huisu();
     //    tree();
     //    alogrithms();
-        leetCodes();
+//        leetCodes();
     //    structures();
     //    leetCodesGoBack();
     //    structuresGoBack();
     //    cache();
-    //    JianZhiOfferRun();
+        JianZhiOfferRun();
     //    LeetCodeEveryDays();
 //     dp();
 //    graph();
@@ -473,6 +473,8 @@ void JianZhiOfferRun() {
     //    offer->findRepeatNumber(numbers);
     //
     offer->replaceSpace("We are happy.");
+    
+    offer->firstUniqChar("loveleetcode");
 }
 
 

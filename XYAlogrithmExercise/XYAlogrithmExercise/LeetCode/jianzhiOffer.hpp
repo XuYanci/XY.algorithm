@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <stdio.h>
 #include <string>
+#include <queue>
 #include<iostream>
 using namespace std;
 
@@ -34,6 +35,13 @@ class JianZhiOffer {
             next = NULL;
             random = NULL;
         }
+    };
+    
+    struct TreeNode {
+        int val;
+        TreeNode *left;
+        TreeNode *right;
+        TreeNode(int x) : val(x), left(NULL), right(NULL) {}
     };
     
 public:
@@ -152,7 +160,7 @@ public:
     }
     
     Node* copyRandomList(Node* head) {
-        map<Node *,Node*> nodeMap;
+        unordered_map<Node *,Node*> nodeMap;
         
         if (head == NULL) {
             return NULL;
@@ -213,7 +221,67 @@ public:
         }
         return j;
     }
+    char firstUniqChar(string s) {
+        s= "lll";
+        unordered_map<char,int> _map;
+        for(int i = 0; i < s.size();i++) {
+            _map[s[i]] = _map.find(s[i]) != _map.end() ? _map[s[i]]+1 : 1;
+        }
+        
+        for(int i = 0; i < s.size();i++) {
+            if(_map[s[i]] == 1) {
+                return s[i];
+            }
+        }
+        return ' ';
+    }
     
+    bool findNumberIn2DArray1(vector<vector<int>>& matrix, int target) {
+        if (matrix.size() == 0) return false;
+        if (matrix[0].size() == 0)  return false;
+        int row = 0;
+        
+        /// 二分查找优化
+        for(int i = 0; i < matrix.size();i++) {
+            if(target > matrix[i][0]) {
+                row++;;
+                
+            } else if(target == matrix[i][0]) {
+                return true;
+            }
+        }
+        /// 二分查找优化
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < matrix[0].size();j++) {
+                if (target == matrix[i][j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    vector<int> levelOrder(TreeNode* root) {
+        vector<int> orders;
+        if (root == NULL) return vector<int>{};
+        
+        queue<TreeNode*> queue_;
+        queue_.push(root);
+        while (queue_.empty() != true) {
+            TreeNode *root = queue_.front();
+            orders.push_back(root->val);
+            if (root->left) {
+                queue_.push(root->left);
+            }
+            
+            if (root->right) {
+                queue_.push(root->right);
+            }
+            queue_.pop();
+        }
+        
+        return orders;
+    }
 };
 
 #endif /* jianzhiOffer_hpp */
