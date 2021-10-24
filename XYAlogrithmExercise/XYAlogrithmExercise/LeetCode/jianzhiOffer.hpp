@@ -282,6 +282,134 @@ public:
         
         return orders;
     }
+    
+    vector<vector<int>> levelOrder1(TreeNode* root) {
+        vector<vector<int>> orders;
+        queue<int> levels;
+        if (root == NULL) return vector<vector<int>>{};
+        
+        queue<TreeNode*> queue_;
+        queue_.push(root);
+        levels.push(0);
+        
+        
+        while (queue_.empty() != true) {
+            TreeNode *root = queue_.front();
+            int level = levels.front();
+            
+            if(level < orders.size()) {
+                //                orders[level].push_back(root->val);
+                if (level % 2 == 0) {
+                    orders[level].push_back(root->val);
+                } else{
+                    orders[level].insert(orders[level].begin(),root->val);
+                }
+                
+            } else {
+                orders.push_back(vector<int>{root->val});
+            }
+            
+            if (root->left) {
+                levels.push(level + 1);
+                queue_.push(root->left);
+            }
+            
+            if (root->right) {
+                levels.push(level + 1);
+                queue_.push(root->right);
+            }
+            queue_.pop();
+            levels.pop();
+        }
+        return orders;
+    }
+    
+    vector<TreeNode *> _A;
+    bool isSubStructure(TreeNode* A, TreeNode* B) {
+        if ( A == NULL || B == NULL) return false;
+        
+        
+        /// TODO: Optimize: 1,2步可以合并成一步
+        
+        /// 1. 在A寻找B的根节点
+        findBInA(A, B);
+        
+        if (_A.size() == 0) return false;
+        
+        /// 2. 比较
+        for(int i = 0; i <_A.size();i++) {
+            bool result = compareBInA(_A[i], B);
+            if (result) {
+                return result;
+            }
+        }
+        
+        return false;
+        
+    }
+    
+    bool compareBInA(TreeNode *A,TreeNode *B) {
+        
+        if (B == NULL) {
+            return true;
+        }
+        
+        if (A == NULL) {
+            return false;
+        }
+        
+        if ( A->val != B->val) {
+            return false;
+        }
+        
+        bool result = compareBInA(A->left, B->left);
+        if (!result) {
+            return result;
+        }
+        result = compareBInA(A->right, B->right);
+        if (!result) {
+            return result;
+        }
+        
+        return true;
+    }
+    
+    void findBInA(TreeNode *A,TreeNode *B) {
+        if (A == NULL || B == NULL) {
+            return;
+        }
+        if (A->val == B->val) {
+            _A.push_back(A);
+        }
+        findBInA(A->left,B);
+        findBInA(A->right,B);
+    }
+    
+    TreeNode* mirrorTree(TreeNode* root) {
+        mirrorTree1(root);
+        return root;
+    }
+    
+    
+    void mirrorTree1(TreeNode *root) {
+        if (root == NULL) {
+            return;
+        }
+        mirrorTree1(root->left);
+        mirrorTree1(root->right);
+       
+        /// 后序替换
+        TreeNode *left = root->left;
+        root->left = root->right;
+        root->right = left;
+        return;
+    }
+    
+    bool isSymmetric(TreeNode* root) {
+        return false;
+    }
+    
+    
 };
 
 #endif /* jianzhiOffer_hpp */
