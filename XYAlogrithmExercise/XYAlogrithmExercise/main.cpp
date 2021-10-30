@@ -475,6 +475,28 @@ void JianZhiOfferRun() {
     offer->replaceSpace("We are happy.");
     
     offer->firstUniqChar("loveleetcode");
+    
+    
+    vector<vector<int>>grid {
+        {1,3,1},
+        {1,5,1},
+        {4,2,1}
+    };
+    
+    int max_value = offer->maxValue(grid);
+    
+    offer->translateNum(101);
+    offer->lengthOfLongestSubstring("ajkjbjklabkljd");
+    offer->reverseWords("we are happy");
+    
+    vector<vector<char>> grid1 {
+        {'a','b'},
+        {'c','d'},
+     };
+    
+    offer->exist(grid1, "cdba");
+    
+    offer->movingCount(2, 3, 1);
 }
 
 
