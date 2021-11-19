@@ -39,6 +39,9 @@ class JianZhiOffer {
         }
     };
     
+    
+    
+public:
     struct TreeNode {
         int val;
         TreeNode *left;
@@ -46,7 +49,6 @@ class JianZhiOffer {
         TreeNode(int x) : val(x), left(NULL), right(NULL) {}
     };
     
-public:
     int findRepeatNumber(vector<int>& nums) {
         unordered_map<int, int> map;
         for (int i = 0; i < nums.size(); i++) {
@@ -873,6 +875,193 @@ public:
         }
         
     }
+    vector<vector<int>> pathSums;
+    vector<vector<int>> pathSum(TreeNode* root, int target) {
+        vector<int>pathes;
+        reversePathSum(root, pathes, 0, target);
+        return pathSums;
+    }
+    
+    
+    void reversePathSum(TreeNode *root,vector<int> &pathes,int val,int target) {
+        
+        if (root == NULL) {
+            return;
+        }
+        
+        pathes.push_back(root->val);
+        val = root->val + val;
+        if(val == target && root->left == NULL && root->right == NULL) {
+            pathSums.push_back(pathes);
+            pathes.pop_back();
+            return;
+        }
+        reversePathSum(root->left, pathes,val,target);
+        reversePathSum(root->right,pathes,val,target);
+        pathes.pop_back();
+        
+    }
+    
+    /// 二叉搜索树，中序遍历就是排序
+    TreeNode* treeToDoublyList(TreeNode* root) {
+        TreeNode *head = NULL ;
+        TreeNode *tail = NULL;
+        reverseTreeToDoublyList(root,head,tail);
+        
+        if (head) {
+            head->left = tail;
+        }
+        
+        if (tail) {
+            tail->right = head;
+        }
+        
+        return head;
+    }
+    
+    
+    void reverseTreeToDoublyList(TreeNode *root,TreeNode *&head,TreeNode *&tail) {
+        if (root == NULL) return;
+        reverseTreeToDoublyList(root->left, head, tail);
+        if (tail != NULL) {
+            tail->right = root;
+        }
+        else {
+            head = root;
+        }
+        root->left = tail;
+        tail = root;
+        reverseTreeToDoublyList(root->right, head, tail);
+    }
+    
+    
+    int largestCounter = 1;
+    int kthLargest(TreeNode* root, int k) {
+        
+        if (root == NULL) return -1;
+        
+        int v = kthLargest(root->right,k);
+        if (v != -1) return v;
+        
+        if(k == largestCounter) {
+            return root->val;
+        }
+        largestCounter++;
+        
+        printf("%d",root->val);
+        
+        v = kthLargest(root->left,k);
+        if (v != -1) return v;
+        return -1;
+    }
+    
+    /// :( 思考了很多规律 没鸟用，差一点应该就可以出来了，还是用字符串比较，wtf
+    bool numberSmallerThan(int curVal,int minValue) {
+        return  to_string(curVal) + to_string(minValue) < to_string(minValue) + to_string(curVal) ;
+    }
+    
+    /// 这里用好一点的排序就可以优化了，简单处理。
+    string minNumber(vector<int>& nums) {
+        string minNumber = "";
+        for(int i = 0; i < nums.size(); i++) {
+            int min = i;
+            for (int j = i + 1; j < nums.size(); j++) {
+                if (numberSmallerThan(nums[j], nums[min])) {
+                    min = j;
+                }
+            }
+            swap(nums[i], nums[min]);
+        }
+        
+        for(int i = 0; i < nums.size();i++) {
+            minNumber += to_string(nums[i]);
+        }
+        
+        return minNumber;
+    }
+    
+    bool _isBalanced = false;
+    bool isBalanced(TreeNode* root) {
+        reverseIsBalanced(root);
+        return _isBalanced;
+    }
+    
+    int reverseIsBalanced(TreeNode *root) {
+        if (root == NULL ) {
+            return 0;
+        }
+        
+        int left = reverseIsBalanced(root->left);
+        int right = reverseIsBalanced(root->right);
+        
+        if (abs(left - right) > 1) {
+            _isBalanced = true;
+        }
+        
+        return max(left, right) + 1;
+    }
+    
+    
+    
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        vector<TreeNode *> rootPaths_p;
+        vector<TreeNode *> rootPaths_q;
+        vector<TreeNode *> rootPaths_p_dfs;
+        vector<TreeNode *> rootPaths_q_dfs;
+        
+        reverseLowestCommonAncestor_dfs(root, p,rootPaths_p,rootPaths_p_dfs);
+        reverseLowestCommonAncestor_dfs(root, q,rootPaths_q,rootPaths_q_dfs);
+        TreeNode* lowestCommonAncestor_ = NULL;
+        for (int i = 0; i <  min(rootPaths_p.size(),rootPaths_q.size()); i++) {
+            if (rootPaths_p[i] == rootPaths_q[i]) {
+                lowestCommonAncestor_ = rootPaths_p[i];
+            }else {
+                break;
+            }
+        }
+        
+        return lowestCommonAncestor_;
+    }
+    
+    void reverseLowestCommonAncestor(TreeNode* root, TreeNode* target, vector<TreeNode *> &pathes) {
+        
+        if (root == NULL ) return;
+        
+        if (root == target) {
+            printf("%d",root->val);
+            pathes.push_back(root);
+            return;
+        }
+        
+        pathes.push_back(root);
+        
+        if (target->val < root->val) {
+            reverseLowestCommonAncestor(root->left, target,pathes);
+        }
+        else {
+            reverseLowestCommonAncestor(root->right, target,pathes);
+        }
+        
+    }
+    
+    void reverseLowestCommonAncestor_dfs(TreeNode* root, TreeNode* target, vector<TreeNode *> &pathes,vector<TreeNode *> &dfspathes) {
+        
+        if (root == NULL ) return;
+        
+        if (root == target) {
+            printf("%d",root->val);
+            pathes.push_back(root);
+            dfspathes = pathes;
+            return;
+        }
+        
+        pathes.push_back(root);
+        reverseLowestCommonAncestor_dfs(root->left, target,pathes,dfspathes);
+        reverseLowestCommonAncestor_dfs(root->right, target,pathes,dfspathes);
+        pathes.pop_back();
+    }
+    
+    
 };
 
 #endif /* jianzhiOffer_hpp */

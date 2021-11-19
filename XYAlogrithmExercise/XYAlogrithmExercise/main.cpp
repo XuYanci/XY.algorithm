@@ -497,6 +497,25 @@ void JianZhiOfferRun() {
     offer->exist(grid1, "cdba");
     
     offer->movingCount(2, 3, 1);
+    
+    
+    
+    JianZhiOffer::TreeNode *n1 = new  JianZhiOffer::TreeNode(1);
+    JianZhiOffer::TreeNode *n2 =new JianZhiOffer::TreeNode(2);
+    JianZhiOffer::TreeNode *n3 =new JianZhiOffer::TreeNode(3);
+    JianZhiOffer::TreeNode *n4 =new JianZhiOffer::TreeNode(4);
+    JianZhiOffer::TreeNode *n5 = new JianZhiOffer::TreeNode(5);
+    
+    n1->left = n2;
+    n1->right = n3;
+    n2->left = n4;
+    n2->right = n5;
+    
+    offer->treeToDoublyList(n1);
+    
+    vector<int>a{9609,938,8247};
+    offer->minNumber(a);
+    
 }
 
 
