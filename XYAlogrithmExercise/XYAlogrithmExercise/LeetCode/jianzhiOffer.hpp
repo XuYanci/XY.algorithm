@@ -1062,6 +1062,161 @@ public:
     }
     
     
+    /// 根结点
+    int preIndex = 0;
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        
+        TreeNode* root = NULL;
+        if (preorder.size() > 0) {
+            preIndex = 0;
+            return reverseBuildTree(preorder, inorder);
+        }
+        return root;
+    }
+    
+    TreeNode* reverseBuildTree(vector<int>&preorder,  vector<int>&inorder) {
+        
+        int rootValue = preorder[preIndex];
+        TreeNode *root = new TreeNode(rootValue);
+        
+        
+        /// Find In Order Index
+        int inOrderIndex = -1;
+        for(int i = 0;i < inorder.size(); i++) {
+            if (inorder[i] == rootValue) {
+                inOrderIndex = i ; break;
+            }
+        }
+        
+        
+        
+        vector<int> inOrderLeft;
+        inOrderLeft.assign(inorder.begin(), inorder.begin() + inOrderIndex );
+        
+        /// 如果有左子树
+        if (inOrderLeft.size() > 0) {
+            preIndex += 1;
+            TreeNode *leftNode = reverseBuildTree(preorder , inOrderLeft);
+            if (leftNode != NULL) {
+                root->left = leftNode;
+            }
+        }
+        
+        vector<int> inOrderRight;
+        inOrderRight.assign(inorder.begin() + inOrderIndex + 1 , inorder.end());
+        /// 如果有右子树
+        if (inOrderRight.size() > 0) {
+            preIndex += 1;
+            TreeNode *rightNode = reverseBuildTree(preorder, inOrderRight);
+            if (rightNode != NULL) {
+                root->right = rightNode;
+            }
+        }
+        
+        return root;
+    }
+    
+    double myPow(double x, int n) {
+        if (n == 0 || x == 1.0) return 1.0;
+        if (n == 1) return x;
+        if (n == -1) return 1.0 / x;
+        
+        double res = myPow(x,n/2);
+        res = res * res;
+        
+        if ((n & 1) == 1 && n > 0) res = res * x;
+        if ((n & 1) == 1 && n < 0) res = res * 1 / x;
+        
+        return res;
+        
+        //        double ans = 1;
+        //        double a = x;
+        //        long nn = n;
+        //        if (n < 0) {
+        //            a = 1/x;
+        //            nn = -n;
+        //        }
+        //
+        //        while(nn){
+        //            if(nn&1)        //如果n的当前末位为1
+        //                ans *= a;  //ans乘上当前的a
+        //            a *= a;        //a自乘
+        //            nn >>= 1;       //n往右移一位
+        //        }
+        //        return ans;
+    }
+    
+    
+    /// 验证是否后序遍历结果 (左，右，根)
+    ///[1,3,2,6,5]
+    bool verifyPostorder(vector<int>& postorder) {
+        return reverseVerifyPostOrder(postorder,0,(int)postorder.size() - 1);
+    }
+    
+    bool reverseVerifyPostOrder(vector<int>& postorder,int i,int j) {
+        if (i >= j) return true;
+        
+        int p = i;
+        while (postorder[p] <  postorder[j]) {
+            p++;
+        }
+        int m = p;
+        while (postorder[p] > postorder[j]) {
+            p++;
+        }
+        
+        return p == j && reverseVerifyPostOrder(postorder, i, m - 1) && reverseVerifyPostOrder(postorder, m, j - 1);
+    }
+    
+    int hammingWeight(uint32_t n) {
+        int count = 0;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                count++;
+            }
+            n = n >> 1;
+        }
+        return count;
+    }
+    
+    int add(int a, int b) {
+        while (b > 0) {
+            a = a ^ b;
+            b = (unsigned)(a & b) << 1;
+        }
+        return a;
+    }
+    
+    vector<int> singleNumbers(vector<int>& nums) {
+        if (nums.size() == 0) {
+            return vector<int>{};
+        }
+        
+        /// 1. 求出异或值 a ^ b
+        int r = 0;
+        for(int i = 0; i < nums.size();i++) {
+            r = r ^ nums[i];
+        }
+        
+        /// 2.根据异或值，肯定有一位是不相同的
+        int d = 1;
+        while((r&d)==0) {
+            d = d<<1;
+        }
+        
+        /// 3. 根据位不相同，分组后，最终由于只有两位不相同分别在两组，组内异或后就是结果
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if(nums[i] & d) {
+                x ^= nums[i];
+            } else {
+                y ^= nums[i];
+            }
+        }
+        
+        return vector<int>{x,y};
+    }
 };
 
 #endif /* jianzhiOffer_hpp */

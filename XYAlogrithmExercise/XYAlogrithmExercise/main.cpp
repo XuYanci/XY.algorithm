@@ -516,6 +516,14 @@ void JianZhiOfferRun() {
     vector<int>a{9609,938,8247};
     offer->minNumber(a);
     
+    
+    vector<int> preOrder {3,1,2,4};
+    vector<int> inOrder {1,2,3,4};
+    
+    
+    offer->buildTree(preOrder, inOrder);
+    
+    offer->myPow(2.0, -2147483648);
 }
 
 
