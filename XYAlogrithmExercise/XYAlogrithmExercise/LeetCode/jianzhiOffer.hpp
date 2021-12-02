@@ -1217,6 +1217,27 @@ public:
         
         return vector<int>{x,y};
     }
+    
+    int singleNumber(vector<int>& nums) {
+        /// 初始化32bit
+        vector<int> bits(32,0);
+        
+        /// 遍历所有nums
+        for(int i = 0; i < nums.size(); i++) {
+            /// 遍历num的bits
+            for(int j = 0; j < 32; j++) {
+                bits[j] += (nums[i] &  (long)(pow(2,j))) >> j;
+            }
+        }
+        
+        /// 计算bits得出结果
+        int singleNumber = 0;
+        for(int i = 0; i < 32; i++) {
+            bits[i] = bits[i] % 3;
+            singleNumber += bits[i] * pow(2, i);
+        }
+        return singleNumber;
+    }
 };
 
 #endif /* jianzhiOffer_hpp */
