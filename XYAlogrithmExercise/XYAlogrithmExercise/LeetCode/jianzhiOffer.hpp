@@ -1238,6 +1238,95 @@ public:
         }
         return singleNumber;
     }
+    
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int, int> _map;
+        for (int i = 0; i < nums.size(); i++) {
+            if(_map[nums[i]] >= nums.size() / 2) {
+                return nums[i];
+            }
+            _map[nums[i]] =   _map[nums[i]] + 1;
+        }
+        return 0;
+    }
+    
+    unordered_map<int, int> cacheSum;
+    vector<int> constructArr(vector<int>& a) {
+        vector<int>arr;
+        
+        for(int i = 0; i < a.size();i++) {
+            if (cacheSum.find(a[i]) != cacheSum.end()) {
+                arr.push_back(cacheSum[a[i]]); continue;
+            }
+            
+            arr.push_back(caculateConstructArr(a, i));
+        }
+        return arr;
+    }
+    
+    int caculateConstructArr(vector<int>&a,int excludeIndex) {
+        int sum = 1;
+        for (int i = 0; i < a.size(); i++) {
+            /// 排除
+            if(i == excludeIndex) continue;
+            /// 遇到0，直接返回0
+            if (a[i] == 0) {
+                sum = 0;
+                break;
+            }
+            sum = sum * a[i];
+        }
+        cacheSum[a[excludeIndex]] = sum;
+        return sum;
+    }
+    
+    vector<vector<int>> findContinuousSequence(int target) {
+        vector<vector<int>> sequence;
+        for(int i = 1; i < target; i++) {
+            vector<int>nums = vector<int>{};
+            nums.push_back(i);
+            if (isContinuous(target - i, i, nums)) {
+                sequence.push_back(nums);
+            }
+        }
+        return sequence;
+    }
+    
+    bool isContinuous(int target,int preNum,vector<int>&nums) {
+        int curNum = preNum + 1;
+        if (target - curNum == 0) {
+            nums.push_back(curNum);
+            return true;
+        }
+        if (target - curNum <= curNum){
+            return  false;
+        }
+        
+        nums.push_back(curNum);
+        return isContinuous(target - curNum, curNum, nums);
+    }
+    
+    int lastRemaining(int n, int m) {
+        vector<int>nums;
+        for(int i = 0; i < n; i++) {
+            nums.push_back(i);
+        }
+           
+        int idx = 0;
+        while (n > 1) {
+            int index = (idx + m - 1) % n;
+            nums.erase(nums.begin() + index);
+            n--;
+        }
+        
+        return nums[0];
+    }
+  
+    
+    int cuttingRope(int n) {
+        return 0;
+    }
+    
 };
 
 #endif /* jianzhiOffer_hpp */

@@ -524,6 +524,11 @@ void JianZhiOfferRun() {
     
     vector<int> nums {1,1,6,1};
     offer->singleNumber(nums);
+    
+    vector<int> nums1 {1, 2, 3, 2, 2, 2, 5, 4, 2};
+    offer->majorityElement(nums1);
+    
+    offer->lastRemaining(5, 2);
 }
 
 
